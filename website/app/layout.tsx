@@ -3,6 +3,11 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://elevareconsultingmg.com"),
+  icons: {
+    icon: "/logo.png",
+    shortcut: "/logo.png",
+    apple: "/logo.png",
+  },
   title: {
     default: "Elevare Consulting MG | Coaching Ontológico y Mentoría Ejecutiva",
     template: "%s | Elevare Consulting MG",

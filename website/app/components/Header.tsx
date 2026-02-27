@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import styles from "./Header.module.css";
 
@@ -29,7 +30,14 @@ export default function Header() {
             <div className={`container ${styles.inner}`}>
                 {/* Logo */}
                 <Link href="/" className={styles.logo}>
-                    <span className={styles.logoIcon}>E</span>
+                    <Image
+                        src="/logo.png"
+                        alt="Elevare Consulting MG"
+                        width={44}
+                        height={44}
+                        className={styles.logoImg}
+                        priority
+                    />
                     <span className={styles.logoText}>
                         <span className={styles.logoMain}>Elevare</span>
                         <span className={styles.logoSub}>Consulting MG</span>
