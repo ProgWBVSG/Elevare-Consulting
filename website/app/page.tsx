@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import styles from "./page.module.css";
@@ -193,10 +194,13 @@ export default function Home() {
             </div>
 
             <div className={styles.heroImageWrapper}>
-              <img
-                src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=800&h=1000"
-                alt="Mentora ejecutiva trabajando con cliente"
+              <Image
+                src="/maria-hero.jpg"
+                alt="María Gómez - Coach ontológica y mentora ejecutiva"
                 className={styles.heroImage}
+                width={800}
+                height={1000}
+                priority
               />
               <div className={styles.heroImageBackdrop}></div>
             </div>
