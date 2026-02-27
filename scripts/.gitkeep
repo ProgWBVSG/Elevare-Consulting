@@ -1,0 +1,3 @@
+# Este directorio contiene los scripts Python del agente.
+# Cada script corresponde a una directiva en directivas/
+# Nomenclatura: {nombre_tarea}.py

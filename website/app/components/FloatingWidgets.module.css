@@ -1,0 +1,320 @@
+.widgetContainer {
+    position: fixed;
+    bottom: var(--space-4);
+    right: var(--space-4);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: var(--space-4);
+    z-index: 2147483647;
+    pointer-events: none;
+}
+
+.widgetContainer>* {
+    pointer-events: auto;
+}
+
+/* =======================================
+   1. WhatsApp Button
+   ======================================= */
+.waBtn {
+    width: 56px;
+    height: 56px;
+    background-color: #25D366;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 14px rgba(37, 211, 102, 0.4);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.waBtn:hover {
+    transform: scale(1.1) translateY(-4px);
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.5);
+}
+
+/* =======================================
+   2. Assistant Button & Chat
+   ======================================= */
+.assistantWrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.assistantBtn {
+    width: 50px;
+    height: 50px;
+    background: #1a1a1a;
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.assistantBtn:hover {
+    transform: scale(1.08) translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* Chat window - Replica Diseño Imagen */
+.chatWindow {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 320px;
+    max-height: calc(100vh - 110px);
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    animation: slideUpFade 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    transform-origin: bottom right;
+    z-index: 2147483647;
+}
+
+@keyframes slideUpFade {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Header */
+.chatHeader {
+    background: #1c1c1a;
+    color: #ffffff;
+    padding: 16px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #2a2a2a;
+}
+
+.headerInfo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    background: var(--color-dark);
+    /* Changed from brown to dark */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-primary);
+    /* Changed from gold to blue */
+}
+
+.headerTitles {
+    display: flex;
+    flex-direction: column;
+}
+
+.headerTitles strong {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    line-height: 1.2;
+}
+
+.headerTitles span {
+    font-size: 13px;
+    color: #a0a0a0;
+    margin-top: 2px;
+}
+
+.closeBtn {
+    background: transparent;
+    border: none;
+    color: #a0a0a0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s;
+    padding: 4px;
+}
+
+.closeBtn:hover {
+    color: #ffffff;
+}
+
+/* Body */
+.chatBody {
+    padding: 16px;
+    height: auto;
+    max-height: 380px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background: #ffffff;
+    scrollbar-width: thin;
+    scrollbar-color: #d1d5db transparent;
+}
+
+.chatBody::-webkit-scrollbar {
+    width: 6px;
+}
+
+.chatBody::-webkit-scrollbar-thumb {
+    background: #d1d5db;
+    border-radius: 3px;
+}
+
+/* Welcome initial bubble */
+.welcomeMessage {
+    background: #f8fafc;
+    /* Clean light slate */
+    border: 1px solid #e2e8f0;
+    color: #333333;
+    padding: 16px 20px;
+    border-radius: 12px;
+    font-size: 14.5px;
+    line-height: 1.5;
+    margin-bottom: 4px;
+}
+
+/* Questions container & cards */
+.questionOptions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.questionCard {
+    background: #ffffff;
+    border: 1px solid #eaeaea;
+    padding: 14px 16px;
+    border-radius: 10px;
+    font-size: 14.5px;
+    font-weight: 500;
+    color: #2d3748;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+    outline: none;
+    line-height: 1.4;
+}
+
+.questionCard:hover {
+    border-color: var(--color-primary);
+    background: #f8fafc;
+}
+
+.arrowIcon {
+    color: var(--color-primary);
+    min-width: 16px;
+}
+
+/* Default Messages in Chat */
+.message {
+    padding: 12px 16px;
+    border-radius: 12px;
+    font-size: 14px;
+    line-height: 1.5;
+    max-width: 85%;
+    animation: slideUpFade 0.2s ease-out;
+}
+
+.bot {
+    background: #f8fafc;
+    color: #333333;
+    border: 1px solid #e2e8f0;
+    align-self: flex-start;
+    border-bottom-left-radius: 4px;
+}
+
+.user {
+    background: var(--color-primary);
+    color: #ffffff;
+    align-self: flex-end;
+    border-bottom-right-radius: 4px;
+}
+
+.resetBtn {
+    background: transparent;
+    border: 1px solid var(--color-primary);
+    color: var(--color-primary);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 8px;
+    align-self: center;
+    transition: all 0.2s;
+}
+
+.resetBtn:hover {
+    background: var(--color-primary);
+    color: #fff;
+}
+
+/* Footer */
+.chatFooter {
+    padding: 16px;
+    background: #ffffff;
+    text-align: center;
+    border-top: none;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.03);
+    position: relative;
+    z-index: 2;
+}
+
+.footerText {
+    font-size: 13px;
+    color: #888888;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.footerText a {
+    color: var(--color-primary);
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 2px;
+}
+
+.footerText a:hover {
+    text-decoration: underline;
+}
+
+/* Mobile Tweak */
+@media (max-width: 480px) {
+    .widgetContainer {
+        bottom: 16px;
+        right: 16px;
+    }
+
+    .chatWindow {
+        width: calc(100vw - 32px);
+    }
+}
