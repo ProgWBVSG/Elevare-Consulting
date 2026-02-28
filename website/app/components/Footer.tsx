@@ -29,7 +29,8 @@ export default function Footer() {
                         {/* Brand column */}
                         <div className={styles.brandCol}>
                             <Link href="/" className={styles.logo}>
-                                <span className={styles.logoIcon}>E</span>
+                                {/* eslint-disable-next-line @next/next/no-img-element */}
+                                <img src="/logo.png" alt="Elevare" className={styles.logoImg} />
                                 <span className={styles.logoText}>
                                     <span className={styles.logoMain}>Elevare</span>
                                     <span className={styles.logoSub}>Consulting MG</span>

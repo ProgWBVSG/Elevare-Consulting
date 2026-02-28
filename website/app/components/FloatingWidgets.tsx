@@ -47,12 +47,8 @@ export default function FloatingWidgets() {
                         <div className={styles.chatHeader}>
                             <div className={styles.headerInfo}>
                                 <div className={styles.avatar}>
-                                    {/* Icono destello/estrellas */}
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
-                                        <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
-                                        <line x1="12" y1="22.08" x2="12" y2="12"></line>
-                                    </svg>
+                                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                                    <img src="/logo.png" alt="Elevare" width={28} height={28} style={{ objectFit: "contain", width: "28px", height: "28px" }} />
                                 </div>
                                 <div className={styles.headerTitles}>
                                     <strong>Asistente Elevare</strong>
@@ -116,10 +112,8 @@ export default function FloatingWidgets() {
                     onClick={() => setChatOpen(!chatOpen)}
                     aria-label="Abrir asistente de preguntas frecuentes"
                 >
-                    {/* Recreado ícono para matchear con estilos oscuros y dorados */}
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
-                    </svg>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src="/logo.png" alt="Elevare" width={32} height={32} style={{ objectFit: "contain", width: "32px", height: "32px", display: "block" }} />
                 </button>
             </div>
 

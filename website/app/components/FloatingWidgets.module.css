@@ -50,8 +50,7 @@
 .assistantBtn {
     width: 50px;
     height: 50px;
-    background: #1a1a1a;
-    color: var(--color-primary);
+    background: #ffffff;
     border: 2px solid var(--color-primary);
     border-radius: 50%;
     display: flex;
@@ -60,6 +59,7 @@
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    padding: 6px;
 }
 
 .assistantBtn:hover {
@@ -118,14 +118,12 @@
 .avatar {
     width: 40px;
     height: 40px;
-    background: var(--color-dark);
-    /* Changed from brown to dark */
+    background: #ffffff;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: var(--color-primary);
-    /* Changed from gold to blue */
+    padding: 4px;
 }
 
 .headerTitles {
