@@ -58,9 +58,9 @@ export default function CoachingInternoPYME() {
                                     <Link href="/">Inicio</Link> / <Link href="/servicios">Servicios</Link> / <span>Coaching Interno</span>
                                 </nav>
                                 <span className={`section-label ${styles.labelWhite}`}>Para PYMEs y Empresas</span>
-                                <h1 className={styles.heroTitle}>Coaching Interno que Transforma la Gestión de tu Empresa</h1>
+                                <h1 className={styles.heroTitle}>Coaching Interno para Empresas que Quieren Crecer</h1>
                                 <p className={styles.heroDesc}>
-                                    Implementamos un sistema profesional de coaching interno que desarrolla líderes auténticos, reduce la rotación y construye una cultura de alto rendimiento — con 20+ años de experiencia respaldando cada paso.
+                                    Desarrollamos líderes auténticos, reducimos la rotación y construimos cultura de alto rendimiento. 20+ años de experiencia respaldando cada paso.
                                 </p>
                                 <div className={styles.heroCtas}>
                                     <Link href="/contacto" className="btn btn-primary btn-lg">
