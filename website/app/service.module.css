@@ -248,41 +248,46 @@
 /* Benefits */
 .benefitCard {
     display: flex;
-    gap: var(--space-5);
+    gap: var(--space-6);
     align-items: flex-start;
     border: 1px solid var(--color-gray-200);
     box-shadow: none;
+    padding: var(--space-8);
 }
 
 .benefitCard:hover {
     box-shadow: var(--shadow-lg);
+    border-color: rgba(44, 95, 159, 0.25);
 }
 
 .benefitCheck {
-    width: 40px;
-    height: 40px;
+    width: 52px;
+    height: 52px;
+    min-width: 52px;
     border-radius: 50%;
-    background: rgba(44, 95, 159, 0.1);
+    background: rgba(44, 95, 159, 0.12);
     color: var(--color-primary);
-    font-size: var(--text-lg);
+    font-size: var(--text-xl);
     font-weight: 800;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+    margin-top: 2px;
 }
 
 .benefitTitle {
-    font-size: var(--text-base);
+    font-size: var(--text-lg);
     font-weight: 700;
     color: var(--color-dark);
-    margin-bottom: var(--space-2);
+    margin-bottom: var(--space-3);
+    line-height: 1.3;
 }
 
 .benefitDesc {
-    font-size: var(--text-sm);
+    font-size: var(--text-base);
     color: var(--color-gray-500);
-    line-height: 1.7;
+    line-height: 1.75;
 }
 
 /* FAQ */
