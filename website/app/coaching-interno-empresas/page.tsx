@@ -164,18 +164,20 @@ export default function CoachingInternoPYME() {
 
                 {/* FAQ */}
                 <section className="section">
-                    <div className="container" style={{ maxWidth: "800px" }}>
-                        <div className="text-center" style={{ marginBottom: "3rem" }}>
-                            <span className="section-label">Preguntas Frecuentes</span>
-                            <h2 className="section-title">Respuestas a tus dudas más comunes</h2>
-                        </div>
-                        <div className={styles.faqList}>
-                            {faqs.map((faq) => (
-                                <details key={faq.q} className={styles.faqItem}>
-                                    <summary className={styles.faqQ}>{faq.q}</summary>
-                                    <p className={styles.faqA}>{faq.a}</p>
-                                </details>
-                            ))}
+                    <div className="container">
+                        <div style={{ maxWidth: "760px", margin: "0 auto" }}>
+                            <div className="text-center" style={{ marginBottom: "3rem" }}>
+                                <span className="section-label">Preguntas Frecuentes</span>
+                                <h2 className="section-title">Respuestas a tus dudas más comunes</h2>
+                            </div>
+                            <div className={styles.faqList}>
+                                {faqs.map((faq) => (
+                                    <details key={faq.q} className={styles.faqItem}>
+                                        <summary className={styles.faqQ}>{faq.q}</summary>
+                                        <p className={styles.faqA}>{faq.a}</p>
+                                    </details>
+                                ))}
+                            </div>
                         </div>
                     </div>
                 </section>
