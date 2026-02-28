@@ -109,16 +109,14 @@ export default function CoachingInternoPYME() {
                                     Hablemos de la solución →
                                 </Link>
                             </div>
-                            <div className={styles.infoBox}>
-                                <div className={styles.infoBoxIcon}>🧠</div>
-                                <h3>¿Qué es el coaching ontológico aplicado a empresas?</h3>
-                                <p>
-                                    El coaching ontológico trabaja desde el <strong>SER del líder</strong>, no solo su hacer. Aborda creencias limitantes, lenguaje organizacional y emocionalidad — los tres factores que determinan el 80% de los resultados de un equipo.
-                                </p>
-                                <p>
-                                    No es una capacitación más que se olvida en dos semanas. Es un proceso de transformación profunda que cambia cómo las personas se relacionan con su trabajo, su equipo y su liderazgo.
-                                </p>
-                                <Link href="/sobre-maria" className={styles.infoLink}>→ Conocer la metodología completa</Link>
+                            <div className={styles.photoCol}>
+                                {/* eslint-disable-next-line @next/next/no-img-element */}
+                                <img
+                                    src="/coaching-equipo.png"
+                                    alt="Sesión de coaching con equipo empresarial"
+                                    className={styles.sectionPhoto}
+                                />
+                                <p className={styles.photoCaption}>Sesión de coaching con equipo de empresa cliente</p>
                             </div>
                         </div>
                     </div>

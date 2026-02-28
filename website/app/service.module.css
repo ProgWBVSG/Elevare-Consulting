@@ -375,6 +375,29 @@ details[open] .faqQ::after {
     justify-content: center;
 }
 
+/* Photo column */
+.photoCol {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    align-items: center;
+}
+
+.sectionPhoto {
+    width: 100%;
+    border-radius: var(--radius-xl);
+    object-fit: cover;
+    box-shadow: var(--shadow-xl);
+    max-height: 420px;
+}
+
+.photoCaption {
+    font-size: var(--text-sm);
+    color: var(--color-gray-500);
+    font-style: italic;
+    text-align: center;
+}
+
 /* Responsive */
 @media (max-width: 1024px) {
     .heroInner {
