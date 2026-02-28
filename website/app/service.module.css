@@ -194,10 +194,11 @@
     top: 32px;
     left: 10%;
     right: 10%;
-    height: 2px;
-    background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
-    opacity: 0.2;
+    height: 3px;
+    background: linear-gradient(to right, var(--color-accent), var(--color-accent-dark));
+    opacity: 0.55;
     z-index: 0;
+    border-radius: 2px;
 }
 
 .processCard {
