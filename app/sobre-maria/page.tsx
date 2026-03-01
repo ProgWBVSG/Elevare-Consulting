@@ -69,8 +69,10 @@ export default function SobreMaria() {
                             </div>
                             <div className={styles.heroImageWrapper}>
                                 <div className={styles.heroImagePlaceholder}>
-                                    <span className={styles.heroInitials}>MG</span>
-                                    <p className={styles.heroImageNote}>Foto profesional de María</p>
+                                    <img
+                                        src="/assets/fotos/hero_maria.jpeg"
+                                        alt="María Gómez - Hero"
+                                    />
                                 </div>
                                 <div className={styles.statsFloat}>
                                     <div className={styles.statItem}><strong>20+</strong><span>Años</span></div>
