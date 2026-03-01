@@ -112,7 +112,8 @@
 
 | Fecha | Error Detectado | Causa Raíz | Solución/Parche Aplicado |
 |-------|-----------------|------------|--------------------------|
-| 2026-03-01 | Error 404 NOT_FOUND al publicar en Vercel (`vercel.json` invalid `rootDirectory`) | Vercel intenta construir el `package.json` de la raíz por defecto y no permite fijar `rootDirectory` en `vercel.json` moderno. | Se creó un `vercel.json` en la raíz usando la propiedad `"builds"` con `@vercel/next` apuntando a `"website/package.json"`. Esto fuerza a Vercel a compilar la subcarpeta sin tocar el dashboard web. |
+| 2026-03-01 | Error 404 NOT_FOUND al publicar en Vercel (Ruta incorrecta en `vercel.json`) | El archivo `vercel.json` forzaba compilar desde `website/package.json`, pero el código del proyecto (Next.js) se encuentra en el directorio raíz. Al no existir la carpeta `website/`, Vercel compilaba un proyecto vacío, resultando en un error 404. | Se modificó `vercel.json` apuntando a la raíz. (Esto luego causó un Warning, ver siguiente línea). |
+| 2026-03-01 | Warning Vercel: `Due to builds existing... Build Settings will not apply` | Usar la propiedad `"builds"` en `vercel.json` anula el modo "Zero Config" automático de Vercel. Para proyectos estándar de Next.js en la raíz, forzar el build sobreescribe opciones integradas del dashboard. | Se **eliminó por completo** el archivo `vercel.json`. Vercel detecta automáticamente Next.js en la raíz, lo cual es la mejor práctica recomendada. |
 
 > **Nota de Implementación:** Si encuentras un nuevo error, **primero** arréglalo en el script o configuración, y **luego** documenta la regla aquí para evitar regresiones futuras.
 
