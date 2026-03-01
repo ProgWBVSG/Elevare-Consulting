@@ -368,32 +368,40 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ============ BLOG ============ */}
-        <section className="section">
-          <div className="container">
-            <div className={styles.blogHeader}>
-              <div>
-                <span className="section-label">Blog y Recursos</span>
-                <h2 className="section-title">Recursos gratuitos para tu desarrollo</h2>
-              </div>
-              <Link href="/blog" className="btn btn-outline">Ver todos los artículos</Link>
-            </div>
+        {/* ============ LEAD MAGNET CAPTURE ============ */}
+        <section className="section bg-cream">
+          <div className="container" style={{ maxWidth: '800px', textAlign: 'center' }}>
+            <div style={{ backgroundColor: '#fff', padding: '3rem', borderRadius: '16px', boxShadow: '0 4px 20px rgba(0,0,0,0.05)' }}>
+              <span className="section-label" style={{ display: 'inline-block', marginBottom: '1rem' }}>Recurso Gratuito Exclusivo</span>
+              <h2 className="section-title" style={{ fontSize: '1.8rem', marginBottom: '1.5rem' }}>
+                Checklist: 10 señales de que tu empresa necesita coaching interno profesional
+              </h2>
+              <p style={{ marginBottom: '2rem', color: '#555' }}>
+                Realizá este autodiagnóstico rápido para descubrir si los conflictos internos y la ineficiencia están frenando el crecimiento de tu PYME.
+              </p>
 
-            <div className="grid-3">
-              {blogPosts.map((post) => (
-                <Link key={post.title} href={post.href} className={styles.blogCard}>
-                  <div className={styles.blogCardMeta}>
-                    <span className={styles.blogCategory}>{post.category}</span>
-                    <span className={styles.blogReadTime}>{post.readTime}</span>
-                  </div>
-                  <h3 className={styles.blogTitle}>{post.title}</h3>
-                  <p className={styles.blogExcerpt}>{post.excerpt}</p>
-                  <div className={styles.blogFooter}>
-                    <span className={styles.blogDate}>{post.date}</span>
-                    <span className={styles.blogReadMore}>Leer más →</span>
-                  </div>
-                </Link>
-              ))}
+              <form action="#" method="POST" style={{ display: 'flex', flexDirection: 'column', gap: '1rem', maxWidth: '400px', margin: '0 auto' }}>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Tu Nombre"
+                  required
+                  style={{ padding: '12px 16px', borderRadius: '8px', border: '1px solid #ccc', fontSize: '1rem' }}
+                />
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Tu Correo Electrónico"
+                  required
+                  style={{ padding: '12px 16px', borderRadius: '8px', border: '1px solid #ccc', fontSize: '1rem' }}
+                />
+                <button type="submit" className="btn btn-primary btn-lg" style={{ width: '100%' }}>
+                  Descargar Checklist Gratuito
+                </button>
+              </form>
+              <p style={{ fontSize: '0.85rem', color: '#888', marginTop: '1rem' }}>
+                Al descargar, aceptás recibir nuestros correos semanales de liderazgo. Prometemos no hacer spam.
+              </p>
             </div>
           </div>
         </section>

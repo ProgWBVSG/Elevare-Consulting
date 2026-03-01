@@ -84,27 +84,36 @@ export default function SobreMaria() {
 
                 {/* Historia */}
                 <section className="section">
-                    <div className="container" style={{ maxWidth: "800px" }}>
+                    <div className="container" style={{ maxWidth: "1000px" }}>
                         <div className="text-center" style={{ marginBottom: "3rem" }}>
                             <span className="section-label">Mi Historia</span>
                             <h2 className="section-title">Dos décadas aprendiendo lo que realmente transforma líderes</h2>
                         </div>
-                        <div className={styles.storyText}>
-                            <p>
-                                Empecé mi carrera creyendo que el liderazgo era principalmente una cuestión de <strong>habilidades técnicas y metodologías</strong>. Que si un líder aprendía las herramientas correctas, los resultados seguirían naturalmente.
-                            </p>
-                            <p>
-                                Veinte años después, tengo una certeza diferente: <strong>el liderazgo es, antes que nada, una cuestión del SER</strong>. Las creencias que un líder tiene sobre sí mismo, sobre su equipo y sobre lo que es posible son los determinantes reales de sus resultados.
-                            </p>
-                            <p>
-                                El coaching ontológico me dio el marco para trabajar en esa profundidad. No en el comportamiento observable, sino en la estructura de observación que lo genera. Eso es lo que hace que los cambios sean duraderos y no meros parches temporales.
-                            </p>
-                            <p>
-                                A lo largo de los años, fui construyendo dos especializaciones que, a primera vista, parecen separadas pero están profundamente conectadas: el <strong>desarrollo de sistemas de coaching en organizaciones</strong> y el <strong>acompañamiento a mujeres en posiciones ejecutivas</strong>. En ambos casos, la transformación profunda del liderazgo es el elemento central.
-                            </p>
-                            <p>
-                                Fundé Elevare Consulting MG para integrar 20 años de experiencia en una propuesta clara: acompañar a líderes y organizaciones a alcanzar su máximo potencial, con profundidad ontológica y enfoque práctico.
-                            </p>
+                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem', alignItems: 'center' }}>
+                            <div className={styles.storyText}>
+                                <p>
+                                    Empecé mi carrera creyendo que el liderazgo era principalmente una cuestión de <strong>habilidades técnicas y metodologías</strong>. Que si un líder aprendía las herramientas correctas, los resultados seguirían naturalmente.
+                                </p>
+                                <p>
+                                    Veinte años después, tengo una certeza diferente: <strong>el liderazgo es, antes que nada, una cuestión del SER</strong>. Las creencias que un líder tiene sobre sí mismo, sobre su equipo y sobre lo que es posible son los determinantes reales de sus resultados.
+                                </p>
+                                <p>
+                                    El coaching ontológico me dio el marco para trabajar en esa profundidad. No en el comportamiento observable, sino en la estructura de observación que lo genera. Eso es lo que hace que los cambios sean duraderos y no meros parches temporales.
+                                </p>
+                                <p>
+                                    A lo largo de los años, fui construyendo dos especializaciones que, a primera vista, parecen separadas pero están profundamente conectadas: el <strong>desarrollo de sistemas de coaching en organizaciones</strong> y el <strong>acompañamiento a mujeres en posiciones ejecutivas</strong>. En ambos casos, la transformación profunda del liderazgo es el elemento central.
+                                </p>
+                                <p>
+                                    Fundé Elevare Consulting MG para integrar 20 años de experiencia en una propuesta clara: acompañar a líderes y organizaciones a alcanzar su máximo potencial, con profundidad ontológica y enfoque práctico.
+                                </p>
+                            </div>
+                            <div>
+                                <img
+                                    src="/assets/fotos/historia_maria.jpeg"
+                                    alt="María Gómez en su oficina"
+                                    style={{ width: '100%', height: 'auto', borderRadius: '12px', boxShadow: '0 10px 30px rgba(0,0,0,0.1)' }}
+                                />
+                            </div>
                         </div>
                     </div>
                 </section>

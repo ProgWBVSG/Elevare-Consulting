@@ -16,7 +16,6 @@ const navLinks = [
     },
     { label: "Sobre María", href: "/sobre-maria" },
     { label: "Casos de Éxito", href: "/casos-de-exito" },
-    { label: "Blog", href: "/blog" },
     { label: "Contacto", href: "/contacto" },
 ];
 

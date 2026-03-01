@@ -9,7 +9,6 @@ const services = [
 const links = [
     { label: "Sobre María", href: "/sobre-maria" },
     { label: "Casos de Éxito", href: "/casos-de-exito" },
-    { label: "Blog y Recursos", href: "/blog" },
     { label: "Preguntas Frecuentes", href: "/faq" },
     { label: "Contacto", href: "/contacto" },
 ];
