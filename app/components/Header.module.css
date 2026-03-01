@@ -113,6 +113,16 @@
     animation: fadeInUp 0.15s ease;
 }
 
+.dropdownMenu::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background: transparent;
+}
+
 .dropdownItem {
     display: block;
     padding: var(--space-3) var(--space-4);
