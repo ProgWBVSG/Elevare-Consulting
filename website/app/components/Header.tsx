@@ -10,9 +10,8 @@ const navLinks = [
         label: "Servicios",
         href: "/servicios",
         children: [
-            { label: "Coaching Interno para Empresas", href: "/coaching-interno-empresas" },
+            { label: "Coaching y Consultoría para Empresas", href: "/empresas" },
             { label: "Mentoría para Mujeres Ejecutivas", href: "/mentoria-mujeres-ejecutivas" },
-            { label: "Consultoría de Procesos y Gestión", href: "/consultoria-procesos-gestion" },
         ],
     },
     { label: "Sobre María", href: "/sobre-maria" },

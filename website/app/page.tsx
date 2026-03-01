@@ -42,10 +42,10 @@ const ejecutivasPainPoints = [
 const services = [
   {
     icon: "🏢",
-    title: "Coaching Interno para Empresas",
-    description: "Implementá un sistema profesional de coaching interno que transforme la gestión de tu PYME. Desarrollamos líderes efectivos, optimizamos procesos y construimos una cultura de alto rendimiento sostenible.",
-    benefits: ["Líderes internos que toman decisiones con autonomía", "Reducción de conflictos y rotación de personal", "Procesos más eficientes y equipo comprometido"],
-    href: "/coaching-interno-empresas",
+    title: "Coaching y Consultoría para Empresas",
+    description: "Implementá un sistema profesional de coaching interno junto con la optimización de tus procesos. Desarrollamos líderes efectivos, reducimos conflictos y construimos organizaciones más eficientes y sostenibles.",
+    benefits: ["Líderes internos que toman decisiones con autonomía", "Procesos eficientes que no dependen constantemente de vos", "Drástica reducción de la rotación y conflictos de equipo"],
+    href: "/empresas",
     cta: "Conocé el programa completo",
     color: "primary",
   },
@@ -57,15 +57,6 @@ const services = [
     href: "/mentoria-mujeres-ejecutivas",
     cta: "Comenzá tu transformación",
     color: "secondary",
-  },
-  {
-    icon: "📊",
-    title: "Consultoría de Procesos y Gestión",
-    description: "Identificación y resolución de problemas operacionales. Co-creamos soluciones estratégicas que mejoran la eficiencia y resultados de tu organización con un enfoque práctico y sostenible.",
-    benefits: ["Diagnóstico profundo de procesos actuales", "Plan de mejora co-creado con tu equipo", "Implementación acompañada con seguimiento"],
-    href: "/consultoria-procesos-gestion",
-    cta: "Solicitá diagnóstico gratuito",
-    color: "accent",
   },
 ];
 
@@ -242,7 +233,7 @@ export default function Home() {
                     </li>
                   ))}
                 </ul>
-                <Link href="/coaching-interno-empresas" className="btn btn-secondary" style={{ marginTop: "2rem", width: "100%" }}>
+                <Link href="/empresas" className="btn btn-secondary" style={{ marginTop: "2rem", width: "100%" }}>
                   Ver solución para tu empresa →
                 </Link>
               </div>

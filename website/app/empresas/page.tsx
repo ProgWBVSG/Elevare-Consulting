@@ -5,46 +5,46 @@ import Footer from "@/app/components/Footer";
 import styles from "../service.module.css";
 
 export const metadata: Metadata = {
-    title: "Coaching Interno para Empresas | Elevare Consulting MG",
+    title: "Coaching y Consultoría para Empresas | Elevare Consulting MG",
     description:
-        "Implementá un sistema de coaching interno profesional en tu PYME. Desarrollamos líderes efectivos, reducimos la rotación y construimos cultura de alto rendimiento. 20+ años de experiencia. Consultá gratis.",
+        "Implementá un sistema de coaching interno y optimizá tus procesos. Desarrollamos líderes efectivos, reducimos la rotación y construimos cultura de alto rendimiento. 20+ años de experiencia. Consultá gratis.",
     openGraph: {
-        title: "Coaching Interno para Empresas | Elevare Consulting MG",
-        url: "https://elevareconsultingmg.com/coaching-interno-empresas",
+        title: "Coaching y Consultoría para Empresas | Elevare Consulting MG",
+        url: "https://elevareconsultingmg.com/empresas",
     },
 };
 
 const painPoints = [
-    { icon: "🎯", text: "Tu equipo gerencial no decide sin tu aprobación en todo" },
-    { icon: "🔄", text: "Alta rotación: personas clave renuncian sin aviso" },
-    { icon: "⚙️", text: "Reuniones que no producen resultados ni compromisos" },
-    { icon: "📉", text: "Cultura de 'cumplir el horario', sin proactividad" },
-    { icon: "🤷", text: "Todos saben que hay problemas, nadie toma la iniciativa" },
+    { icon: "🎯", text: "Tu equipo gerencial no decide sin tu aprobación en todo y hay alta rotación" },
+    { icon: "⚙️", text: "Procesos que todo el mundo sabe que están rotos, pero nadie arregla" },
+    { icon: "🔄", text: "Reuniones que consumen tiempo pero no generan decisiones ni acciones" },
+    { icon: "👤", text: "La empresa depende de una sola persona para que las cosas funcionen" },
+    { icon: "🤷", text: "Todos saben que hay problemas, nadie toma la iniciativa y se repiten los errores" },
 ];
 
 const process = [
-    { step: "01", title: "Diagnóstico Organizacional", desc: "Analizamos la situación actual de tu empresa: estructura de liderazgo, clima organizacional, procesos clave y cultura. Identificamos los puntos críticos con datos, no suposiciones." },
-    { step: "02", title: "Diseño del Sistema a Medida", desc: "Creamos un plan de implementación personalizado para tu organización. No usamos fórmulas genéricas: cada empresa es diferente y merece un enfoque específico." },
-    { step: "03", title: "Implementación con Acompañamiento", desc: "Trabajamos junto a vos y tu equipo en la implementación. Formamos a los líderes internos, desarrollamos capacidades y creamos sistemas sostenibles." },
-    { step: "04", title: "Medición y Ajuste Continuo", desc: "Monitoreamos el progreso con indicadores concretos. Ajustamos el proceso según los resultados reales. El coaching ontológico genera transformación profunda — y medible." },
+    { step: "01", title: "Diagnóstico Integral", desc: "Analizamos la situación de tu empresa: estructura de liderazgo, clima organizacional y mapeamos tus procesos actuales. Identificamos los puntos críticos con datos." },
+    { step: "02", title: "Diseño del Sistema a Medida", desc: "Co-creamos un plan de implementación personalizado. El conocimiento está en tu organización, nosotros aportamos la metodología y perspectiva externa." },
+    { step: "03", title: "Implementación con Acompañamiento", desc: "Trabajamos junto a tu equipo. Formamos líderes internos, gestionamos la resistencia al cambio y creamos sistemas sostenibles y documentados." },
+    { step: "04", title: "Medición y Ajuste Continuo", desc: "Monitoreamos el progreso con KPIs concretos. Ajustamos el proceso hasta que funcione solo. El coaching ontológico genera transformación profunda y medible." },
 ];
 
 const benefits = [
-    { title: "Líderes que lideran de verdad", desc: "Mandos medios capaces de tomar decisiones autónomas, gestionar equipos y resolver conflictos sin depender del fundador o CEO para todo." },
-    { title: "Drástica reducción de rotación", desc: "Cuando las personas se sienten desarrolladas y escuchadas, se quedan. Construimos el tipo de cultura que retiene el talento de calidad." },
-    { title: "Procesos que funcionan solos", desc: "Sistematizamos la gestión para que los resultados no dependan de personas específicas. La empresa opera bien incluso cuando el dueño está ausente." },
-    { title: "Cultura de alto rendimiento", desc: "Equipos proactivos, comprometidos y que piensan como dueños. No solo cumplen su tarea: buscan mejorar continuamente." },
+    { title: "Líderes autónomos y eficientes", desc: "Mandos medios capaces de tomar decisiones, gestionar equipos y resolver conflictos sin depender del fundador o CEO para todo." },
+    { title: "Procesos que funcionan solos", desc: "Sistemas claros, documentados e implementados para que el negocio no dependa de personas específicas o de tu presencia constante." },
+    { title: "Drástica reducción de rotación", desc: "Cuando las personas se sienten desarrolladas, escuchadas y tienen claridad en su rol, se quedan. Construimos cultura." },
+    { title: "Decisiones basadas en datos", desc: "Tableros de gestión simples y útiles para que puedas tomar decisiones estratégicas con información confiable, no con intuición." },
 ];
 
 const faqs = [
-    { q: "¿Cuánto tiempo toma ver resultados?", a: "Los primeros cambios de actitud y comportamiento se notan en las primeras 4-8 semanas. Los resultados medibles (rotación, clima, productividad) suelen evidenciarse entre los 3 y 6 meses. La transformación profunda es un proceso, no un evento." },
-    { q: "¿El coaching funciona en PYMEs con cultura familiar?", a: "Es donde mejor funciona. El coaching ontológico se adapta a la cultura existente: no buscamos corporativizar tu empresa, sino potenciar lo mejor que ya tiene mientras resolvemos lo que frena el crecimiento." },
-    { q: "¿Qué diferencia al coaching ontológico del coaching tradicional?", a: "El coaching tradicional trabaja principalmente en el 'hacer' (técnicas, estrategias, acciones). El coaching ontológico trabaja en el 'ser' (quién es el líder, sus creencias, sus conversaciones internas). El resultado es una transformación más profunda y duradera." },
-    { q: "¿Necesito que todo el equipo participe?", a: "Empezamos con los líderes clave. Podemos después expandir a más niveles. El foco inicial son las personas que mayor impacto tienen sobre el resto del equipo y los resultados de la empresa." },
+    { q: "¿Cuánto tiempo toma ver resultados?", a: "Los primeros cambios se notan en 4-8 semanas (claridad de roles, reuniones efectivas). Los resultados medibles y de fondo (rotación, KPIs consistentes) suelen evidenciarse entre los 3 y 6 meses." },
+    { q: "¿El coaching funciona en PYMEs con cultura familiar?", a: "Es donde mejor funciona. No buscamos corporativizar tu empresa, sino potenciar lo mejor que ya tiene mientras resolvemos lo que frena el crecimiento y sistematizamos la gestión." },
+    { q: "¿Qué diferencia este enfoque dual?", a: "Integramos el coaching ontológico (trabajando el 'ser' del líder) con la consultoría dura de procesos (optimizando el 'hacer'). El resultado es una transformación profunda que impacta directamente en la rentabilidad." },
+    { q: "¿Pueden implementar mejoras sin interrumpir las operaciones?", a: "Sí, diseñamos los cambios para minimizar la disrupción operacional. Empezamos con los líderes clave y procesos de menor riesgo, escalando gradualmente." },
     { q: "¿Cuál es la inversión aproximada?", a: "Depende del tamaño de tu empresa y el alcance del programa. Ofrecemos una sesión exploratoria gratuita donde evaluamos tu situación y te presentamos una propuesta a medida. Agenda sin compromiso." },
 ];
 
-export default function CoachingInternoPYME() {
+export default function Empresas() {
     return (
         <>
             <Header />
@@ -55,12 +55,12 @@ export default function CoachingInternoPYME() {
                         <div className={styles.heroInner}>
                             <div className={styles.heroCopy}>
                                 <nav className={styles.breadcrumb} aria-label="breadcrumb">
-                                    <Link href="/">Inicio</Link> / <Link href="/servicios">Servicios</Link> / <span>Coaching Interno</span>
+                                    <Link href="/">Inicio</Link> / <Link href="/servicios">Servicios</Link> / <span>Empresas</span>
                                 </nav>
                                 <span className={`section-label ${styles.labelWhite}`}>Para PYMEs y Empresas</span>
-                                <h1 className={styles.heroTitle}>Coaching Interno para Empresas que Quieren Crecer</h1>
+                                <h1 className={styles.heroTitle}>Coaching Interno y Consultoría de Procesos</h1>
                                 <p className={styles.heroDesc}>
-                                    Desarrollamos líderes auténticos, reducimos la rotación y construimos cultura de alto rendimiento. 20+ años de experiencia respaldando cada paso.
+                                    Desarrollamos líderes auténticos, optimizamos tus operaciones y construimos cultura de alto rendimiento. Resultados que no dependen de tu presencia constante.
                                 </p>
                                 <div className={styles.heroCtas}>
                                     <Link href="/contacto" className="btn btn-primary btn-lg">
@@ -93,11 +93,11 @@ export default function CoachingInternoPYME() {
                         <div className={styles.twoCol}>
                             <div>
                                 <span className="section-label">¿Te identificás?</span>
-                                <h2 className="section-title">Señales de que tu empresa necesita coaching interno ahora</h2>
+                                <h2 className="section-title">Señales de que tu empresa necesita intervención ahora</h2>
                                 <p style={{ color: "var(--color-gray-500)", fontSize: "var(--text-lg)", marginBottom: "2rem" }}>
-                                    Si alguna de estas situaciones te resulta familiar, estás dejando rentabilidad y talento sobre la mesa.
+                                    Si alguna de estas situaciones te resulta familiar, estás dejando rentabilidad y talento sobre la mesa por problemas de liderazgo o de sistemas.
                                 </p>
-                                <ul className={styles.checkList}>
+                                <ul className={styles.checkList} style={{ marginTop: "2rem" }}>
                                     {painPoints.map((p) => (
                                         <li key={p.text} className={styles.checkItem}>
                                             <span>{p.icon}</span>
@@ -116,7 +116,13 @@ export default function CoachingInternoPYME() {
                                     alt="Sesión de coaching con equipo empresarial"
                                     className={styles.sectionPhoto}
                                 />
-                                <p className={styles.photoCaption}>Sesión de coaching con equipo de empresa cliente</p>
+                                <div className={styles.infoBox} style={{ borderTopColor: "var(--color-primary)", marginTop: "2rem", paddingTop: "2rem", borderTop: "4px solid var(--color-primary)" }}>
+                                    <div className={styles.infoBoxIcon}>📊</div>
+                                    <h3 style={{ fontSize: "1.25rem", margin: "1rem 0" }}>Problemas de Sistemas vs Personas</h3>
+                                    <p style={{ fontSize: "0.95rem", color: "var(--color-gray-600)" }}>
+                                        La mayoría de los problemas operacionales no son de personas, son de <strong>sistemas</strong>. Nuestra consultoría busca construir sistemas claros y al mismo tiempo desarrollar el <strong>liderazgo</strong> necesario para sostenerlos.
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -127,7 +133,7 @@ export default function CoachingInternoPYME() {
                     <div className="container">
                         <div className="text-center" style={{ marginBottom: "4rem" }}>
                             <span className="section-label">Proceso de Trabajo</span>
-                            <h2 className="section-title">Cómo implementamos el coaching interno en tu empresa</h2>
+                            <h2 className="section-title">Cómo transformamos tu gestión empresarial</h2>
                         </div>
                         <div className={styles.processGrid}>
                             {process.map((step) => (
@@ -146,7 +152,7 @@ export default function CoachingInternoPYME() {
                     <div className="container">
                         <div className="text-center" style={{ marginBottom: "4rem" }}>
                             <span className="section-label">Resultados</span>
-                            <h2 className="section-title">Qué transformaciones garantiza el proceso</h2>
+                            <h2 className="section-title">Qué transformaciones garantiza el proceso conjunto</h2>
                         </div>
                         <div className="grid-2">
                             {benefits.map((b) => (
@@ -185,7 +191,7 @@ export default function CoachingInternoPYME() {
                 {/* CTA */}
                 <section className={styles.bottomCta}>
                     <div className="container">
-                        <h2>¿Listo para profesionalizar el liderazgo de tu empresa?</h2>
+                        <h2>¿Listo para profesionalizar el liderazgo y operaciones de tu empresa?</h2>
                         <p>Agendá una sesión exploratoria gratuita de 30 minutos. Evaluamos juntos tu situación y te presentamos una propuesta concreta.</p>
                         <div className={styles.bottomCtaBtns}>
                             <Link href="/contacto" className="btn btn-primary btn-lg">Solicitar sesión exploratoria gratuita</Link>

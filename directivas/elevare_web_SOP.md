@@ -112,7 +112,7 @@
 
 | Fecha | Error Detectado | Causa Raíz | Solución/Parche Aplicado |
 |-------|-----------------|------------|--------------------------|
-| — | — | — | — |
+| 2026-03-01 | Error 404 NOT_FOUND al publicar en Vercel (`vercel.json` invalid `rootDirectory`) | Vercel intenta construir el `package.json` de la raíz por defecto y no permite fijar `rootDirectory` en `vercel.json` moderno. | Se creó un `vercel.json` en la raíz usando la propiedad `"builds"` con `@vercel/next` apuntando a `"website/package.json"`. Esto fuerza a Vercel a compilar la subcarpeta sin tocar el dashboard web. |
 
 > **Nota de Implementación:** Si encuentras un nuevo error, **primero** arréglalo en el script o configuración, y **luego** documenta la regla aquí para evitar regresiones futuras.
 
@@ -227,9 +227,8 @@ python scripts/elevare_web_builder.py --action keyword_report --month 2026-03
 |--------|-----|-----------|
 | Home | `/` | Alta |
 | Servicios (overview) | `/servicios` | Alta |
-| Coaching Interno Empresas | `/coaching-interno-empresas` | Alta |
+| Coaching y Consultoría Empresas | `/empresas` | Alta |
 | Mentoría Mujeres Ejecutivas | `/mentoria-mujeres-ejecutivas` | Alta |
-| Consultoría de Procesos | `/consultoria-procesos-gestion` | Alta |
 | Sobre María | `/sobre-maria` | Media |
 | Casos de Éxito | `/casos-de-exito` | Media |
 | Blog | `/blog` | Media |
@@ -245,9 +244,8 @@ python scripts/elevare_web_builder.py --action keyword_report --month 2026-03
 | Página | Keyword Principal | Keywords Secundarias | Intención |
 |--------|------------------|-----------------------|-----------|
 | Home | `coaching empresarial [ciudad]` | `consultoría liderazgo`, `desarrollo organizacional` | Transaccional |
-| Coaching Interno | `coaching interno empresas [ciudad]` | `implementar coaching pymes`, `sistema coaching organizacional` | Transaccional |
+| Empresas | `coaching y consultoría empresas [ciudad]` | `implementar coaching pymes`, `optimización procesos pymes` | Transaccional |
 | Mentoría Mujeres | `mentoría ejecutiva mujeres [ciudad]` | `coach mujeres líderes`, `desarrollo liderazgo femenino` | Transaccional |
-| Consultoría Procesos | `consultoría gestión empresarial [ciudad]` | `optimización procesos pymes`, `consultor management` | Transaccional |
 | Sobre María | `María Gómez coaching ontológico` | `coach empresarial [ciudad]`, `consultora liderazgo` | Informacional |
 | FAQ | `qué es coaching ontológico` | `coaching ontológico vs tradicional` | Informacional |
 | Blog Post 1 | `coaching interno para empresas` | `implementar coaching pymes`, `coaching empresarial ROI` | MoFu |
