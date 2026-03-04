@@ -60,7 +60,7 @@ export default function SobreMaria() {
                                     <span className={styles.heroBadge}>👩‍💼 Especialista en mujeres líderes</span>
                                 </div>
                                 <blockquote className={styles.heroQuote}>
-                                    <p>"El liderazgo efectivo no empieza en las técnicas de gestión. Empieza en quién sos como persona y líder. Todo lo demás viene después."</p>
+                                    <p>&ldquo;El liderazgo efectivo no empieza en las técnicas de gestión. Empieza en quién sos como persona y líder. Todo lo demás viene después.&rdquo;</p>
                                     <cite>— María Gómez</cite>
                                 </blockquote>
                                 <Link href="/contacto" className="btn btn-primary btn-lg">
