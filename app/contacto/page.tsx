@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
+import { supabase } from "@/lib/supabase";
 import styles from "./contacto.module.css";
 
 const reasons = [
@@ -20,6 +21,7 @@ export default function ContactoPage() {
     });
     const [submitted, setSubmitted] = useState(false);
     const [loading, setLoading] = useState(false);
+    const [error, setError] = useState<string | null>(null);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         setForm({ ...form, [e.target.name]: e.target.value });
@@ -28,10 +30,41 @@ export default function ContactoPage() {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setLoading(true);
-        await new Promise(r => setTimeout(r, 1200));
+        setError(null);
+        const { error: sbError } = await supabase.from("leads").insert([{
+            nombre: form.nombre,
+            email: form.email,
+            telefono: form.telefono || null,
+            empresa: form.empresa || null,
+            motivo: form.motivo || null,
+            mensaje: form.mensaje || null,
+        }]);
         setLoading(false);
-        setSubmitted(true);
+        if (sbError) {
+            setError("Hubo un error al enviar el formulario. Por favor intentá de nuevo.");
+            console.error(sbError);
+        } else {
+            // Send directly to API Route (Sheets Integration)
+            fetch("/api/leads-to-sheets", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    record: {
+                        nombre: form.nombre,
+                        email: form.email,
+                        telefono: form.telefono || "",
+                        empresa: form.empresa || "",
+                        motivo: form.motivo || "",
+                        mensaje: form.mensaje || "",
+                        created_at: new Date().toISOString()
+                    }
+                })
+            }).catch(e => console.error("Error envío a Sheets:", e));
+
+            setSubmitted(true);
+        }
     };
+
 
     return (
         <>
@@ -57,10 +90,21 @@ export default function ContactoPage() {
                             <div className={styles.formCol}>
                                 {submitted ? (
                                     <div className={styles.successBox}>
-                                        <div className={styles.successIcon}>✅</div>
-                                        <h2>¡Mensaje recibido!</h2>
-                                        <p>María se pondrá en contacto con vos dentro de las próximas 24-48 horas para coordinar la sesión exploratoria.</p>
-                                        <p>Mientras tanto, podés explorar nuestros recursos gratuitos en el blog.</p>
+                                        <div className={styles.successIcon}>
+                                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="24" cy="24" r="24" fill="#5CA084" fillOpacity="0.12" />
+                                                <circle cx="24" cy="24" r="18" fill="#5CA084" />
+                                                <path d="M15 24.5L21 30.5L33 18" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                                            </svg>
+                                        </div>
+                                        <h2>¡Formulario enviado!</h2>
+                                        <p>Gracias por comunicarte. María va a estar en contacto con vos dentro de las próximas <strong>24-48 horas</strong> para coordinar tu sesión exploratoria gratuita.</p>
+                                        <button
+                                            onClick={() => { setSubmitted(false); setForm({ nombre: "", email: "", telefono: "", empresa: "", motivo: "", mensaje: "" }); }}
+                                            className={styles.resetBtn}
+                                        >
+                                            Rehacer formulario
+                                        </button>
                                     </div>
                                 ) : (
                                     <form onSubmit={handleSubmit} className={styles.form} noValidate>
@@ -111,8 +155,11 @@ export default function ContactoPage() {
                                         <button type="submit" className={`btn btn-primary btn-lg ${styles.submitBtn}`} disabled={loading}>
                                             {loading ? "Enviando..." : "Agendar mi sesión exploratoria gratuita"}
                                         </button>
+                                        {error && (
+                                            <p style={{ color: "red", fontSize: "0.9rem", marginTop: "0.5rem" }}>{error}</p>
+                                        )}
                                         <p className={styles.disclaimer}>
-                                            🔒 Tu información es confidencial. No enviamos spam. Te respondemos en 24-48 horas hábiles.
+                                            Tu información es confidencial y no será compartida. Te respondemos en 24-48 horas hábiles.
                                         </p>
                                     </form>
                                 )}

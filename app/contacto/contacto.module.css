@@ -34,7 +34,7 @@
 }
 
 /* Form */
-.formCol {}
+
 
 .form {
     background: var(--color-white);
@@ -107,6 +107,23 @@
     color: var(--color-gray-500);
     max-width: 400px;
     line-height: 1.75;
+}
+
+.resetBtn {
+    margin-top: var(--space-2);
+    background: none;
+    border: none;
+    color: var(--color-gray-400);
+    font-size: var(--text-xs);
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: underline;
+    padding: 0;
+    transition: color 0.2s ease;
+}
+
+.resetBtn:hover {
+    color: var(--color-primary);
 }
 
 /* Sidebar */

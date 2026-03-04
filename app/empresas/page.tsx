@@ -195,7 +195,7 @@ export default function Empresas() {
                         <p>Agendá una sesión exploratoria gratuita de 30 minutos. Evaluamos juntos tu situación y te presentamos una propuesta concreta.</p>
                         <div className={styles.bottomCtaBtns}>
                             <Link href="/contacto" className="btn btn-primary btn-lg">Solicitar sesión exploratoria gratuita</Link>
-                            <Link href="/casos-de-exito" className="btn btn-outline-white">Ver casos de éxito</Link>
+                            <Link href="/testimonios" className="btn btn-outline-white">Ver casos de éxito</Link>
                         </div>
                     </div>
                 </section>

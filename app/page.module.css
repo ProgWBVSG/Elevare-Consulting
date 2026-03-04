@@ -452,6 +452,11 @@
 /* =============================================
    TESTIMONIALS
    ============================================= */
+.homeVideoTestimonialWrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
 .testimonialCard {
   background: var(--color-white);
   border-radius: var(--radius-xl);

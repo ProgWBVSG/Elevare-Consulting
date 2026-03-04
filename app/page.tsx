@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import LeadMagnetForm from "./components/LeadMagnetForm";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -361,8 +362,8 @@ export default function Home() {
             </div>
 
             <div className="text-center" style={{ marginTop: "3rem" }}>
-              <Link href="/casos-de-exito" className="btn btn-outline">
-                Ver más casos de éxito →
+              <Link href="/testimonios" className="btn btn-outline">
+                Ver más casos de éxito en video →
               </Link>
             </div>
           </div>
@@ -380,27 +381,9 @@ export default function Home() {
                 Realizá este autodiagnóstico rápido para descubrir si los conflictos internos y la ineficiencia están frenando el crecimiento de tu PYME.
               </p>
 
-              <form action="#" method="POST" style={{ display: 'flex', flexDirection: 'column', gap: '1rem', maxWidth: '400px', margin: '0 auto' }}>
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Tu Nombre"
-                  required
-                  style={{ padding: '12px 16px', borderRadius: '8px', border: '1px solid #ccc', fontSize: '1rem' }}
-                />
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Tu Correo Electrónico"
-                  required
-                  style={{ padding: '12px 16px', borderRadius: '8px', border: '1px solid #ccc', fontSize: '1rem' }}
-                />
-                <button type="submit" className="btn btn-primary btn-lg" style={{ width: '100%' }}>
-                  Descargar Checklist Gratuito
-                </button>
-              </form>
+              <LeadMagnetForm />
               <p style={{ fontSize: '0.85rem', color: '#888', marginTop: '1rem' }}>
-                Al descargar, aceptás recibir nuestros correos semanales de liderazgo. Prometemos no hacer spam.
+                Tu información es confidencial y no será compartida con terceros.
               </p>
             </div>
           </div>

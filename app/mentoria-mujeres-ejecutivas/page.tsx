@@ -189,7 +189,7 @@ export default function MentoriaMujeres() {
                         <p>Agendá una sesión exploratoria gratuita de 30 minutos. Hablamos sobre tu situación específica y evaluamos juntas cómo el proceso puede ayudarte.</p>
                         <div className={styles.bottomCtaBtns}>
                             <Link href="/contacto" className="btn btn-primary btn-lg">Agenda tu sesión exploratoria gratuita</Link>
-                            <Link href="/casos-de-exito" className="btn btn-outline-white">Ver casos de mujeres líderes</Link>
+                            <Link href="/testimonios" className="btn btn-outline-white">Ver casos de mujeres líderes</Link>
                         </div>
                     </div>
                 </section>

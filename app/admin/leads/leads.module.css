@@ -1,0 +1,221 @@
+/* ─── LAYOUT ─────────────────────────────────────── */
+.layout {
+    display: flex;
+    min-height: 100vh;
+    background: #f0f4f8;
+    font-family: 'Inter', sans-serif;
+}
+
+/* ─── SIDEBAR ────────────────────────────────────── */
+.sidebar {
+    width: 280px;
+    flex-shrink: 0;
+    background: #1A1A2E;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.sidebarHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 1.25rem 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.sidebarHeader h2 {
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+}
+
+.badge {
+    background: #E87D3E;
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 800;
+    padding: 0.2rem 0.55rem;
+    border-radius: 999px;
+}
+
+.leadList {
+    list-style: none;
+    margin: 0;
+    padding: 0.5rem 0;
+    flex: 1;
+}
+
+.leadItem {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.25rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: background 0.15s ease;
+}
+
+.leadItem:hover {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.leadAvatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2C5F9F, #5CA084);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 0.95rem;
+    color: white;
+    flex-shrink: 0;
+}
+
+.leadInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    overflow: hidden;
+}
+
+.leadName {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: white;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.leadEmail {
+    font-size: 0.72rem;
+    color: rgba(255, 255, 255, 0.5);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.empty {
+    padding: 2rem 1.25rem;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.875rem;
+    text-align: center;
+}
+
+/* ─── MAIN ───────────────────────────────────────── */
+.main {
+    flex: 1;
+    padding: 2rem 2.5rem;
+    overflow-x: auto;
+}
+
+.mainHeader {
+    margin-bottom: 2rem;
+}
+
+.mainHeader h1 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #1A1A2E;
+    margin: 0 0 0.25rem;
+}
+
+.subtitle {
+    color: #6b7280;
+    font-size: 0.875rem;
+    margin: 0;
+}
+
+/* ─── TABLE ──────────────────────────────────────── */
+.tableWrapper {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.07);
+    overflow: hidden;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+}
+
+.table thead {
+    background: #f8fafc;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+.table th {
+    padding: 0.875rem 1rem;
+    text-align: left;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.table td {
+    padding: 0.875rem 1rem;
+    border-bottom: 1px solid #f3f4f6;
+    color: #374151;
+    vertical-align: middle;
+}
+
+.table tbody tr:hover {
+    background: #f9fafb;
+}
+
+.table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.emailLink {
+    color: #2C5F9F;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.emailLink:hover {
+    text-decoration: underline;
+}
+
+.motivoBadge {
+    background: rgba(92, 160, 132, 0.1);
+    border: 1px solid rgba(92, 160, 132, 0.25);
+    color: #3d7c5e;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    white-space: nowrap;
+}
+
+.date {
+    color: #9ca3af;
+    font-size: 0.8rem;
+    white-space: nowrap;
+}
+
+.emptyTd {
+    text-align: center;
+    color: #9ca3af;
+    padding: 3rem 1rem !important;
+}
+
+/* ─── ERROR ──────────────────────────────────────── */
+.errorBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    gap: 1rem;
+    color: #ef4444;
+}

@@ -70,7 +70,7 @@ export default function SobreMaria() {
                             <div className={styles.heroImageWrapper}>
                                 <div className={styles.heroImagePlaceholder}>
                                     <img
-                                        src="/assets/fotos/hero_maria.jpeg"
+                                        src="/maria-hero.png"
                                         alt="María Gómez - Hero"
                                     />
                                 </div>
@@ -188,9 +188,9 @@ export default function SobreMaria() {
                     <div className="container">
                         <h2>¿Querés conocer más sobre cómo trabajo?</h2>
                         <p>La mejor forma de entender el proceso es conversando directamente. Agendá una sesión exploratoria gratuita de 30 minutos.</p>
-                        <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap", justifyContent: "center" }}>
-                            <Link href="/contacto" className="btn btn-primary btn-lg">Agendar sesión exploratoria</Link>
-                            <Link href="/casos-de-exito" className="btn btn-outline-white">Ver resultados de clientes</Link>
+                        <div style={{ marginTop: '2rem' }}>
+                            <Link href="/contacto" className="btn btn-primary btn-lg" style={{ marginRight: '1rem' }}>Escribile a María</Link>
+                            <Link href="/testimonios" className="btn btn-outline-white">Ver resultados de clientes</Link>
                         </div>
                     </div>
                 </section>
