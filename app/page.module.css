@@ -152,7 +152,7 @@
 .trustBadges {
   display: flex;
   flex-direction: row;
-  gap: var(--space-8);
+  gap: var(--space-10);
   margin-bottom: var(--space-10);
   animation: fadeInUp 0.6s ease 0.3s both;
   justify-content: flex-start;
@@ -163,9 +163,10 @@
 .trustBadge {
   display: flex;
   flex-direction: column;
-  gap: 2px;
-  align-items: flex-start;
-  text-align: left;
+  gap: 4px;
+  align-items: center;
+  text-align: center;
+  min-width: 70px;
 }
 
 .trustValue {
