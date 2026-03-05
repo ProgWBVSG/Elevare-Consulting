@@ -805,12 +805,13 @@
     display: block;
   }
 
-  /* Degradé sutil en la parte inferior de la foto para transición suave */
+  /* Degradé que oculta el corte entre foto y sección de texto */
   .heroImageBackdrop {
     background: linear-gradient(to bottom,
-        transparent 0%,
-        rgba(26, 26, 46, 0.3) 70%,
-        rgba(26, 26, 46, 0.85) 100%);
+        rgba(26, 26, 46, 0.05) 0%,
+        rgba(26, 26, 46, 0.25) 50%,
+        rgba(26, 26, 46, 0.85) 80%,
+        rgba(26, 26, 46, 1.00) 100%);
   }
 
   /* ── Contenido: bloque completo debajo de la foto ── */
