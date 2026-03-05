@@ -756,7 +756,8 @@
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
-    padding: 240px var(--space-5) var(--space-16) var(--space-5);
+    /* Top: foto arriba visible, Bottom: gran respiro abajo */
+    padding: 260px 20px 80px 20px;
   }
 
   /* La imagen pasa a ser fondo absoluto que cubre toda la sección */
@@ -798,20 +799,20 @@
   }
 
   .heroBadge {
-    font-size: var(--text-sm);
-    margin-bottom: var(--space-5);
-    padding: var(--space-2) var(--space-4);
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+    padding: 0.5rem 1rem;
     max-width: 100%;
     white-space: normal;
     text-align: left;
   }
 
   .heroTitle {
-    font-size: clamp(2.1rem, 7vw, 3rem);
+    font-size: clamp(2rem, 7vw, 3rem);
     word-break: break-word;
     overflow-wrap: break-word;
     white-space: normal;
-    margin-bottom: var(--space-6);
+    margin-bottom: 2rem;
     line-height: 1.2;
     max-width: 100%;
   }
@@ -821,9 +822,9 @@
   }
 
   .heroSubtitle {
-    font-size: var(--text-base);
-    margin-bottom: var(--space-8);
-    line-height: 1.75;
+    font-size: 1rem;
+    margin-bottom: 3rem;
+    line-height: 1.8;
     max-width: 100%;
     word-break: break-word;
     overflow-wrap: break-word;
@@ -832,8 +833,8 @@
   .trustBadges {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-4);
-    margin-bottom: var(--space-8);
+    gap: 1.5rem;
+    margin-bottom: 3rem;
   }
 
   .trustBadge {
@@ -842,18 +843,19 @@
   }
 
   .trustValue {
-    font-size: var(--text-2xl);
+    font-size: 1.75rem;
   }
 
   .trustLabel {
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     white-space: normal;
     word-break: break-word;
+    margin-top: 0.25rem;
   }
 
   .heroCtas {
     flex-direction: column;
-    gap: var(--space-4);
+    gap: 1rem;
     width: 100%;
   }
 
@@ -866,9 +868,11 @@
   }
 
   .heroCtas .btn-lg {
-    padding: var(--space-5) var(--space-6);
-    font-size: var(--text-lg);
-    min-height: 58px;
+    padding: 1.25rem 1.5rem;
+    font-size: 1.05rem;
+    min-height: 62px;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .scrollIndicator {
