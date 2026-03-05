@@ -10,7 +10,7 @@
   overflow: hidden;
 }
 
-/* Wave curve at the bottom */
+/* Wave curve at the bottom — curva hacia abajo */
 .hero::after {
   content: '';
   position: absolute;
@@ -19,7 +19,7 @@
   right: 0;
   height: 80px;
   background: var(--color-cream);
-  clip-path: ellipse(55% 100% at 50% 100%);
+  clip-path: ellipse(55% 100% at 50% 0%);
   z-index: 3;
   pointer-events: none;
 }
