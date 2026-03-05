@@ -8,21 +8,10 @@
   display: flex;
   align-items: center;
   overflow: hidden;
+  border-radius: 0 0 50% 50% / 0 0 70px 70px;
 }
 
-/* Wave curve at the bottom — curva hacia abajo */
-.hero::after {
-  content: '';
-  position: absolute;
-  bottom: -1px;
-  left: 0;
-  right: 0;
-  height: 80px;
-  background: var(--color-cream);
-  clip-path: ellipse(55% 100% at 50% 0%);
-  z-index: 3;
-  pointer-events: none;
-}
+/* Hero bottom curves downward with border-radius */
 
 .hero::before {
   content: '';
