@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Eye, Users, Zap, Puzzle, Battery, Crown, CheckCircle, ArrowRight } from "lucide-react";
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
 import styles from "../service.module.css";
@@ -15,11 +16,11 @@ export const metadata: Metadata = {
 };
 
 const painPoints = [
-    { icon: "🪞", text: "Sentís que no merecés el puesto aunque tengas los resultados" },
-    { icon: "🤝", text: "Tu equipo no te toma en serio o te costó años ganarte su respeto" },
-    { icon: "⚡", text: "Trabajás el doble que tus pares masculinos para probar tu valor" },
-    { icon: "🧩", text: "No sabés cómo tener conversaciones difíciles sin que te consideren 'agresiva'" },
-    { icon: "🔋", text: "Llegás agotada a casa después de cargarlo todo: trabajo y hogar" },
+    { Icon: Eye, text: "Sentís que no merecés el puesto aunque tengas los resultados" },
+    { Icon: Users, text: "Tu equipo no te toma en serio o te costó años ganarte su respeto" },
+    { Icon: Zap, text: "Trabajás el doble que tus pares masculinos para probar tu valor" },
+    { Icon: Puzzle, text: "No sabés cómo tener conversaciones difíciles sin que te consideren 'agresiva'" },
+    { Icon: Battery, text: "Llegás agotada a casa después de cargarlo todo: trabajo y hogar" },
 ];
 
 const process = [
@@ -100,17 +101,17 @@ export default function MentoriaMujeres() {
                                 <ul className={styles.checkList}>
                                     {painPoints.map((p) => (
                                         <li key={p.text} className={styles.checkItem}>
-                                            <span>{p.icon}</span>
+                                            <span><p.Icon size={18} /></span>
                                             <span>{p.text}</span>
                                         </li>
                                     ))}
                                 </ul>
                                 <Link href="/contacto" className="btn btn-primary" style={{ marginTop: "2rem" }}>
-                                    Hablemos sobre tu situación →
+                                    Hablemos sobre tu situación <ArrowRight size={15} style={{ marginLeft: 4 }} />
                                 </Link>
                             </div>
                             <div className={styles.infoBox} style={{ borderTopColor: "var(--color-secondary)" }}>
-                                <div className={styles.infoBoxIcon}>👑</div>
+                                <div className={styles.infoBoxIcon}><Crown size={28} /></div>
                                 <h3>¿Por qué las mujeres líderes necesitan mentoría diferente?</h3>
                                 <p>
                                     Las mujeres en posiciones de liderazgo enfrentan desafíos específicos que los programas genéricos de management no contemplan: el síndrome del impostor bajo presión, la doble carga de expectativas, la comunicación asertiva en entornos mayormente masculinos.
@@ -153,7 +154,7 @@ export default function MentoriaMujeres() {
                         <div className="grid-2">
                             {benefits.map((b) => (
                                 <div key={b.title} className={`card ${styles.benefitCard}`}>
-                                    <span className={styles.benefitCheck} style={{ background: "rgba(92, 160, 132, 0.1)", color: "var(--color-secondary-dark)" }}>✓</span>
+                                    <span className={styles.benefitCheck} style={{ background: "rgba(92, 160, 132, 0.1)", color: "var(--color-secondary-dark)" }}><CheckCircle size={18} /></span>
                                     <div>
                                         <h4 className={styles.benefitTitle}>{b.title}</h4>
                                         <p className={styles.benefitDesc}>{b.desc}</p>

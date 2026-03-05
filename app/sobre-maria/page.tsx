@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Brain, Users, Zap, Globe, Trophy, UserCheck } from "lucide-react";
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
 import styles from "./sobreMaria.module.css";
@@ -24,10 +25,10 @@ const timeline = [
 ];
 
 const values = [
-    { icon: "🧠", title: "Transformación desde el SER", desc: "El coaching ontológico trabaja en la raíz de los comportamientos — las creencias, el lenguaje y la emocionalidad que los generan. Sin esto, los cambios son superficiales." },
-    { icon: "🤝", title: "Acompañamiento, no imposición", desc: "No llegamos con respuestas prediseñadas. Trabajamos desde las preguntas, la escucha y la co-creación. La solución está siempre en el cliente, nosotros ayudamos a encontrarla." },
-    { icon: "⚡", title: "Herramientas concretas para el día a día", desc: "La transformación debe verse en el lunes siguiente, no solo en los retiros de liderazgo. Combinamos profundidad ontológica con aplicabilidad inmediata." },
-    { icon: "🌎", title: "Perspectiva regional e inter-cultural", desc: "La red de alianzas en 4 países nos permite aportar perspectivas culturales diferentes y conectar a clientes con recursos y redes que trascienden sus mercados locales." },
+    { Icon: Brain, title: "Transformación desde el SER", desc: "El coaching ontológico trabaja en la raíz de los comportamientos — las creencias, el lenguaje y la emocionalidad que los generan. Sin esto, los cambios son superficiales." },
+    { Icon: Users, title: "Acompañamiento, no imposición", desc: "No llegamos con respuestas prediseñadas. Trabajamos desde las preguntas, la escucha y la co-creación. La solución está siempre en el cliente, nosotros ayudamos a encontrarla." },
+    { Icon: Zap, title: "Herramientas concretas para el día a día", desc: "La transformación debe verse en el lunes siguiente, no solo en los retiros de liderazgo. Combinamos profundidad ontológica con aplicabilidad inmediata." },
+    { Icon: Globe, title: "Perspectiva regional e inter-cultural", desc: "La red de alianzas en 4 países nos permite aportar perspectivas culturales diferentes y conectar a clientes con recursos y redes que trascienden sus mercados locales." },
 ];
 
 const certifications = [
@@ -55,9 +56,9 @@ export default function SobreMaria() {
                                 <h1 className={styles.heroTitle}>María Gómez</h1>
                                 <p className={styles.heroTagline}>Coach Ontológica · Consultora de Liderazgo · Mentora de Mujeres Ejecutivas</p>
                                 <div className={styles.heroBadges}>
-                                    <span className={styles.heroBadge}>🏆 20+ años de experiencia</span>
-                                    <span className={styles.heroBadge}>🌎 4 países con alianzas</span>
-                                    <span className={styles.heroBadge}>👩‍💼 Especialista en mujeres líderes</span>
+                                    <span className={styles.heroBadge}><Trophy size={14} /> 20+ años de experiencia</span>
+                                    <span className={styles.heroBadge}><Globe size={14} /> 4 países con alianzas</span>
+                                    <span className={styles.heroBadge}><UserCheck size={14} /> Especialista en mujeres líderes</span>
                                 </div>
                                 <blockquote className={styles.heroQuote}>
                                     <p>&ldquo;El liderazgo efectivo no empieza en las técnicas de gestión. Empieza en quién sos como persona y líder. Todo lo demás viene después.&rdquo;</p>
@@ -151,7 +152,7 @@ export default function SobreMaria() {
                         <div className="grid-2">
                             {values.map((v) => (
                                 <div key={v.title} className={`card ${styles.valueCard}`}>
-                                    <span className={styles.valueIcon}>{v.icon}</span>
+                                    <span className={styles.valueIcon}><v.Icon size={24} /></span>
                                     <div>
                                         <h4 className={styles.valueTitle}>{v.title}</h4>
                                         <p className={styles.valueDesc}>{v.desc}</p>

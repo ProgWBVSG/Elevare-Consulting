@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Target, Settings, RefreshCw, User, HelpCircle, BarChart2, CheckCircle, ArrowRight } from "lucide-react";
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
 import styles from "../service.module.css";
@@ -15,11 +16,11 @@ export const metadata: Metadata = {
 };
 
 const painPoints = [
-    { icon: "🎯", text: "Tu equipo gerencial no decide sin tu aprobación en todo y hay alta rotación" },
-    { icon: "⚙️", text: "Procesos que todo el mundo sabe que están rotos, pero nadie arregla" },
-    { icon: "🔄", text: "Reuniones que consumen tiempo pero no generan decisiones ni acciones" },
-    { icon: "👤", text: "La empresa depende de una sola persona para que las cosas funcionen" },
-    { icon: "🤷", text: "Todos saben que hay problemas, nadie toma la iniciativa y se repiten los errores" },
+    { Icon: Target, text: "Tu equipo gerencial no decide sin tu aprobación en todo y hay alta rotación" },
+    { Icon: Settings, text: "Procesos que todo el mundo sabe que están rotos, pero nadie arregla" },
+    { Icon: RefreshCw, text: "Reuniones que consumen tiempo pero no generan decisiones ni acciones" },
+    { Icon: User, text: "La empresa depende de una sola persona para que las cosas funcionen" },
+    { Icon: HelpCircle, text: "Todos saben que hay problemas, nadie toma la iniciativa y se repiten los errores" },
 ];
 
 const process = [
@@ -100,13 +101,13 @@ export default function Empresas() {
                                 <ul className={styles.checkList} style={{ marginTop: "2rem" }}>
                                     {painPoints.map((p) => (
                                         <li key={p.text} className={styles.checkItem}>
-                                            <span>{p.icon}</span>
+                                            <span><p.Icon size={18} /></span>
                                             <span>{p.text}</span>
                                         </li>
                                     ))}
                                 </ul>
                                 <Link href="/contacto" className="btn btn-primary" style={{ marginTop: "2rem" }}>
-                                    Hablemos de la solución →
+                                    Hablemos de la solución <ArrowRight size={15} style={{ marginLeft: 4 }} />
                                 </Link>
                             </div>
                             <div className={styles.photoCol}>
@@ -117,7 +118,7 @@ export default function Empresas() {
                                     className={styles.sectionPhoto}
                                 />
                                 <div className={styles.infoBox} style={{ borderTopColor: "var(--color-primary)", marginTop: "2rem", paddingTop: "2rem", borderTop: "4px solid var(--color-primary)" }}>
-                                    <div className={styles.infoBoxIcon}>📊</div>
+                                    <div className={styles.infoBoxIcon}><BarChart2 size={28} /></div>
                                     <h3 style={{ fontSize: "1.25rem", margin: "1rem 0" }}>Problemas de Sistemas vs Personas</h3>
                                     <p style={{ fontSize: "0.95rem", color: "var(--color-gray-600)" }}>
                                         La mayoría de los problemas operacionales no son de personas, son de <strong>sistemas</strong>. Nuestra consultoría busca construir sistemas claros y al mismo tiempo desarrollar el <strong>liderazgo</strong> necesario para sostenerlos.
@@ -157,7 +158,7 @@ export default function Empresas() {
                         <div className="grid-2">
                             {benefits.map((b) => (
                                 <div key={b.title} className={`card ${styles.benefitCard}`}>
-                                    <span className={styles.benefitCheck}>✓</span>
+                                    <span className={styles.benefitCheck}><CheckCircle size={18} /></span>
                                     <div>
                                         <h4 className={styles.benefitTitle}>{b.title}</h4>
                                         <p className={styles.benefitDesc}>{b.desc}</p>

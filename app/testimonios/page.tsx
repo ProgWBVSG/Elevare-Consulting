@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { Briefcase, Building2, Rocket } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import FeaturedCase from './FeaturedCase';
@@ -16,7 +17,7 @@ const realReviews = [
         name: 'Maria Eugenia Cano',
         role: 'Consultoría de Liderazgo',
         source: 'LinkedIn Review',
-        sourceIcon: '💼',
+        SourceIcon: Briefcase,
         text: 'Muchas gracias ELEVARE Consulting, cada charla compartida fue inolvidable. Tus consejos ya sea en palabras, videos, todo fue un aprendizaje continuo y fructífero. Excelente profesional. Fue un semestre con muchas sorpresas y celebro poder haber contado con tu presencia, gracias.',
         highlight: 'Aprendizaje continuo y fructífero',
     },
@@ -25,7 +26,7 @@ const realReviews = [
         name: 'Roberto M.',
         role: 'Director General',
         source: 'PYME Industrial, Buenos Aires',
-        sourceIcon: '🏢',
+        SourceIcon: Building2,
         text: 'Después de 6 meses con Elevare, mi equipo gerencial tomó autonomía real. La rotación bajó un 40% y el clima laboral cambió completamente. María entiende el mundo de la empresa desde adentro.',
         highlight: '40% menos rotación de personal',
     },
@@ -34,7 +35,7 @@ const realReviews = [
         name: 'Camila V.',
         role: 'CEO',
         source: 'Startup de Tecnología, Montevideo',
-        sourceIcon: '🚀',
+        SourceIcon: Rocket,
         text: 'El proceso de coaching ontológico me cambió la perspectiva completa. No solo aprendí técnicas de gestión, transformé cómo veo mi rol como líder y el impacto que quiero tener.',
         highlight: 'Expansión a 3 países en 18 meses',
     },
@@ -102,7 +103,7 @@ export default function TestimoniosPage() {
                                             <strong>{r.name}</strong>
                                             <span>{r.role}</span>
                                             <span className={styles.reviewSource}>
-                                                {r.sourceIcon} {r.source}
+                                                <r.SourceIcon size={13} style={{ display: 'inline', verticalAlign: 'middle', marginRight: 3 }} /> {r.source}
                                             </span>
                                         </div>
                                     </div>
