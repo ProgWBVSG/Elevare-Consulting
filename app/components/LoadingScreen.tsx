@@ -9,10 +9,10 @@ export default function LoadingScreen() {
     const [fadeOut, setFadeOut] = useState(false);
 
     useEffect(() => {
-        // Start fade-out after 1.8s
-        const fadeTimer = setTimeout(() => setFadeOut(true), 1800);
+        // Start fade-out after 2s
+        const fadeTimer = setTimeout(() => setFadeOut(true), 2000);
         // Remove from DOM after fade completes
-        const removeTimer = setTimeout(() => setVisible(false), 2400);
+        const removeTimer = setTimeout(() => setVisible(false), 2600);
         return () => {
             clearTimeout(fadeTimer);
             clearTimeout(removeTimer);
@@ -46,14 +46,8 @@ export default function LoadingScreen() {
                     <span className={styles.brandName}>Elevare</span>
                     <span className={styles.brandSub}>Consulting MG</span>
                 </div>
-            </div>
-
-            {/* Tagline */}
-            <p className={styles.tagline}>Transformando líderes desde adentro</p>
-
-            {/* Progress bar */}
-            <div className={styles.progressWrap}>
-                <div className={styles.progressBar} />
+                {/* Tagline right below brand name */}
+                <p className={styles.tagline}>Transformando líderes desde adentro</p>
             </div>
         </div>
     );
