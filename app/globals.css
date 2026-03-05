@@ -172,8 +172,10 @@ p {
    ============================================= */
 .container {
   max-width: var(--container-max);
+  width: 100%;
   margin: 0 auto;
   padding: 0 var(--container-padding);
+  box-sizing: border-box;
 }
 
 .section {
@@ -604,6 +606,10 @@ p {
 }
 
 @media (max-width: 480px) {
+  :root {
+    --container-padding: var(--space-3);
+  }
+
   h1 {
     font-size: var(--text-3xl);
   }

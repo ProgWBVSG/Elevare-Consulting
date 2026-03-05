@@ -743,18 +743,20 @@
 
 @media (max-width: 768px) {
 
-  /* ── HERO MOBILE: imagen como fondo con degradé ── */
+  /* ── HERO MOBILE ── */
   .hero {
     min-height: auto;
     position: relative;
+    overflow: hidden;
   }
 
   .heroContainer {
     grid-template-columns: 1fr;
     gap: 0;
-    /* SIN position:relative para que el absolute del wrapper sea relativo al .hero */
-    padding: var(--space-10) var(--space-6) var(--space-10);
-    padding-top: 220px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 220px var(--space-5) var(--space-10) var(--space-5);
   }
 
   /* La imagen pasa a ser fondo absoluto que cubre toda la sección */
@@ -799,24 +801,44 @@
     font-size: var(--text-xs);
     margin-bottom: var(--space-3);
     padding: var(--space-1) var(--space-3);
+    max-width: 100%;
+    white-space: normal;
+    text-align: left;
   }
 
   .heroTitle {
-    font-size: clamp(2rem, 8vw, 3rem);
+    font-size: clamp(1.75rem, 7vw, 2.5rem);
     word-break: break-word;
     overflow-wrap: break-word;
+    white-space: normal;
     margin-bottom: var(--space-4);
+    line-height: 1.15;
+    max-width: 100%;
+  }
+
+  .highlightText {
+    display: inline;
   }
 
   .heroSubtitle {
     font-size: var(--text-sm);
     margin-bottom: var(--space-5);
     line-height: 1.6;
+    max-width: 100%;
+    word-break: break-word;
+    overflow-wrap: break-word;
   }
 
   .trustBadges {
+    display: flex;
+    flex-wrap: wrap;
     gap: var(--space-3);
     margin-bottom: var(--space-5);
+  }
+
+  .trustBadge {
+    flex: 1 1 auto;
+    min-width: 0;
   }
 
   .trustValue {
@@ -825,17 +847,22 @@
 
   .trustLabel {
     font-size: 0.65rem;
+    white-space: normal;
+    word-break: break-word;
   }
 
   .heroCtas {
     flex-direction: column;
     gap: var(--space-3);
+    width: 100%;
   }
 
   .heroCtas .btn {
     width: 100%;
     text-align: center;
     justify-content: center;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   .heroCtas .btn-lg {
@@ -874,9 +901,9 @@
   }
 
   .trustBadges {
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-2);
+    display: flex;
     flex-wrap: wrap;
+    gap: var(--space-2);
   }
 
   .heroCtas .btn-lg {
