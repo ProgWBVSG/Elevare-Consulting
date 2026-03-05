@@ -122,11 +122,11 @@ export default function SobreMaria() {
                 </section>
 
                 {/* Timeline */}
-                <section className="section bg-cream">
-                    <div className="container">
+                <section className={styles.timelineSection}>
+                    <div className={styles.timelineSectionInner}>
                         <div className="text-center" style={{ marginBottom: "4rem" }}>
-                            <span className="section-label">Trayectoria</span>
-                            <h2 className="section-title">20+ años de camino recorrido</h2>
+                            <span className={`section-label ${styles.labelOnDark}`}>Trayectoria</span>
+                            <h2 className="section-title" style={{ color: "#fff" }}>20+ años de camino recorrido</h2>
                         </div>
                         <div className={styles.timeline}>
                             {timeline.map((item, i) => (
@@ -136,11 +136,16 @@ export default function SobreMaria() {
                                         <h4>{item.title}</h4>
                                         <p>{item.desc}</p>
                                     </div>
+                                    <div className={styles.timelineDecor}>
+                                        <span className={styles.timelineDecorYear}>{item.year}</span>
+                                        <span className={styles.timelineDecorLine} />
+                                    </div>
                                 </div>
                             ))}
                         </div>
                     </div>
                 </section>
+
 
                 {/* Values */}
                 <section className="section">
