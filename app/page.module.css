@@ -756,7 +756,7 @@
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
-    padding: 220px var(--space-5) var(--space-10) var(--space-5);
+    padding: 240px var(--space-5) var(--space-16) var(--space-5);
   }
 
   /* La imagen pasa a ser fondo absoluto que cubre toda la sección */
@@ -798,21 +798,21 @@
   }
 
   .heroBadge {
-    font-size: var(--text-xs);
-    margin-bottom: var(--space-3);
-    padding: var(--space-1) var(--space-3);
+    font-size: var(--text-sm);
+    margin-bottom: var(--space-5);
+    padding: var(--space-2) var(--space-4);
     max-width: 100%;
     white-space: normal;
     text-align: left;
   }
 
   .heroTitle {
-    font-size: clamp(1.75rem, 7vw, 2.5rem);
+    font-size: clamp(2.1rem, 7vw, 3rem);
     word-break: break-word;
     overflow-wrap: break-word;
     white-space: normal;
-    margin-bottom: var(--space-4);
-    line-height: 1.15;
+    margin-bottom: var(--space-6);
+    line-height: 1.2;
     max-width: 100%;
   }
 
@@ -821,9 +821,9 @@
   }
 
   .heroSubtitle {
-    font-size: var(--text-sm);
-    margin-bottom: var(--space-5);
-    line-height: 1.6;
+    font-size: var(--text-base);
+    margin-bottom: var(--space-8);
+    line-height: 1.75;
     max-width: 100%;
     word-break: break-word;
     overflow-wrap: break-word;
@@ -832,8 +832,8 @@
   .trustBadges {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-3);
-    margin-bottom: var(--space-5);
+    gap: var(--space-4);
+    margin-bottom: var(--space-8);
   }
 
   .trustBadge {
@@ -842,18 +842,18 @@
   }
 
   .trustValue {
-    font-size: var(--text-xl);
+    font-size: var(--text-2xl);
   }
 
   .trustLabel {
-    font-size: 0.65rem;
+    font-size: 0.75rem;
     white-space: normal;
     word-break: break-word;
   }
 
   .heroCtas {
     flex-direction: column;
-    gap: var(--space-3);
+    gap: var(--space-4);
     width: 100%;
   }
 
@@ -866,9 +866,9 @@
   }
 
   .heroCtas .btn-lg {
-    padding: var(--space-4) var(--space-6);
-    font-size: var(--text-base);
-    min-height: 52px;
+    padding: var(--space-5) var(--space-6);
+    font-size: var(--text-lg);
+    min-height: 58px;
   }
 
   .scrollIndicator {
