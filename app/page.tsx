@@ -4,6 +4,7 @@ import Image from "next/image";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import LeadMagnetForm from "./components/LeadMagnetForm";
+import CounterBadge from "./components/CounterBadge";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -21,7 +22,6 @@ export const metadata: Metadata = {
 const trustBadges = [
   { value: "20+", label: "Años de Experiencia" },
   { value: "4", label: "Países con Alianzas" },
-  { value: "★★★★★", label: "Satisfacción de Clientes" },
 ];
 
 const pymesPainPoints = [
@@ -173,6 +173,17 @@ export default function Home() {
                     <span className={styles.trustLabel}>{b.label}</span>
                   </div>
                 ))}
+                {/* Contador animado */}
+                <div className={styles.trustBadge}>
+                  <CounterBadge
+                    target={500}
+                    prefix="+"
+                    label="Líderes Transformados"
+                    duration={1400}
+                    valueClassName={styles.trustValue}
+                    labelClassName={styles.trustLabel}
+                  />
+                </div>
               </div>
 
               <div className={styles.heroCtas}>
