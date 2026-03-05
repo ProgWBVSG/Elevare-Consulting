@@ -51,6 +51,7 @@ export const metadata: Metadata = {
 };
 
 import FloatingWidgets from "./components/FloatingWidgets";
+import LoadingScreen from "./components/LoadingScreen";
 
 export default function RootLayout({
   children,
@@ -89,6 +90,7 @@ export default function RootLayout({
         />
       </head>
       <body>
+        <LoadingScreen />
         {children}
         <FloatingWidgets />
       </body>
