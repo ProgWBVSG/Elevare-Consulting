@@ -1,0 +1,7 @@
+remote: error: Trace: c07b4a4f37bd5cfa105d482e45e7996da46b8262cf382d71e0ba7f4a7674ea9f        
+remote: error: See https://gh.io/lfs for more information.        
+remote: error: File public/testimonio-1.mp4 is 180.12 MB; this exceeds GitHub's file size limit of 100.00 MB        
+remote: error: GH001: Large files detected. You may want to try Git Large File Storage - https://git-lfs.github.com.        
+To https://github.com/ProgWBVSG/Elevare-Consulting.git
+ ! [remote rejected] master -> master (pre-receive hook declined)
+error: failed to push some refs to 'https://github.com/ProgWBVSG/Elevare-Consulting.git'
