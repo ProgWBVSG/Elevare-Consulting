@@ -226,7 +226,7 @@
    ============================================= */
 .painPointsGrid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
   gap: var(--space-8);
 }
 
@@ -307,7 +307,7 @@
    ============================================= */
 .servicesGrid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr));
   gap: var(--space-8);
   max-width: 900px;
   margin: 0 auto;
@@ -422,7 +422,7 @@
 
 .diffGrid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr));
   gap: var(--space-6);
 }
 
@@ -647,7 +647,7 @@
 
 .ctaBox {
   display: grid;
-  grid-template-columns: 1fr 380px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
   gap: var(--space-16);
   align-items: center;
 }
@@ -840,7 +840,7 @@
   }
 
   .heroTitle {
-    font-size: 2.25rem;
+    font-size: clamp(1.75rem, 7vw, 2.5rem);
     font-weight: 800;
     line-height: 1.15;
     margin-bottom: 1.5rem;
@@ -857,7 +857,7 @@
   }
 
   .heroSubtitle {
-    font-size: 1rem;
+    font-size: clamp(0.9rem, 3.5vw, 1.05rem);
     line-height: 1.75;
     margin-bottom: 2.5rem;
     max-width: 100%;
@@ -952,25 +952,20 @@
 
 @media (max-width: 480px) {
   .diffGrid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 
   .heroTitle {
-    font-size: 2rem;
+    font-size: clamp(1.5rem, 6vw, 1.9rem);
   }
 
   .trustBadges {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0.5rem;
+    gap: 1.25rem;
   }
 
   .heroCtas .btn {
     font-size: 0.95rem;
     min-height: 52px;
-  }
-
-  .ctaBox {
-    grid-template-columns: 1fr;
   }
 }
 
