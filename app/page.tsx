@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
+import {
+  Target, RefreshCw, Settings, TrendingDown, HelpCircle,
+  Eye, Users, Zap, Wrench, Compass,
+  Building2, Crown, Trophy, Brain, Scale, Globe,
+  Sparkles, Star, CheckCircle, ArrowRight, ChevronRight
+} from "lucide-react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import LeadMagnetForm from "./components/LeadMagnetForm";
@@ -25,24 +31,24 @@ const trustBadges = [
 ];
 
 const pymesPainPoints = [
-  { icon: "🎯", title: "Tu equipo gerencial no lidera como esperabas", desc: "Invirtieron en capacitaciones, pero los mandos medios siguen sin tomar decisiones autónomas." },
-  { icon: "🔄", title: "Alta rotación y conflictos internos constantes", desc: "El clima laboral es tenso. Personas valiosas renuncian y cada día es apagar un incendio." },
-  { icon: "⚙️", title: "Procesos ineficientes que nadie soluciona", desc: "Todos lo saben, nadie actúa. Las reuniones no producen resultados concretos." },
-  { icon: "📉", title: "Falta de cultura de alto rendimiento", desc: "Tu empresa sobrevive, pero no prospera. Buscás un equipo que piense como dueños." },
-  { icon: "❓", title: "No sabés cómo implementar coaching interno efectivo", desc: "Sabés que el coaching puede ayudar, pero no tenés claridad sobre cómo hacerlo bien." },
+  { Icon: Target, title: "Tu equipo gerencial no lidera como esperabas", desc: "Invirtieron en capacitaciones, pero los mandos medios siguen sin tomar decisiones autónomas." },
+  { Icon: RefreshCw, title: "Alta rotación y conflictos internos constantes", desc: "El clima laboral es tenso. Personas valiosas renuncian y cada día es apagar un incendio." },
+  { Icon: Settings, title: "Procesos ineficientes que nadie soluciona", desc: "Todos lo saben, nadie actúa. Las reuniones no producen resultados concretos." },
+  { Icon: TrendingDown, title: "Falta de cultura de alto rendimiento", desc: "Tu empresa sobrevive, pero no prospera. Buscás un equipo que piense como dueños." },
+  { Icon: HelpCircle, title: "No sabés cómo implementar coaching interno efectivo", desc: "Sabés que el coaching puede ayudar, pero no tenés claridad sobre cómo hacerlo bien." },
 ];
 
 const ejecutivasPainPoints = [
-  { icon: "🪞", title: "Síndrome del impostor en tu rol de liderazgo", desc: "Lográs resultados, pero seguís sintiendo que no sos suficiente para el puesto." },
-  { icon: "🤝", title: "Dificultad para delegar y gestionar equipos", desc: "Terminás haciendo todo vos misma porque es más rápido que explicarle a otros." },
-  { icon: "⚡", title: "Desgaste por doble carga profesional y personal", desc: "Trabajás el doble que tus pares para probar tu valor. El burnout está cerca." },
-  { icon: "🛠️", title: "Falta de herramientas concretas para el día a día", desc: "Los cursos de liderazgo son genéricos. Necesitás soluciones para TU situación específica." },
-  { icon: "🧭", title: "Soledad en la toma de decisiones estratégicas", desc: "Tenés responsabilidades enormes sin un espacio seguro donde pensar en voz alta." },
+  { Icon: Eye, title: "Síndrome del impostor en tu rol de liderazgo", desc: "Lográs resultados, pero seguís sintiendo que no sos suficiente para el puesto." },
+  { Icon: Users, title: "Dificultad para delegar y gestionar equipos", desc: "Terminás haciendo todo vos misma porque es más rápido que explicarle a otros." },
+  { Icon: Zap, title: "Desgaste por doble carga profesional y personal", desc: "Trabajás el doble que tus pares para probar tu valor. El burnout está cerca." },
+  { Icon: Wrench, title: "Falta de herramientas concretas para el día a día", desc: "Los cursos de liderazgo son genéricos. Necesitás soluciones para TU situación específica." },
+  { Icon: Compass, title: "Soledad en la toma de decisiones estratégicas", desc: "Tenés responsabilidades enormes sin un espacio seguro donde pensar en voz alta." },
 ];
 
 const services = [
   {
-    icon: "🏢",
+    Icon: Building2,
     title: "Coaching y Consultoría para Empresas",
     description: "Implementá un sistema profesional de coaching interno junto con la optimización de tus procesos. Desarrollamos líderes efectivos, reducimos conflictos y construimos organizaciones más eficientes y sostenibles.",
     benefits: ["Líderes internos que toman decisiones con autonomía", "Procesos eficientes que no dependen constantemente de vos", "Drástica reducción de la rotación y conflictos de equipo"],
@@ -51,7 +57,7 @@ const services = [
     color: "primary",
   },
   {
-    icon: "👑",
+    Icon: Crown,
     title: "Mentoría Ejecutiva para Mujeres",
     description: "Acompañamiento especializado para mujeres en posiciones de liderazgo. Desarrollá tu estilo de gestión auténtico, superá obstáculos y consolidá tu autoridad sin sacrificar tu bienestar.",
     benefits: ["Superación del síndrome del impostor", "Herramientas concretas para gestión diaria", "Red de apoyo y perspectiva externa calificada"],
@@ -63,27 +69,27 @@ const services = [
 
 const differentiators = [
   {
-    icon: "🏆",
+    Icon: Trophy,
     title: "20+ Años de Experiencia Comprobada",
     desc: "No somos coaches junior. Décadas de resultados reales en gestión empresarial y desarrollo de liderazgo en Argentina y LATAM.",
   },
   {
-    icon: "🧠",
+    Icon: Brain,
     title: "Coaching Ontológico Profundo",
     desc: "Transformación desde el SER, no solo técnicas superficiales. Los cambios que generamos son duraderos, no parches temporales.",
   },
   {
-    icon: "⚖️",
+    Icon: Scale,
     title: "Especialización Dual Única",
     desc: "Expertos tanto en gestión empresarial como en desarrollo de mujeres ejecutivas. Entendemos ambos mundos a profundidad.",
   },
   {
-    icon: "🌎",
+    Icon: Globe,
     title: "Red Internacional de Alianzas",
     desc: "Perspectivas y recursos de consultorías en Argentina, Paraguay, Uruguay y Chile. Una visión regional que pocos pueden ofrecer.",
   },
   {
-    icon: "⚡",
+    Icon: Zap,
     title: "Enfoque en Problemas del Día a Día",
     desc: "No solo teoría abstracta. Trabajamos con los desafíos reales que enfrentás hoy, con herramientas aplicables mañana mismo.",
   },
@@ -155,7 +161,8 @@ export default function Home() {
           <div className={`container ${styles.heroContainer}`}>
             <div className={styles.heroContent}>
               <div className={styles.heroBadge}>
-                <span>✨</span> Coaching Ontológico · 20+ Años de Experiencia · LATAM
+                <Sparkles size={14} />
+                Coaching Ontológico · 20+ Años de Experiencia · LATAM
               </div>
               <h1 className={styles.heroTitle}>
                 Transformá tu <span className={styles.highlightText}>Liderazgo</span><br />
@@ -231,13 +238,13 @@ export default function Home() {
               {/* PYMEs */}
               <div className={`card ${styles.painCard}`}>
                 <div className={styles.painCardHeader}>
-                  <span className={styles.painCardIcon}>🏢</span>
+                  <span className={styles.painCardIcon}><Building2 size={22} /></span>
                   <h3 className={styles.painCardTitle}>Para líderes y directivos de PYMEs</h3>
                 </div>
                 <ul className={styles.painList}>
                   {pymesPainPoints.map((p) => (
                     <li key={p.title} className={styles.painItem}>
-                      <span className={styles.painEmoji}>{p.icon}</span>
+                      <span className={styles.painEmoji}><p.Icon size={18} /></span>
                       <div>
                         <strong>{p.title}</strong>
                         <p>{p.desc}</p>
@@ -253,13 +260,13 @@ export default function Home() {
               {/* Mujeres Ejecutivas */}
               <div className={`card ${styles.painCard} ${styles.painCardSecondary}`}>
                 <div className={styles.painCardHeader}>
-                  <span className={styles.painCardIcon}>👑</span>
+                  <span className={styles.painCardIcon}><Crown size={22} /></span>
                   <h3 className={styles.painCardTitle}>Para mujeres ejecutivas y líderes</h3>
                 </div>
                 <ul className={styles.painList}>
                   {ejecutivasPainPoints.map((p) => (
                     <li key={p.title} className={styles.painItem}>
-                      <span className={styles.painEmoji}>{p.icon}</span>
+                      <span className={styles.painEmoji}><p.Icon size={18} /></span>
                       <div>
                         <strong>{p.title}</strong>
                         <p>{p.desc}</p>
@@ -294,18 +301,18 @@ export default function Home() {
                     />
                   </div>
                   <div className={styles.serviceContent}>
-                    <span className={styles.serviceIcon}>{service.icon}</span>
+                    <span className={styles.serviceIcon}><service.Icon size={26} /></span>
                     <h3 className={styles.serviceTitle}>{service.title}</h3>
                     <p className={styles.serviceDesc}>{service.description}</p>
                     <ul className={styles.serviceBenefits}>
                       {service.benefits.map((b) => (
                         <li key={b}>
-                          <span>✓</span> {b}
+                          <CheckCircle size={15} style={{ flexShrink: 0, marginTop: 2 }} /> {b}
                         </li>
                       ))}
                     </ul>
                     <Link href={service.href} className={`btn btn-outline ${styles.serviceBtn}`}>
-                      {service.cta} →
+                      {service.cta} <ArrowRight size={15} style={{ marginLeft: 4 }} />
                     </Link>
                   </div>
                 </div>
@@ -327,7 +334,7 @@ export default function Home() {
             <div className={`grid-${Math.ceil(differentiators.length / 1)} ${styles.diffGrid}`}>
               {differentiators.map((d) => (
                 <div key={d.title} className={styles.diffCard}>
-                  <span className={styles.diffIcon}>{d.icon}</span>
+                  <span className={styles.diffIcon}><d.Icon size={24} /></span>
                   <h4 className={styles.diffTitle}>{d.title}</h4>
                   <p className={styles.diffDesc}>{d.desc}</p>
                 </div>
