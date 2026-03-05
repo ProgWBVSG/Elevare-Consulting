@@ -243,3 +243,42 @@
         display: flex;
     }
 }
+
+@media (max-width: 768px) {
+
+    /* Header oscuro en mobile — se funde con el hero sin línea */
+    .header {
+        background: linear-gradient(135deg, #1A1A2E 0%, #2C5F9F 100%);
+        border-bottom: none;
+        box-shadow: none;
+    }
+
+    /* Logo text en blanco sobre fondo oscuro */
+    .logoName {
+        color: #fff;
+    }
+
+    .logoTagline {
+        color: rgba(255, 255, 255, 0.6);
+    }
+
+    /* Hamburger lines blancas */
+    .hamburgerLine {
+        background: #fff;
+    }
+
+    /* Menú mobile con fondo coherente */
+    .mobileMenu {
+        background: #1A1A2E;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .mobileLink {
+        color: rgba(255, 255, 255, 0.85);
+    }
+
+    .mobileLink:hover {
+        background: rgba(255, 255, 255, 0.1);
+        color: #fff;
+    }
+}
