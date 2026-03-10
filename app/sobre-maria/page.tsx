@@ -155,7 +155,7 @@ export default function SobreMaria() {
                         <div className="grid-2">
                             {values.map((v) => (
                                 <div key={v.title} className={`card ${styles.valueCard}`}>
-                                    <span className={styles.valueIcon}><v.Icon size={24} /></span>
+                                    <div className={styles.valueIcon}><v.Icon size={24} /></div>
                                     <div>
                                         <h4 className={styles.valueTitle}>{v.title}</h4>
                                         <p className={styles.valueDesc}>{v.desc}</p>
@@ -165,6 +165,8 @@ export default function SobreMaria() {
                         </div>
                     </div>
                 </section>
+
+                <div className="divider-ornament" aria-hidden="true"><span></span></div>
 
                 {/* Certifications */}
                 <section className="section bg-cream">

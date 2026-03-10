@@ -3,10 +3,11 @@
     top: 0;
     z-index: 100;
     background: rgba(255, 255, 255, 0.97);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--color-gray-200);
-    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04), 0 4px 20px rgba(0, 0, 0, 0.04);
+    transition: box-shadow var(--transition-base);
 }
 
 .inner {
@@ -77,11 +78,31 @@
     cursor: pointer;
     text-decoration: none;
     white-space: nowrap;
+    position: relative;
+}
+
+/* Underline deslizante desde el centro */
+.navLink::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+    border-radius: 2px;
+    transform: translateX(-50%);
+    transition: width var(--transition-base);
+}
+
+.navLink:hover::after,
+.navLink[aria-current="page"]::after {
+    width: calc(100% - var(--space-6));
 }
 
 .navLink:hover {
-    background: var(--color-cream);
     color: var(--color-primary);
+    background: rgba(44, 95, 159, 0.04);
 }
 
 .navLink svg {

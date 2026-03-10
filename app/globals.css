@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700&family=Open+Sans:wght@300;400;500;600;700&display=swap');
 
 /* =============================================
    DESIGN TOKENS — Elevare Consulting MG
@@ -64,6 +64,7 @@
   --radius-md: 8px;
   --radius-lg: 16px;
   --radius-xl: 24px;
+  --radius-2xl: 36px;
   --radius-full: 9999px;
 
   /* Shadows */
@@ -378,9 +379,21 @@ p {
 .section-label::before {
   content: '';
   display: block;
-  width: 24px;
+  width: 20px;
   height: 2px;
   background: var(--color-secondary);
+  border-radius: 2px;
+}
+
+.section-label::after {
+  content: '';
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  opacity: 0.7;
+  margin-left: 2px;
 }
 
 .section-title {
@@ -553,8 +566,174 @@ p {
   }
 }
 
+@keyframes floatY {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes drawLine {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes rotateGently {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .animate-fade-in-up {
   animation: fadeInUp 0.6s ease forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.5s ease forwards;
+}
+
+.animate-float {
+  animation: floatY 4s ease-in-out infinite;
+}
+
+/* =============================================
+   DESIGN UTILITIES — Marca Elevare
+   ============================================= */
+
+/* Texto con degradado de marca */
+.text-gradient {
+  background: linear-gradient(120deg, var(--color-primary) 0%, var(--color-secondary) 60%, var(--color-accent) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline;
+}
+
+/* Separador ornamental con rombo central */
+.divider-ornament {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin: var(--space-12) auto;
+  max-width: 200px;
+}
+
+.divider-ornament::before,
+.divider-ornament::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--color-gray-300));
+}
+
+.divider-ornament::after {
+  background: linear-gradient(to left, transparent, var(--color-gray-300));
+}
+
+.divider-ornament span {
+  width: 8px;
+  height: 8px;
+  border: 2px solid var(--color-secondary);
+  transform: rotate(45deg);
+  flex-shrink: 0;
+  display: block;
+}
+
+/* Bloque de dato estadístico */
+.stat-block {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-top: var(--space-3);
+  border-top: 3px solid var(--color-accent);
+}
+
+.stat-block__value {
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 800;
+  color: var(--color-dark);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.stat-block__label {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-gray-500);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* Pills de expertise */
+.tag-expertise {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-2) var(--space-5);
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  border: 1.5px solid;
+  transition: all var(--transition-base);
+  letter-spacing: 0.02em;
+}
+
+.tag-expertise--primary {
+  color: var(--color-primary);
+  border-color: rgba(44, 95, 159, 0.3);
+  background: rgba(44, 95, 159, 0.06);
+}
+
+.tag-expertise--primary:hover {
+  background: rgba(44, 95, 159, 0.12);
+  border-color: var(--color-primary);
+}
+
+.tag-expertise--green {
+  color: var(--color-secondary-dark);
+  border-color: rgba(92, 160, 132, 0.3);
+  background: rgba(92, 160, 132, 0.07);
+}
+
+.tag-expertise--green:hover {
+  background: rgba(92, 160, 132, 0.15);
+  border-color: var(--color-secondary);
 }
 
 /* =============================================

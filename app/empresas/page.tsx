@@ -88,6 +88,8 @@ export default function Empresas() {
                     </div>
                 </section>
 
+                <div className="divider-ornament" aria-hidden="true"><span></span></div>
+
                 {/* Pain points */}
                 <section className="section bg-cream">
                     <div className="container">
@@ -138,7 +140,7 @@ export default function Empresas() {
                         </div>
                         <div className={styles.processGrid}>
                             {process.map((step) => (
-                                <div key={step.step} className={styles.processCard}>
+                                <div key={step.step} className={styles.processCard} data-step={step.step}>
                                     <div className={styles.stepNumber}>{step.step}</div>
                                     <h3 className={styles.processTitle}>{step.title}</h3>
                                     <p className={styles.processDesc}>{step.desc}</p>

@@ -221,6 +221,9 @@ export default function Home() {
             <span>Scrolleá para descubrir</span>
             <div className={styles.scrollArrow}>↓</div>
           </div>
+
+          {/* Círculo decorativo */}
+          <div className={styles.heroDecorCircle} aria-hidden="true" />
         </section>
 
         {/* ============ PAIN POINTS — DOS AUDIENCIAS ============ */}
@@ -334,7 +337,7 @@ export default function Home() {
             <div className={`grid-${Math.ceil(differentiators.length / 1)} ${styles.diffGrid}`}>
               {differentiators.map((d) => (
                 <div key={d.title} className={styles.diffCard}>
-                  <span className={styles.diffIcon}><d.Icon size={24} /></span>
+                  <div className={styles.diffIcon}><d.Icon size={20} /></div>
                   <h4 className={styles.diffTitle}>{d.title}</h4>
                   <p className={styles.diffDesc}>{d.desc}</p>
                 </div>
