@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./Header.module.css";
 
 const navLinks = [
@@ -22,9 +22,18 @@ const navLinks = [
 export default function Header() {
     const [menuOpen, setMenuOpen] = useState(false);
     const [dropdownOpen, setDropdownOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 20);
+        };
+        window.addEventListener("scroll", handleScroll, { passive: true });
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     return (
-        <header className={styles.header}>
+        <header className={`${styles.header} ${scrolled ? styles.headerScrolled : ""}`}>
             <div className={`container ${styles.inner}`}>
                 {/* Logo */}
                 <Link href="/" className={styles.logo}>

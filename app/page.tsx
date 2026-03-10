@@ -325,26 +325,51 @@ export default function Home() {
         </section>
 
         {/* ============ POR QUÉ ELEVARE ============ */}
-        <section className={`section bg-gradient-primary`}>
+        <section className={styles.diffSection}>
+          {/* Elemento decorativo de fondo */}
+          <div className={styles.diffBgOrb} aria-hidden="true" />
+          <div className={styles.diffBgOrbTwo} aria-hidden="true" />
+
           <div className="container">
-            <div className="text-center" style={{ marginBottom: "4rem" }}>
-              <span className={`section-label ${styles.labelLight}`}>Nuestros Diferenciadores</span>
-              <h2 className="section-title" style={{ color: "#fff" }}>
-                Por qué líderes y empresas eligen Elevare
-              </h2>
+            <div className={styles.diffHeader}>
+              <div className={styles.diffHeaderLeft}>
+                <span className={`section-label ${styles.labelLight}`}>¿Por qué Elevare?</span>
+                <h2 className={styles.diffSectionTitle}>
+                  Líderes más efectivos.<br />
+                  <em>Equipos más rentables.</em>
+                </h2>
+              </div>
+              <p className={styles.diffHeaderDesc}>
+                Mientras otros facilitan talleres, nosotros acompañamos la implementación hasta ver el cambio real. Diagnóstico concreto, ejecución directa, resultados medibles.
+              </p>
             </div>
 
-            <div className={`grid-${Math.ceil(differentiators.length / 1)} ${styles.diffGrid}`}>
-              {differentiators.map((d) => (
-                <div key={d.title} className={styles.diffCard}>
-                  <div className={styles.diffIcon}><d.Icon size={20} /></div>
-                  <h4 className={styles.diffTitle}>{d.title}</h4>
-                  <p className={styles.diffDesc}>{d.desc}</p>
+            <div className={styles.diffLayout}>
+              {/* Tarjeta destacada — primera */}
+              {differentiators.slice(0, 1).map(({ Icon: FIcon, title, desc }) => (
+                <div key={title} className={styles.diffCardFeatured}>
+                  <span className={styles.diffNum}>01</span>
+                  <div className={styles.diffIconLg}><FIcon size={28} /></div>
+                  <h3 className={styles.diffTitleFeatured}>{title}</h3>
+                  <p className={styles.diffDescFeatured}>{desc}</p>
+                  <div className={styles.diffAccentLine} />
                 </div>
               ))}
+
+              {/* Grid 2×2 con el resto */}
+              <div className={styles.diffSubGrid}>
+                {differentiators.slice(1).map(({ Icon: DIcon, title, desc }, i) => (
+                  <div key={title} className={styles.diffCardSmall}>
+                    <span className={styles.diffNumSm}>0{i + 2}</span>
+                    <div className={styles.diffIconSm}><DIcon size={18} /></div>
+                    <h4 className={styles.diffTitleSm}>{title}</h4>
+                    <p className={styles.diffDescSm}>{desc}</p>
+                  </div>
+                ))}
+              </div>
             </div>
 
-            <div className="text-center" style={{ marginTop: "3rem" }}>
+            <div className={styles.diffFooter}>
               <Link href="/sobre-maria" className="btn btn-outline-white btn-lg">
                 Conocé la historia de Elevare →
               </Link>

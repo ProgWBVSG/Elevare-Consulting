@@ -1,13 +1,22 @@
 .header {
-    position: sticky;
+    position: fixed;
     top: 0;
-    z-index: 100;
-    background: rgba(255, 255, 255, 0.97);
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.92);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border-bottom: 1px solid rgba(0, 0, 0, 0.06);
     box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04), 0 4px 20px rgba(0, 0, 0, 0.04);
-    transition: box-shadow var(--transition-base);
+    transition: background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* Estado con scroll — fondo más denso y sombra pronunciada */
+.headerScrolled {
+    background: rgba(255, 255, 255, 0.98) !important;
+    border-bottom-color: rgba(0, 0, 0, 0.1) !important;
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.04), 0 8px 32px rgba(0, 0, 0, 0.12) !important;
 }
 
 .inner {
@@ -267,39 +276,42 @@
 
 @media (max-width: 768px) {
 
-    /* Header oscuro en mobile — se funde con el hero sin línea */
+    /* Header blanco en mobile — coherente con sticky al hacer scroll */
     .header {
-        background: linear-gradient(135deg, #1A1A2E 0%, #2C5F9F 100%);
-        border-bottom: none;
-        box-shadow: none;
+        background: rgba(255, 255, 255, 0.95);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
     }
 
-    /* Logo text en blanco sobre fondo oscuro */
-    .logoName {
-        color: #fff;
+    .logoMain {
+        color: var(--color-dark);
     }
 
-    .logoTagline {
-        color: rgba(255, 255, 255, 0.6);
+    .logoSub {
+        color: var(--color-gray-500);
     }
 
-    /* Hamburger lines blancas */
-    .hamburgerLine {
-        background: #fff;
+    /* Hamburger lines oscuras */
+    .bar,
+    .barOpen,
+    .barOpenReverse,
+    .barHidden {
+        background: var(--color-dark);
     }
 
-    /* Menú mobile con fondo coherente */
+    /* Menú mobile blanco y limpio */
     .mobileMenu {
-        background: #1A1A2E;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        background: rgba(255, 255, 255, 0.98);
+        border-top: 1px solid rgba(0, 0, 0, 0.08);
+        backdrop-filter: blur(16px);
     }
 
     .mobileLink {
-        color: rgba(255, 255, 255, 0.85);
+        color: var(--color-dark);
     }
 
     .mobileLink:hover {
-        background: rgba(255, 255, 255, 0.1);
-        color: #fff;
+        background: var(--color-cream);
+        color: var(--color-primary);
     }
 }

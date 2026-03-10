@@ -469,7 +469,7 @@
 }
 
 /* =============================================
-   DIFFERENTIATORS
+   DIFFERENTIATORS — Nuevo diseño asimétrico
    ============================================= */
 .labelLight {
   color: rgba(255, 255, 255, 0.5) !important;
@@ -479,85 +479,225 @@
   background: rgba(255, 255, 255, 0.3) !important;
 }
 
-.diffGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr));
-  gap: var(--space-5);
-  counter-reset: diff-counter;
+/* Sección propia con fondo oscuro fuerte */
+.diffSection {
+  position: relative;
+  padding: var(--space-24) 0;
+  background: linear-gradient(160deg, #0f1628 0%, #192340 45%, #1a2d52 100%);
+  overflow: hidden;
 }
 
-.diffCard {
-  background: rgba(255, 255, 255, 0.05);
+/* Orbes decorativos de fondo */
+.diffBgOrb {
+  position: absolute;
+  top: -80px;
+  right: -120px;
+  width: 480px;
+  height: 480px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(92, 160, 132, 0.1) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.diffBgOrbTwo {
+  position: absolute;
+  bottom: -100px;
+  left: -80px;
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(44, 95, 159, 0.15) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+/* Header de la sección — dos columnas */
+.diffHeader {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-12);
+  align-items: end;
+  margin-bottom: var(--space-16);
+}
+
+.diffHeaderLeft {
+  min-width: 0;
+}
+
+.diffSectionTitle {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-family: var(--font-heading);
+  font-weight: 800;
+  color: var(--color-white);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-top: var(--space-4);
+}
+
+.diffSectionTitle em {
+  font-style: italic;
+  font-weight: 300;
+  color: transparent;
+  background: linear-gradient(120deg, #7ec8a8 0%, #5ca084 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.diffHeaderDesc {
+  font-size: var(--text-base);
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.8;
+  max-width: 420px;
+  align-self: end;
+  padding-bottom: 4px;
+}
+
+/* Layout asimétrico: tarjeta grande + grid */
+.diffLayout {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: var(--space-6);
+  align-items: stretch;
+}
+
+/* Tarjeta destacada (primera) */
+.diffCardFeatured {
+  background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: var(--radius-lg);
-  padding: var(--space-6) var(--space-5);
-  text-align: left;
-  transition: all var(--transition-slow);
+  border-radius: 20px;
+  padding: var(--space-10) var(--space-8);
   position: relative;
   overflow: hidden;
-  counter-increment: diff-counter;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.4s ease;
 }
 
-/* Número de orden translúcido como decoración de fondo */
-.diffCard::before {
-  content: counter(diff-counter, decimal-leading-zero);
-  position: absolute;
-  bottom: -10px;
-  right: -4px;
+.diffCardFeatured:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(92, 160, 132, 0.35);
+  transform: translateY(-4px);
+}
+
+/* Número editorial grande */
+.diffNum {
   font-family: var(--font-heading);
-  font-size: 5rem;
+  font-size: 4.5rem;
   font-weight: 900;
-  color: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.06);
   line-height: 1;
+  display: block;
   letter-spacing: -0.05em;
-  pointer-events: none;
+  margin-bottom: var(--space-3);
   user-select: none;
 }
 
-/* Borde superior con acento de color que varía */
-.diffCard::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, var(--color-secondary) 0%, var(--color-primary-light) 100%);
-  opacity: 0;
-  transition: opacity var(--transition-base);
-}
-
-.diffCard:hover::after {
-  opacity: 1;
-}
-
-.diffCard:hover {
-  background: rgba(255, 255, 255, 0.09);
-  border-color: rgba(255, 255, 255, 0.18);
-  transform: translateY(-5px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-}
-
-.diffIcon {
-  width: 44px;
-  height: 44px;
-  background: rgba(92, 160, 132, 0.15);
-  border: 1px solid rgba(92, 160, 132, 0.25);
-  border-radius: var(--radius-md);
+.diffIconLg {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: rgba(92, 160, 132, 0.18);
+  border: 1px solid rgba(92, 160, 132, 0.3);
   display: flex;
   align-items: center;
   justify-content: center;
+  color: #7ec8a8;
+  margin-bottom: var(--space-6);
+  transition: all 0.3s ease;
+}
+
+.diffCardFeatured:hover .diffIconLg {
+  background: rgba(92, 160, 132, 0.3);
+  transform: scale(1.05);
+}
+
+.diffTitleFeatured {
+  font-size: var(--text-2xl);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--color-white);
+  line-height: 1.3;
   margin-bottom: var(--space-4);
-  color: var(--color-secondary-light);
-  transition: all var(--transition-base);
 }
 
-.diffCard:hover .diffIcon {
+.diffDescFeatured {
+  font-size: var(--text-base);
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.8;
+  flex: 1;
+}
+
+/* Línea de acento diagonal en la tarjeta featured */
+.diffAccentLine {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #5ca084 0%, #2c5f9f 80%, transparent 100%);
+  border-radius: 0 0 20px 20px;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.diffCardFeatured:hover .diffAccentLine {
+  opacity: 1;
+}
+
+/* Sub-grid 2×2 */
+.diffSubGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+}
+
+.diffCardSmall {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: var(--space-6);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.35s ease;
+}
+
+.diffCardSmall:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.25);
+}
+
+.diffNumSm {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.07);
+  line-height: 1;
+  display: block;
+  letter-spacing: -0.04em;
+  margin-bottom: var(--space-2);
+  user-select: none;
+}
+
+.diffIconSm {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: rgba(92, 160, 132, 0.14);
+  border: 1px solid rgba(92, 160, 132, 0.22);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #7ec8a8;
+  margin-bottom: var(--space-4);
+  transition: all 0.3s ease;
+}
+
+.diffCardSmall:hover .diffIconSm {
   background: rgba(92, 160, 132, 0.25);
-  transform: scale(1.08);
 }
 
-.diffTitle {
+.diffTitleSm {
   font-size: var(--text-sm);
   font-weight: 700;
   color: var(--color-white);
@@ -565,10 +705,47 @@
   line-height: 1.4;
 }
 
-.diffDesc {
+.diffDescSm {
   font-size: var(--text-xs);
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.48);
   line-height: 1.75;
+}
+
+/* Footer de la sección */
+.diffFooter {
+  text-align: center;
+  margin-top: var(--space-12);
+}
+
+/* Responsive — tablet */
+@media (max-width: 900px) {
+  .diffHeader {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  .diffHeaderDesc {
+    max-width: 100%;
+  }
+
+  .diffLayout {
+    grid-template-columns: 1fr;
+  }
+
+  .diffSubGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Responsive — mobile */
+@media (max-width: 500px) {
+  .diffSubGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .diffNum {
+    font-size: 3rem;
+  }
 }
 
 /* =============================================
