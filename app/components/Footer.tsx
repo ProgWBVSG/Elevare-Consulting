@@ -35,7 +35,7 @@ export default function Footer() {
                                 </span>
                             </Link>
                             <p className={styles.tagline}>
-                                Transformamos líderes y organizaciones con coaching ontológico y mentoría especializada para mujeres ejecutivas.
+                                Firma especializada en Desarrollo Organizacional. Convertimos el comportamiento en una ventaja competitiva concreta.
                             </p>
                             {/* Social */}
                             <div className={styles.social}>

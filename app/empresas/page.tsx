@@ -6,11 +6,11 @@ import Footer from "@/app/components/Footer";
 import styles from "../service.module.css";
 
 export const metadata: Metadata = {
-    title: "Coaching y Consultoría para Empresas | Elevare Consulting MG",
+    title: "Desarrollo Organizacional para Empresas | Elevare Consulting",
     description:
-        "Implementá un sistema de coaching interno y optimizá tus procesos. Desarrollamos líderes efectivos, reducimos la rotación y construimos cultura de alto rendimiento. 20+ años de experiencia. Consultá gratis.",
+        "Analizamos cultura, procesos y dinámicas de liderazgo para identificar los patrones que impulsan o limitan el desempeño. Diseñamos e implementamos soluciones con cambios medibles y sostenibles. Consultá gratis.",
     openGraph: {
-        title: "Coaching y Consultoría para Empresas | Elevare Consulting MG",
+        title: "Desarrollo Organizacional para Empresas | Elevare Consulting",
         url: "https://elevareconsultingmg.com/empresas",
     },
 };
@@ -24,10 +24,10 @@ const painPoints = [
 ];
 
 const process = [
-    { step: "01", title: "Diagnóstico Integral", desc: "Analizamos la situación de tu empresa: estructura de liderazgo, clima organizacional y mapeamos tus procesos actuales. Identificamos los puntos críticos con datos." },
-    { step: "02", title: "Diseño del Sistema a Medida", desc: "Co-creamos un plan de implementación personalizado. El conocimiento está en tu organización, nosotros aportamos la metodología y perspectiva externa." },
-    { step: "03", title: "Implementación con Acompañamiento", desc: "Trabajamos junto a tu equipo. Formamos líderes internos, gestionamos la resistencia al cambio y creamos sistemas sostenibles y documentados." },
-    { step: "04", title: "Medición y Ajuste Continuo", desc: "Monitoreamos el progreso con KPIs concretos. Ajustamos el proceso hasta que funcione solo. El coaching ontológico genera transformación profunda y medible." },
+    { step: "01", title: "Diagnóstico Profundo", desc: "Analizamos cultura, procesos y dinámicas de liderazgo para identificar los patrones que impulsan o limitan el desempeño. Partimos siempre de datos reales de tu organización." },
+    { step: "02", title: "Diseño Estratégico", desc: "Diseñamos soluciones que alinean hábitos, prácticas de gestión y objetivos de negocio. El plan es 100% a medida: no hay plantillas genéricas." },
+    { step: "03", title: "Implementación y Acompañamiento", desc: "Ejecutamos directamente junto a tu equipo. Optimizamos procesos, fortalecemos la responsabilidad ejecutiva y desarrollamos las conductas clave que elevan la performance." },
+    { step: "04", title: "Resultados Medibles y Sostenibles", desc: "Aseguramos cambios que se mantienen en el tiempo. Convertimos el comportamiento organizacional en una ventaja competitiva concreta para tu empresa." },
 ];
 
 const benefits = [
@@ -59,9 +59,9 @@ export default function Empresas() {
                                     <Link href="/">Inicio</Link> / <Link href="/servicios">Servicios</Link> / <span>Empresas</span>
                                 </nav>
                                 <span className={`section-label ${styles.labelWhite}`}>Para PYMEs y Empresas</span>
-                                <h1 className={styles.heroTitle}>Coaching Interno y Consultoría de Procesos</h1>
+                                <h1 className={styles.heroTitle}>Desarrollo Organizacional para Empresas</h1>
                                 <p className={styles.heroDesc}>
-                                    Desarrollamos líderes auténticos, optimizamos tus operaciones y construimos cultura de alto rendimiento. Resultados que no dependen de tu presencia constante.
+                                    Analizamos cultura, procesos y dinámicas de liderazgo para diseñar e implementar soluciones que alinean hábitos, prácticas de gestión y objetivos de negocio — con cambios medibles y sostenibles.
                                 </p>
                                 <div className={styles.heroCtas}>
                                     <Link href="/contacto" className="btn btn-primary btn-lg">

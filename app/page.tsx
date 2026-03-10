@@ -14,13 +14,13 @@ import CounterBadge from "./components/CounterBadge";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
-  title: "Coaching Ontológico Empresarial | 20 Años Transformando Líderes | Elevare",
+  title: "Desarrollo Organizacional | Elevare Consulting | LATAM",
   description:
-    "Desarrollá líderes conscientes y equipos de alto rendimiento con coaching ontológico. Mentoría especializada para mujeres ejecutivas en Argentina y LATAM. Agenda tu sesión exploratoria gratuita.",
+    "Elevare Consulting transforma resultados a través del diseño estratégico del comportamiento. Analizamos cultura, procesos y dinámicas de liderazgo. Coaching ejecutivo, consultoría organizacional y mentoría para mujeres líderes en Argentina y LATAM.",
   openGraph: {
-    title: "Elevare Consulting MG | Coaching Ontológico y Mentoría Ejecutiva en LATAM",
+    title: "Elevare Consulting | Desarrollo Organizacional & Liderazgo · LATAM",
     description:
-      "20+ años transformando líderes y PYMEs. Mentoría especializada para mujeres ejecutivas. Agenda tu sesión gratuita.",
+      "Firma especializada en Desarrollo Organizacional. Convertimos el comportamiento organizacional en una ventaja competitiva concreta. Agenda tu diagnóstico gratuito.",
     url: "https://elevareconsultingmg.com",
   },
 };
@@ -70,28 +70,28 @@ const services = [
 const differentiators = [
   {
     Icon: Trophy,
-    title: "20+ Años de Experiencia Comprobada",
-    desc: "No somos coaches junior. Décadas de resultados reales en gestión empresarial y desarrollo de liderazgo en Argentina y LATAM.",
+    title: "Diagnóstico Profundo",
+    desc: "Identificamos los patrones culturales, de proceso y liderazgo que impulsan o limitan el desempeño. Nada de soluciones genéricas: partimos de datos reales de tu organización.",
   },
   {
     Icon: Brain,
-    title: "Coaching Ontológico Profundo",
-    desc: "Transformación desde el SER, no solo técnicas superficiales. Los cambios que generamos son duraderos, no parches temporales.",
+    title: "Diseño Estratégico del Comportamiento",
+    desc: "Diseñamos e implementamos soluciones que alinean hábitos, prácticas de gestión y objetivos de negocio. La transformación es intencional, no accidental.",
   },
   {
     Icon: Scale,
-    title: "Especialización Dual Única",
-    desc: "Expertos tanto en gestión empresarial como en desarrollo de mujeres ejecutivas. Entendemos ambos mundos a profundidad.",
+    title: "Responsabilidad Ejecutiva",
+    desc: "Fortalecemos la responsabilidad en los equipos de liderazgo y desarrollamos las conductas clave que elevan la performance individual y colectiva.",
   },
   {
     Icon: Globe,
-    title: "Red Internacional de Alianzas",
-    desc: "Perspectivas y recursos de consultorías en Argentina, Paraguay, Uruguay y Chile. Una visión regional que pocos pueden ofrecer.",
+    title: "Análisis + Ejecución Directa",
+    desc: "Nuestro enfoque integra análisis, diseño estratégico y ejecución directa. No solo recomendamos: acompañamos la implementación hasta ver resultados medibles.",
   },
   {
     Icon: Zap,
-    title: "Enfoque en Problemas del Día a Día",
-    desc: "No solo teoría abstracta. Trabajamos con los desafíos reales que enfrentás hoy, con herramientas aplicables mañana mismo.",
+    title: "Cambios Medibles y Sostenibles",
+    desc: "Convertimos el comportamiento organizacional en una ventaja competitiva concreta. Los resultados que generamos se mantienen en el tiempo.",
   },
 ];
 
@@ -169,7 +169,7 @@ export default function Home() {
                 <em>y el de tu Organización</em>
               </h1>
               <p className={styles.heroSubtitle}>
-                Acompañamos a PYMEs y mujeres ejecutivas en Argentina y LATAM a alcanzar su máximo potencial con coaching ontológico profundo — no soluciones superficiales.
+                Firma especializada en Desarrollo Organizacional que transforma resultados a través del diseño estratégico del comportamiento. Analizamos cultura, procesos y dinámicas de liderazgo para convertirlos en una ventaja competitiva concreta.
               </p>
 
               {/* Trust badges */}

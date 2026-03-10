@@ -6,37 +6,38 @@ import Footer from "@/app/components/Footer";
 import styles from "./sobreMaria.module.css";
 
 export const metadata: Metadata = {
-    title: "Sobre María Gómez | Coaching Ontológico 20+ Años | Elevare Consulting MG",
+    title: "Sobre María Gómez | Coach Ejecutiva & Consultora de Liderazgo | Elevare Consulting",
     description:
-        "Conocé la trayectoria de María Gómez: 20+ años en coaching ontológico y desarrollo de liderazgo empresarial. Presencia en Argentina, Paraguay, Uruguay y Chile. Metodología y filosofía de trabajo.",
+        "Conocé la trayectoria de María Gómez: 20+ años liderando equipos de más de 470 personas, gestión multinacional y coaching ejecutivo. Fundadora de Elevare Consulting y Directora Asociada de la Cámara de Comercio de Mujeres de EE.UU.",
     openGraph: {
-        title: "María Gómez | Fundadora Elevare Consulting MG",
+        title: "María Gómez | Fundadora Elevare Consulting",
         url: "https://elevareconsultingmg.com/sobre-maria",
     },
 };
 
 const timeline = [
-    { year: "2004", title: "Inicio de la trayectoria en coaching", desc: "Primeras certificaciones en coaching ejecutivo y comienzo del trabajo con líderes empresariales en el ámbito corporativo de Argentina." },
-    { year: "2008", title: "Especialización en Coaching Ontológico", desc: "Profundización en la metodología ontológica como herramienta de transformación profunda. Diferenciación del trabajo técnico al trabajo desde el SER del líder." },
-    { year: "2012", title: "Foco en mujeres ejecutivas", desc: "Identificación de la necesidad específica de acompañamiento para mujeres en posiciones de liderazgo. Desarrollo de metodología integrada técnico-emocional." },
-    { year: "2016", title: "Expansión regional y alianzas LATAM", desc: "Construcción de la red de alianzas con consultorías en Paraguay, Uruguay y Chile. Perspectiva regional para clientes con operaciones en múltiples países." },
-    { year: "2020", title: "Pandemia: adaptación al coaching virtual", desc: "Transición exitosa al formato virtual sin pérdida de profundidad en el proceso. Expansión de la capacidad de atención a clientes de toda la región." },
-    { year: "2024", title: "Fundación de Elevare Consulting MG", desc: "Consolidación de 20 años de experiencia en una estructura formal de consultoría, integrando todos los servicios bajo una propuesta de valor clara y diferenciada." },
+    { year: "2000+", title: "Inicio de trayectoria en liderazgo", desc: "Comienzo de una carrera sólida en gestión de equipos y operaciones de alto impacto, desarrollando habilidades de liderazgo humano y estratégico que marcarían más de dos décadas de trabajo." },
+    { year: "2008", title: "Gestión de equipos a gran escala", desc: "Dirección de equipos de más de 470 personas, coordinando proyectos multinacionales que integraron visión estratégica, liderazgo humano y capacidad de ejecución sostenida." },
+    { year: "2013", title: "Expansión multinacional en Latinoamérica", desc: "Gestión de operaciones complejas en diversos países de Latinoamérica, acompañando procesos de crecimiento y transformación organizacional en múltiples contextos culturales." },
+    { year: "2018", title: "Especialización en Coaching Ejecutivo", desc: "Profundización en coaching ejecutivo y organizacional, desarrollando la metodología propia de Inteligencia Relacional como herramienta para la toma de decisiones clave y el desarrollo de líderes." },
+    { year: "2022", title: "Directora Asociada – Cámara de Comercio de Mujeres de EE.UU.", desc: "Nombramiento como Directora Asociada del Miami Chapter de la Cámara de Comercio de Mujeres de EE.UU., consolidando presencia internacional y redes de alto nivel." },
+    { year: "2024", title: "Fundación de Elevare Consulting", desc: "Consolidación de más de 20 años de experiencia en una estructura formal de consultoría, integrando coaching ejecutivo, inteligencia relacional y optimización de procesos bajo una propuesta diferencial." },
 ];
 
 const values = [
-    { Icon: Brain, title: "Transformación desde el SER", desc: "El coaching ontológico trabaja en la raíz de los comportamientos — las creencias, el lenguaje y la emocionalidad que los generan. Sin esto, los cambios son superficiales." },
-    { Icon: Users, title: "Acompañamiento, no imposición", desc: "No llegamos con respuestas prediseñadas. Trabajamos desde las preguntas, la escucha y la co-creación. La solución está siempre en el cliente, nosotros ayudamos a encontrarla." },
-    { Icon: Zap, title: "Herramientas concretas para el día a día", desc: "La transformación debe verse en el lunes siguiente, no solo en los retiros de liderazgo. Combinamos profundidad ontológica con aplicabilidad inmediata." },
-    { Icon: Globe, title: "Perspectiva regional e inter-cultural", desc: "La red de alianzas en 4 países nos permite aportar perspectivas culturales diferentes y conectar a clientes con recursos y redes que trascienden sus mercados locales." },
+    { Icon: Brain, title: "Inteligencia Relacional", desc: "Mi metodología trabaja sobre las relaciones humanas que sostienen cada organización. Cuando mejorás cómo las personas se conectan, decidís y colaboran, los resultados llegan solos." },
+    { Icon: Users, title: "Personas y sistemas, en equilibrio", desc: "Ordeno, alineo y potencio equipos entendiendo que el resultado no está solo en las personas ni solo en los procesos: está en la intersección de ambos." },
+    { Icon: Zap, title: "Acompañamiento en la toma de decisiones", desc: "Más de 20 años tomando y facilitando decisiones clave me dieron la capacidad de acompañar a líderes en momentos críticos con precisión, foco y escucha genuina." },
+    { Icon: Globe, title: "Mirada estratégica + ejecución real", desc: "No separo la visión de la acción. He coordinado proyectos multinacionales integrando pensamiento estratégico con la capacidad de hacer. Eso es lo que ofrezco a cada cliente." },
 ];
 
 const certifications = [
-    "Certificación en Coaching Ontológico Profesional",
-    "Formación en Coaching Ejecutivo y Organizacional",
-    "Especialización en Liderazgo y Management Empresarial",
-    "Formación en Gestión del Cambio Organizacional",
-    "Miembro de la red de Coaching Ontológico Profesional LATAM",
+    "Coach Ejecutiva & Organizacional certificada",
+    "Especialista en Inteligencia Relacional y Comunicación Efectiva",
+    "Facilitadora de espacios de trabajo colaborativo y liderazgo consciente",
+    "Directora Asociada – Cámara de Comercio de Mujeres de EE.UU. (Miami Chapter)",
+    "Mentora para emprendedores y profesionales en expansión internacional",
+    "Fundadora de Elevare Consulting – Consultoría de Liderazgo y Desarrollo Organizacional",
 ];
 
 export default function SobreMaria() {
@@ -52,16 +53,16 @@ export default function SobreMaria() {
                                 <nav className={styles.breadcrumb}>
                                     <Link href="/">Inicio</Link> / <span>Sobre María</span>
                                 </nav>
-                                <span className={`section-label ${styles.labelGreen}`}>Fundadora de Elevare Consulting MG</span>
+                                <span className={`section-label ${styles.labelGreen}`}>Fundadora de Elevare Consulting</span>
                                 <h1 className={styles.heroTitle}>María Gómez</h1>
-                                <p className={styles.heroTagline}>Coach Ontológica · Consultora de Liderazgo · Mentora de Mujeres Ejecutivas</p>
+                                <p className={styles.heroTagline}>Coach Ejecutiva & Organizacional · Consultora en Desarrollo de Líderes · Especialista en Inteligencia Relacional</p>
                                 <div className={styles.heroBadges}>
-                                    <span className={styles.heroBadge}><Trophy size={14} /> 20+ años de experiencia</span>
-                                    <span className={styles.heroBadge}><Globe size={14} /> 4 países con alianzas</span>
-                                    <span className={styles.heroBadge}><UserCheck size={14} /> Especialista en mujeres líderes</span>
+                                    <span className={styles.heroBadge}><Trophy size={14} /> 20+ años liderando equipos</span>
+                                    <span className={styles.heroBadge}><Users size={14} /> +470 personas dirigidas</span>
+                                    <span className={styles.heroBadge}><Globe size={14} /> Presencia internacional</span>
                                 </div>
                                 <blockquote className={styles.heroQuote}>
-                                    <p>&ldquo;El liderazgo efectivo no empieza en las técnicas de gestión. Empieza en quién sos como persona y líder. Todo lo demás viene después.&rdquo;</p>
+                                    <p>&ldquo;Para que una organización sea exitosa, no alcanza con habilidades técnicas: necesita líderes capaces de desarrollar equipos altamente comprometidos.&rdquo;</p>
                                     <cite>— María Gómez</cite>
                                 </blockquote>
                                 <Link href="/contacto" className="btn btn-primary btn-lg">
@@ -77,8 +78,8 @@ export default function SobreMaria() {
                                 </div>
                                 <div className={styles.statsFloat}>
                                     <div className={styles.statItem}><strong>20+</strong><span>Años</span></div>
-                                    <div className={styles.statItem}><strong>4</strong><span>Países</span></div>
-                                    <div className={styles.statItem}><strong>★★★★★</strong><span>Clientes</span></div>
+                                    <div className={styles.statItem}><strong>470+</strong><span>Personas</span></div>
+                                    <div className={styles.statItem}><strong>LATAM</strong><span>Alcance</span></div>
                                 </div>
                             </div>
                         </div>
@@ -90,24 +91,21 @@ export default function SobreMaria() {
                     <div className="container" style={{ maxWidth: "1000px" }}>
                         <div className="text-center" style={{ marginBottom: "3rem" }}>
                             <span className="section-label">Mi Historia</span>
-                            <h2 className="section-title">Dos décadas aprendiendo lo que realmente transforma líderes</h2>
+                            <h2 className="section-title">Más de 20 años construyendo líderes que transforman organizaciones</h2>
                         </div>
                         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem', alignItems: 'center' }}>
                             <div className={styles.storyText}>
                                 <p>
-                                    Empecé mi carrera creyendo que el liderazgo era principalmente una cuestión de <strong>habilidades técnicas y metodologías</strong>. Que si un líder aprendía las herramientas correctas, los resultados seguirían naturalmente.
+                                    A lo largo de mi carrera he tenido el privilegio de <strong>dirigir equipos de más de 470 personas</strong>, coordinando proyectos multinacionales que demandaron integrar visión estratégica, liderazgo humano y capacidad de ejecución en simultáneo.
                                 </p>
                                 <p>
-                                    Veinte años después, tengo una certeza diferente: <strong>el liderazgo es, antes que nada, una cuestión del SER</strong>. Las creencias que un líder tiene sobre sí mismo, sobre su equipo y sobre lo que es posible son los determinantes reales de sus resultados.
+                                    Ese recorrido me llevó a gestionar operaciones complejas y acompañar procesos de crecimiento y transformación organizacional en <strong>diversos países de Latinoamérica</strong>. Aprendí que los resultados sostenibles no nacen de los procesos solos: nacen de los líderes que los impulsan.
                                 </p>
                                 <p>
-                                    El coaching ontológico me dio el marco para trabajar en esa profundidad. No en el comportamiento observable, sino en la estructura de observación que lo genera. Eso es lo que hace que los cambios sean duraderos y no meros parches temporales.
+                                    Mi valor diferencial está en la combinación de tres elementos que rara vez conviven: <strong>Inteligencia Relacional</strong>, optimización de procesos y acompañamiento genuino en la toma de decisiones clave. Trabajo sobre las personas y los sistemas — ordeno, alineo y potencio para lograr transformaciones reales.
                                 </p>
                                 <p>
-                                    A lo largo de los años, fui construyendo dos especializaciones que, a primera vista, parecen separadas pero están profundamente conectadas: el <strong>desarrollo de sistemas de coaching en organizaciones</strong> y el <strong>acompañamiento a mujeres en posiciones ejecutivas</strong>. En ambos casos, la transformación profunda del liderazgo es el elemento central.
-                                </p>
-                                <p>
-                                    Fundé Elevare Consulting MG para integrar 20 años de experiencia en una propuesta clara: acompañar a líderes y organizaciones a alcanzar su máximo potencial, con profundidad ontológica y enfoque práctico.
+                                    Hoy, desde Elevare Consulting y como <strong>Directora Asociada de la Cámara de Comercio de Mujeres de EE.UU. (Miami Chapter)</strong>, acompaño a líderes y organizaciones a alcanzar su máximo potencial con un enfoque profundamente humano y orientado a resultados.
                                 </p>
                             </div>
                             <div>
@@ -172,8 +170,8 @@ export default function SobreMaria() {
                 <section className="section bg-cream">
                     <div className="container" style={{ maxWidth: "800px" }}>
                         <div className="text-center" style={{ marginBottom: "3rem" }}>
-                            <span className="section-label">Formación y Credenciales</span>
-                            <h2 className="section-title">Experiencia respaldada por formación continua</h2>
+                            <span className="section-label">Credenciales y Roles</span>
+                            <h2 className="section-title">Una trayectoria que habla por sí sola</h2>
                         </div>
                         <div className={styles.certList}>
                             {certifications.map((cert) => (
@@ -183,9 +181,6 @@ export default function SobreMaria() {
                                 </div>
                             ))}
                         </div>
-                        <p className={styles.certNote}>
-                            * Las certificaciones específicas e instituciones se actualizarán con la información real de María.
-                        </p>
                     </div>
                 </section>
 
