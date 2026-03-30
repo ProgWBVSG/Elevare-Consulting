@@ -593,5 +593,7 @@
         left: auto;
         right: auto;
         margin-top: var(--space-6);
+        flex-direction: column;
+        gap: var(--space-4);
     }
 }
