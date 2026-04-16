@@ -1026,7 +1026,15 @@
 }
 
 .ctaFloatingIcon {
-  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: rgba(44, 95, 159, 0.08);
+  border-radius: var(--radius-md);
+  color: var(--color-primary);
+  flex-shrink: 0;
 }
 
 .ctaFloatingCard strong {
@@ -1261,7 +1269,7 @@
 
 @media (max-width: 480px) {
   .diffGrid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
   }
 
   .heroTitle {
@@ -1276,26 +1284,6 @@
     font-size: 0.95rem;
     min-height: 52px;
   }
-}
-
-@media (max-width: 480px) {
-  .diffGrid {
-    grid-template-columns: 1fr;
-  }
-
-  .heroTitle {
-    font-size: 2rem;
-  }
-
-  .trustBadges {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0.5rem;
-  }
-
-  .heroCtas .btn {
-    font-size: 0.95rem;
-    min-height: 52px;
-  }
 
   .ctaBox {
     grid-template-columns: 1fr;
@@ -1306,30 +1294,52 @@
   }
 }
 
-@media (max-width: 480px) {
-  .diffGrid {
-    grid-template-columns: 1fr;
-  }
+/* =============================================
+   NEWSLETTER SECTION
+   ============================================= */
+.newsletterBox {
+  max-width: 680px;
+  margin: 0 auto;
+  text-align: center;
+  background: var(--color-white);
+  padding: clamp(2rem, 5vw, 3.5rem) clamp(1.5rem, 4vw, 3rem);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--color-gray-200);
+}
 
-  .heroTitle {
-    font-size: 2rem;
-  }
+.newsletterTitle {
+  font-size: clamp(1.4rem, 3.5vw, 2rem);
+  font-family: var(--font-heading);
+  color: var(--color-dark);
+  line-height: 1.25;
+  margin-bottom: var(--space-4);
+  font-weight: 800;
+}
 
-  .trustBadges {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0.5rem;
-  }
+.newsletterDesc {
+  font-size: var(--text-base);
+  color: var(--color-gray-500);
+  line-height: 1.7;
+  margin-bottom: var(--space-8);
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
 
-  .heroCtas .btn {
-    font-size: 0.95rem;
-    min-height: 52px;
-  }
+.newsletterDisclaimer {
+  font-size: var(--text-xs);
+  color: var(--color-gray-500);
+  margin-top: var(--space-4);
+  line-height: 1.5;
+}
 
-  .ctaBox {
-    grid-template-columns: 1fr;
-  }
-
-  .ctaVisual {
-    display: none;
-  }
+/* =============================================
+   TESTIMONIAL STARS
+   ============================================= */
+.testimonialStars {
+  font-size: 0.95rem;
+  letter-spacing: 2px;
+  color: #f59e0b;
+  margin-bottom: -4px;
 }

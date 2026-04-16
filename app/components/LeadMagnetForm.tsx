@@ -5,7 +5,6 @@ import { supabase } from "@/lib/supabase";
 import styles from "./LeadMagnetForm.module.css";
 
 export default function LeadMagnetForm() {
-    const [nombre, setNombre] = useState("");
     const [email, setEmail] = useState("");
     const [submitted, setSubmitted] = useState(false);
     const [loading, setLoading] = useState(false);
@@ -13,32 +12,33 @@ export default function LeadMagnetForm() {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setLoading(true);
-        // Send to Supabase
+
+        // Save to Supabase
         await supabase.from("leads").insert([{
-            nombre,
+            nombre: "",
             email,
-            motivo: "Descarga Checklist",
+            motivo: "Newsletter",
         }]);
 
-        // Send directly to API Route (Sheets Integration)
+        // Send to Google Sheets integration
         try {
             await fetch("/api/leads-to-sheets", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
                     record: {
-                        nombre,
+                        nombre: "",
                         email,
                         telefono: "",
                         empresa: "",
-                        motivo: "Descarga Checklist",
+                        motivo: "Newsletter",
                         mensaje: "",
                         created_at: new Date().toISOString()
                     }
                 })
             });
         } catch (e) {
-            console.error("Error envoyando a sheets:", e);
+            console.error("Error enviando a sheets:", e);
         }
 
         setLoading(false);
@@ -55,15 +55,15 @@ export default function LeadMagnetForm() {
                         <path d="M13 22.5L19 28.5L31 16.5" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                 </div>
-                <h3 className={styles.successTitle}>¡Checklist enviado!</h3>
+                <h3 className={styles.successTitle}>¡Suscripción confirmada!</h3>
                 <p className={styles.successText}>
-                    Revisá tu casilla de correo — te lo estaremos enviando a la brevedad.
+                    Ya sos parte de nuestra comunidad. Pronto vas a recibir insights exclusivos de liderazgo en tu casilla.
                 </p>
                 <button
-                    onClick={() => { setSubmitted(false); setNombre(""); setEmail(""); }}
+                    onClick={() => { setSubmitted(false); setEmail(""); }}
                     className={styles.resetBtn}
                 >
-                    Volver al formulario
+                    Suscribir otro correo
                 </button>
             </div>
         );
@@ -71,25 +71,24 @@ export default function LeadMagnetForm() {
 
     return (
         <form onSubmit={handleSubmit} className={styles.form}>
-            <input
-                type="text"
-                placeholder="Tu Nombre"
-                required
-                value={nombre}
-                onChange={(e) => setNombre(e.target.value)}
-                className={styles.input}
-            />
-            <input
-                type="email"
-                placeholder="Tu Correo Electrónico"
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className={styles.input}
-            />
-            <button type="submit" className="btn btn-primary btn-lg" style={{ width: "100%" }} disabled={loading}>
-                {loading ? "Enviando..." : "Descargar Checklist Gratuito"}
-            </button>
+            <div className={styles.inputRow}>
+                <input
+                    type="email"
+                    placeholder="tu@email.com"
+                    required
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className={styles.input}
+                    aria-label="Tu correo electrónico"
+                />
+                <button
+                    type="submit"
+                    className={`btn btn-primary ${styles.submitBtn}`}
+                    disabled={loading}
+                >
+                    {loading ? "Enviando..." : "Suscribirme"}
+                </button>
+            </div>
         </form>
     );
 }

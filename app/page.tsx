@@ -388,10 +388,11 @@ export default function Home() {
             <div className="grid-3">
               {testimonials.map((t) => (
                 <div key={t.name} className={styles.testimonialCard}>
-                  <div className={styles.quoteIcon}>&ldquo;</div>
+                  <div className={styles.testimonialStars} aria-label="5 estrellas">★★★★★</div>
                   <p className={styles.testimonialText}>{t.text}</p>
                   <div className={styles.testimonialResult}>
-                    <span>★</span> {t.result}
+                    <CheckCircle size={13} style={{ display: 'inline', verticalAlign: 'middle', marginRight: 4 }} aria-hidden="true" />
+                    {t.result}
                   </div>
                   <div className={styles.testimonialAuthor}>
                     <div className={styles.testimonialAvatar}>
@@ -415,21 +416,20 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ============ LEAD MAGNET CAPTURE ============ */}
+        {/* ============ NEWSLETTER CAPTURE ============ */}
         <section className="section bg-cream">
-          <div className="container" style={{ maxWidth: '800px', textAlign: 'center' }}>
-            <div style={{ backgroundColor: '#fff', padding: '3rem', borderRadius: '16px', boxShadow: '0 4px 20px rgba(0,0,0,0.05)' }}>
-              <span className="section-label" style={{ display: 'inline-block', marginBottom: '1rem' }}>Recurso Gratuito Exclusivo</span>
-              <h2 className="section-title" style={{ fontSize: '1.8rem', marginBottom: '1.5rem' }}>
-                Checklist: 10 señales de que tu empresa necesita coaching interno profesional
+          <div className="container">
+            <div className={styles.newsletterBox}>
+              <span className="section-label">Newsletter de Liderazgo</span>
+              <h2 className={styles.newsletterTitle}>
+                Insights de liderazgo directo a tu inbox
               </h2>
-              <p style={{ marginBottom: '2rem', color: '#555' }}>
-                Realizá este autodiagnóstico rápido para descubrir si los conflictos internos y la ineficiencia están frenando el crecimiento de tu PYME.
+              <p className={styles.newsletterDesc}>
+                Estrategias concretas, casos reales y herramientas de coaching ejecutivo. Sin ruido, solo contenido que transforma. Una vez por semana.
               </p>
-
               <LeadMagnetForm />
-              <p style={{ fontSize: '0.85rem', color: '#888', marginTop: '1rem' }}>
-                Tu información es confidencial y no será compartida con terceros.
+              <p className={styles.newsletterDisclaimer}>
+                Sin spam. Podés desuscribirte cuando quieras.
               </p>
             </div>
           </div>
@@ -464,7 +464,9 @@ export default function Home() {
                     className={styles.ctaImage}
                   />
                   <div className={styles.ctaFloatingCard}>
-                    <span className={styles.ctaFloatingIcon}>🎯</span>
+                    <span className={styles.ctaFloatingIcon} aria-hidden="true">
+                      <Target size={22} strokeWidth={1.5} />
+                    </span>
                     <div>
                       <strong>Sesión Exploratoria</strong>
                       <span>30 min · Gratuita</span>
