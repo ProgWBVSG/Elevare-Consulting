@@ -14,14 +14,17 @@ import CounterBadge from "./components/CounterBadge";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
-  title: "Desarrollo Organizacional | Elevare Consulting | LATAM",
+  title: "Coaching Ontológico y Desarrollo Organizacional en Argentina | Elevare Consulting",
   description:
-    "Elevare Consulting transforma resultados a través del diseño estratégico del comportamiento. Analizamos cultura, procesos y dinámicas de liderazgo. Coaching ejecutivo, consultoría organizacional y mentoría para mujeres líderes en Argentina y LATAM.",
+    "Elevare Consulting: firma de coaching ontológico y desarrollo organizacional para PYMEs en Argentina y LATAM. Mentoría ejecutiva para mujeres líderes. Diagnóstico profundo, diseño estratégico del comportamiento y resultados medibles. 20+ años de experiencia. Sesión exploratoria gratuita.",
   openGraph: {
-    title: "Elevare Consulting | Desarrollo Organizacional & Liderazgo · LATAM",
+    title: "Elevare Consulting | Coaching Ontológico · Desarrollo Organizacional · LATAM",
     description:
-      "Firma especializada en Desarrollo Organizacional. Convertimos el comportamiento organizacional en una ventaja competitiva concreta. Agenda tu diagnóstico gratuito.",
+      "Transformamos líderes y organizaciones con coaching ontológico. Consultoría para PYMEs, mentoría para mujeres ejecutivas. Diagnóstico gratuito. Buenos Aires, Argentina.",
     url: "https://elevareconsultingmg.com",
+  },
+  alternates: {
+    canonical: "https://elevareconsultingmg.com",
   },
 };
 

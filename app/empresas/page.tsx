@@ -6,12 +6,16 @@ import Footer from "@/app/components/Footer";
 import styles from "../service.module.css";
 
 export const metadata: Metadata = {
-    title: "Desarrollo Organizacional para Empresas | Elevare Consulting",
+    title: "Coaching y Consultoría para Empresas | Desarrollo Organizacional | Elevare Consulting",
     description:
-        "Analizamos cultura, procesos y dinámicas de liderazgo para identificar los patrones que impulsan o limitan el desempeño. Diseñamos e implementamos soluciones con cambios medibles y sostenibles. Consultá gratis.",
+        "Consultoría de desarrollo organizacional para PYMEs en Argentina. Coaching ontológico empresarial, optimización de procesos, liderazgo de equipos y reducción de rotación. Diagnóstico gratuito. 20+ años de experiencia.",
     openGraph: {
-        title: "Desarrollo Organizacional para Empresas | Elevare Consulting",
+        title: "Coaching y Consultoría para Empresas | Elevare Consulting",
+        description: "Analizamos cultura, procesos y dinámicas de liderazgo. Diseñamos e implementamos soluciones con cambios medibles y sostenibles. Diagnóstico gratuito.",
         url: "https://elevareconsultingmg.com/empresas",
+    },
+    alternates: {
+        canonical: "https://elevareconsultingmg.com/empresas",
     },
 };
 
@@ -45,9 +49,51 @@ const faqs = [
     { q: "¿Cuál es la inversión aproximada?", a: "Depende del tamaño de tu empresa y el alcance del programa. Ofrecemos una sesión exploratoria gratuita donde evaluamos tu situación y te presentamos una propuesta a medida. Agenda sin compromiso." },
 ];
 
+const empresasSchemaLD = {
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "Service",
+            name: "Coaching y Consultoría para Empresas",
+            description: "Analizamos cultura, procesos y dinámicas de liderazgo para diseñar e implementar soluciones que alinean hábitos, prácticas de gestión y objetivos de negocio.",
+            provider: {
+                "@type": "ProfessionalService",
+                name: "Elevare Consulting MG",
+                url: "https://elevareconsultingmg.com",
+            },
+            areaServed: [
+                { "@type": "Country", name: "Argentina" },
+                { "@type": "Country", name: "Paraguay" },
+                { "@type": "Country", name: "Uruguay" },
+                { "@type": "Country", name: "Chile" },
+            ],
+            serviceType: "Desarrollo Organizacional",
+            url: "https://elevareconsultingmg.com/empresas",
+        },
+        {
+            "@type": "BreadcrumbList",
+            itemListElement: [
+                { "@type": "ListItem", position: 1, name: "Inicio", item: "https://elevareconsultingmg.com" },
+                { "@type": "ListItem", position: 2, name: "Empresas", item: "https://elevareconsultingmg.com/empresas" },
+            ],
+        },
+        {
+            "@type": "FAQPage",
+            mainEntity: [
+                { "@type": "Question", name: "¿Cuánto tiempo toma ver resultados?", acceptedAnswer: { "@type": "Answer", text: "Los primeros cambios se notan en 4-8 semanas. Los resultados medibles suelen evidenciarse entre los 3 y 6 meses." } },
+                { "@type": "Question", name: "¿El coaching funciona en PYMEs con cultura familiar?", acceptedAnswer: { "@type": "Answer", text: "Es donde mejor funciona. No buscamos corporativizar tu empresa, sino potenciar lo mejor que ya tiene mientras resolvemos lo que frena el crecimiento." } },
+                { "@type": "Question", name: "¿Qué diferencia este enfoque dual?", acceptedAnswer: { "@type": "Answer", text: "Integramos el coaching ontológico con la consultoría dura de procesos. El resultado es una transformación profunda que impacta directamente en la rentabilidad." } },
+                { "@type": "Question", name: "¿Pueden implementar mejoras sin interrumpir las operaciones?", acceptedAnswer: { "@type": "Answer", text: "Sí, diseñamos los cambios para minimizar la disrupción operacional, empezando con los líderes clave y procesos de menor riesgo." } },
+                { "@type": "Question", name: "¿Cuál es la inversión aproximada?", acceptedAnswer: { "@type": "Answer", text: "Depende del tamaño de tu empresa y el alcance del programa. Ofrecemos una sesión exploratoria gratuita donde evaluamos tu situación y te presentamos una propuesta a medida." } },
+            ],
+        },
+    ],
+};
+
 export default function Empresas() {
     return (
         <>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(empresasSchemaLD) }} />
             <Header />
             <main>
                 {/* Hero */}

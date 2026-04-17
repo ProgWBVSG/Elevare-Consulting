@@ -5,9 +5,17 @@ import Footer from "@/app/components/Footer";
 import styles from "./faq.module.css";
 
 export const metadata: Metadata = {
-    title: "Preguntas Frecuentes sobre Coaching Ontológico | Elevare Consulting MG",
+    title: "Preguntas Frecuentes sobre Coaching Ontológico y Mentoría Ejecutiva",
     description:
-        "Respondemos las dudas más comunes sobre coaching ontológico, mentoría ejecutiva para mujeres y consultoría de gestión. Tiempos, inversión, metodología y proceso de trabajo.",
+        "Respuestas a las preguntas más comunes sobre coaching ontológico, mentoría ejecutiva para mujeres y consultoría de desarrollo organizacional para PYMEs. Tiempos, inversión, proceso, metodología y diferencias con el coaching tradicional.",
+    openGraph: {
+        title: "Preguntas Frecuentes | Coaching Ontológico | Elevare Consulting",
+        description: "Todo lo que necesitás saber sobre coaching ontológico, mentoría ejecutiva y consultoría organizacional antes de agendar tu sesión.",
+        url: "https://elevareconsultingmg.com/faq",
+    },
+    alternates: {
+        canonical: "https://elevareconsultingmg.com/faq",
+    },
 };
 
 const faqs = [
@@ -45,9 +53,36 @@ const faqs = [
     },
 ];
 
+const faqSchemaLD = {
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "FAQPage",
+            mainEntity: faqs.flatMap((category) =>
+                category.items.map((item) => ({
+                    "@type": "Question",
+                    name: item.q,
+                    acceptedAnswer: {
+                        "@type": "Answer",
+                        text: item.a,
+                    },
+                }))
+            ),
+        },
+        {
+            "@type": "BreadcrumbList",
+            itemListElement: [
+                { "@type": "ListItem", position: 1, name: "Inicio", item: "https://elevareconsultingmg.com" },
+                { "@type": "ListItem", position: 2, name: "Preguntas Frecuentes", item: "https://elevareconsultingmg.com/faq" },
+            ],
+        },
+    ],
+};
+
 export default function FAQ() {
     return (
         <>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchemaLD) }} />
             <Header />
             <main>
                 <section className={styles.hero}>

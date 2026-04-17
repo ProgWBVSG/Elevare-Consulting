@@ -6,12 +6,16 @@ import Footer from "@/app/components/Footer";
 import styles from "../service.module.css";
 
 export const metadata: Metadata = {
-    title: "Mentoría Ejecutiva para Mujeres Líderes | Elevare Consulting MG",
+    title: "Mentoría para Mujeres Ejecutivas | Coaching de Liderazgo Femenino | Elevare",
     description:
-        "Mentoría especializada para mujeres ejecutivas y líderes. Superá el síndrome del impostor, consolidá tu autoridad y desarrollá un estilo de gestión auténtico. 20+ años de experiencia. Sesión exploratoria gratuita.",
+        "Mentoría especializada para mujeres en posiciones de liderazgo en Argentina y LATAM. Superá el síndrome del impostor, consolidá tu autoridad y desarrollá un estilo de gestión auténtico con coaching ontológico. Sesión exploratoria gratuita.",
     openGraph: {
-        title: "Mentoría Ejecutiva para Mujeres | Elevare Consulting MG",
+        title: "Mentoría Ejecutiva para Mujeres Líderes | Elevare Consulting",
+        description: "Acompañamiento especializado para mujeres que quieren liderar con autenticidad. Coaching ontológico + herramientas concretas de gestión. 20+ años.",
         url: "https://elevareconsultingmg.com/mentoria-mujeres-ejecutivas",
+    },
+    alternates: {
+        canonical: "https://elevareconsultingmg.com/mentoria-mujeres-ejecutivas",
     },
 };
 
@@ -45,9 +49,52 @@ const faqs = [
     { q: "¿Mi empresa puede financiar el proceso?", a: "Sí. Muchas empresas financian procesos de desarrollo para líderes clave. Podemos ayudarte a armar la propuesta interna para presentarle a tu organización." },
 ];
 
+const mentoriaSchemaLD = {
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "Service",
+            name: "Mentoría Ejecutiva para Mujeres Líderes",
+            description: "Acompañamiento especializado para mujeres que quieren liderar con autenticidad, superar obstáculos reales y consolidar su lugar en la mesa — sin sacrificar su bienestar ni su identidad.",
+            provider: {
+                "@type": "ProfessionalService",
+                name: "Elevare Consulting MG",
+                url: "https://elevareconsultingmg.com",
+            },
+            areaServed: [
+                { "@type": "Country", name: "Argentina" },
+                { "@type": "Country", name: "Paraguay" },
+                { "@type": "Country", name: "Uruguay" },
+                { "@type": "Country", name: "Chile" },
+            ],
+            serviceType: "Mentoría Ejecutiva",
+            audience: { "@type": "Audience", audienceType: "Mujeres ejecutivas y líderes" },
+            url: "https://elevareconsultingmg.com/mentoria-mujeres-ejecutivas",
+        },
+        {
+            "@type": "BreadcrumbList",
+            itemListElement: [
+                { "@type": "ListItem", position: 1, name: "Inicio", item: "https://elevareconsultingmg.com" },
+                { "@type": "ListItem", position: 2, name: "Mentoría para Mujeres Ejecutivas", item: "https://elevareconsultingmg.com/mentoria-mujeres-ejecutivas" },
+            ],
+        },
+        {
+            "@type": "FAQPage",
+            mainEntity: [
+                { "@type": "Question", name: "¿Es este programa solo para mujeres en posiciones muy altas?", acceptedAnswer: { "@type": "Answer", text: "No. Trabajamos con mujeres en transición a un primer rol de liderazgo, mandos medias consolidadas, ejecutivas C-level y emprendedoras." } },
+                { "@type": "Question", name: "¿Cuánto tiempo requiere el proceso?", acceptedAnswer: { "@type": "Answer", text: "Los programas más cortos son de 3 meses. Los programas de transformación más profunda son de 6-12 meses." } },
+                { "@type": "Question", name: "¿Puede hacerse de forma virtual?", acceptedAnswer: { "@type": "Answer", text: "Sí. Trabajamos tanto de forma presencial como virtual con mujeres de toda LATAM." } },
+                { "@type": "Question", name: "¿Qué hace diferente esta mentoría de un curso de liderazgo?", acceptedAnswer: { "@type": "Answer", text: "Un curso te da contenido genérico. La mentoría trabaja TU situación específica, TUS desafíos reales, TUS bloqueos concretos." } },
+                { "@type": "Question", name: "¿Mi empresa puede financiar el proceso?", acceptedAnswer: { "@type": "Answer", text: "Sí. Muchas empresas financian procesos de desarrollo para líderes clave. Podemos ayudarte a armar la propuesta interna." } },
+            ],
+        },
+    ],
+};
+
 export default function MentoriaMujeres() {
     return (
         <>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(mentoriaSchemaLD) }} />
             <Header />
             <main>
                 {/* Hero */}

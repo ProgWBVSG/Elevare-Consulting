@@ -6,12 +6,16 @@ import Footer from "@/app/components/Footer";
 import styles from "./sobreMaria.module.css";
 
 export const metadata: Metadata = {
-    title: "Sobre María Gómez | Coach Ejecutiva & Consultora de Liderazgo | Elevare Consulting",
+    title: "María Gómez | Coach Ejecutiva · Consultora de Liderazgo · 20+ Años",
     description:
-        "Conocé la trayectoria de María Gómez: 20+ años liderando equipos de más de 470 personas, gestión multinacional y coaching ejecutivo. Fundadora de Elevare Consulting y Directora Asociada de la Cámara de Comercio de Mujeres de EE.UU.",
+        "Conocé a María Gómez: 20+ años liderando equipos de +470 personas, gestión multinacional en LATAM y coaching ontológico ejecutivo. Fundadora de Elevare Consulting. Directora Asociada de la Cámara de Comercio de Mujeres de EE.UU. Especialista en Inteligencia Relacional.",
     openGraph: {
-        title: "María Gómez | Fundadora Elevare Consulting",
+        title: "María Gómez | Coach Ejecutiva & Desarrollo Organizacional",
+        description: "20+ años transformando líderes y organizaciones. Fundadora de Elevare Consulting. Especialista en Inteligencia Relacional y coaching ontológico.",
         url: "https://elevareconsultingmg.com/sobre-maria",
+    },
+    alternates: {
+        canonical: "https://elevareconsultingmg.com/sobre-maria",
     },
 };
 
@@ -40,9 +44,53 @@ const certifications = [
     "Fundadora de Elevare Consulting – Consultoría de Liderazgo y Desarrollo Organizacional",
 ];
 
+const sobreMariaSchemaLD = {
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "Person",
+            name: "María Gómez",
+            jobTitle: "Coach Ejecutiva & Consultora en Desarrollo de Líderes",
+            description: "Fundadora de Elevare Consulting. 20+ años liderando equipos de +470 personas y facilitando procesos de transformación organizacional en Argentina y LATAM. Directora Asociada de la Cámara de Comercio de Mujeres de EE.UU. (Miami Chapter).",
+            url: "https://elevareconsultingmg.com/sobre-maria",
+            image: "https://elevareconsultingmg.com/maria-hero.png",
+            worksFor: {
+                "@type": "ProfessionalService",
+                name: "Elevare Consulting MG",
+                url: "https://elevareconsultingmg.com",
+            },
+            alumniOf: [],
+            knowsAbout: [
+                "Coaching ontológico",
+                "Inteligencia relacional",
+                "Desarrollo organizacional",
+                "Liderazgo ejecutivo",
+                "Gestión de equipos multinacionales",
+            ],
+            memberOf: {
+                "@type": "Organization",
+                name: "Cámara de Comercio de Mujeres de EE.UU. (Miami Chapter)",
+                roleName: "Directora Asociada",
+            },
+            sameAs: [
+                "https://www.linkedin.com/company/elevare-consulting-729079200",
+                "https://www.instagram.com/elevareconsultingmg",
+            ],
+        },
+        {
+            "@type": "BreadcrumbList",
+            itemListElement: [
+                { "@type": "ListItem", position: 1, name: "Inicio", item: "https://elevareconsultingmg.com" },
+                { "@type": "ListItem", position: 2, name: "Sobre María", item: "https://elevareconsultingmg.com/sobre-maria" },
+            ],
+        },
+    ],
+};
+
 export default function SobreMaria() {
     return (
         <>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(sobreMariaSchemaLD) }} />
             <Header />
             <main>
                 {/* Hero */}

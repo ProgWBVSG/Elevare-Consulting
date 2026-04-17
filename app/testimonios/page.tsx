@@ -7,8 +7,16 @@ import FeaturedCase from './FeaturedCase';
 import styles from './testimonios.module.css';
 
 export const metadata: Metadata = {
-    title: 'Casos de Éxito y Testimonios | Elevare Consulting',
-    description: 'Descubrí cómo líderes y PYMEs transformaron su realidad con nuestro coaching ontológico. Casos reales, problemas reales, soluciones reales.',
+    title: 'Casos de Éxito y Testimonios de Coaching | Elevare Consulting',
+    description: 'Descubrí cómo líderes y PYMEs transformaron su realidad con coaching ontológico. Casos reales con resultados medibles: 40% menos rotación, expansión internacional, equipos autónomos. Liderá el cambio.',
+    openGraph: {
+        title: 'Testimonios y Casos de Éxito | Elevare Consulting',
+        description: 'Historias reales de PYMEs y mujeres ejecutivas que transformaron su liderazgo con coaching ontológico. Resultados medibles y sostenibles.',
+        url: 'https://elevareconsultingmg.com/testimonios',
+    },
+    alternates: {
+        canonical: 'https://elevareconsultingmg.com/testimonios',
+    },
 };
 
 const realReviews = [
@@ -41,9 +49,55 @@ const realReviews = [
     },
 ];
 
+const testimoniosSchemaLD = {
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "ProfessionalService",
+            name: "Elevare Consulting MG",
+            url: "https://elevareconsultingmg.com",
+            aggregateRating: {
+                "@type": "AggregateRating",
+                ratingValue: "5",
+                bestRating: "5",
+                ratingCount: "40",
+                reviewCount: "3",
+            },
+            review: [
+                {
+                    "@type": "Review",
+                    author: { "@type": "Person", name: "Maria Eugenia Cano" },
+                    reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+                    reviewBody: "Cada charla compartida fue inolvidable. Tus consejos fueron un aprendizaje continuo y fructífero. Excelente profesional.",
+                },
+                {
+                    "@type": "Review",
+                    author: { "@type": "Person", name: "Roberto M." },
+                    reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+                    reviewBody: "Después de 6 meses con Elevare, mi equipo gerencial tomó autonomía real. La rotación bajó un 40%.",
+                },
+                {
+                    "@type": "Review",
+                    author: { "@type": "Person", name: "Camila V." },
+                    reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+                    reviewBody: "El proceso de coaching ontológico me cambió la perspectiva completa. Transformé cómo veo mi rol como líder.",
+                },
+            ],
+        },
+        {
+            "@type": "BreadcrumbList",
+            itemListElement: [
+                { "@type": "ListItem", position: 1, name: "Inicio", item: "https://elevareconsultingmg.com" },
+                { "@type": "ListItem", position: 2, name: "Testimonios", item: "https://elevareconsultingmg.com/testimonios" },
+            ],
+        },
+    ],
+};
+
 export default function TestimoniosPage() {
     return (
         <>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(testimoniosSchemaLD) }} />
             <Header />
 
             <main className={styles.main}>
