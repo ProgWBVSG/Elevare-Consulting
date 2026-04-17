@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import styles from "./Footer.module.css";
 
 const services = [
@@ -27,8 +28,7 @@ export default function Footer() {
                         {/* Brand column */}
                         <div className={styles.brandCol}>
                             <Link href="/" className={styles.logo}>
-                                {/* eslint-disable-next-line @next/next/no-img-element */}
-                                <img src="/logo.png" alt="Elevare" className={styles.logoImg} />
+                                <Image src="/logo.png" alt="Elevare" width={40} height={40} className={styles.logoImg} />
                                 <span className={styles.logoText}>
                                     <span className={styles.logoMain}>Elevare</span>
                                     <span className={styles.logoSub}>Consulting MG</span>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { Brain, Users, Zap, Globe, Trophy, UserCheck } from "lucide-react";
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
@@ -119,9 +120,12 @@ export default function SobreMaria() {
                             </div>
                             <div className={styles.heroImageWrapper}>
                                 <div className={styles.heroImagePlaceholder}>
-                                    <img
+                                    <Image
                                         src="/maria-hero.png"
                                         alt="María Gómez - Hero"
+                                        width={400}
+                                        height={480}
+                                        priority
                                     />
                                 </div>
                                 <div className={styles.statsFloat}>
@@ -157,9 +161,11 @@ export default function SobreMaria() {
                                 </p>
                             </div>
                             <div>
-                                <img
-                                    src="/assets/fotos/historia_maria.jpeg"
+                                <Image
+                                    src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800&h=600"
                                     alt="María Gómez en su oficina"
+                                    width={800}
+                                    height={600}
                                     style={{ width: '100%', height: 'auto', borderRadius: '12px', boxShadow: '0 10px 30px rgba(0,0,0,0.1)' }}
                                 />
                             </div>

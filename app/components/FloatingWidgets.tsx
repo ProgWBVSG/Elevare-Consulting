@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import styles from "./FloatingWidgets.module.css";
 
 const whastappNumber = "+5491112345678"; // Reemplazar
@@ -47,8 +48,7 @@ export default function FloatingWidgets() {
                         <div className={styles.chatHeader}>
                             <div className={styles.headerInfo}>
                                 <div className={styles.avatar}>
-                                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                                    <img src="/logo.png" alt="Elevare" width={28} height={28} style={{ objectFit: "contain", width: "28px", height: "28px" }} />
+                                    <Image src="/logo.png" alt="Elevare" width={28} height={28} style={{ objectFit: "contain", width: "28px", height: "28px" }} />
                                 </div>
                                 <div className={styles.headerTitles}>
                                     <strong>Asistente Elevare</strong>
@@ -112,8 +112,7 @@ export default function FloatingWidgets() {
                     onClick={() => setChatOpen(!chatOpen)}
                     aria-label="Abrir asistente de preguntas frecuentes"
                 >
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src="/logo.png" alt="Elevare" width={32} height={32} style={{ objectFit: "contain", width: "32px", height: "32px", display: "block" }} />
+                    <Image src="/logo.png" alt="Elevare" width={32} height={32} style={{ objectFit: "contain", width: "32px", height: "32px", display: "block" }} />
                 </button>
             </div>
 

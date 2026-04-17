@@ -300,9 +300,11 @@ export default function Home() {
               {services.map((service, index) => (
                 <div key={service.title} className={`${styles.serviceCard} ${styles[`serviceCard--${service.color}`]}`}>
                   <div className={styles.serviceImageContainer}>
-                    <img
+                    <Image
                       src={`https://images.unsplash.com/photo-${index === 0 ? '1542744173-8e7e53415bb0' : index === 1 ? '1573496359142-b8d87734a5a2' : '1552664730-d307ca884978'}?auto=format&fit=crop&q=80&w=600&h=400`}
                       alt={service.title}
+                      width={600}
+                      height={400}
                       className={styles.serviceImage}
                     />
                   </div>
@@ -461,9 +463,11 @@ export default function Home() {
               </div>
               <div className={styles.ctaVisual}>
                 <div className={styles.ctaImageWrapper}>
-                  <img
+                  <Image
                     src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800&h=1000"
                     alt="Oficina moderna y profesional"
+                    width={800}
+                    height={1000}
                     className={styles.ctaImage}
                   />
                   <div className={styles.ctaFloatingCard}>

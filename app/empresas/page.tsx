@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { Target, Settings, RefreshCw, User, HelpCircle, BarChart2, CheckCircle, ArrowRight } from "lucide-react";
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
@@ -159,10 +160,11 @@ export default function Empresas() {
                                 </Link>
                             </div>
                             <div className={styles.photoCol}>
-                                {/* eslint-disable-next-line @next/next/no-img-element */}
-                                <img
+                                <Image
                                     src="/coaching-equipo.png"
                                     alt="Sesión de coaching con equipo empresarial"
+                                    width={600}
+                                    height={400}
                                     className={styles.sectionPhoto}
                                 />
                                 <div className={styles.infoBox} style={{ borderTopColor: "var(--color-primary)", marginTop: "2rem", paddingTop: "2rem", borderTop: "4px solid var(--color-primary)" }}>

@@ -11,9 +11,9 @@
   --color-secondary: #5CA084;
   --color-secondary-dark: #45846a;
   --color-secondary-light: #7bbda0;
-  --color-accent: #E87D3E;
-  --color-accent-dark: #c96428;
-  --color-accent-light: #f0a070;
+  --color-accent: #D65A20;
+  --color-accent-dark: #B54512;
+  --color-accent-light: #F28652;
   --color-cream: #F7F5F2;
   --color-cream-dark: #ede9e3;
   --color-dark: #1A1A2E;
@@ -259,14 +259,14 @@ p {
   background: var(--color-accent);
   color: var(--color-white);
   border-color: var(--color-accent);
-  box-shadow: 0 4px 20px rgba(232, 125, 62, 0.35);
+  box-shadow: 0 4px 20px rgba(214, 90, 32, 0.35);
 }
 
 .btn-primary:hover {
   background: var(--color-accent-dark);
   border-color: var(--color-accent-dark);
   transform: translateY(-2px);
-  box-shadow: 0 8px 28px rgba(232, 125, 62, 0.45);
+  box-shadow: 0 8px 28px rgba(214, 90, 32, 0.45);
 }
 
 .btn-secondary {
