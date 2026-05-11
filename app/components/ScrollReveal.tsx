@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode, type ElementType } from "react";
 
 type AnimationVariant =
   | "fade-up"
@@ -19,7 +19,7 @@ interface ScrollRevealProps {
   threshold?: number; // 0-1
   once?: boolean;
   className?: string;
-  as?: keyof JSX.IntrinsicElements;
+  as?: ElementType;
   stagger?: number;   // ms delay per child index
   index?: number;     // child index for stagger
 }
@@ -87,7 +87,6 @@ export default function ScrollReveal({
   };
 
   return (
-    // @ts-expect-error - dynamic tag
     <Tag ref={ref} className={className} style={style}>
       {children}
     </Tag>
