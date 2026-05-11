@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Target, Settings, RefreshCw, User, HelpCircle, BarChart2, CheckCircle, ArrowRight } from "lucide-react";
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
+import ScrollReveal from "@/app/components/ScrollReveal";
 import styles from "../service.module.css";
 
 export const metadata: Metadata = {
@@ -141,6 +142,7 @@ export default function Empresas() {
                 <section className="section bg-cream">
                     <div className="container">
                         <div className={styles.twoCol}>
+                            <ScrollReveal variant="fade-right">
                             <div>
                                 <span className="section-label">¿Te identificás?</span>
                                 <h2 className="section-title">Señales de que tu empresa necesita intervención ahora</h2>
@@ -159,6 +161,8 @@ export default function Empresas() {
                                     Hablemos de la solución <ArrowRight size={15} style={{ marginLeft: 4 }} />
                                 </Link>
                             </div>
+                            </ScrollReveal>
+                            <ScrollReveal variant="fade-left" delay={200}>
                             <div className={styles.photoCol}>
                                 <Image
                                     src="/coaching-equipo.png"
@@ -175,6 +179,7 @@ export default function Empresas() {
                                     </p>
                                 </div>
                             </div>
+                            </ScrollReveal>
                         </div>
                     </div>
                 </section>
@@ -182,17 +187,21 @@ export default function Empresas() {
                 {/* Process */}
                 <section id="proceso" className="section">
                     <div className="container">
+                        <ScrollReveal variant="fade-up">
                         <div className="text-center" style={{ marginBottom: "4rem" }}>
                             <span className="section-label">Proceso de Trabajo</span>
                             <h2 className="section-title">Cómo transformamos tu gestión empresarial</h2>
                         </div>
+                        </ScrollReveal>
                         <div className={styles.processGrid}>
-                            {process.map((step) => (
-                                <div key={step.step} className={styles.processCard} data-step={step.step}>
+                            {process.map((step, i) => (
+                                <ScrollReveal key={step.step} variant="fade-up" delay={i * 150}>
+                                <div className={styles.processCard} data-step={step.step}>
                                     <div className={styles.stepNumber}>{step.step}</div>
                                     <h3 className={styles.processTitle}>{step.title}</h3>
                                     <p className={styles.processDesc}>{step.desc}</p>
                                 </div>
+                                </ScrollReveal>
                             ))}
                         </div>
                     </div>
@@ -206,14 +215,16 @@ export default function Empresas() {
                             <h2 className="section-title">Qué transformaciones garantiza el proceso conjunto</h2>
                         </div>
                         <div className="grid-2">
-                            {benefits.map((b) => (
-                                <div key={b.title} className={`card ${styles.benefitCard}`}>
+                            {benefits.map((b, i) => (
+                                <ScrollReveal key={b.title} variant="zoom-in" delay={i * 120}>
+                                <div className={`card ${styles.benefitCard}`}>
                                     <span className={styles.benefitCheck}><CheckCircle size={18} /></span>
                                     <div>
                                         <h4 className={styles.benefitTitle}>{b.title}</h4>
                                         <p className={styles.benefitDesc}>{b.desc}</p>
                                     </div>
                                 </div>
+                                </ScrollReveal>
                             ))}
                         </div>
                     </div>
@@ -242,12 +253,14 @@ export default function Empresas() {
                 {/* CTA */}
                 <section className={styles.bottomCta}>
                     <div className="container">
+                        <ScrollReveal variant="fade-up">
                         <h2>¿Listo para profesionalizar el liderazgo y operaciones de tu empresa?</h2>
                         <p>Agendá una sesión exploratoria gratuita de 30 minutos. Evaluamos juntos tu situación y te presentamos una propuesta concreta.</p>
                         <div className={styles.bottomCtaBtns}>
                             <Link href="/contacto" className="btn btn-primary btn-lg">Solicitar sesión exploratoria gratuita</Link>
                             <Link href="/testimonios" className="btn btn-outline-white">Ver casos de éxito</Link>
                         </div>
+                        </ScrollReveal>
                     </div>
                 </section>
             </main>

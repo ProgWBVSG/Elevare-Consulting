@@ -11,16 +11,18 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import LeadMagnetForm from "./components/LeadMagnetForm";
 import CounterBadge from "./components/CounterBadge";
+import LogoCarousel from "./components/LogoCarousel";
+import ScrollReveal from "./components/ScrollReveal";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
-  title: "Coaching Ontológico y Desarrollo Organizacional en Argentina | Elevare Consulting",
+  title: "Consultora de Negocios · Management y Desarrollo Organizacional para PYMEs | Elevare Consulting",
   description:
-    "Elevare Consulting: firma de coaching ontológico y desarrollo organizacional para PYMEs en Argentina y LATAM. Mentoría ejecutiva para mujeres líderes. Diagnóstico profundo, diseño estratégico del comportamiento y resultados medibles. 20+ años de experiencia. Sesión exploratoria gratuita.",
+    "Elevare Consulting: consultora de negocios especializada en management, desarrollo organizacional, liderazgo y estructuración financiera para PYMEs en Argentina y LATAM. Mentorías 1 a 1 para líderes. Diagnóstico de clima, cultura y procesos. 20+ años de experiencia.",
   openGraph: {
-    title: "Elevare Consulting | Coaching Ontológico · Desarrollo Organizacional · LATAM",
+    title: "Elevare Consulting | Consultora de Negocios · Management · Desarrollo Organizacional",
     description:
-      "Transformamos líderes y organizaciones con coaching ontológico. Consultoría para PYMEs, mentoría para mujeres ejecutivas. Diagnóstico gratuito. Buenos Aires, Argentina.",
+      "Consultora especializada en management, cultura organizacional y liderazgo para PYMEs. Mentorías 1 a 1 para líderes. Diagnóstico de clima y procesos. Argentina y LATAM.",
     url: "https://elevareconsultingmg.com",
   },
   alternates: {
@@ -34,38 +36,38 @@ const trustBadges = [
 ];
 
 const pymesPainPoints = [
-  { Icon: Target, title: "Tu equipo gerencial no lidera como esperabas", desc: "Invirtieron en capacitaciones, pero los mandos medios siguen sin tomar decisiones autónomas." },
-  { Icon: RefreshCw, title: "Alta rotación y conflictos internos constantes", desc: "El clima laboral es tenso. Personas valiosas renuncian y cada día es apagar un incendio." },
-  { Icon: Settings, title: "Procesos ineficientes que nadie soluciona", desc: "Todos lo saben, nadie actúa. Las reuniones no producen resultados concretos." },
-  { Icon: TrendingDown, title: "Falta de cultura de alto rendimiento", desc: "Tu empresa sobrevive, pero no prospera. Buscás un equipo que piense como dueños." },
-  { Icon: HelpCircle, title: "No sabés cómo implementar coaching interno efectivo", desc: "Sabés que el coaching puede ayudar, pero no tenés claridad sobre cómo hacerlo bien." },
+  { Icon: Target, title: "Tu equipo gerencial no lidera como esperabas", desc: "Invirtieron en capacitaciones, pero los mandos medios siguen sin tomar decisiones autónomas ni asumir accountability." },
+  { Icon: RefreshCw, title: "Alta rotación y clima laboral deteriorado", desc: "El clima es tenso, personas valiosas renuncian y cada día es apagar un incendio. Falta diagnóstico real." },
+  { Icon: Settings, title: "Procesos ineficientes sin roles claros", desc: "Todos lo saben, nadie actúa. Las reuniones no producen resultados. Falta estructura organizacional." },
+  { Icon: TrendingDown, title: "Sin estructura financiera ni proyección", desc: "Tu PYME factura pero no tiene visibilidad financiera. Necesitás ordenar números para crecer sostenidamente." },
+  { Icon: HelpCircle, title: "Cultura organizacional débil o inexistente", desc: "No hay valores claros, la comunicación falla y cada área trabaja aislada. Tu empresa necesita identidad." },
 ];
 
-const ejecutivasPainPoints = [
-  { Icon: Eye, title: "Síndrome del impostor en tu rol de liderazgo", desc: "Lográs resultados, pero seguís sintiendo que no sos suficiente para el puesto." },
-  { Icon: Users, title: "Dificultad para delegar y gestionar equipos", desc: "Terminás haciendo todo vos misma porque es más rápido que explicarle a otros." },
-  { Icon: Zap, title: "Desgaste por doble carga profesional y personal", desc: "Trabajás el doble que tus pares para probar tu valor. El burnout está cerca." },
-  { Icon: Wrench, title: "Falta de herramientas concretas para el día a día", desc: "Los cursos de liderazgo son genéricos. Necesitás soluciones para TU situación específica." },
-  { Icon: Compass, title: "Soledad en la toma de decisiones estratégicas", desc: "Tenés responsabilidades enormes sin un espacio seguro donde pensar en voz alta." },
+const lideresPainPoints = [
+  { Icon: Eye, title: "Sentís que liderás en piloto automático", desc: "Cumplís con el rol, pero sabés que podrías tener más impacto. Te falta una mirada externa estratégica." },
+  { Icon: Users, title: "No lográs que tu equipo funcione sin vos", desc: "Terminás haciendo todo porque es más rápido que delegar. Tu equipo no tiene autonomía real." },
+  { Icon: Zap, title: "Desgaste por falta de procesos claros", desc: "Trabajás el doble porque no hay estructura. Las decisiones se concentran en vos y el burnout acecha." },
+  { Icon: Wrench, title: "Necesitás herramientas de gestión concretas", desc: "Los cursos genéricos no alcanzan. Necesitás metodología aplicable a TU realidad y TU equipo." },
+  { Icon: Compass, title: "Soledad en la toma de decisiones críticas", desc: "Tenés responsabilidades enormes sin un espacio profesional donde analizar opciones con claridad." },
 ];
 
 const services = [
   {
     Icon: Building2,
-    title: "Coaching y Consultoría para Empresas",
-    description: "Implementá un sistema profesional de coaching interno junto con la optimización de tus procesos. Desarrollamos líderes efectivos, reducimos conflictos y construimos organizaciones más eficientes y sostenibles.",
-    benefits: ["Líderes internos que toman decisiones con autonomía", "Procesos eficientes que no dependen constantemente de vos", "Drástica reducción de la rotación y conflictos de equipo"],
+    title: "Management & Desarrollo Organizacional para PYMEs",
+    description: "Diagnosticamos cultura, clima, procesos y liderazgo en tu empresa. Diseñamos e implementamos soluciones de management que transforman la organización: roles claros, accountability real y estructura financiera sólida.",
+    benefits: ["Diagnóstico de clima, cultura y procesos organizacionales", "Estructuración financiera y proyección de crecimiento", "Líderes internos con accountability y decisiones autónomas"],
     href: "/empresas",
     cta: "Conocé el programa completo",
     color: "primary",
   },
   {
     Icon: Crown,
-    title: "Mentoría Ejecutiva para Mujeres",
-    description: "Acompañamiento especializado para mujeres en posiciones de liderazgo. Desarrollá tu estilo de gestión auténtico, superá obstáculos y consolidá tu autoridad sin sacrificar tu bienestar.",
-    benefits: ["Superación del síndrome del impostor", "Herramientas concretas para gestión diaria", "Red de apoyo y perspectiva externa calificada"],
-    href: "/mentoria-mujeres-ejecutivas",
-    cta: "Comenzá tu transformación",
+    title: "Mentorías 1 a 1 para Líderes",
+    description: "Acompañamiento estratégico personalizado para líderes que necesitan elevar su gestión. Trabajamos sobre toma de decisiones, delegación, management de equipos y desarrollo de competencias directivas.",
+    benefits: ["Claridad en toma de decisiones estratégicas", "Herramientas de management aplicables a tu día a día", "Perspectiva externa profesional y confidencial"],
+    href: "/mentoria-lideres",
+    cta: "Comenzá tu mentoría",
     color: "secondary",
   },
 ];
@@ -73,28 +75,28 @@ const services = [
 const differentiators = [
   {
     Icon: Trophy,
-    title: "Diagnóstico Profundo",
-    desc: "Identificamos los patrones culturales, de proceso y liderazgo que impulsan o limitan el desempeño. Nada de soluciones genéricas: partimos de datos reales de tu organización.",
+    title: "Diagnóstico Organizacional",
+    desc: "Evaluamos clima, cultura, procesos y estructura financiera para identificar exactamente qué frena tu crecimiento. Sin supuestos: datos reales de tu empresa.",
   },
   {
     Icon: Brain,
-    title: "Diseño Estratégico del Comportamiento",
-    desc: "Diseñamos e implementamos soluciones que alinean hábitos, prácticas de gestión y objetivos de negocio. La transformación es intencional, no accidental.",
+    title: "Diseño de Estructura y Procesos",
+    desc: "Definimos roles, responsabilidades y mecanismos de accountability claros. Cada decisión tiene un dueño, cada proceso tiene un estándar.",
   },
   {
     Icon: Scale,
-    title: "Responsabilidad Ejecutiva",
-    desc: "Fortalecemos la responsabilidad en los equipos de liderazgo y desarrollamos las conductas clave que elevan la performance individual y colectiva.",
+    title: "Desarrollo de Liderazgo Interno",
+    desc: "Formamos líderes que habilitan a sus equipos en lugar de controlarlos. Autonomía, confianza y responsabilidad colectiva como estándar.",
   },
   {
     Icon: Globe,
-    title: "Análisis + Ejecución Directa",
-    desc: "Nuestro enfoque integra análisis, diseño estratégico y ejecución directa. No solo recomendamos: acompañamos la implementación hasta ver resultados medibles.",
+    title: "Implementación Directa",
+    desc: "No solo recomendamos: acompañamos la ejecución hasta ver cambios concretos. Diagnóstico, diseño y acción en un solo proceso integrado.",
   },
   {
     Icon: Zap,
-    title: "Cambios Medibles y Sostenibles",
-    desc: "Convertimos el comportamiento organizacional en una ventaja competitiva concreta. Los resultados que generamos se mantienen en el tiempo.",
+    title: "Performance Sostenible",
+    desc: "Alineamos los sistemas de gestión y cultura para que los resultados se mantengan. Tu organización opera mejor incluso después de que nos vamos.",
   },
 ];
 
@@ -119,7 +121,7 @@ const testimonials = [
     name: "Camila V.",
     role: "CEO",
     company: "Startup de Tecnología, Montevideo",
-    text: "El proceso de coaching ontológico me cambió la perspectiva completa. No solo aprendí técnicas de gestión, transformé cómo veo mi rol como líder y el impacto que quiero tener.",
+    text: "La mentoría con Elevare me cambió la perspectiva completa. No solo mejoré mi gestión, transformé cómo lidero mi equipo y cómo estructuramos el crecimiento.",
     result: "Expansión a 3 países en 18 meses",
     type: "executive",
   },
@@ -127,27 +129,27 @@ const testimonials = [
 
 const blogPosts = [
   {
-    title: "5 Señales de que tu PYME Necesita Coaching Interno Ahora",
-    excerpt: "Si tu equipo gerencial no decide de forma autónoma, hay conflictos constantes y la rotación no para, hay señales claras que no podés ignorar.",
-    category: "Liderazgo Empresarial",
+    title: "5 Señales de que tu PYME Necesita Consultoría Organizacional",
+    excerpt: "Si tu equipo gerencial no decide de forma autónoma, los procesos fallan y el clima se deteriora, hay señales claras que no podés ignorar.",
+    category: "Management",
     date: "Enero 2026",
-    href: "/blog/senales-pyme-necesita-coaching-interno",
+    href: "/blog/senales-pyme-necesita-consultoria",
     readTime: "8 min",
   },
   {
-    title: "Coaching Ontológico vs. Coaching Tradicional: ¿Cuál Funciona Mejor?",
-    excerpt: "No todos los coaching son iguales. La diferencia entre transformación profunda y un cambio superficial está en el enfoque desde el SER.",
-    category: "Coaching Ontológico",
+    title: "Cómo Estructurar Financieramente tu PYME para Crecer",
+    excerpt: "La mayoría de las PYMEs facturan pero no tienen visibilidad financiera real. Te mostramos cómo ordenar los números para escalar.",
+    category: "Estructuración Financiera",
     date: "Febrero 2026",
-    href: "/blog/coaching-ontologico-vs-tradicional",
+    href: "/blog/estructurar-financieramente-pyme",
     readTime: "10 min",
   },
   {
-    title: "Síndrome del Impostor en Mujeres Ejecutivas: 7 Estrategias Reales",
-    excerpt: "El 70% de las mujeres en posiciones de liderazgo lo experimentan. Acá van estrategias concretas —no frases motivacionales— para superarlo.",
-    category: "Liderazgo Femenino",
+    title: "Liderazgo Efectivo: De Controlar a Habilitar a tu Equipo",
+    excerpt: "Los mejores líderes no dirigen cada movimiento — habilitan a sus equipos para operar con autonomía, confianza y accountability.",
+    category: "Liderazgo",
     date: "Febrero 2026",
-    href: "/blog/sindrome-impostor-mujeres-ejecutivas",
+    href: "/blog/liderazgo-efectivo-habilitar-equipo",
     readTime: "12 min",
   },
 ];
@@ -165,14 +167,14 @@ export default function Home() {
             <div className={styles.heroContent}>
               <div className={styles.heroBadge}>
                 <Sparkles size={14} />
-                Coaching Ontológico · 20+ Años de Experiencia · LATAM
+                Consultora de Negocios · Management & Desarrollo Organizacional
               </div>
               <h1 className={styles.heroTitle}>
-                Transformá tu <span className={styles.highlightText}>Liderazgo</span><br />
-                <em>y el de tu Organización</em>
+                Potenciá tu <span className={styles.highlightText}>Empresa</span><br />
+                <em>con Management Estratégico</em>
               </h1>
               <p className={styles.heroSubtitle}>
-                Firma especializada en Desarrollo Organizacional que transforma resultados a través del diseño estratégico del comportamiento. Analizamos cultura, procesos y dinámicas de liderazgo para convertirlos en una ventaja competitiva concreta.
+                Consultora especializada en management, desarrollo organizacional y estructuración financiera para PYMEs. Diagnosticamos cultura, clima, procesos y liderazgo para convertirlos en ventajas competitivas concretas.
               </p>
 
               {/* Trust badges */}
@@ -209,7 +211,7 @@ export default function Home() {
             <div className={styles.heroImageWrapper}>
               <Image
                 src="/maria-hero.jpg"
-                alt="María Gómez - Coach ontológica y mentora ejecutiva"
+                alt="María Gómez - Consultora de negocios y desarrollo organizacional"
                 className={styles.heroImage}
                 width={800}
                 height={1000}
@@ -229,23 +231,29 @@ export default function Home() {
           <div className={styles.heroDecorCircle} aria-hidden="true" />
         </section>
 
+        {/* ============ LOGO CAROUSEL — CONFIANZA ============ */}
+        <LogoCarousel />
+
         {/* ============ PAIN POINTS — DOS AUDIENCIAS ============ */}
         <section className={`section bg-cream`}>
           <div className="container">
+            <ScrollReveal variant="fade-up">
             <div className="text-center" style={{ marginBottom: "4rem" }}>
               <span className="section-label">¿Te identificás con esto?</span>
-              <h2 className="section-title">¿Tu liderazgo o el de tu equipo no está dando los resultados que esperabas?</h2>
+              <h2 className="section-title">¿Tu empresa o tu gestión no está dando los resultados que esperabas?</h2>
               <p className="section-subtitle">
-                Trabajamos con dos tipos de desafíos muy diferentes — pero con la misma raíz: la necesidad de un liderazgo más consciente y efectivo.
+                Trabajamos con dos tipos de desafíos — pero con la misma raíz: la necesidad de management profesional, estructura clara y liderazgo efectivo.
               </p>
             </div>
+            </ScrollReveal>
 
             <div className={styles.painPointsGrid}>
               {/* PYMEs */}
+              <ScrollReveal variant="fade-right" delay={100}>
               <div className={`card ${styles.painCard}`}>
                 <div className={styles.painCardHeader}>
                   <span className={styles.painCardIcon}><Building2 size={22} /></span>
-                  <h3 className={styles.painCardTitle}>Para líderes y directivos de PYMEs</h3>
+                  <h3 className={styles.painCardTitle}>Para PYMEs que necesitan estructura</h3>
                 </div>
                 <ul className={styles.painList}>
                   {pymesPainPoints.map((p) => (
@@ -262,15 +270,17 @@ export default function Home() {
                   Ver solución para tu empresa →
                 </Link>
               </div>
+              </ScrollReveal>
 
-              {/* Mujeres Ejecutivas */}
+              {/* Líderes */}
+              <ScrollReveal variant="fade-left" delay={250}>
               <div className={`card ${styles.painCard} ${styles.painCardSecondary}`}>
                 <div className={styles.painCardHeader}>
                   <span className={styles.painCardIcon}><Crown size={22} /></span>
-                  <h3 className={styles.painCardTitle}>Para mujeres ejecutivas y líderes</h3>
+                  <h3 className={styles.painCardTitle}>Para líderes que necesitan acompañamiento</h3>
                 </div>
                 <ul className={styles.painList}>
-                  {ejecutivasPainPoints.map((p) => (
+                  {lideresPainPoints.map((p) => (
                     <li key={p.title} className={styles.painItem}>
                       <span className={styles.painEmoji}><p.Icon size={18} /></span>
                       <div>
@@ -280,10 +290,11 @@ export default function Home() {
                     </li>
                   ))}
                 </ul>
-                <Link href="/mentoria-mujeres-ejecutivas" className={`btn ${styles.btnGreen}`} style={{ marginTop: "2rem", width: "100%" }}>
-                  Ver mentoría especializada →
+                <Link href="/mentoria-lideres" className={`btn ${styles.btnGreen}`} style={{ marginTop: "2rem", width: "100%" }}>
+                  Ver mentorías para líderes →
                 </Link>
               </div>
+              </ScrollReveal>
             </div>
           </div>
         </section>
@@ -291,22 +302,21 @@ export default function Home() {
         {/* ============ SERVICIOS ============ */}
         <section className="section">
           <div className="container">
+            <ScrollReveal variant="fade-up">
             <div className="text-center" style={{ marginBottom: "4rem" }}>
               <span className="section-label">Nuestros Servicios</span>
-              <h2 className="section-title">Cómo te ayudamos a alcanzar tu máximo potencial</h2>
+              <h2 className="section-title">Cómo transformamos organizaciones y líderes</h2>
             </div>
+            </ScrollReveal>
 
             <div className={styles.servicesGrid}>
               {services.map((service, index) => (
-                <div key={service.title} className={`${styles.serviceCard} ${styles[`serviceCard--${service.color}`]}`}>
+                <ScrollReveal key={service.title} variant="zoom-in" delay={index * 200}>
+                <div className={`${styles.serviceCard} ${styles[`serviceCard--${service.color}`]}`}>
                   <div className={styles.serviceImageContainer}>
-                    <Image
-                      src={`https://images.unsplash.com/photo-${index === 0 ? '1542744173-8e7e53415bb0' : index === 1 ? '1573496359142-b8d87734a5a2' : '1552664730-d307ca884978'}?auto=format&fit=crop&q=80&w=600&h=400`}
-                      alt={service.title}
-                      width={600}
-                      height={400}
-                      className={styles.serviceImage}
-                    />
+                    <div className={styles.serviceImagePlaceholder}>
+                      <service.Icon size={48} strokeWidth={1.2} />
+                    </div>
                   </div>
                   <div className={styles.serviceContent}>
                     <span className={styles.serviceIcon}><service.Icon size={26} /></span>
@@ -324,6 +334,7 @@ export default function Home() {
                     </Link>
                   </div>
                 </div>
+                </ScrollReveal>
               ))}
             </div>
           </div>
@@ -336,6 +347,7 @@ export default function Home() {
           <div className={styles.diffBgOrbTwo} aria-hidden="true" />
 
           <div className="container">
+            <ScrollReveal variant="fade-right">
             <div className={styles.diffHeader}>
               <div className={styles.diffHeaderLeft}>
                 <span className={`section-label ${styles.labelLight}`}>¿Por qué Elevare?</span>
@@ -345,31 +357,36 @@ export default function Home() {
                 </h2>
               </div>
               <p className={styles.diffHeaderDesc}>
-                Mientras otros facilitan talleres, nosotros acompañamos la implementación hasta ver el cambio real. Diagnóstico concreto, ejecución directa, resultados medibles.
+                Mientras otros facilitan talleres, nosotros diagnosticamos, diseñamos e implementamos hasta ver el cambio real. Management concreto, ejecución directa, resultados medibles.
               </p>
             </div>
+            </ScrollReveal>
 
             <div className={styles.diffLayout}>
               {/* Tarjeta destacada — primera */}
               {differentiators.slice(0, 1).map(({ Icon: FIcon, title, desc }) => (
-                <div key={title} className={styles.diffCardFeatured}>
+                <ScrollReveal key={title} variant="fade-up" delay={100}>
+                <div className={styles.diffCardFeatured}>
                   <span className={styles.diffNum}>01</span>
                   <div className={styles.diffIconLg}><FIcon size={28} /></div>
                   <h3 className={styles.diffTitleFeatured}>{title}</h3>
                   <p className={styles.diffDescFeatured}>{desc}</p>
                   <div className={styles.diffAccentLine} />
                 </div>
+                </ScrollReveal>
               ))}
 
               {/* Grid 2×2 con el resto */}
               <div className={styles.diffSubGrid}>
                 {differentiators.slice(1).map(({ Icon: DIcon, title, desc }, i) => (
-                  <div key={title} className={styles.diffCardSmall}>
+                  <ScrollReveal key={title} variant="fade-up" delay={200 + i * 120} stagger={0} index={0}>
+                  <div className={styles.diffCardSmall}>
                     <span className={styles.diffNumSm}>0{i + 2}</span>
                     <div className={styles.diffIconSm}><DIcon size={18} /></div>
                     <h4 className={styles.diffTitleSm}>{title}</h4>
                     <p className={styles.diffDescSm}>{desc}</p>
                   </div>
+                  </ScrollReveal>
                 ))}
               </div>
             </div>
@@ -385,14 +402,17 @@ export default function Home() {
         {/* ============ TESTIMONIOS ============ */}
         <section className="section bg-cream">
           <div className="container">
+            <ScrollReveal variant="fade-up">
             <div className="text-center" style={{ marginBottom: "4rem" }}>
               <span className="section-label">Testimonios</span>
               <h2 className="section-title">Lo que dicen quienes ya transformaron su liderazgo</h2>
             </div>
+            </ScrollReveal>
 
             <div className="grid-3">
-              {testimonials.map((t) => (
-                <div key={t.name} className={styles.testimonialCard}>
+              {testimonials.map((t, i) => (
+                <ScrollReveal key={t.name} variant="zoom-in" delay={i * 150}>
+                <div className={styles.testimonialCard}>
                   <div className={styles.testimonialStars} aria-label="5 estrellas">★★★★★</div>
                   <p className={styles.testimonialText}>{t.text}</p>
                   <div className={styles.testimonialResult}>
@@ -410,6 +430,7 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
+                </ScrollReveal>
               ))}
             </div>
 
@@ -424,6 +445,7 @@ export default function Home() {
         {/* ============ NEWSLETTER CAPTURE ============ */}
         <section className="section bg-cream">
           <div className="container">
+            <ScrollReveal variant="flip-up">
             <div className={styles.newsletterBox}>
               <span className="section-label">Newsletter de Liderazgo</span>
               <h2 className={styles.newsletterTitle}>
@@ -437,6 +459,7 @@ export default function Home() {
                 Sin spam. Podés desuscribirte cuando quieras.
               </p>
             </div>
+            </ScrollReveal>
           </div>
         </section>
 
@@ -444,13 +467,14 @@ export default function Home() {
         <section className={styles.ctaSection}>
           <div className="container">
             <div className={styles.ctaBox}>
+              <ScrollReveal variant="fade-right">
               <div className={styles.ctaContent}>
                 <span className={`section-label ${styles.labelLight}`}>Siguiente Paso</span>
                 <h2 className={styles.ctaTitle}>
-                  ¿Listo para transformar tu liderazgo o el de tu organización?
+                  ¿Listo para profesionalizar la gestión de tu empresa?
                 </h2>
                 <p className={styles.ctaDesc}>
-                  Agendá una sesión exploratoria gratuita de 30 minutos. Sin compromiso. Conversamos sobre tus desafíos específicos y evaluamos juntos si el coaching ontológico es la solución que necesitás.
+                  Agendá una sesión exploratoria gratuita de 30 minutos. Sin compromiso. Conversamos sobre tus desafíos específicos y evaluamos juntos cómo nuestra consultoría puede transformar tu organización.
                 </p>
                 <div className={styles.ctaBtns}>
                   <Link href="/contacto" className="btn btn-primary btn-lg">
@@ -461,11 +485,12 @@ export default function Home() {
                   </Link>
                 </div>
               </div>
+              </ScrollReveal>
               <div className={styles.ctaVisual}>
                 <div className={styles.ctaImageWrapper}>
                   <Image
-                    src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800&h=1000"
-                    alt="Oficina moderna y profesional"
+                    src="/coaching-equipo.png"
+                    alt="Coaching profesional de equipos"
                     width={800}
                     height={1000}
                     className={styles.ctaImage}

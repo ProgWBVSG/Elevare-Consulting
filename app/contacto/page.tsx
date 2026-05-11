@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
+import ScrollReveal from "@/app/components/ScrollReveal";
 import { supabase } from "@/lib/supabase";
 import styles from "./contacto.module.css";
 
@@ -87,6 +88,7 @@ export default function ContactoPage() {
                     <div className="container">
                         <div className={styles.grid}>
                             {/* Form */}
+                            <ScrollReveal variant="fade-right">
                             <div className={styles.formCol}>
                                 {submitted ? (
                                     <div className={styles.successBox}>
@@ -164,8 +166,10 @@ export default function ContactoPage() {
                                     </form>
                                 )}
                             </div>
+                            </ScrollReveal>
 
                             {/* Info sidebar */}
+                            <ScrollReveal variant="fade-left" delay={200}>
                             <div className={styles.sidebar}>
                                 <div className={styles.sideCard}>
                                     <h3>¿Qué pasa en la sesión?</h3>
@@ -213,6 +217,7 @@ export default function ContactoPage() {
                                     </div>
                                 </div>
                             </div>
+                            </ScrollReveal>
                         </div>
                     </div>
                 </section>

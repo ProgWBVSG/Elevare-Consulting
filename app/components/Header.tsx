@@ -10,8 +10,8 @@ const navLinks = [
         label: "Servicios",
         href: "/servicios",
         children: [
-            { label: "Coaching y Consultoría para Empresas", href: "/empresas" },
-            { label: "Mentoría para Mujeres Ejecutivas", href: "/mentoria-mujeres-ejecutivas" },
+            { label: "Management & Desarrollo Organizacional", href: "/empresas" },
+            { label: "Mentorías 1 a 1 para Líderes", href: "/mentoria-lideres" },
         ],
     },
     { label: "Sobre María", href: "/sobre-maria" },
@@ -87,7 +87,7 @@ export default function Header() {
 
                 {/* CTA */}
                 <Link href="/contacto" className={`btn btn-primary btn-sm ${styles.ctaBtn}`}>
-                    Agenda tu sesión gratuita
+                    Agenda tu diagnóstico gratuito
                 </Link>
 
                 {/* Mobile hamburger */}
@@ -133,7 +133,7 @@ export default function Header() {
                         </div>
                     ))}
                     <Link href="/contacto" className="btn btn-primary" onClick={() => setMenuOpen(false)}>
-                        Agenda tu sesión gratuita
+                        Agenda tu diagnóstico gratuito
                     </Link>
                 </div>
             )}

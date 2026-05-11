@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Brain, Users, Zap, Globe, Trophy, UserCheck } from "lucide-react";
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
+import ScrollReveal from "@/app/components/ScrollReveal";
 import styles from "./sobreMaria.module.css";
 
 export const metadata: Metadata = {
@@ -141,29 +142,31 @@ export default function SobreMaria() {
                 {/* Historia */}
                 <section className="section">
                     <div className="container" style={{ maxWidth: "1000px" }}>
+                        <ScrollReveal variant="fade-up">
                         <div className="text-center" style={{ marginBottom: "3rem" }}>
                             <span className="section-label">Mi Historia</span>
                             <h2 className="section-title">Más de 20 años construyendo líderes que transforman organizaciones</h2>
                         </div>
+                        </ScrollReveal>
                         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem', alignItems: 'center' }}>
                             <div className={styles.storyText}>
                                 <p>
-                                    A lo largo de mi carrera he tenido el privilegio de <strong>dirigir equipos de más de 470 personas</strong>, coordinando proyectos multinacionales que demandaron integrar visión estratégica, liderazgo humano y capacidad de ejecución en simultáneo.
+                                    <strong>No nací consultora, me forjé en la línea de fuego corporativa.</strong> A lo largo de mi carrera he dirigido <strong>equipos de más de 470 personas</strong> y coordinado proyectos multinacionales en LATAM, donde aprendí a integrar visión estratégica con ejecución implacable.
                                 </p>
                                 <p>
-                                    Ese recorrido me llevó a gestionar operaciones complejas y acompañar procesos de crecimiento y transformación organizacional en <strong>diversos países de Latinoamérica</strong>. Aprendí que los resultados sostenibles no nacen de los procesos solos: nacen de los líderes que los impulsan.
+                                    Esa experiencia me enseñó una verdad innegociable: <strong>los resultados no los dan los procesos, los dan los líderes.</strong> Si el management falla, cualquier sistema colapsa.
                                 </p>
                                 <p>
-                                    Mi valor diferencial está en la combinación de tres elementos que rara vez conviven: <strong>Inteligencia Relacional</strong>, optimización de procesos y acompañamiento genuino en la toma de decisiones clave. Trabajo sobre las personas y los sistemas — ordeno, alineo y potencio para lograr transformaciones reales.
+                                    Por eso creé Elevare Consulting. Mi enfoque combina la <strong>Inteligencia Relacional</strong> con la optimización operativa dura. Ordeno, alineo y acompaño a CEOs y dueños de empresas en la toma de decisiones críticas para lograr <strong>transformaciones reales y rentables</strong>.
                                 </p>
                                 <p>
-                                    Hoy, desde Elevare Consulting y como <strong>Directora Asociada de la Cámara de Comercio de Mujeres de EE.UU. (Miami Chapter)</strong>, acompaño a líderes y organizaciones a alcanzar su máximo potencial con un enfoque profundamente humano y orientado a resultados.
+                                    Además, como <strong>Directora Asociada de la Cámara de Comercio de Mujeres de EE.UU. (Miami Chapter)</strong>, mantengo una visión global para ayudar a tu organización a escalar con bases sólidas.
                                 </p>
                             </div>
                             <div>
                                 <Image
-                                    src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800&h=600"
-                                    alt="María Gómez en su oficina"
+                                    src="/maria-sobre-mi.jpeg"
+                                    alt="María Gómez - Elevare Consulting"
                                     width={800}
                                     height={600}
                                     style={{ width: '100%', height: 'auto', borderRadius: '12px', boxShadow: '0 10px 30px rgba(0,0,0,0.1)' }}
@@ -182,7 +185,8 @@ export default function SobreMaria() {
                         </div>
                         <div className={styles.timeline}>
                             {timeline.map((item, i) => (
-                                <div key={item.year} className={`${styles.timelineItem} ${i % 2 === 0 ? styles.left : styles.right}`}>
+                                <ScrollReveal key={item.year} variant={i % 2 === 0 ? "fade-right" : "fade-left"} delay={i * 100}>
+                                <div className={`${styles.timelineItem} ${i % 2 === 0 ? styles.left : styles.right}`}>
                                     <div className={styles.timelineYear}>{item.year}</div>
                                     <div className={styles.timelineCard}>
                                         <h4>{item.title}</h4>
@@ -193,6 +197,7 @@ export default function SobreMaria() {
                                         <span className={styles.timelineDecorLine} />
                                     </div>
                                 </div>
+                                </ScrollReveal>
                             ))}
                         </div>
                     </div>
@@ -207,14 +212,16 @@ export default function SobreMaria() {
                             <h2 className="section-title">Los principios que guían cada proceso de acompañamiento</h2>
                         </div>
                         <div className="grid-2">
-                            {values.map((v) => (
-                                <div key={v.title} className={`card ${styles.valueCard}`}>
+                            {values.map((v, i) => (
+                                <ScrollReveal key={v.title} variant="zoom-in" delay={i * 120}>
+                                <div className={`card ${styles.valueCard}`}>
                                     <div className={styles.valueIcon}><v.Icon size={24} /></div>
                                     <div>
                                         <h4 className={styles.valueTitle}>{v.title}</h4>
                                         <p className={styles.valueDesc}>{v.desc}</p>
                                     </div>
                                 </div>
+                                </ScrollReveal>
                             ))}
                         </div>
                     </div>
