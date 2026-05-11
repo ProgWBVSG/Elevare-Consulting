@@ -165,8 +165,8 @@ export default function Empresas() {
                             <ScrollReveal variant="fade-left" delay={200}>
                             <div className={styles.photoCol}>
                                 <Image
-                                    src="/coaching-equipo.png"
-                                    alt="Sesión de coaching con equipo empresarial"
+                                    src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1200&auto=format&fit=crop"
+                                    alt="Sesión de management con equipo empresarial"
                                     width={600}
                                     height={400}
                                     className={styles.sectionPhoto}

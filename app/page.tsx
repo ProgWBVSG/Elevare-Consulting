@@ -489,8 +489,8 @@ export default function Home() {
               <div className={styles.ctaVisual}>
                 <div className={styles.ctaImageWrapper}>
                   <Image
-                    src="/coaching-equipo.png"
-                    alt="Coaching profesional de equipos"
+                    src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1200&auto=format&fit=crop"
+                    alt="Coaching profesional de equipos y management empresarial"
                     width={800}
                     height={1000}
                     className={styles.ctaImage}
