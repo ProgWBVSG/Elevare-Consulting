@@ -105,7 +105,7 @@ export default function SobreMaria() {
                                 </nav>
                                 <span className={`section-label ${styles.labelGreen}`}>Fundadora de Elevare Consulting</span>
                                 <h1 className={styles.heroTitle}>María Gómez</h1>
-                                <p className={styles.heroTagline}>Coach Ejecutiva & Organizacional · Consultora en Desarrollo de Líderes · Especialista en Inteligencia Relacional</p>
+                                <p className={styles.heroTagline}>Consultora de Negocios · Desarrollo de líderes · Coach Ejecutiva</p>
                                 <div className={styles.heroBadges}>
                                     <span className={styles.heroBadge}><Trophy size={14} /> 20+ años liderando equipos</span>
                                     <span className={styles.heroBadge}><Users size={14} /> +470 personas dirigidas</span>
