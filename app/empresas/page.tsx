@@ -254,12 +254,14 @@ export default function Empresas() {
                 <section className={styles.bottomCta}>
                     <div className="container">
                         <ScrollReveal variant="fade-up">
-                        <h2>¿Listo para profesionalizar el liderazgo y operaciones de tu empresa?</h2>
-                        <p>Agendá una sesión exploratoria gratuita de 30 minutos. Evaluamos juntos tu situación y te presentamos una propuesta concreta.</p>
-                        <div className={styles.bottomCtaBtns}>
-                            <Link href="/contacto" className="btn btn-primary btn-lg">Solicitar sesión exploratoria gratuita</Link>
-                            <Link href="/testimonios" className="btn btn-outline-white">Ver casos de éxito</Link>
-                        </div>
+                            <div className={styles.bottomCtaInner}>
+                                <h2>¿Listo para profesionalizar el liderazgo y operaciones de tu empresa?</h2>
+                                <p>Agendá una sesión exploratoria gratuita de 30 minutos. Evaluamos juntos tu situación y te presentamos una propuesta concreta.</p>
+                                <div className={styles.bottomCtaBtns}>
+                                    <Link href="/contacto" className="btn btn-primary btn-lg">Solicitar sesión exploratoria gratuita</Link>
+                                    <Link href="/testimonios" className="btn btn-outline-white">Ver casos de éxito</Link>
+                                </div>
+                            </div>
                         </ScrollReveal>
                     </div>
                 </section>

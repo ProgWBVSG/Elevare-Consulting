@@ -13,36 +13,60 @@ export default function LeadMagnetForm() {
         e.preventDefault();
         setLoading(true);
 
-        // Save to Supabase
-        await supabase.from("leads").insert([{
-            nombre: "",
-            email,
-            motivo: "Newsletter",
-        }]);
-
-        // Send to Google Sheets integration
         try {
-            await fetch("/api/leads-to-sheets", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    record: {
-                        nombre: "",
-                        email,
-                        telefono: "",
-                        empresa: "",
-                        motivo: "Newsletter",
-                        mensaje: "",
-                        created_at: new Date().toISOString()
-                    }
-                })
-            });
-        } catch (e) {
-            console.error("Error enviando a sheets:", e);
-        }
+            // Save to Supabase
+            const { error: supabaseError } = await supabase.from("leads").insert([{
+                nombre: "",
+                email,
+                motivo: "Newsletter",
+            }]);
 
-        setLoading(false);
-        setSubmitted(true);
+            if (supabaseError) {
+                console.error("Error guardando en Supabase:", supabaseError);
+            }
+
+            // Send to Google Sheets integration
+            try {
+                await fetch("/api/leads-to-sheets", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        record: {
+                            nombre: "",
+                            email,
+                            telefono: "",
+                            empresa: "",
+                            motivo: "Newsletter",
+                            mensaje: "",
+                            created_at: new Date().toISOString()
+                        }
+                    })
+                });
+            } catch (e) {
+                console.error("Error enviando a sheets:", e);
+            }
+
+            // Send to MailerLite
+            try {
+                await fetch("/api/mailerlite", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        email,
+                        nombre: ""
+                    })
+                });
+            } catch (e) {
+                console.error("Error enviando a MailerLite:", e);
+            }
+
+            setSubmitted(true);
+        } catch (globalError) {
+            console.error("Error global en el formulario:", globalError);
+            alert("Hubo un problema procesando tu solicitud. Por favor intenta nuevamente.");
+        } finally {
+            setLoading(false);
+        }
     };
 
     if (submitted) {

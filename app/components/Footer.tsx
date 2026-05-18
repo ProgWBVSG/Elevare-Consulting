@@ -1,9 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./Footer.module.css";
+import LeadMagnetForm from "./LeadMagnetForm";
 
 const services = [
     { label: "Coaching y Consultoría para Empresas", href: "/empresas" },
+    { label: "Mentorías 1 a 1 para Líderes", href: "/mentoria-lideres" },
     { label: "Mentoría para Mujeres Ejecutivas", href: "/mentoria-mujeres-ejecutivas" },
 ];
 
@@ -51,7 +53,7 @@ export default function Footer() {
                                     </svg>
                                 </a>
                                 <a
-                                    href="https://www.linkedin.com/company/elevare-consulting-729079200"
+                                    href="https://www.linkedin.com/in/elevare-consulting-729079200?utm_source=share_via&utm_content=profile&utm_medium=member_android"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className={styles.socialLink}
@@ -69,8 +71,8 @@ export default function Footer() {
                                     Buenos Aires, Argentina<br />
                                     Alianzas: Paraguay · Uruguay · Chile
                                 </p>
-                                <a href="mailto:contacto@elevareconsultingmg.com" className={styles.contact}>
-                                    contacto@elevareconsultingmg.com
+                                <a href="mailto:info@elevareconsultingmg.com" className={styles.contact}>
+                                    info@elevareconsultingmg.com
                                 </a>
                             </address>
                         </div>
@@ -103,11 +105,9 @@ export default function Footer() {
                         <div className={styles.ctaCol}>
                             <h4 className={styles.colTitle}>¿Listo para transformar tu liderazgo?</h4>
                             <p className={styles.ctaText}>
-                                Agendá una sesión exploratoria gratuita de 30 minutos. Sin compromiso.
+                                Suscribite a nuestro newsletter para recibir herramientas de desarrollo profesional directo en tu correo.
                             </p>
-                            <Link href="/contacto" className="btn btn-primary">
-                                Agendar sesión gratuita
-                            </Link>
+                            <LeadMagnetForm />
                         </div>
                     </div>
                 </div>
@@ -116,9 +116,14 @@ export default function Footer() {
             {/* Bottom bar */}
             <div className={styles.bottom}>
                 <div className={`container ${styles.bottomInner}`}>
-                    <p className={styles.copyright}>
-                        © {new Date().getFullYear()} Elevare Consulting MG. Todos los derechos reservados.
-                    </p>
+                    <div className={styles.copyrightGroup}>
+                        <p className={styles.copyright}>
+                            © {new Date().getFullYear()} Elevare Consulting MG. Todos los derechos reservados.
+                        </p>
+                        <p className={styles.developer}>
+                            Desarrollado por <a href="https://mybdigitals.com" target="_blank" rel="noopener noreferrer">MyB Digitals</a>
+                        </p>
+                    </div>
                     <div className={styles.legal}>
                         {legal.map((l) => (
                             <Link key={l.href} href={l.href} className={styles.legalLink}>{l.label}</Link>

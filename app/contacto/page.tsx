@@ -46,21 +46,47 @@ export default function ContactoPage() {
             console.error(sbError);
         } else {
             // Send directly to API Route (Sheets Integration)
-            fetch("/api/leads-to-sheets", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    record: {
-                        nombre: form.nombre,
+            try {
+                const sheetsRes = await fetch("/api/leads-to-sheets", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        record: {
+                            nombre: form.nombre,
+                            email: form.email,
+                            telefono: form.telefono || "",
+                            empresa: form.empresa || "",
+                            motivo: form.motivo || "",
+                            mensaje: form.mensaje || "",
+                            created_at: new Date().toISOString()
+                        }
+                    })
+                });
+                
+                if (!sheetsRes.ok) {
+                    console.error("Error envío a Sheets: Status", sheetsRes.status);
+                }
+            } catch (e) {
+                console.error("Error de red enviando a Sheets:", e);
+            }
+
+            // Send to MailerLite API Route
+            try {
+                const mlRes = await fetch("/api/mailerlite", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
                         email: form.email,
-                        telefono: form.telefono || "",
-                        empresa: form.empresa || "",
-                        motivo: form.motivo || "",
-                        mensaje: form.mensaje || "",
-                        created_at: new Date().toISOString()
-                    }
-                })
-            }).catch(e => console.error("Error envío a Sheets:", e));
+                        nombre: form.nombre
+                    })
+                });
+                
+                if (!mlRes.ok) {
+                    console.error("Error envío a MailerLite: Status", mlRes.status);
+                }
+            } catch (e) {
+                console.error("Error de red enviando a MailerLite:", e);
+            }
 
             setSubmitted(true);
         }
@@ -205,7 +231,7 @@ export default function ContactoPage() {
                                 <div className={styles.sideCard}>
                                     <h3>Otras formas de contactar</h3>
                                     <div className={styles.contactLinks}>
-                                        <a href="https://www.linkedin.com/company/elevare-consulting-729079200" target="_blank" rel="noopener noreferrer" className={styles.contactLink}>
+                                        <a href="https://www.linkedin.com/in/elevare-consulting-729079200?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" className={styles.contactLink}>
                                             <span>💼</span> LinkedIn — Elevare Consulting
                                         </a>
                                         <a href="https://www.instagram.com/elevareconsultingmg" target="_blank" rel="noopener noreferrer" className={styles.contactLink}>

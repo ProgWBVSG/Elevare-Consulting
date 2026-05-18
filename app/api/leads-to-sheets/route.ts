@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
-// URL del Google Apps Script Webhook (Deploy ID: AKfycbxconeugTZ6I_vJhhFm0acsU8_OtKj1GSMEO6nXf8oPWErdA2XbEJMzin6pCuK6Wj6Q)
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxconeugTZ6I_vJhhFm0acsU8_OtKj1GSMEO6nXf8oPWErdA2XbEJMzin6pCuK6Wj6Q/exec";
+// URL del Google Apps Script Webhook (Deploy ID: AKfycbx3ZO-V_eW3QK08vi_6Q8pAE45efcs09q9iyxsRX2O_KWxmIuPNDFFxPAbL4IMOmkww)
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx3ZO-V_eW3QK08vi_6Q8pAE45efcs09q9iyxsRX2O_KWxmIuPNDFFxPAbL4IMOmkww/exec";
 
 export async function POST(req: NextRequest) {
     try {

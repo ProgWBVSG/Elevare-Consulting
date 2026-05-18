@@ -75,7 +75,7 @@ const sobreMariaSchemaLD = {
                 roleName: "Directora Asociada",
             },
             sameAs: [
-                "https://www.linkedin.com/company/elevare-consulting-729079200",
+                "https://www.linkedin.com/in/elevare-consulting-729079200?utm_source=share_via&utm_content=profile&utm_medium=member_android",
                 "https://www.instagram.com/elevareconsultingmg",
             ],
         },

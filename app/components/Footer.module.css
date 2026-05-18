@@ -178,9 +178,31 @@
     flex-wrap: wrap;
 }
 
+.copyrightGroup {
+    display: flex;
+    gap: var(--space-4);
+    align-items: center;
+    flex-wrap: wrap;
+}
+
 .copyright {
     font-size: var(--text-xs);
     color: rgba(255, 255, 255, 0.35);
+}
+
+.developer {
+    font-size: var(--text-xs);
+    color: rgba(255, 255, 255, 0.35);
+}
+
+.developer a {
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: underline;
+    transition: color var(--transition-fast);
+}
+
+.developer a:hover {
+    color: var(--color-white);
 }
 
 .legal {
@@ -223,5 +245,9 @@
     .bottomInner {
         flex-direction: column;
         text-align: center;
+    }
+    
+    .copyrightGroup {
+        justify-content: center;
     }
 }

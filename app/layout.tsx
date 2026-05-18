@@ -133,12 +133,12 @@ export default function RootLayout({
                   contactPoint: {
                     "@type": "ContactPoint",
                     contactType: "customer service",
-                    email: "contacto@elevareconsultingmg.com",
+                    email: "info@elevareconsultingmg.com",
                     availableLanguage: ["es", "en"],
                   },
                   sameAs: [
                     "https://www.instagram.com/elevareconsultingmg",
-                    "https://www.linkedin.com/company/elevare-consulting-729079200",
+                    "https://www.linkedin.com/in/elevare-consulting-729079200?utm_source=share_via&utm_content=profile&utm_medium=member_android",
                   ],
                   areaServed: [
                     { "@type": "Country", name: "Argentina" },

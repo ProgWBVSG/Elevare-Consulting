@@ -233,11 +233,13 @@ export default function MentoriaMujeres() {
                 {/* CTA */}
                 <section className={styles.bottomCta} style={{ background: "linear-gradient(135deg, #1A2E1A, var(--color-secondary-dark))" }}>
                     <div className="container">
-                        <h2>¿Listo para desarrollar tu liderazgo auténtico?</h2>
-                        <p>Agendá una sesión exploratoria gratuita de 30 minutos. Hablamos sobre tu situación específica y evaluamos juntas cómo el proceso puede ayudarte.</p>
-                        <div className={styles.bottomCtaBtns}>
-                            <Link href="/contacto" className="btn btn-primary btn-lg">Agenda tu sesión exploratoria gratuita</Link>
-                            <Link href="/testimonios" className="btn btn-outline-white">Ver casos de mujeres líderes</Link>
+                        <div className={styles.bottomCtaInner}>
+                            <h2>¿Listo para desarrollar tu liderazgo auténtico?</h2>
+                            <p>Agendá una sesión exploratoria gratuita de 30 minutos. Hablamos sobre tu situación específica y evaluamos juntas cómo el proceso puede ayudarte.</p>
+                            <div className={styles.bottomCtaBtns}>
+                                <Link href="/contacto" className="btn btn-primary btn-lg">Agenda tu sesión exploratoria gratuita</Link>
+                                <Link href="/testimonios" className="btn btn-outline-white">Ver casos de mujeres líderes</Link>
+                            </div>
                         </div>
                     </div>
                 </section>
