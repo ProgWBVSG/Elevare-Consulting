@@ -22,6 +22,5 @@ Añadir soporte de Google Analytics (GA4) a la página web de Elevare Consulting
    - Inyectar el componente `<GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID as string} />` dentro del `<body>` o fuera del contenedor principal.
    
 ## 5. Trampas Conocidas y Restricciones (Edge Cases)
-- **Error de tipado en TypeScript**: Asegurarse de realizar el cast `as string` al leer la variable de entorno, o condicionar el renderizado, porque `gaId` requiere explícitamente un string y `process.env` puede retornar `undefined`.
-- **Doble Inyección**: Comprobar si `GoogleAnalytics` ya fue importado antes de modificar `app/layout.tsx` para mantener la idempotencia del script.
-- **Versión de Next.js**: Dado que la versión listada en el proyecto es `16.1.6`, se debe instalar una versión compatible de `@next/third-parties` (probablemente latest o compatible con Next 15+).
+- **Error de tipado en TypeScript**: Asegurarse de realizar el cast `as string` al leer la variable de entorno.
+- **Verificación de Propiedad (Google Search Console)**: A veces el crawler de Google falla al detectar la etiqueta si se usa la API nativa de `metadata` de Next.js (`verification: { google: ... }`). **Solución obligatoria**: Inyectar explícitamente `<meta name="google-site-verification" content="..." />` dentro del elemento `<head>` de `app/layout.tsx` para garantizar que aparezca de forma estática pura.
