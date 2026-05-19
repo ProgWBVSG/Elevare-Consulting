@@ -80,7 +80,7 @@ export const metadata: Metadata = {
     canonical: "https://elevareconsultingmg.com",
   },
   verification: {
-    google: "Js7gwJRYH0m34mBULddsezxyWdwoqa08mX8ur19GSi4",
+    google: "-WPEX6SAzfnaY0T7IUDdZMgyW-z3QNF2iYs2qgZZ0qo",
   },
 };
 
