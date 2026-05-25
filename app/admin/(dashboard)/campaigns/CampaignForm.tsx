@@ -1,20 +1,79 @@
 'use client'
 
-import { useTransition, useState } from 'react'
+import { useTransition, useState, useRef } from 'react'
 import { sendCampaign } from './actions'
-import { Send, AlertCircle, CheckCircle2 } from 'lucide-react'
+import { Send, AlertCircle, CheckCircle2, Paperclip, X } from 'lucide-react'
+import styles from './campaigns.module.css'
 
-export default function CampaignForm({ totalLeads }: { totalLeads: number }) {
+type Lead = {
+  id: string
+  nombre: string
+  email: string
+  status?: string
+}
+
+export default function CampaignForm({ leads }: { leads: Lead[] }) {
   const [isPending, startTransition] = useTransition()
   const [status, setStatus] = useState<{ type: 'success' | 'error', text: string } | null>(null)
+  
+  const [audienceType, setAudienceType] = useState<'all' | 'specific'>('all')
+  const [selectedEmails, setSelectedEmails] = useState<Set<string>>(new Set())
+  const [fileName, setFileName] = useState<string | null>(null)
+  
+  const fileInputRef = useRef<HTMLInputElement>(null)
+
+  const handleToggleEmail = (email: string) => {
+    const newSet = new Set(selectedEmails)
+    if (newSet.has(email)) {
+      newSet.delete(email)
+    } else {
+      newSet.add(email)
+    }
+    setSelectedEmails(newSet)
+  }
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0]
+    if (file) {
+      if (file.size > 5 * 1024 * 1024) {
+        alert("El archivo es demasiado grande. El máximo es 5MB.")
+        e.target.value = ''
+        setFileName(null)
+      } else {
+        setFileName(file.name)
+      }
+    } else {
+      setFileName(null)
+    }
+  }
+
+  const clearFile = (e: React.MouseEvent) => {
+    e.preventDefault()
+    e.stopPropagation()
+    setFileName(null)
+    if (fileInputRef.current) {
+      fileInputRef.current.value = ''
+    }
+  }
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setStatus(null)
     const formData = new FormData(e.currentTarget)
 
-    if (!window.confirm(`¿Estás segura de enviar este correo a ${totalLeads} contactos? Esta acción no se puede deshacer.`)) {
+    const totalToVerify = audienceType === 'all' ? leads.length : selectedEmails.size
+    if (totalToVerify === 0) {
+      alert("No has seleccionado a nadie para enviar el correo.")
       return
+    }
+
+    if (!window.confirm(`¿Estás segura de enviar este correo a ${totalToVerify} contacto(s)? Esta acción no se puede deshacer.`)) {
+      return
+    }
+
+    formData.append('audienceType', audienceType)
+    if (audienceType === 'specific') {
+      formData.append('specificEmails', Array.from(selectedEmails).join(','))
     }
 
     startTransition(async () => {
@@ -23,16 +82,17 @@ export default function CampaignForm({ totalLeads }: { totalLeads: number }) {
         setStatus({ type: 'error', text: result.error })
       } else {
         setStatus({ type: 'success', text: `¡Campaña enviada con éxito a ${result.count} contactos!` })
-        // Clear form
         const form = e.target as HTMLFormElement
         form.reset()
+        setFileName(null)
+        setSelectedEmails(new Set())
       }
     })
   }
 
-  if (totalLeads === 0) {
+  if (leads.length === 0) {
     return (
-      <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6 text-yellow-800 flex items-start gap-3">
+      <div className={styles.messageError} style={{ margin: 0, padding: '2rem' }}>
         <AlertCircle className="w-5 h-5 flex-shrink-0 mt-0.5" />
         <div>
           <h3 className="font-semibold text-yellow-900">No hay contactos</h3>
@@ -43,59 +103,138 @@ export default function CampaignForm({ totalLeads }: { totalLeads: number }) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
-      <div className="bg-blue-50 border border-blue-100 rounded-lg p-4 mb-6 text-sm text-blue-800">
-        <strong>Audiencia:</strong> Esta campaña se enviará a todos los <strong>{totalLeads}</strong> contactos en tu CRM mediante copia oculta (BCC).
-      </div>
+    <div className={styles.container}>
+      <form onSubmit={handleSubmit} className={styles.card}>
+        
+        {/* SECCIÓN: AUDIENCIA */}
+        <div className={styles.audienceSection}>
+          <h2 className={styles.sectionTitle}>1. Seleccionar Audiencia</h2>
+          
+          <div className={styles.radioGroup}>
+            <label className={styles.radioLabel}>
+              <input 
+                type="radio" 
+                name="audienceRadio" 
+                className={styles.radioInput}
+                checked={audienceType === 'all'} 
+                onChange={() => setAudienceType('all')} 
+              />
+              Todos los contactos ({leads.length})
+            </label>
+            <label className={styles.radioLabel}>
+              <input 
+                type="radio" 
+                name="audienceRadio" 
+                className={styles.radioInput}
+                checked={audienceType === 'specific'} 
+                onChange={() => setAudienceType('specific')} 
+              />
+              Contactos específicos
+            </label>
+          </div>
 
-      <div className="space-y-4">
-        <div>
-          <label htmlFor="subject" className="block text-sm font-semibold text-gray-700 uppercase tracking-wide mb-1">
-            Asunto del correo
-          </label>
-          <input
-            type="text"
-            id="subject"
-            name="subject"
-            required
-            className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2C5F9F] focus:border-[#2C5F9F] transition-all"
-            placeholder="Ej: Invitación a nueva Masterclass de Liderazgo"
-          />
+          {audienceType === 'specific' && (
+            <div className={styles.leadsList}>
+              {leads.map(lead => (
+                <label key={lead.id} className={styles.leadItem}>
+                  <input 
+                    type="checkbox"
+                    className={styles.leadCheck}
+                    checked={selectedEmails.has(lead.email)}
+                    onChange={() => handleToggleEmail(lead.email)}
+                  />
+                  <div className={styles.leadInfo}>
+                    <span className={styles.leadName}>{lead.nombre}</span>
+                    <span className={styles.leadEmail}>{lead.email}</span>
+                  </div>
+                </label>
+              ))}
+            </div>
+          )}
         </div>
 
-        <div>
-          <label htmlFor="message" className="block text-sm font-semibold text-gray-700 uppercase tracking-wide mb-1">
-            Cuerpo del Mensaje
-          </label>
-          <p className="text-xs text-gray-500 mb-2">Puedes usar saltos de línea normales. Se convertirán en formato HTML automáticamente.</p>
-          <textarea
-            id="message"
-            name="message"
-            required
-            rows={12}
-            className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2C5F9F] focus:border-[#2C5F9F] transition-all resize-y"
-            placeholder="Hola, quería compartirles una novedad..."
-          />
-        </div>
-      </div>
+        {/* SECCIÓN: CONTENIDO */}
+        <div className={styles.contentSection}>
+          <h2 className={styles.sectionTitle}>2. Contenido del Correo</h2>
+          
+          <div className={styles.field}>
+            <label htmlFor="subject" className={styles.label}>Asunto del correo</label>
+            <input
+              type="text"
+              id="subject"
+              name="subject"
+              required
+              className={styles.input}
+              placeholder="Ej: Invitación a nueva Masterclass de Liderazgo"
+            />
+          </div>
 
-      {status && (
-        <div className={`p-4 rounded-lg flex items-start gap-3 ${status.type === 'success' ? 'bg-green-50 border border-green-200 text-green-800' : 'bg-red-50 border border-red-200 text-red-800'}`}>
-          {status.type === 'success' ? <CheckCircle2 className="w-5 h-5 flex-shrink-0" /> : <AlertCircle className="w-5 h-5 flex-shrink-0" />}
-          <span className="font-medium text-sm mt-0.5">{status.text}</span>
-        </div>
-      )}
+          <div className={styles.field}>
+            <label htmlFor="message" className={styles.label}>Cuerpo del Mensaje</label>
+            <p className="text-xs text-gray-500 mb-2">Puedes usar saltos de línea normales. Se convertirán en formato automático.</p>
+            <textarea
+              id="message"
+              name="message"
+              required
+              rows={8}
+              className={styles.textarea}
+              placeholder="Hola, quería compartirles una novedad..."
+            />
+          </div>
 
-      <div className="pt-4 border-t border-gray-100 flex justify-end">
-        <button
-          type="submit"
-          disabled={isPending}
-          className="flex items-center gap-2 px-6 py-3 bg-[#D65A20] text-white rounded-lg font-bold hover:bg-[#B54512] transition-colors shadow-lg shadow-orange-500/30 disabled:opacity-50 disabled:cursor-not-allowed"
-        >
-          <Send className="w-4 h-4" />
-          {isPending ? 'Enviando Campaña...' : 'Enviar Campaña Ahora'}
-        </button>
-      </div>
-    </form>
+          <div className={styles.field} style={{ marginTop: '2rem' }}>
+            <label className={styles.label}>Archivo Adjunto (Opcional)</label>
+            <div className={styles.fileInputWrapper}>
+              <input
+                type="file"
+                name="attachment"
+                className={styles.fileInput}
+                ref={fileInputRef}
+                onChange={handleFileChange}
+                accept=".pdf,.doc,.docx,.png,.jpg,.jpeg"
+              />
+              <Paperclip size={24} className="mx-auto text-gray-400 mb-2" />
+              {fileName ? (
+                <div className={styles.fileName}>
+                  {fileName}
+                  <button onClick={clearFile} className="ml-2 hover:text-red-500" type="button" title="Eliminar archivo">
+                    <X size={14} style={{ display: 'inline' }} />
+                  </button>
+                </div>
+              ) : (
+                <>
+                  <span style={{ fontWeight: 600, color: '#2C5F9F' }}>Haz clic para buscar</span> o arrastra un archivo aquí.
+                  <p className={styles.fileHint}>PDF, Word, o Imágenes (Máx: 5MB)</p>
+                </>
+              )}
+            </div>
+          </div>
+        </div>
+
+        {/* FEEDBACK STATUS */}
+        {status && (
+          <div className={`${styles.message} ${status.type === 'success' ? styles.messageSuccess : styles.messageError}`}>
+            {status.type === 'success' ? <CheckCircle2 size={18} /> : <AlertCircle size={18} />}
+            {status.text}
+          </div>
+        )}
+
+        {/* SECCIÓN: SUBMIT */}
+        <div className={styles.footerSection}>
+          <span style={{ fontSize: '0.875rem', color: '#64748b' }}>
+            Se enviará en Copia Oculta (BCC) a {audienceType === 'all' ? leads.length : selectedEmails.size} personas.
+          </span>
+          <button
+            type="submit"
+            disabled={isPending}
+            className={styles.submitBtn}
+          >
+            <Send size={18} />
+            {isPending ? 'Enviando...' : 'Enviar Campaña Ahora'}
+          </button>
+        </div>
+
+      </form>
+    </div>
   )
 }

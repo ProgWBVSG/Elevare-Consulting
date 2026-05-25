@@ -5,8 +5,11 @@ import { Resend } from 'resend'
 
 export async function sendCampaign(formData: FormData) {
   try {
+    const audienceType = formData.get('audienceType') as string
+    const specificEmails = formData.get('specificEmails') as string
     const subject = formData.get('subject') as string
     const message = formData.get('message') as string
+    const attachmentFile = formData.get('attachment') as File | null
 
     if (!subject || !message) {
       return { error: 'El asunto y el mensaje son obligatorios.' }
@@ -23,38 +26,55 @@ export async function sendCampaign(formData: FormData) {
       return { error: 'No autorizado.' }
     }
 
-    // 1. Obtener todos los leads
-    const { data: leads, error: dbError } = await supabase
-      .from('leads')
-      .select('email')
-      .not('email', 'is', null)
+    let emailsToTarget: string[] = []
 
-    if (dbError || !leads) {
-      console.error('Error fetching leads:', dbError)
-      return { error: 'No se pudieron obtener los contactos del CRM.' }
+    if (audienceType === 'specific' && specificEmails) {
+      emailsToTarget = specificEmails.split(',').map(e => e.trim()).filter(Boolean)
+    } else {
+      // 1. Obtener todos los leads
+      const { data: leads, error: dbError } = await supabase
+        .from('leads')
+        .select('email')
+        .not('email', 'is', null)
+
+      if (dbError || !leads) {
+        console.error('Error fetching leads:', dbError)
+        return { error: 'No se pudieron obtener los contactos del CRM.' }
+      }
+      emailsToTarget = leads.map(lead => lead.email).filter(Boolean)
     }
 
-    const emails = leads.map(lead => lead.email).filter(Boolean)
-
-    if (emails.length === 0) {
-      return { error: 'No hay contactos en el CRM con correo electrónico.' }
+    if (emailsToTarget.length === 0) {
+      return { error: 'No hay contactos válidos seleccionados para enviar la campaña.' }
     }
 
-    // 2. Enviar con Resend (usamos BCC o enviamos uno por uno en Promise.all para no exponer emails entre ellos)
+    // 2. Preparar el adjunto si existe
+    let attachments = undefined
+    if (attachmentFile && attachmentFile.size > 0) {
+      // Validar tamaño (máx 5MB)
+      if (attachmentFile.size > 5 * 1024 * 1024) {
+        return { error: 'El archivo adjunto no puede superar los 5MB.' }
+      }
+
+      const arrayBuffer = await attachmentFile.arrayBuffer()
+      const buffer = Buffer.from(arrayBuffer)
+      attachments = [
+        {
+          filename: attachmentFile.name,
+          content: buffer
+        }
+      ]
+    }
+
+    // 3. Enviar con Resend
     const resend = new Resend(process.env.RESEND_API_KEY)
-
-    // Nota: El plan gratis de Resend limita a 100 emails por día y 100 por petición.
-    // Para simplificar, enviamos todo en BCC (Copia Oculta). 
-    // Lo ideal es tener un dominio verificado (ej. hola@tudominio.com). Por defecto usa onboarding@resend.dev
     const fromEmail = process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev'
-
-    // Formatear mensaje conservando saltos de línea
     const htmlMessage = message.replace(/\n/g, '<br />')
 
     const { data, error: sendError } = await resend.emails.send({
       from: `Elevare Consulting <${fromEmail}>`,
       to: ['maria@elevareconsulting.com'], // Se envía a admin
-      bcc: emails, // Se envía oculto a todos los leads
+      bcc: emailsToTarget, // Copia Oculta a leads
       subject: subject,
       html: `
         <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; color: #333;">
@@ -67,6 +87,7 @@ export async function sendCampaign(formData: FormData) {
           </p>
         </div>
       `,
+      attachments: attachments
     })
 
     if (sendError) {
@@ -74,7 +95,7 @@ export async function sendCampaign(formData: FormData) {
       return { error: `Error de envío: ${sendError.message}` }
     }
 
-    return { success: true, count: emails.length }
+    return { success: true, count: emailsToTarget.length }
 
   } catch (err: any) {
     console.error('Error in sendCampaign:', err)
