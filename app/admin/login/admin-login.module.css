@@ -1,0 +1,241 @@
+/* ─── ADMIN LOGIN — Elevare Consulting ─────────── */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* ─── PAGE WRAPPER ─────────────────────────────── */
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1A1A2E 0%, #16213E 40%, #2C5F9F 100%);
+  padding: 1.5rem;
+  font-family: 'Inter', 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle floating orbs for depth */
+.page::before,
+.page::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+.page::before {
+  width: 400px;
+  height: 400px;
+  background: #2C5F9F;
+  top: -100px;
+  right: -100px;
+}
+
+.page::after {
+  width: 300px;
+  height: 300px;
+  background: #5CA084;
+  bottom: -80px;
+  left: -80px;
+}
+
+/* ─── CARD ─────────────────────────────────────── */
+.card {
+  max-width: 440px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  padding: 2.75rem 2.5rem;
+  box-shadow:
+    0 8px 40px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  animation: fadeInUp 0.6s ease forwards;
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── HEADER ───────────────────────────────────── */
+.header {
+  text-align: center;
+  margin-bottom: 2.25rem;
+}
+
+.iconCircle {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #2C5F9F 0%, #5CA084 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.25rem;
+  box-shadow: 0 4px 20px rgba(44, 95, 159, 0.4);
+}
+
+.iconCircle svg {
+  color: white;
+  width: 24px;
+  height: 24px;
+}
+
+.title {
+  font-size: 1.625rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.55);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ─── FORM ─────────────────────────────────────── */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.input {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1.5px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  font-size: 0.95rem;
+  color: #ffffff;
+  font-family: inherit;
+  transition: all 0.2s ease;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.input:focus {
+  border-color: #2C5F9F;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 0 3px rgba(44, 95, 159, 0.25);
+}
+
+/* ─── ERROR MESSAGE ────────────────────────────── */
+.error {
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #fca5a5;
+  font-size: 0.85rem;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  text-align: center;
+}
+
+/* ─── BUTTON ───────────────────────────────────── */
+.button {
+  width: 100%;
+  padding: 0.9rem 1.5rem;
+  background: linear-gradient(135deg, #D65A20 0%, #E87D3E 100%);
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  font-family: inherit;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 20px rgba(214, 90, 32, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(214, 90, 32, 0.5);
+  background: linear-gradient(135deg, #c24e18 0%, #D65A20 100%);
+}
+
+.button:active {
+  transform: translateY(0);
+}
+
+.button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* ─── FOOTER BRANDING ──────────────────────────── */
+.branding {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.25);
+  letter-spacing: 0.04em;
+}
+
+/* ─── RESPONSIVE ───────────────────────────────── */
+@media (max-width: 480px) {
+  .card {
+    padding: 2rem 1.5rem;
+    border-radius: 16px;
+  }
+
+  .title {
+    font-size: 1.4rem;
+  }
+
+  .iconCircle {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+  }
+}

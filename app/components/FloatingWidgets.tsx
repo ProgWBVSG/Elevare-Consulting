@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 import styles from "./FloatingWidgets.module.css";
 
@@ -21,8 +22,14 @@ type Message = {
 };
 
 export default function FloatingWidgets() {
+    const pathname = usePathname();
     const [chatOpen, setChatOpen] = useState(false);
     const [messages, setMessages] = useState<Message[]>([]);
+
+    // No mostrar widgets flotantes en el panel de admin
+    if (pathname.startsWith("/admin")) {
+        return null;
+    }
 
     const handleQuestionClick = (question: string) => {
         let response = "Interesante pregunta. Para darte la mejor respuesta, sumate a una sesión exploratoria con María en la página de Contacto.";

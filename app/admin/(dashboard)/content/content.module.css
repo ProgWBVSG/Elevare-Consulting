@@ -1,0 +1,183 @@
+/* ─── ADMIN CONTENT MANAGER — Elevare Consulting ──── */
+
+/* ─── PAGE HEADER ──────────────────────────────── */
+.header {
+  margin-bottom: 1.75rem;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #1A1A2E;
+  margin: 0 0 0.25rem;
+}
+
+.subtitle {
+  color: #6b7280;
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+/* ─── CONTENT CARD ─────────────────────────────── */
+.card {
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.07);
+  padding: 2rem;
+}
+
+.description {
+  font-size: 0.85rem;
+  color: #9ca3af;
+  margin: 0 0 1.75rem;
+  line-height: 1.5;
+}
+
+/* ─── FORM ─────────────────────────────────────── */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.input,
+.textarea {
+  width: 100%;
+  padding: 0.75rem 0.875rem;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-family: inherit;
+  color: #1A1A2E;
+  background: #ffffff;
+  transition: all 0.2s ease;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.input:focus,
+.textarea:focus {
+  border-color: #2C5F9F;
+  box-shadow: 0 0 0 3px rgba(44, 95, 159, 0.12);
+}
+
+.textarea {
+  min-height: 100px;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+/* ─── MESSAGE (SUCCESS / ERROR) ────────────────── */
+.message {
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.messageSuccess {
+  background: rgba(92, 160, 132, 0.1);
+  border: 1px solid rgba(92, 160, 132, 0.25);
+  color: #3d7c5e;
+}
+
+.messageError {
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  color: #dc2626;
+}
+
+/* ─── SUBMIT SECTION ──────────────────────────── */
+.submitSection {
+  padding-top: 1.25rem;
+  border-top: 1px solid #f3f4f6;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.saveBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.5rem;
+  background: #2C5F9F;
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 600;
+  font-family: inherit;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 10px rgba(44, 95, 159, 0.25);
+}
+
+.saveBtn:hover {
+  background: #1e4a80;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(44, 95, 159, 0.35);
+}
+
+.saveBtn:active {
+  transform: translateY(0);
+}
+
+.saveBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.saveBtn svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* ─── ERROR BOX ────────────────────────────────── */
+.errorBox {
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  color: #dc2626;
+  font-size: 0.9rem;
+}
+
+/* ─── RESPONSIVE ───────────────────────────────── */
+@media (max-width: 768px) {
+  .card {
+    padding: 1.25rem;
+    border-radius: 12px;
+  }
+
+  .submitSection {
+    justify-content: stretch;
+  }
+
+  .saveBtn {
+    width: 100%;
+    justify-content: center;
+  }
+}
