@@ -178,25 +178,7 @@ export default function Home() {
               </p>
 
               {/* Trust badges */}
-              <div className={styles.trustBadges}>
-                {trustBadges.map((b) => (
-                  <div key={b.label} className={styles.trustBadge}>
-                    <span className={styles.trustValue}>{b.value}</span>
-                    <span className={styles.trustLabel}>{b.label}</span>
-                  </div>
-                ))}
-                {/* Contador animado */}
-                <div className={styles.trustBadge}>
-                  <CounterBadge
-                    target={500}
-                    prefix="+"
-                    label="Líderes Transformados"
-                    duration={1400}
-                    valueClassName={styles.trustValue}
-                    labelClassName={styles.trustLabel}
-                  />
-                </div>
-              </div>
+
 
               <div className={styles.heroCtas}>
                 <Link href="/contacto" className="btn btn-primary btn-lg">
@@ -229,6 +211,7 @@ export default function Home() {
 
           {/* Círculo decorativo */}
           <div className={styles.heroDecorCircle} aria-hidden="true" />
+
         </section>
 
         {/* ============ LOGO CAROUSEL — CONFIANZA ============ */}

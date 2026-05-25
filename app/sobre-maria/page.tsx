@@ -129,10 +129,9 @@ export default function SobreMaria() {
                                         priority
                                     />
                                 </div>
-                                <div className={styles.statsFloat}>
-                                    <div className={styles.statItem}><strong>20+</strong><span>Años</span></div>
-                                    <div className={styles.statItem}><strong>470+</strong><span>Personas</span></div>
-                                    <div className={styles.statItem}><strong>LATAM</strong><span>Alcance</span></div>
+                                <div className={styles.credentialBadge}>
+                                    <div className={styles.badgeTitle}>Posición internacional</div>
+                                    <div className={styles.badgeBody}>Directora Asociada<br/>Cámara de Comercio<br/>de Mujeres — EE.UU.</div>
                                 </div>
                             </div>
                         </div>

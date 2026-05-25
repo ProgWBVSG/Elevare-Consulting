@@ -86,6 +86,7 @@ export const metadata: Metadata = {
 
 import FloatingWidgets from "./components/FloatingWidgets";
 import LoadingScreen from "./components/LoadingScreen";
+import { Analytics } from "@vercel/analytics/react"
 
 export default function RootLayout({
   children,
@@ -194,6 +195,7 @@ export default function RootLayout({
         <LoadingScreen />
         {children}
         <FloatingWidgets />
+        <Analytics />
       </body>
     </html>
   );

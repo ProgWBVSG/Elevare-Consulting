@@ -539,6 +539,13 @@
     .reviewsGrid {
         grid-template-columns: repeat(3, 1fr);
     }
+    .reviewCard:nth-child(1) {
+        grid-column: span 2;
+    }
+    .reviewCard:nth-child(1) .reviewText {
+        font-size: var(--text-lg);
+        line-height: 1.8;
+    }
 }
 
 .reviewCard {

@@ -30,10 +30,11 @@ const painPoints = [
 ];
 
 const process = [
-    { step: "01", title: "Diagnóstico Profundo", desc: "Analizamos cultura, procesos y dinámicas de liderazgo para identificar los patrones que impulsan o limitan el desempeño. Partimos siempre de datos reales de tu organización." },
-    { step: "02", title: "Diseño Estratégico", desc: "Diseñamos soluciones que alinean hábitos, prácticas de gestión y objetivos de negocio. El plan es 100% a medida: no hay plantillas genéricas." },
-    { step: "03", title: "Implementación y Acompañamiento", desc: "Ejecutamos directamente junto a tu equipo. Optimizamos procesos, fortalecemos la responsabilidad ejecutiva y desarrollamos las conductas clave que elevan la performance." },
-    { step: "04", title: "Resultados Medibles y Sostenibles", desc: "Aseguramos cambios que se mantienen en el tiempo. Convertimos el comportamiento organizacional en una ventaja competitiva concreta para tu empresa." },
+    { step: "01", title: "Diagnóstico Organizacional", desc: "Evaluamos clima, cultura, procesos y estructura financiera. Sin supuestos: datos reales de tu empresa antes de cualquier recomendación." },
+    { step: "02", title: "Diseño de Estructura", desc: "Definimos roles, responsabilidades y mecanismos de accountability. Cada decisión tiene un dueño, cada proceso un estándar medible." },
+    { step: "03", title: "Desarrollo de Liderazgo", desc: "Formamos líderes que habilitan a sus equipos en lugar de controlarlos. Autonomía y responsabilidad colectiva como estándar operativo." },
+    { step: "04", title: "Implementación Directa", desc: "No solo recomendamos: acompañamos la ejecución. Diagnóstico, diseño y acción en un proceso integrado sin gaps entre consultoría y realidad." },
+    { step: "05", title: "Performance Sostenible", desc: "Alineamos sistemas de gestión y cultura para que los resultados se mantengan. Tu organización opera mejor incluso después de que nos vamos." },
 ];
 
 const benefits = [
