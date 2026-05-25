@@ -3,12 +3,14 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Users, FileText, LogOut, Menu, X } from 'lucide-react'
+import { Users, FileText, LogOut, Menu, X, BarChart3, Mail } from 'lucide-react'
 import styles from './admin-dashboard.module.css'
 
 const navItems = [
   { href: '/admin/leads', label: 'CRM (Contactos)', icon: Users },
   { href: '/admin/content', label: 'Contenidos Web', icon: FileText },
+  { href: '/admin/campaigns', label: 'Campañas Email', icon: Mail },
+  { href: '/admin/analytics', label: 'Analíticas', icon: BarChart3 },
 ]
 
 export default function AdminDashboardShell({

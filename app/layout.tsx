@@ -87,6 +87,7 @@ export const metadata: Metadata = {
 import FloatingWidgets from "./components/FloatingWidgets";
 import LoadingScreen from "./components/LoadingScreen";
 import { Analytics } from "@vercel/analytics/react"
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 export default function RootLayout({
   children,
@@ -196,6 +197,7 @@ export default function RootLayout({
         {children}
         <FloatingWidgets />
         <Analytics />
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID as string} />
       </body>
     </html>
   );

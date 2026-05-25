@@ -154,7 +154,21 @@ const blogPosts = [
   },
 ];
 
-export default function Home() {
+import { createClient } from '@/lib/supabase/server'
+
+export default async function Home() {
+  const supabase = await createClient()
+  const { data: contentData } = await supabase.from('site_content').select('*')
+  
+  // Transform data array to dictionary for easy access
+  const content = (contentData || []).reduce((acc: Record<string, string>, item) => {
+    acc[item.section_key] = item.text_value
+    return acc
+  }, {})
+
+  // Función helper segura
+  const getText = (key: string, fallback: string) => content[key] || fallback;
+
   return (
     <>
       <Header />
@@ -167,14 +181,14 @@ export default function Home() {
             <div className={styles.heroContent}>
               <div className={styles.heroBadge}>
                 <Sparkles size={14} />
-                Consultora de Negocios · Management & Desarrollo Organizacional
+                {getText('hero_badge', 'Consultora de Negocios · Management & Desarrollo Organizacional')}
               </div>
               <h1 className={styles.heroTitle}>
-                Potenciá tu <span className={styles.highlightText}>Empresa</span><br />
-                <em>con Management Estratégico</em>
+                {getText('hero_title_main', 'Potenciá tu Empresa')}<br />
+                <em>{getText('hero_title_sub', 'con Management Estratégico')}</em>
               </h1>
               <p className={styles.heroSubtitle}>
-                Consultora especializada en management, desarrollo organizacional y estructuración financiera para PYMEs. Diagnosticamos cultura, clima, procesos y liderazgo para convertirlos en ventajas competitivas concretas.
+                {getText('hero_subtitle', 'Consultora especializada en management, desarrollo organizacional y estructuración financiera para PYMEs. Diagnosticamos cultura, clima, procesos y liderazgo para convertirlos en ventajas competitivas concretas.')}
               </p>
 
               {/* Trust badges */}
@@ -222,10 +236,10 @@ export default function Home() {
           <div className="container">
             <ScrollReveal variant="fade-up">
             <div className="text-center" style={{ marginBottom: "4rem" }}>
-              <span className="section-label">¿Te identificás con esto?</span>
-              <h2 className="section-title">¿Tu empresa o tu gestión no está dando los resultados que esperabas?</h2>
+              <span className="section-label">{getText('pain_intro_badge', '¿Te identificás con esto?')}</span>
+              <h2 className="section-title">{getText('pain_intro_title', '¿Tu empresa o tu gestión no está dando los resultados que esperabas?')}</h2>
               <p className="section-subtitle">
-                Trabajamos con dos tipos de desafíos — pero con la misma raíz: la necesidad de management profesional, estructura clara y liderazgo efectivo.
+                {getText('pain_intro_desc', 'Trabajamos con dos tipos de desafíos — pero con la misma raíz: la necesidad de management profesional, estructura clara y liderazgo efectivo.')}
               </p>
             </div>
             </ScrollReveal>
@@ -287,8 +301,8 @@ export default function Home() {
           <div className="container">
             <ScrollReveal variant="fade-up">
             <div className="text-center" style={{ marginBottom: "4rem" }}>
-              <span className="section-label">Nuestros Servicios</span>
-              <h2 className="section-title">Cómo transformamos organizaciones y líderes</h2>
+              <span className="section-label">{getText('services_intro_badge', 'Nuestros Servicios')}</span>
+              <h2 className="section-title">{getText('services_intro_title', 'Cómo transformamos organizaciones y líderes')}</h2>
             </div>
             </ScrollReveal>
 
@@ -333,14 +347,13 @@ export default function Home() {
             <ScrollReveal variant="fade-right">
             <div className={styles.diffHeader}>
               <div className={styles.diffHeaderLeft}>
-                <span className={`section-label ${styles.labelLight}`}>¿Por qué Elevare?</span>
+                <span className={`section-label ${styles.labelLight}`}>{getText('why_intro_badge', '¿Por qué Elevare?')}</span>
                 <h2 className={styles.diffSectionTitle}>
-                  Líderes más efectivos.<br />
-                  <em>Equipos más rentables.</em>
+                  {getText('why_intro_title', 'Líderes más efectivos. Equipos más rentables.')}
                 </h2>
               </div>
               <p className={styles.diffHeaderDesc}>
-                Mientras otros facilitan talleres, nosotros diagnosticamos, diseñamos e implementamos hasta ver el cambio real. Management concreto, ejecución directa, resultados medibles.
+                {getText('why_intro_desc', 'Mientras otros facilitan talleres, nosotros diagnosticamos, diseñamos e implementamos hasta ver el cambio real. Management concreto, ejecución directa, resultados medibles.')}
               </p>
             </div>
             </ScrollReveal>
@@ -452,12 +465,12 @@ export default function Home() {
             <div className={styles.ctaBox}>
               <ScrollReveal variant="fade-right">
               <div className={styles.ctaContent}>
-                <span className={`section-label ${styles.labelLight}`}>Siguiente Paso</span>
+                <span className={`section-label ${styles.labelLight}`}>{getText('cta_intro_badge', 'Siguiente Paso')}</span>
                 <h2 className={styles.ctaTitle}>
-                  ¿Listo para profesionalizar la gestión de tu empresa?
+                  {getText('cta_title', '¿Listo para profesionalizar la gestión de tu empresa?')}
                 </h2>
                 <p className={styles.ctaDesc}>
-                  Agendá una sesión exploratoria gratuita de 30 minutos. Sin compromiso. Conversamos sobre tus desafíos específicos y evaluamos juntos cómo nuestra consultoría puede transformar tu organización.
+                  {getText('cta_desc', 'Agendá una sesión exploratoria gratuita de 30 minutos. Sin compromiso. Conversamos sobre tus desafíos específicos y evaluamos juntos cómo nuestra consultoría puede transformar tu organización.')}
                 </p>
                 <div className={styles.ctaBtns}>
                   <Link href="/contacto" className="btn btn-primary btn-lg">
