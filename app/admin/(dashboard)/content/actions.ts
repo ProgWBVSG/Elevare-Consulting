@@ -19,8 +19,10 @@ export async function updateContent(formData: FormData) {
 
     const { error } = await supabase
       .from('site_content')
-      .update({ text_value: value as string, updated_at: new Date().toISOString() })
-      .eq('section_key', key)
+      .upsert(
+        { section_key: key, text_value: value as string, updated_at: new Date().toISOString() },
+        { onConflict: 'section_key' }
+      )
       
     if (error) {
       console.error('Error updating content:', error)
