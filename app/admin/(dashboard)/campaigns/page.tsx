@@ -1,5 +1,6 @@
 import { createClient } from '@/lib/supabase/server'
 import CampaignForm from './CampaignForm'
+import styles from './campaigns.module.css'
 
 export default async function CampaignsPage() {
   const supabase = await createClient()
@@ -12,18 +13,18 @@ export default async function CampaignsPage() {
     .order('created_at', { ascending: false })
 
   return (
-    <div className="space-y-6 max-w-4xl mx-auto">
-      <div className="flex justify-between items-center mb-6">
-        <div>
-          <h1 className="text-2xl font-bold text-[#1A1A2E]">Campañas Automáticas</h1>
-          <p className="text-[#6b7280] text-sm mt-1">
-            Segmenta tu audiencia, añade adjuntos y envía newsletters.
-          </p>
-        </div>
+    <div className={styles.container}>
+      <div style={{ marginBottom: '2rem' }}>
+        <h1 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#1A1A2E' }}>Campañas de Email</h1>
+        <p style={{ color: '#6b7280', fontSize: '0.875rem', marginTop: '0.25rem' }}>
+          Segmentá tu audiencia, añadí adjuntos y enviá newsletters a tus contactos.
+        </p>
       </div>
 
       {error ? (
-        <div className="text-red-500 p-4 bg-red-50 rounded-md">Error conectando con el CRM.</div>
+        <div className={styles.messageError} style={{ margin: 0, padding: '1.5rem' }}>
+          Error conectando con el CRM. Revisá tu conexión a Supabase.
+        </div>
       ) : (
         <CampaignForm leads={leads || []} />
       )}
