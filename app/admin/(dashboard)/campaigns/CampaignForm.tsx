@@ -93,10 +93,10 @@ export default function CampaignForm({ leads }: { leads: Lead[] }) {
   if (leads.length === 0) {
     return (
       <div className={styles.messageError} style={{ margin: 0, padding: '2rem' }}>
-        <AlertCircle className="w-5 h-5 flex-shrink-0 mt-0.5" />
+        <AlertCircle size={20} style={{ flexShrink: 0, marginTop: 2 }} />
         <div>
-          <h3 className="font-semibold text-yellow-900">No hay contactos</h3>
-          <p className="mt-1 text-sm">Aún no tienes leads registrados en tu CRM. Debes tener al menos un contacto para poder enviar campañas.</p>
+          <h3 style={{ fontWeight: 600, color: '#92400e' }}>No hay contactos</h3>
+          <p style={{ marginTop: '0.5rem', fontSize: '0.875rem' }}>Aún no tienes leads registrados en tu CRM. Debes tener al menos un contacto para poder enviar campañas.</p>
         </div>
       </div>
     )
@@ -171,7 +171,7 @@ export default function CampaignForm({ leads }: { leads: Lead[] }) {
 
           <div className={styles.field}>
             <label htmlFor="message" className={styles.label}>Cuerpo del Mensaje</label>
-            <p className="text-xs text-gray-500 mb-2">Puedes usar saltos de línea normales. Se convertirán en formato automático.</p>
+            <p style={{ fontSize: '0.75rem', color: '#6b7280', marginBottom: '0.5rem' }}>Puedes usar saltos de línea normales. Se convertirán en formato automático.</p>
             <textarea
               id="message"
               name="message"
@@ -193,11 +193,11 @@ export default function CampaignForm({ leads }: { leads: Lead[] }) {
                 onChange={handleFileChange}
                 accept=".pdf,.doc,.docx,.png,.jpg,.jpeg"
               />
-              <Paperclip size={24} className="mx-auto text-gray-400 mb-2" />
+              <Paperclip size={24} style={{ margin: '0 auto 0.5rem', color: '#9ca3af' }} />
               {fileName ? (
                 <div className={styles.fileName}>
                   {fileName}
-                  <button onClick={clearFile} className="ml-2 hover:text-red-500" type="button" title="Eliminar archivo">
+                  <button onClick={clearFile} style={{ marginLeft: '0.5rem', cursor: 'pointer', background: 'none', border: 'none', color: 'inherit' }} type="button" title="Eliminar archivo">
                     <X size={14} style={{ display: 'inline' }} />
                   </button>
                 </div>
