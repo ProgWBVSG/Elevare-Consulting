@@ -25,7 +25,13 @@ export default function AnalyticsDashboard({ savedUrl }: { savedUrl: string | nu
     })
   }
 
-  const hasValidUrl = savedUrl && savedUrl.includes('lookerstudio.google.com')
+  const hasValidUrl = savedUrl && (savedUrl.includes('lookerstudio.google.com') || savedUrl.includes('datastudio.google.com'))
+
+  // Transformar URL normal en URL de incrustación si el usuario pegó el link incorrecto
+  let embedUrl = savedUrl || ''
+  if (embedUrl && !embedUrl.includes('/embed/')) {
+    embedUrl = embedUrl.replace('/reporting/', '/embed/reporting/')
+  }
 
   return (
     <div className={styles.container}>
@@ -73,7 +79,7 @@ export default function AnalyticsDashboard({ savedUrl }: { savedUrl: string | nu
             </a>
           </div>
           <iframe
-            src={savedUrl!}
+            src={embedUrl}
             className={styles.iframe}
             allowFullScreen
             sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"

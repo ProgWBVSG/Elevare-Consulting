@@ -12,8 +12,8 @@ export async function saveLookerUrl(url: string) {
   }
 
   // Validación básica
-  if (!url.includes('lookerstudio.google.com')) {
-    return { error: 'El enlace debe ser de Google Looker Studio (lookerstudio.google.com)' }
+  if (!url.includes('lookerstudio.google.com') && !url.includes('datastudio.google.com')) {
+    return { error: 'El enlace debe ser de Google Looker Studio o Data Studio' }
   }
 
   const { error } = await supabase
