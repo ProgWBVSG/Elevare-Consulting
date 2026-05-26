@@ -1,136 +1,114 @@
 'use client'
 
-import { useState, useTransition } from 'react'
-import { BarChart3, ExternalLink, CheckCircle2, Settings, Link as LinkIcon } from 'lucide-react'
-import { saveLookerUrl } from './actions'
+import { Activity, Users, Globe, MousePointerClick, ExternalLink, TrendingUp, Search } from 'lucide-react'
 import styles from './analytics.module.css'
 
-export default function AnalyticsDashboard({ savedUrl }: { savedUrl: string | null }) {
-  const [url, setUrl] = useState(savedUrl || '')
-  const [isPending, startTransition] = useTransition()
-  const [saved, setSaved] = useState(false)
+export default function AnalyticsDashboard() {
+  const GA_BASE_URL = 'https://analytics.google.com/analytics/web/'
 
-  const handleSave = () => {
-    if (!url.trim()) return
-    setSaved(false)
-
-    startTransition(async () => {
-      const res = await saveLookerUrl(url.trim())
-      if (res.error) {
-        alert(res.error)
-      } else {
-        setSaved(true)
-        setTimeout(() => setSaved(false), 3000)
-      }
-    })
-  }
-
-  const hasValidUrl = savedUrl && (savedUrl.includes('lookerstudio.google.com') || savedUrl.includes('datastudio.google.com'))
-
-  // Transformar URL normal en URL de incrustación si el usuario pegó el link incorrecto
-  let embedUrl = savedUrl || ''
-  if (embedUrl && !embedUrl.includes('/embed/')) {
-    embedUrl = embedUrl.replace('/reporting/', '/embed/reporting/')
-  }
+  const reports = [
+    {
+      id: 'realtime',
+      title: 'En Vivo Ahora',
+      description: 'Veé cuántas personas están navegando en tu web en este exacto momento y qué páginas miran.',
+      icon: Activity,
+      color: '#ef4444', // red
+      link: `${GA_BASE_URL}#/p/realtime`
+    },
+    {
+      id: 'acquisition',
+      title: 'Origen del Tráfico',
+      description: 'Descubrí de dónde vienen tus clientes (Google, Instagram, links directos o campañas).',
+      icon: TrendingUp,
+      color: '#3b82f6', // blue
+      link: `${GA_BASE_URL}#/p/reports/acquisitionoverview`
+    },
+    {
+      id: 'demographics',
+      title: 'Datos Demográficos',
+      description: 'Conocé los países, ciudades y edades de las personas que visitan Elevare Consulting.',
+      icon: Globe,
+      color: '#10b981', // green
+      link: `${GA_BASE_URL}#/p/reports/demographicsuser`
+    },
+    {
+      id: 'pages',
+      title: 'Páginas más vistas',
+      description: 'Averiguá qué servicios interesan más y qué páginas retienen más tiempo a los visitantes.',
+      icon: MousePointerClick,
+      color: '#8b5cf6', // purple
+      link: `${GA_BASE_URL}#/p/reports/pagesandusercreens`
+    },
+    {
+      id: 'events',
+      title: 'Comportamiento',
+      description: 'Mirá qué botones tocan más y cómo interactúan los usuarios con la web.',
+      icon: Users,
+      color: '#f59e0b', // amber
+      link: `${GA_BASE_URL}#/p/reports/engagementoverview`
+    },
+    {
+      id: 'search',
+      title: 'Búsquedas (SEO)',
+      description: 'Conectá Google Search Console para ver con qué palabras clave te encuentran en Google.',
+      icon: Search,
+      color: '#64748b', // slate
+      link: 'https://search.google.com/search-console'
+    }
+  ]
 
   return (
     <div className={styles.container}>
       <div className={styles.header}>
         <div>
-          <h1 className={styles.title}>Analíticas Web</h1>
+          <h1 className={styles.title}>Centro de Analíticas Web</h1>
           <p className={styles.subtitle}>
-            Métricas de tráfico en tiempo real desde Google Analytics 4
+            Acceso directo a las métricas oficiales de Google Analytics 4
           </p>
         </div>
       </div>
 
-      {/* CONFIG BAR */}
-      <div className={styles.configBar}>
-        <Settings size={18} style={{ color: '#64748b', flexShrink: 0 }} />
-        <input
-          type="url"
-          placeholder="Pegá tu link de Looker Studio acá (ej: https://lookerstudio.google.com/embed/...)"
-          value={url}
-          onChange={(e) => setUrl(e.target.value)}
-          className={styles.configInput}
-        />
-        <button
-          onClick={handleSave}
-          disabled={isPending || !url.trim()}
-          className={styles.configBtn}
-        >
-          <LinkIcon size={16} />
-          {isPending ? 'Guardando...' : 'Guardar'}
-        </button>
-        {saved && (
-          <span className={styles.configSuccess}>
-            <CheckCircle2 size={16} /> ¡Guardado!
-          </span>
-        )}
+      <div className={styles.infoBanner}>
+        <div className={styles.infoIconWrapper}>
+          <Activity size={24} />
+        </div>
+        <div className={styles.infoText}>
+          <h3 className={styles.infoTitle}>Tus datos están siendo registrados</h3>
+          <p className={styles.infoDesc}>
+            Google Tag Manager ya está midiendo tu web. Recordá que Google Analytics tarda <strong>hasta 24 horas</strong> en procesar los primeros datos. Si los reportes de abajo se ven vacíos hoy, es completamente normal.
+          </p>
+        </div>
       </div>
 
-      {/* IFRAME o EMPTY STATE */}
-      {hasValidUrl ? (
-        <div className={styles.card}>
-          <div className={styles.toolbar}>
-            <span>Vista general del sitio web</span>
-            <a href="https://analytics.google.com" target="_blank" rel="noreferrer" className={styles.gaLink}>
-              Ir a Google Analytics <ExternalLink size={14} style={{ display: 'inline', verticalAlign: 'middle', marginLeft: 4 }} />
+      <div className={styles.grid}>
+        {reports.map((report) => {
+          const Icon = report.icon
+          return (
+            <a
+              key={report.id}
+              href={report.link}
+              target="_blank"
+              rel="noreferrer"
+              className={styles.card}
+            >
+              <div className={styles.cardHeader}>
+                <div className={styles.iconBox} style={{ backgroundColor: `${report.color}15`, color: report.color }}>
+                  <Icon size={24} />
+                </div>
+                <ExternalLink size={16} className={styles.externalIcon} />
+              </div>
+              <h3 className={styles.cardTitle}>{report.title}</h3>
+              <p className={styles.cardDesc}>{report.description}</p>
             </a>
-          </div>
-          <iframe
-            src={embedUrl}
-            className={styles.iframe}
-            allowFullScreen
-            sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
-          />
-        </div>
-      ) : (
-        <div className={styles.emptyState}>
-          <div className={styles.emptyIcon}>
-            <BarChart3 size={40} />
-          </div>
-          <h3 className={styles.emptyTitle}>Conectá tu reporte de Analíticas</h3>
-          <p className={styles.emptyDesc}>
-            Para ver tus métricas de tráfico aquí, necesitás crear un reporte gratuito en
-            Google Looker Studio y vincular tu cuenta de Google Analytics 4.
-            Luego pegá el enlace de inserción en la barra de arriba.
-          </p>
-          <a
-            href="https://lookerstudio.google.com/"
-            target="_blank"
-            rel="noreferrer"
-            className={styles.emptyBtn}
-          >
-            <BarChart3 size={16} />
-            Crear reporte en Looker Studio
-          </a>
+          )
+        })}
+      </div>
 
-          <div className={styles.steps}>
-            <div className={styles.step}>
-              <div className={styles.stepNum}>1</div>
-              <div className={styles.stepTitle}>Configurá GA4</div>
-              <p className={styles.stepDesc}>
-                Creá una propiedad en analytics.google.com y copiá tu ID de medición (G-XXXXXXX).
-              </p>
-            </div>
-            <div className={styles.step}>
-              <div className={styles.stepNum}>2</div>
-              <div className={styles.stepTitle}>Creá el Dashboard</div>
-              <p className={styles.stepDesc}>
-                En Looker Studio, conectá tu GA4 como fuente de datos y diseñá tu reporte.
-              </p>
-            </div>
-            <div className={styles.step}>
-              <div className={styles.stepNum}>3</div>
-              <div className={styles.stepTitle}>Pegá el Link</div>
-              <p className={styles.stepDesc}>
-                Copiá el enlace de inserción (embed) y pegalo en la barra de arriba. ¡Listo!
-              </p>
-            </div>
-          </div>
-        </div>
-      )}
+      <div className={styles.footerLink}>
+        <a href={GA_BASE_URL} target="_blank" rel="noreferrer" className={styles.btnPrimary}>
+          Abrir Google Analytics Completo
+        </a>
+      </div>
     </div>
   )
 }
