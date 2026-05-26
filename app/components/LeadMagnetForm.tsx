@@ -22,7 +22,8 @@ export default function LeadMagnetForm() {
                     nombre: "Suscripción Newsletter",
                     email,
                     telefono: "",
-                    mensaje: "Nuevo suscriptor desde el footer (Newsletter)"
+                    mensaje: "Nuevo suscriptor desde el footer (Newsletter)",
+                    tipo: "Newsletter"
                 })
             });
 

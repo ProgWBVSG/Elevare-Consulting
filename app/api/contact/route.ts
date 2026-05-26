@@ -4,7 +4,7 @@ import { Resend } from 'resend'
 
 export async function POST(request: Request) {
   try {
-    const { nombre, email, telefono, mensaje } = await request.json()
+    const { nombre, email, telefono, mensaje, tipo } = await request.json()
 
     if (!nombre || !email) {
       return NextResponse.json({ error: 'Nombre y email son obligatorios' }, { status: 400 })
@@ -14,7 +14,7 @@ export async function POST(request: Request) {
     const supabase = await createClient()
     const { error: dbError } = await supabase
       .from('leads')
-      .insert([{ nombre, email, telefono, mensaje, status: 'nuevo' }])
+      .insert([{ nombre, email, telefono, mensaje, status: 'nuevo', tipo: tipo || 'Contacto' }])
 
     if (dbError) {
       console.error('Error insertando en Supabase:', dbError)
