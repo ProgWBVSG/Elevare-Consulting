@@ -95,6 +95,18 @@ export async function sendCampaign(formData: FormData) {
       return { error: `Error de envío: ${sendError.message}` }
     }
 
+    // 4. Guardar en historial de campañas (fallback silencioso si la tabla no existe)
+    try {
+      await supabase.from('campaign_history').insert([{
+        subject,
+        audience_type: audienceType === 'specific' ? 'Específico' : 'Todos',
+        recipients_count: emailsToTarget.length,
+        has_attachment: !!(attachmentFile && attachmentFile.size > 0)
+      }])
+    } catch (histErr) {
+      console.warn('No se pudo guardar en campaign_history:', histErr)
+    }
+
     return { success: true, count: emailsToTarget.length }
 
   } catch (err: any) {
