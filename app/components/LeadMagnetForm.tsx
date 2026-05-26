@@ -14,15 +14,20 @@ export default function LeadMagnetForm() {
         setLoading(true);
 
         try {
-            // Save to Supabase
-            const { error: supabaseError } = await supabase.from("leads").insert([{
-                nombre: "",
-                email,
-                motivo: "Newsletter",
-            }]);
+            // Enviar a la API de contacto para que lo registre en el CRM (Supabase) y envíe correos
+            const contactRes = await fetch("/api/contact", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    nombre: "Suscripción Newsletter",
+                    email,
+                    telefono: "",
+                    mensaje: "Nuevo suscriptor desde el footer (Newsletter)"
+                })
+            });
 
-            if (supabaseError) {
-                console.error("Error guardando en Supabase:", supabaseError);
+            if (!contactRes.ok) {
+                console.error("Error guardando en CRM:", await contactRes.text());
             }
 
             // Send to Google Sheets integration
