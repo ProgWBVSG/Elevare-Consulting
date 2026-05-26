@@ -12,9 +12,20 @@ export async function POST(request: Request) {
 
     // 1. Guardar en Supabase (CRM)
     const supabase = await createClient()
-    const { error: dbError } = await supabase
+    
+    // Intentamos guardar con la columna 'tipo'
+    let { error: dbError } = await supabase
       .from('leads')
       .insert([{ nombre, email, telefono, mensaje, status: 'nuevo', tipo: tipo || 'Contacto' }])
+
+    // Si falla porque no existe la columna 'tipo' (PGRST204), hacemos fallback insertando sin ella
+    if (dbError && dbError.code === 'PGRST204') {
+      console.warn('La columna tipo no existe, guardando en modo fallback (sin tipo)')
+      const { error: fallbackError } = await supabase
+        .from('leads')
+        .insert([{ nombre, email, telefono, mensaje, status: 'nuevo' }])
+      dbError = fallbackError
+    }
 
     if (dbError) {
       console.error('Error insertando en Supabase:', dbError)

@@ -35,9 +35,19 @@ export default function LeadsDashboard({ leads }: { leads: Lead[] }) {
   const filteredLeads = leads.filter(lead => {
     if (activeTab === 'all') return true
     
-    const leadTipo = lead.tipo || 'Contacto' // Fallback por si hay leads viejos
+    // Fallback inteligente si la columna 'tipo' no existe en la base de datos
+    let leadTipo = lead.tipo
+    if (!leadTipo) {
+      leadTipo = lead.nombre === 'Suscripción Newsletter' ? 'Newsletter' : 'Contacto'
+    }
+
     return leadTipo.toLowerCase() === activeTab.toLowerCase()
   })
+
+  const getComputedTipo = (lead: Lead) => {
+    if (lead.tipo) return lead.tipo
+    return lead.nombre === 'Suscripción Newsletter' ? 'Newsletter' : 'Contacto'
+  }
 
   const handleAddTag = () => {
     if (!tagInput.trim() || !selectedLead) return
@@ -56,8 +66,11 @@ export default function LeadsDashboard({ leads }: { leads: Lead[] }) {
     setSelectedLead({ ...selectedLead, etiquetas: updatedTags })
     setTagInput('')
 
-    startTransition(() => {
-      updateLeadTags(selectedLead.id, updatedTags)
+    startTransition(async () => {
+      const res = await updateLeadTags(selectedLead.id, updatedTags)
+      if (res?.error) {
+        alert(res.error)
+      }
     })
   }
 
@@ -69,8 +82,11 @@ export default function LeadsDashboard({ leads }: { leads: Lead[] }) {
     
     setSelectedLead({ ...selectedLead, etiquetas: updatedTags })
     
-    startTransition(() => {
-      updateLeadTags(selectedLead.id, updatedTags)
+    startTransition(async () => {
+      const res = await updateLeadTags(selectedLead.id, updatedTags)
+      if (res?.error) {
+        alert(res.error)
+      }
     })
   }
 
@@ -134,7 +150,7 @@ export default function LeadsDashboard({ leads }: { leads: Lead[] }) {
                     </td>
                     <td>
                       <span className={styles.motivoBadge}>
-                        {lead.tipo || 'Contacto'}
+                        {getComputedTipo(lead)}
                       </span>
                     </td>
                     <td>
@@ -195,7 +211,7 @@ export default function LeadsDashboard({ leads }: { leads: Lead[] }) {
               <div className={styles.detailSection}>
                 <div className={styles.detailLabel}>Origen (Tipo)</div>
                 <div className={styles.detailValue}>
-                  <span className={styles.motivoBadge}>{selectedLead.tipo || 'Contacto'}</span>
+                  <span className={styles.motivoBadge}>{getComputedTipo(selectedLead)}</span>
                 </div>
               </div>
 
