@@ -39,7 +39,7 @@ export default function LoginPage() {
                 id="email"
                 name="email"
                 type="email"
-                autoComplete="email"
+                autoComplete="username email"
                 required
                 className={styles.input}
                 placeholder="maria@elevareconsulting.com"
