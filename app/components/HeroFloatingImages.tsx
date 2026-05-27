@@ -6,12 +6,12 @@ import styles from "./HeroFloatingImages.module.css";
 
 const PAIRS = [
   [
-    { src: "/bg-images/floating_mgmt_1_1779913972553.png", top: "10%", left: "4%" },
-    { src: "/bg-images/floating_mgmt_2_1779914053555.png", top: "35%", right: "4%" },
+    { src: "/bg-images/floating_mgmt_1_1779913972553.png", top: "5%", left: "-2%" },
+    { src: "/bg-images/floating_mgmt_2_1779914053555.png", top: "35%", right: "-2%" },
   ],
   [
-    { src: "/bg-images/floating_mgmt_3_1779914205544.png", top: "15%", left: "7%" },
-    { src: "/bg-images/floating_mgmt_1_1779913972553.png", top: "40%", right: "7%" },
+    { src: "/bg-images/floating_mgmt_3_1779914205544.png", top: "15%", left: "0%" },
+    { src: "/bg-images/floating_mgmt_1_1779913972553.png", top: "45%", right: "0%" },
   ]
 ];
 
