@@ -6,20 +6,27 @@
   overflow: hidden;
 }
 
-.imageWrapper {
+.pairWrapper {
   position: absolute;
-  width: 220px;
-  height: 280px;
-  border-radius: var(--radius-xl);
-  overflow: hidden;
-  opacity: 0;
-  transform: scale(0.95) translateY(10px);
-  transition: opacity 1.8s ease-in-out, transform 1.8s ease-out;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  inset: 0;
+  pointer-events: none;
 }
 
-.imageWrapper.active {
-  opacity: 0.12; /* Keep it very subtle */
+.imageWrapper {
+  position: absolute;
+  width: 240px;
+  height: 300px;
+  border-radius: var(--radius-lg);
+  border: 6px solid rgba(255, 255, 255, 0.9);
+  overflow: hidden;
+  opacity: 0;
+  transform: scale(0.9) translateY(20px);
+  transition: opacity 2s ease-in-out, transform 2.5s ease-out;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+}
+
+.activePair .imageWrapper {
+  opacity: 0.35; /* Much more visible */
   transform: scale(1) translateY(0);
 }
 
