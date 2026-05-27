@@ -21,11 +21,12 @@
 .heroContainer {
   position: relative;
   z-index: 2;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-12);
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  padding: var(--space-16) 0;
+  justify-content: center;
+  text-align: center;
+  padding: var(--space-20) 0;
   width: 100%;
 }
 
@@ -33,6 +34,9 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .heroImageWrapper {
@@ -110,7 +114,9 @@
   color: rgba(255, 255, 255, 0.75);
   line-height: 1.7;
   margin-bottom: var(--space-10);
-  max-width: 600px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
   animation: fadeInUp 0.6s ease 0.2s both;
 }
 
@@ -461,12 +467,12 @@
   pointer-events: none;
 }
 
-/* Header de la sección — dos columnas */
+/* Header de la sección */
 .diffHeader {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: var(--space-12);
-  align-items: end;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  align-items: flex-start;
   margin-bottom: var(--space-16);
 }
 
@@ -494,12 +500,12 @@
 }
 
 .diffHeaderDesc {
-  font-size: var(--text-base);
-  color: rgba(255, 255, 255, 0.55);
-  line-height: 1.8;
-  max-width: 420px;
-  align-self: end;
-  padding-bottom: 4px;
+  font-size: var(--text-lg);
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.7;
+  max-width: 700px;
+  align-self: flex-start;
+  padding-bottom: 0;
 }
 
 /* Layout asimétrico: tarjeta grande + grid */

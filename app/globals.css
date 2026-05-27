@@ -103,10 +103,6 @@ body {
   line-height: 1.7;
   color: var(--color-white);
   background-color: #0B1320;
-  background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 50px 50px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
@@ -407,14 +403,14 @@ p {
 .section-title {
   font-family: var(--font-heading);
   font-size: clamp(var(--text-3xl), 4vw, var(--text-4xl));
-  color: var(--color-dark);
+  color: var(--color-white);
   margin-bottom: var(--space-4);
   line-height: 1.2;
 }
 
 .section-subtitle {
   font-size: var(--text-lg);
-  color: var(--color-gray-500);
+  color: rgba(255, 255, 255, 0.7);
   max-width: 640px;
   line-height: 1.7;
 }
@@ -484,11 +480,11 @@ p {
    BACKGROUNDS
    ============================================= */
 .bg-cream {
-  background: var(--color-cream);
+  background: rgba(255, 255, 255, 0.02);
 }
 
 .bg-dark {
-  background: var(--color-dark);
+  background: #080e18;
 }
 
 .bg-primary {

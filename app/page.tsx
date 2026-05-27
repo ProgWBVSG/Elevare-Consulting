@@ -195,30 +195,7 @@ export default async function Home() {
                 </Link>
               </div>
             </div>
-
-            {/* If there was an image, we can keep it clean or remove it. Let's keep it but simplified. */}
-            <div className={styles.heroImageWrapper}>
-              <Image
-                src="/maria-hero.jpg"
-                alt="Consultoría Elevare"
-                className={styles.heroImage}
-                width={800}
-                height={1000}
-                priority
-              />
-              <div className={styles.heroImageBackdrop}></div>
-            </div>
           </div>
-
-          {/* Scroll indicator */}
-          <div className={styles.scrollIndicator}>
-            <span>Scrolleá para descubrir</span>
-            <div className={styles.scrollArrow}>↓</div>
-          </div>
-
-          {/* Círculo decorativo */}
-          <div className={styles.heroDecorCircle} aria-hidden="true" />
-
         </section>
 
         {/* ============ LOGO CAROUSEL — CONFIANZA ============ */}
