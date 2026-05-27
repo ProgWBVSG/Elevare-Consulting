@@ -13,6 +13,7 @@ import LeadMagnetForm from "./components/LeadMagnetForm";
 import CounterBadge from "./components/CounterBadge";
 import LogoCarousel from "./components/LogoCarousel";
 import ScrollReveal from "./components/ScrollReveal";
+import HeroFloatingImages from "./components/HeroFloatingImages";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -176,6 +177,7 @@ export default async function Home() {
       <main>
         {/* ============ HERO ============ */}
         <section className={styles.hero}>
+          <HeroFloatingImages />
           <div className={`container ${styles.heroContainer}`}>
             <div className={styles.heroContent}>
               <div className={styles.heroBadge}>

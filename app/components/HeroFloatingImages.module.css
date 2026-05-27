@@ -1,0 +1,36 @@
+.container {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.imageWrapper {
+  position: absolute;
+  width: 220px;
+  height: 280px;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  opacity: 0;
+  transform: scale(0.95) translateY(10px);
+  transition: opacity 1.8s ease-in-out, transform 1.8s ease-out;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.imageWrapper.active {
+  opacity: 0.12; /* Keep it very subtle */
+  transform: scale(1) translateY(0);
+}
+
+.image {
+  object-fit: cover;
+  filter: grayscale(30%) sepia(20%) hue-rotate(180deg);
+}
+
+/* Hide on mobile to keep text readable */
+@media (max-width: 768px) {
+  .container {
+    display: none;
+  }
+}
