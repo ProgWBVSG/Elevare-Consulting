@@ -280,8 +280,12 @@ export default async function Home() {
 
             <div className={styles.servicesGrid}>
               {services.map((service, index) => (
-                <ScrollReveal key={service.title} variant="zoom-in" delay={index * 200}>
-                <div className={`${styles.serviceCard} ${styles[`serviceCard--${service.color}`]}`}>
+                <ScrollReveal 
+                  key={service.title} 
+                  variant="zoom-in" 
+                  delay={index * 200}
+                  className={`${styles.serviceCard} ${styles[`serviceCard--${service.color}`]}`}
+                >
                   <div className={styles.serviceImageContainer}>
                     <div className={styles.serviceImagePlaceholder}>
                       <service.Icon size={48} strokeWidth={1.2} />
@@ -302,7 +306,6 @@ export default async function Home() {
                       {service.cta} <ArrowRight size={15} style={{ marginLeft: 4 }} />
                     </Link>
                   </div>
-                </div>
                 </ScrollReveal>
               ))}
             </div>
