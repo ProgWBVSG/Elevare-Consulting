@@ -16,7 +16,7 @@
 .sectionTitle {
   font-size: 1.1rem;
   font-weight: 700;
-  color: #1A1A2E;
+  color: #0e1a38;
   margin-bottom: 1rem;
   display: flex;
   align-items: center;
@@ -54,7 +54,7 @@
 }
 
 .radioInput {
-  accent-color: #2C5F9F;
+  accent-color: #1d336c;
   width: 1.1rem;
   height: 1.1rem;
   cursor: pointer;
@@ -88,7 +88,7 @@
 }
 
 .leadCheck {
-  accent-color: #2C5F9F;
+  accent-color: #1d336c;
   width: 1.1rem;
   height: 1.1rem;
   cursor: pointer;
@@ -142,8 +142,8 @@
 
 .input:focus, .textarea:focus {
   outline: none;
-  border-color: #2C5F9F;
-  box-shadow: 0 0 0 3px rgba(44, 95, 159, 0.1);
+  border-color: #1d336c;
+  box-shadow: 0 0 0 3px rgba(29, 51, 108, 0.1);
 }
 
 .fileInputWrapper {
@@ -204,7 +204,7 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  background: #D65A20;
+  background: #c49a43;
   color: white;
   padding: 0.875rem 2rem;
   border-radius: 8px;
@@ -213,7 +213,7 @@
   border: none;
   cursor: pointer;
   transition: all 0.2s ease;
-  box-shadow: 0 4px 12px rgba(214, 90, 32, 0.2);
+  box-shadow: 0 4px 12px rgba(196, 154, 67, 0.2);
 }
 
 .submitBtn:hover {
@@ -264,7 +264,7 @@
 .title {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #1A1A2E;
+  color: #0e1a38;
 }
 
 .subtitle {
@@ -298,8 +298,8 @@
 }
 
 .tabActive {
-  color: #2C5F9F;
-  border-bottom-color: #2C5F9F;
+  color: #1d336c;
+  border-bottom-color: #1d336c;
 }
 
 /* HISTORY TABLE */

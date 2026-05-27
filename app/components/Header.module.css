@@ -111,7 +111,7 @@
 
 .navLink:hover {
     color: var(--color-primary);
-    background: rgba(44, 95, 159, 0.04);
+    background: rgba(29, 51, 108, 0.04);
 }
 
 .navLink svg {

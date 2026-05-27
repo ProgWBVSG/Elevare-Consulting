@@ -26,12 +26,12 @@
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
     outline: none;
     background: #fff;
-    color: #1A1A2E;
+    color: #0e1a38;
 }
 
 .input:focus {
-    border-color: #2C5F9F;
-    box-shadow: 0 0 0 3px rgba(44, 95, 159, 0.12);
+    border-color: #1d336c;
+    box-shadow: 0 0 0 3px rgba(29, 51, 108, 0.12);
 }
 
 .input::placeholder {
@@ -80,7 +80,7 @@
 .successTitle {
     font-size: 1.25rem;
     font-weight: 700;
-    color: #1A1A2E;
+    color: #0e1a38;
     margin: 0;
 }
 
@@ -108,5 +108,5 @@
 }
 
 .resetBtn:hover {
-    color: #2C5F9F;
+    color: #1d336c;
 }

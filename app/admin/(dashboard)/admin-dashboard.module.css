@@ -12,7 +12,7 @@
 .sidebar {
   width: 272px;
   flex-shrink: 0;
-  background: #1A1A2E;
+  background: #0e1a38;
   display: flex;
   flex-direction: column;
   position: fixed;
@@ -85,14 +85,14 @@
 }
 
 .navLinkActive {
-  background: rgba(44, 95, 159, 0.2);
+  background: rgba(29, 51, 108, 0.2);
   color: #ffffff;
   font-weight: 600;
 }
 
 .navLinkActive svg {
   opacity: 1;
-  color: #5CA084;
+  color: #3a7ca5;
 }
 
 /* ─── SIDEBAR FOOTER ──────────────────────────── */
@@ -164,7 +164,7 @@
   width: 44px;
   height: 44px;
   border-radius: 12px;
-  background: #1A1A2E;
+  background: #0e1a38;
   border: 1px solid rgba(255, 255, 255, 0.1);
   color: white;
   align-items: center;
@@ -175,7 +175,7 @@
 }
 
 .hamburger:hover {
-  background: #2d2d45;
+  background: #1a2850;
 }
 
 .hamburger svg {

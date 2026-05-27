@@ -4,7 +4,7 @@
 
 /* Hero */
 .serviceHero {
-    background: var(--color-bg-gradient-primary, linear-gradient(135deg, #1A1A2E 0%, #2C5F9F 100%));
+    background: var(--color-bg-gradient-primary, linear-gradient(135deg, #0e1a38 0%, #1d336c 100%));
     padding: var(--space-12) 0 var(--space-16);
     position: relative;
     overflow: hidden;
@@ -15,7 +15,7 @@
 }
 
 .serviceHero[data-color="primary"] {
-    background: linear-gradient(135deg, #1A1A2E 0%, #2C5F9F 100%);
+    background: linear-gradient(135deg, #0e1a38 0%, #1d336c 100%);
 }
 
 .serviceHero[data-color="secondary"] {
@@ -290,7 +290,7 @@
 .diagItem:hover {
     transform: translateX(4px);
     box-shadow: var(--shadow-md);
-    border-color: rgba(214, 90, 32, 0.2);
+    border-color: rgba(196, 154, 67, 0.2);
 }
 
 .diagItem:hover::before {
@@ -399,7 +399,7 @@
 
 .benefitCard:hover {
     box-shadow: var(--shadow-lg);
-    border-color: rgba(44, 95, 159, 0.25);
+    border-color: rgba(29, 51, 108, 0.25);
 }
 
 .benefitCheck {
@@ -407,7 +407,7 @@
     height: 52px;
     min-width: 52px;
     border-radius: 50%;
-    background: rgba(44, 95, 159, 0.12);
+    background: rgba(29, 51, 108, 0.12);
     color: var(--color-primary);
     font-size: var(--text-xl);
     font-weight: 800;
@@ -491,7 +491,7 @@ details[open] .faqQ::after {
 
 /* Bottom CTA */
 .bottomCta {
-    background: linear-gradient(135deg, #1A1A2E 0%, var(--color-primary) 100%);
+    background: linear-gradient(135deg, #0e1a38 0%, var(--color-primary) 100%);
     padding: var(--space-20) 0;
     text-align: center;
 }

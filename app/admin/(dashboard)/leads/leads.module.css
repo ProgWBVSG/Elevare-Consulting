@@ -13,7 +13,7 @@
 .title {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #1A1A2E;
+  color: #0e1a38;
 }
 
 .subtitle {
@@ -47,8 +47,8 @@
 }
 
 .tabActive {
-  color: #2C5F9F;
-  border-bottom-color: #2C5F9F;
+  color: #1d336c;
+  border-bottom-color: #1d336c;
 }
 
 /* Table Area */
@@ -108,7 +108,7 @@
 }
 
 .emailLink {
-  color: #2C5F9F;
+  color: #1d336c;
   text-decoration: none;
   font-weight: 500;
 }
@@ -258,11 +258,11 @@
 
 .tagInput:focus {
   outline: none;
-  border-color: #2C5F9F;
+  border-color: #1d336c;
 }
 
 .addTagBtn {
-  background: #2C5F9F;
+  background: #1d336c;
   color: white;
   border: none;
   padding: 0 1rem;
@@ -272,7 +272,7 @@
 }
 
 .addTagBtn:hover {
-  background: #1e4a80;
+  background: #141f45;
 }
 
 .removeTagBtn {
