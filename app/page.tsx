@@ -176,38 +176,31 @@ export default async function Home() {
       <main>
         {/* ============ HERO ============ */}
         <section className={styles.hero}>
-          <div className={styles.heroOverlay} />
           <div className={`container ${styles.heroContainer}`}>
             <div className={styles.heroContent}>
               <div className={styles.heroBadge}>
-                <Sparkles size={14} />
-                {getText('hero_badge', 'Consultora de Negocios · Management & Desarrollo Organizacional')}
+                {getText('hero_badge', 'CONSULTORÍA DE MANAGEMENT • BUENOS AIRES • LATAM')}
               </div>
               <h1 className={styles.heroTitle}>
-                {getText('hero_title_main', 'Potenciá tu Empresa')}<br />
-                <em>{getText('hero_title_sub', 'con Management Estratégico')}</em>
+                {getText('hero_title_main', 'Management estratégico que transforma ')}
+                <span className={styles.highlightText}>{getText('hero_title_sub', 'resultados')}</span>
               </h1>
-              <p className={styles.heroSubtitle}>
-                {getText('hero_subtitle', 'Consultora especializada en management, desarrollo organizacional y estructuración financiera para PYMEs. Diagnosticamos cultura, clima, procesos y liderazgo para convertirlos en ventajas competitivas concretas.')}
-              </p>
-
-              {/* Trust badges */}
-
-
+              
               <div className={styles.heroCtas}>
                 <Link href="/contacto" className="btn btn-primary btn-lg">
-                  Agenda tu sesión exploratoria gratuita
+                  Agendar consultoría
                 </Link>
                 <Link href="/sobre-maria" className={`btn btn-outline-white ${styles.heroSecondaryBtn}`}>
-                  Conocé cómo trabajamos
+                  Nuestra firma
                 </Link>
               </div>
             </div>
 
+            {/* If there was an image, we can keep it clean or remove it. Let's keep it but simplified. */}
             <div className={styles.heroImageWrapper}>
               <Image
                 src="/maria-hero.jpg"
-                alt="María Gómez - Consultora de negocios y desarrollo organizacional"
+                alt="Consultoría Elevare"
                 className={styles.heroImage}
                 width={800}
                 height={1000}
