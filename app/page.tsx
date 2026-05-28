@@ -259,7 +259,7 @@ export default async function Home() {
                     </li>
                   ))}
                 </ul>
-                <Link href="/mentoria-lideres" className={`btn ${styles.btnGreen}`} style={{ marginTop: "2rem", width: "100%" }}>
+                <Link href="/mentoria-lideres" className="btn btn-secondary" style={{ marginTop: "2rem", width: "100%" }}>
                   Ver mentorías para líderes →
                 </Link>
               </div>
