@@ -465,10 +465,9 @@
     margin-bottom: var(--space-2);
     line-height: 1.3;
 }
-
 .valueDesc {
     font-size: var(--text-sm);
-    color: var(--color-gray-600);
+    color: var(--color-primary);
     line-height: 1.7;
 }
 
