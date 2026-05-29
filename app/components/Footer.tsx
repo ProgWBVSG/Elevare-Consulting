@@ -69,7 +69,7 @@ export default function Footer() {
                                 <p>
                                     <strong>Elevare Consulting MG</strong><br />
                                     Buenos Aires, Argentina<br />
-                                    Alianzas: Paraguay · Uruguay · Chile
+                                    Alianzas: Argentina · Chile · Paraguay · EEUU
                                 </p>
                                 <a href="mailto:info@elevareconsultingmg.com" className={styles.contact}>
                                     info@elevareconsultingmg.com

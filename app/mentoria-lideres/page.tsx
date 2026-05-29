@@ -73,8 +73,8 @@ const mentoriaLideresSchemaLD = {
             areaServed: [
                 { "@type": "Country", name: "Argentina" },
                 { "@type": "Country", name: "Paraguay" },
-                { "@type": "Country", name: "Uruguay" },
                 { "@type": "Country", name: "Chile" },
+                { "@type": "Country", name: "United States" },
             ],
             serviceType: "Mentoría Ejecutiva",
             audience: { "@type": "Audience", audienceType: "CEOs, gerentes, directivos y mandos medios" },

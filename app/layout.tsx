@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     template: "%s | Elevare Consulting MG",
   },
   description:
-    "Firma de coaching ontológico y desarrollo organizacional con 20+ años de experiencia. Mentoría especializada para mujeres ejecutivas. Consultoría de liderazgo para PYMEs en Argentina, Paraguay, Uruguay y Chile. Sesión exploratoria gratuita.",
+    "Firma de coaching ontológico y desarrollo organizacional con 20+ años de experiencia. Mentoría especializada para mujeres ejecutivas. Consultoría de liderazgo para PYMEs en Argentina, Paraguay, Chile y EEUU. Sesión exploratoria gratuita.",
   keywords: [
     "coaching ontológico",
     "coaching ontológico empresarial",
@@ -147,8 +147,8 @@ export default function RootLayout({
                   areaServed: [
                     { "@type": "Country", name: "Argentina" },
                     { "@type": "Country", name: "Paraguay" },
-                    { "@type": "Country", name: "Uruguay" },
                     { "@type": "Country", name: "Chile" },
+                    { "@type": "Country", name: "United States" },
                   ],
                   serviceType: [
                     "Coaching Ontológico",

@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 import styles from "./FloatingWidgets.module.css";
 
-const whastappNumber = "+5491112345678"; // Reemplazar
+const whastappNumber = "+5491125464650";
 const whatsappMsg = "Hola, estoy visitando el sitio de Elevare y me gustaría hacer una consulta.";
 const whatsappUrl = `https://wa.me/${whastappNumber}?text=${encodeURIComponent(whatsappMsg)}`;
 
@@ -41,7 +41,7 @@ export default function FloatingWidgets() {
         } else if (question.includes("mentorías")) {
             response = "Ofrecemos Mentoría Ejecutiva especializada para mujeres líderes, abordando desafíos como el síndrome del impostor, comunicación asertiva y doble carga de expectativas.";
         } else if (question.includes("online")) {
-            response = "Sí, trabajamos ágilmente con líderes en Argentina, Paraguay, Uruguay y Chile mediante modalidad virtual, o híbrida para ciertos diagnósticos y workshops.";
+            response = "Sí, trabajamos ágilmente con líderes en Argentina, Paraguay, Chile y EEUU mediante modalidad virtual, o híbrida para ciertos diagnósticos y workshops.";
         }
 
         setMessages([...messages, { text: question, sender: "user" }, { text: response, sender: "bot" }]);

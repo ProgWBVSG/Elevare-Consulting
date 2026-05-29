@@ -8,7 +8,7 @@ import styles from './testimonios.module.css';
 
 export const metadata: Metadata = {
     title: 'Casos de Éxito y Testimonios de Coaching | Elevare Consulting',
-    description: 'Descubrí cómo líderes y PYMEs transformaron su realidad con coaching ontológico. Casos reales con resultados medibles: 40% menos rotación, expansión internacional, equipos autónomos. Liderá el cambio.',
+    description: 'Descubrí cómo líderes y PYMEs transformaron su realidad con coaching ontológico. Casos reales con resultados medibles: 25% menos rotación, expansión internacional, equipos autónomos. Liderá el cambio.',
     openGraph: {
         title: 'Testimonios y Casos de Éxito | Elevare Consulting',
         description: 'Historias reales de PYMEs y mujeres ejecutivas que transformaron su liderazgo con coaching ontológico. Resultados medibles y sostenibles.',
@@ -35,8 +35,8 @@ const realReviews = [
         role: 'Director General',
         source: 'PYME Industrial, Buenos Aires',
         SourceIcon: Building2,
-        text: 'Después de 6 meses con Elevare, mi equipo gerencial tomó autonomía real. La rotación bajó un 40% y el clima laboral cambió completamente. María entiende el mundo de la empresa desde adentro.',
-        highlight: '40% menos rotación de personal',
+        text: 'Después de 6 meses con Elevare, mi equipo gerencial tomó autonomía real. La rotación bajó un 25% y el clima laboral cambió completamente. María entiende el mundo de la empresa desde adentro.',
+        highlight: '25% menos rotación de personal',
     },
     {
         id: 'camila',
@@ -74,7 +74,7 @@ const testimoniosSchemaLD = {
                     "@type": "Review",
                     author: { "@type": "Person", name: "Roberto M." },
                     reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
-                    reviewBody: "Después de 6 meses con Elevare, mi equipo gerencial tomó autonomía real. La rotación bajó un 40%.",
+                    reviewBody: "Después de 6 meses con Elevare, mi equipo gerencial tomó autonomía real. La rotación bajó un 25%.",
                 },
                 {
                     "@type": "Review",

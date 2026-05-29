@@ -106,8 +106,8 @@ const testimonials = [
     name: "Roberto M.",
     role: "Director General",
     company: "PYME Industrial, Buenos Aires",
-    text: "Después de 6 meses con Elevare, mi equipo gerencial tomó autonomía real. La rotación bajó un 40% y el clima laboral cambió completamente. María entiende el mundo de la empresa desde adentro.",
-    result: "40% menos rotación de personal",
+    text: "Después de 6 meses con Elevare, mi equipo gerencial tomó autonomía real. La rotación bajó un 25% y el clima laboral cambió completamente. María entiende el mundo de la empresa desde adentro.",
+    result: "25% menos rotación de personal",
     type: "corporate",
   },
   {

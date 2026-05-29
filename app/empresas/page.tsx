@@ -67,8 +67,8 @@ const empresasSchemaLD = {
             areaServed: [
                 { "@type": "Country", name: "Argentina" },
                 { "@type": "Country", name: "Paraguay" },
-                { "@type": "Country", name: "Uruguay" },
                 { "@type": "Country", name: "Chile" },
+                { "@type": "Country", name: "United States" },
             ],
             serviceType: "Desarrollo Organizacional",
             url: "https://elevareconsultingmg.com/empresas",

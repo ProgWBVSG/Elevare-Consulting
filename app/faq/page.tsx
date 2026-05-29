@@ -40,7 +40,7 @@ const faqs = [
         items: [
             { q: "¿Cómo saben que entienden la realidad de mi empresa?", a: "Empezamos siempre con un diagnóstico profundo: entrevistamos a distintos miembros del equipo, mapeamos los procesos reales (no los que deberían existir según el organigrama) y analizamos los indicadores disponibles. No llegamos con soluciones pre-diseñadas; llegamos con preguntas y metodología para encontrar las soluciones que tienen sentido para tu organización específica." },
             { q: "¿Qué pasa si el equipo se resiste al cambio?", a: "La resistencia al cambio es completamente normal y la incorporamos como parte del proceso, no como un obstáculo inesperado. Trabajamos con los líderes de opinión del equipo, generamos comunicación transparente sobre el proceso y acompañamos la gestión emocional de la transición." },
-            { q: "¿Pueden trabajar con mi empresa aunque estén en otra ciudad o país?", a: "Sí. Tenemos clientes en Argentina, Uruguay, Paraguay y Chile. Combinamos trabajo presencial para instancias clave (diagnóstico inicial, workshops) con seguimiento virtual. La metodología está diseñada para funcionar en ambas modalidades sin pérdida de calidad." },
+            { q: "¿Pueden trabajar con mi empresa aunque estén en otra ciudad o país?", a: "Sí. Tenemos clientes en Argentina, Chile, Paraguay y EEUU. Combinamos trabajo presencial para instancias clave (diagnóstico inicial, workshops) con seguimiento virtual. La metodología está diseñada para funcionar en ambas modalidades sin pérdida de calidad." },
         ],
     },
     {

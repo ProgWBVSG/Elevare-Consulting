@@ -217,7 +217,7 @@ export default function ContactoPage() {
                                 <div className={styles.sideCard} style={{ background: "linear-gradient(135deg, var(--color-primary), var(--color-primary-dark))", color: "#fff" }}>
                                     <h3 style={{ color: "#fff" }}>Sobre María Gómez</h3>
                                     <p style={{ color: "rgba(255,255,255,0.8)", fontSize: "var(--text-sm)", lineHeight: "1.75", marginBottom: "1rem" }}>
-                                        20+ años de experiencia en coaching ontológico y desarrollo de liderazgo empresarial en Argentina y LATAM. Alianzas en Paraguay, Uruguay y Chile.
+                                        20+ años de experiencia en coaching ontológico y desarrollo de liderazgo empresarial en Argentina y LATAM. Alianzas en Chile, Paraguay y EEUU.
                                     </p>
                                     <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
                                         {["20+ años de experiencia comprobada", "Coaching ontológico profundo", "Presencia en 4 países LATAM", "Mentoría especializada en mujeres ejecutivas"].map(f => (
