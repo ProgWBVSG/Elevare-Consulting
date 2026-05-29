@@ -30,15 +30,6 @@ const realReviews = [
         highlight: 'Aprendizaje continuo y fructífero',
     },
     {
-        id: 'roberto',
-        name: 'Roberto M.',
-        role: 'Director General',
-        source: 'PYME Industrial, Buenos Aires',
-        SourceIcon: Building2,
-        text: 'Después de 6 meses con Elevare, mi equipo gerencial tomó autonomía real. La rotación bajó un 25% y el clima laboral cambió completamente. María entiende el mundo de la empresa desde adentro.',
-        highlight: '25% menos rotación de personal',
-    },
-    {
         id: 'camila',
         name: 'Camila V.',
         role: 'CEO',
@@ -69,12 +60,6 @@ const testimoniosSchemaLD = {
                     author: { "@type": "Person", name: "Maria Eugenia Cano" },
                     reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
                     reviewBody: "Cada charla compartida fue inolvidable. Tus consejos fueron un aprendizaje continuo y fructífero. Excelente profesional.",
-                },
-                {
-                    "@type": "Review",
-                    author: { "@type": "Person", name: "Roberto M." },
-                    reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
-                    reviewBody: "Después de 6 meses con Elevare, mi equipo gerencial tomó autonomía real. La rotación bajó un 25%.",
                 },
                 {
                     "@type": "Review",
