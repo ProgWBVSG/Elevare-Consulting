@@ -237,19 +237,19 @@ export default function ContactoPage() {
                             {/* Info sidebar - Minimalist & Elegant */}
                             <ScrollReveal variant="fade-left" delay={200}>
                                 <div className={styles.sidebar}>
-                                    <div className={styles.sideCard} style={{ background: "transparent", border: "1px solid var(--color-gray-200)", padding: "var(--space-8)" }}>
-                                        <h3 style={{ marginBottom: "1.5rem", fontSize: "1.2rem" }}>En la Sesión Exploratoria:</h3>
+                                    <div className={styles.sideCard} style={{ background: "transparent", border: "1px solid rgba(255,255,255,0.2)", padding: "var(--space-8)", color: "#fff" }}>
+                                        <h3 style={{ marginBottom: "1.5rem", fontSize: "1.2rem", color: "#fff" }}>En la Sesión Exploratoria:</h3>
                                         <ul className={styles.sideList}>
-                                            <li className={styles.sideItem}>
-                                                <MessageSquare size={20} color="var(--color-primary)" />
+                                            <li className={styles.sideItem} style={{ color: "rgba(255,255,255,0.9)" }}>
+                                                <MessageSquare size={20} color="var(--color-accent)" />
                                                 <span>Escuchamos tus objetivos y el contexto actual de tu gestión.</span>
                                             </li>
-                                            <li className={styles.sideItem}>
-                                                <Target size={20} color="var(--color-primary)" />
+                                            <li className={styles.sideItem} style={{ color: "rgba(255,255,255,0.9)" }}>
+                                                <Target size={20} color="var(--color-accent)" />
                                                 <span>Evaluamos si nuestra metodología se alinea con tu desafío.</span>
                                             </li>
-                                            <li className={styles.sideItem}>
-                                                <Briefcase size={20} color="var(--color-primary)" />
+                                            <li className={styles.sideItem} style={{ color: "rgba(255,255,255,0.9)" }}>
+                                                <Briefcase size={20} color="var(--color-accent)" />
                                                 <span>Te presentamos un plan de acción ejecutivo a medida.</span>
                                             </li>
                                         </ul>
