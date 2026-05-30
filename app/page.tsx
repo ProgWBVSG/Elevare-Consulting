@@ -101,24 +101,7 @@ const differentiators = [
   },
 ];
 
-const testimonials = [
-  {
-    name: "Maria Eugenia Cano",
-    role: "Consultoría de Liderazgo",
-    company: "LinkedIn Review",
-    text: "Muchas gracias ELEVARE Consulting, cada charla compartida fue inolvidable. Tus consejos ya sea en palabras, videos, todo fue un aprendizaje continuo y fructífero. Excelente profesional. Fue un semestre con muchas sorpresas y celebro poder haber contado con tu presencia, gracias.",
-    result: "Aprendizaje continuo y fructífero",
-    type: "executive",
-  },
-  {
-    name: "Camila V.",
-    role: "CEO",
-    company: "Startup de Tecnología, Montevideo",
-    text: "La mentoría con Elevare me cambió la perspectiva completa. No solo mejoré mi gestión, transformé cómo lidero mi equipo y cómo estructuramos el crecimiento.",
-    result: "Expansión a 3 países en 18 meses",
-    type: "executive",
-  },
-];
+
 
 const blogPosts = [
   {
@@ -150,8 +133,14 @@ const blogPosts = [
 import { createClient } from '@/lib/supabase/server'
 
 export default async function Home() {
-  const supabase = await createClient()
+  const supabase = await createClient();
   const { data: contentData } = await supabase.from('site_content').select('*')
+  const { data: testimonials } = await supabase
+    .from('testimonials')
+    .select('*')
+    .eq('is_active', true)
+    .order('created_at', { ascending: false })
+    .limit(3);
   
   // Transform data array to dictionary for easy access
   const content = (contentData || []).reduce((acc: Record<string, string>, item) => {
@@ -373,28 +362,32 @@ export default async function Home() {
             </ScrollReveal>
 
             <div className="grid-3">
-              {testimonials.map((t, i) => (
-                <ScrollReveal key={t.name} variant="zoom-in" delay={i * 150}>
-                <div className={styles.testimonialCard}>
-                  <div className={styles.testimonialStars} aria-label="5 estrellas">★★★★★</div>
-                  <p className={styles.testimonialText}>{t.text}</p>
-                  <div className={styles.testimonialResult}>
-                    <CheckCircle size={13} style={{ display: 'inline', verticalAlign: 'middle', marginRight: 4 }} aria-hidden="true" />
-                    {t.result}
-                  </div>
-                  <div className={styles.testimonialAuthor}>
-                    <div className={styles.testimonialAvatar}>
-                      {t.name.charAt(0)}
+              {testimonials?.map((t, idx) => (
+              <ScrollReveal key={t.id || idx} variant="zoom-in" delay={idx * 150}>
+                <div className={`card ${styles.testiCard}`}>
+                  <div className={styles.testiStars}>★★★★★</div>
+                  <p className={styles.testiText}>&ldquo;{t.text}&rdquo;</p>
+                  {t.highlight && (
+                    <div className={styles.testiResult}>
+                      <CheckCircle size={14} style={{ color: "var(--color-secondary)", marginTop: 2, flexShrink: 0 }} />
+                      <span>{t.highlight}</span>
                     </div>
-                    <div>
-                      <strong className={styles.testimonialName}>{t.name}</strong>
-                      <p className={styles.testimonialRole}>{t.role}</p>
-                      <p className={styles.testimonialCompany}>{t.company}</p>
+                  )}
+                  <div className={styles.testiAuthor}>
+                    {t.image_url ? (
+                      <img src={t.image_url} alt={t.name} className={styles.testiAvatar} style={{ width: 40, height: 40, borderRadius: '50%', objectFit: 'cover' }} />
+                    ) : (
+                      <div className={styles.testiAvatar}>{t.name[0]}</div>
+                    )}
+                    <div className={styles.testiAuthorInfo}>
+                      <strong>{t.name}</strong>
+                      <span>{t.role}</span>
+                      <span className={styles.testiCompany}>{t.company}</span>
                     </div>
                   </div>
                 </div>
-                </ScrollReveal>
-              ))}
+              </ScrollReveal>
+            ))}
             </div>
 
             <div className="text-center" style={{ marginTop: "3rem" }}>

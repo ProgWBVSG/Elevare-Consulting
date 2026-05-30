@@ -5,6 +5,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import FeaturedCase from './FeaturedCase';
 import styles from './testimonios.module.css';
+import { createClient } from '@/lib/supabase/server';
 
 export const metadata: Metadata = {
     title: 'Casos de Éxito y Testimonios de Coaching | Elevare Consulting',
@@ -19,26 +20,7 @@ export const metadata: Metadata = {
     },
 };
 
-const realReviews = [
-    {
-        id: 'maria-eugenia',
-        name: 'Maria Eugenia Cano',
-        role: 'Consultoría de Liderazgo',
-        source: 'LinkedIn Review',
-        SourceIcon: Briefcase,
-        text: 'Muchas gracias ELEVARE Consulting, cada charla compartida fue inolvidable. Tus consejos ya sea en palabras, videos, todo fue un aprendizaje continuo y fructífero. Excelente profesional. Fue un semestre con muchas sorpresas y celebro poder haber contado con tu presencia, gracias.',
-        highlight: 'Aprendizaje continuo y fructífero',
-    },
-    {
-        id: 'camila',
-        name: 'Camila V.',
-        role: 'CEO',
-        source: 'Startup de Tecnología, Montevideo',
-        SourceIcon: Rocket,
-        text: 'El proceso de coaching ontológico me cambió la perspectiva completa. No solo aprendí técnicas de gestión, transformé cómo veo mi rol como líder y el impacto que quiero tener.',
-        highlight: 'Expansión a 3 países en 18 meses',
-    },
-];
+
 
 const testimoniosSchemaLD = {
     "@context": "https://schema.org",
@@ -79,7 +61,14 @@ const testimoniosSchemaLD = {
     ],
 };
 
-export default function TestimoniosPage() {
+export default async function TestimoniosPage() {
+    const supabase = await createClient();
+    const { data: realReviews } = await supabase
+        .from('testimonials')
+        .select('*')
+        .eq('is_active', true)
+        .order('created_at', { ascending: false });
+
     return (
         <>
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(testimoniosSchemaLD) }} />
@@ -129,20 +118,35 @@ export default function TestimoniosPage() {
                         </div>
 
                         <div className={styles.reviewsGrid}>
-                            {realReviews.map((r) => (
+                            {realReviews?.map((r) => (
                                 <div key={r.id} className={styles.reviewCard}>
                                     <div className={styles.reviewStars}>★★★★★</div>
                                     <p className={styles.reviewText}>&ldquo;{r.text}&rdquo;</p>
-                                    <div className={styles.reviewHighlight}>
-                                        <span>★</span> {r.highlight}
-                                    </div>
+                                    
+                                    {r.video_url && (
+                                        <div style={{ marginTop: '1rem', marginBottom: '1rem' }}>
+                                            <a href={r.video_url} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block', background: '#f5f5f5', padding: '0.5rem 1rem', borderRadius: '4px', fontSize: '14px', color: '#333', textDecoration: 'none', border: '1px solid #ddd' }}>
+                                                🎥 Ver Testimonio en Video
+                                            </a>
+                                        </div>
+                                    )}
+
+                                    {r.highlight && (
+                                        <div className={styles.reviewHighlight}>
+                                            <span>★</span> {r.highlight}
+                                        </div>
+                                    )}
                                     <div className={styles.reviewAuthor}>
-                                        <div className={styles.reviewAvatar}>{r.name[0]}</div>
+                                        {r.image_url ? (
+                                            <img src={r.image_url} alt={r.name} className={styles.reviewAvatar} style={{ width: 40, height: 40, borderRadius: '50%', objectFit: 'cover', padding: 0 }} />
+                                        ) : (
+                                            <div className={styles.reviewAvatar}>{r.name[0]}</div>
+                                        )}
                                         <div className={styles.reviewInfo}>
                                             <strong>{r.name}</strong>
                                             <span>{r.role}</span>
                                             <span className={styles.reviewSource}>
-                                                <r.SourceIcon size={13} style={{ display: 'inline', verticalAlign: 'middle', marginRight: 3 }} /> {r.source}
+                                                <Briefcase size={13} style={{ display: 'inline', verticalAlign: 'middle', marginRight: 3 }} /> {r.company}
                                             </span>
                                         </div>
                                     </div>
