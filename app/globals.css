@@ -349,6 +349,7 @@ p {
    ============================================= */
 .card {
   background: var(--color-white);
+  color: var(--color-dark);
   border-radius: var(--radius-lg);
   padding: var(--space-8);
   box-shadow: var(--shadow-md);

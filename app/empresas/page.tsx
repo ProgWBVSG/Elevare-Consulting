@@ -174,8 +174,8 @@ export default function Empresas() {
                                 />
                                 <div className={styles.infoBox} style={{ borderTopColor: "var(--color-primary)", marginTop: "2rem", paddingTop: "2rem", borderTop: "4px solid var(--color-primary)" }}>
                                     <div className={styles.infoBoxIcon}><BarChart2 size={28} /></div>
-                                    <h3 style={{ fontSize: "1.25rem", margin: "1rem 0" }}>Problemas de Sistemas vs Personas</h3>
-                                    <p style={{ fontSize: "0.95rem", color: "var(--color-gray-600)" }}>
+                                    <h3 style={{ fontSize: "1.25rem", margin: "1rem 0", color: "var(--color-dark)" }}>Problemas de Sistemas vs Personas</h3>
+                                    <p style={{ fontSize: "0.95rem", color: "var(--color-gray-700)" }}>
                                         La mayoría de los problemas operacionales no son de personas, son de <strong>sistemas</strong>. Nuestra consultoría busca construir sistemas claros y al mismo tiempo desarrollar el <strong>liderazgo</strong> necesario para sostenerlos.
                                     </p>
                                 </div>

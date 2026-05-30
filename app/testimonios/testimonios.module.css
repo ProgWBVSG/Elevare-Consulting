@@ -160,7 +160,7 @@
 
 .sectionSub {
     font-size: var(--text-lg);
-    color: var(--color-gray-600);
+    color: var(--color-gray-700);
     max-width: 600px;
     margin: 0 auto;
     line-height: 1.65;
@@ -389,7 +389,7 @@
 
 .storyPara {
     font-size: var(--text-base);
-    color: var(--color-gray-600);
+    color: var(--color-gray-700);
     line-height: 1.75;
 }
 
@@ -411,7 +411,7 @@
 
 .storyProcess p {
     font-size: var(--text-sm);
-    color: var(--color-gray-600);
+    color: var(--color-gray-700);
     line-height: 1.7;
     margin: 0;
 }
