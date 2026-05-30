@@ -6,6 +6,7 @@ import Footer from "@/app/components/Footer";
 import ScrollReveal from "@/app/components/ScrollReveal";
 import { supabase } from "@/lib/supabase";
 import styles from "./contacto.module.css";
+import { MessageSquare, Target, Briefcase, Linkedin, Instagram, Mail, CheckCircle2, ChevronRight, ChevronLeft } from "lucide-react";
 
 const reasons = [
     "Coaching interno para mi empresa",
@@ -17,6 +18,7 @@ const reasons = [
 ];
 
 export default function ContactoPage() {
+    const [currentStep, setCurrentStep] = useState(1);
     const [form, setForm] = useState({
         nombre: "", email: "", telefono: "", empresa: "", motivo: "", mensaje: ""
     });
@@ -28,10 +30,39 @@ export default function ContactoPage() {
         setForm({ ...form, [e.target.name]: e.target.value });
     };
 
+    const handleNext = () => {
+        setError(null);
+        if (currentStep === 1) {
+            if (!form.nombre || !form.email || !form.telefono) {
+                setError("Por favor completá los datos personales antes de avanzar.");
+                return;
+            }
+        }
+        if (currentStep === 2) {
+            if (!form.empresa || !form.motivo) {
+                setError("Por favor seleccioná tu empresa y motivo de consulta.");
+                return;
+            }
+        }
+        setCurrentStep((prev) => Math.min(prev + 1, 3));
+    };
+
+    const handleBack = () => {
+        setError(null);
+        setCurrentStep((prev) => Math.max(prev - 1, 1));
+    };
+
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+        
+        if (!form.mensaje) {
+            setError("Por favor describí brevemente tu desafío.");
+            return;
+        }
+
         setLoading(true);
         setError(null);
+        
         const { error: sbError } = await supabase.from("leads").insert([{
             nombre: form.nombre,
             email: form.email,
@@ -40,7 +71,9 @@ export default function ContactoPage() {
             motivo: form.motivo || null,
             mensaje: form.mensaje || null,
         }]);
+        
         setLoading(false);
+        
         if (sbError) {
             setError("Hubo un error al enviar el formulario. Por favor intentá de nuevo.");
             console.error(sbError);
@@ -62,10 +95,6 @@ export default function ContactoPage() {
                         }
                     })
                 });
-                
-                if (!sheetsRes.ok) {
-                    console.error("Error envío a Sheets: Status", sheetsRes.status);
-                }
             } catch (e) {
                 console.error("Error de red enviando a Sheets:", e);
             }
@@ -80,10 +109,6 @@ export default function ContactoPage() {
                         nombre: form.nombre
                     })
                 });
-                
-                if (!mlRes.ok) {
-                    console.error("Error envío a MailerLite: Status", mlRes.status);
-                }
             } catch (e) {
                 console.error("Error de red enviando a MailerLite:", e);
             }
@@ -92,19 +117,17 @@ export default function ContactoPage() {
         }
     };
 
-
     return (
         <>
             <Header />
             <main>
-                {/* Hero */}
                 <section className={styles.hero}>
                     <div className="container">
                         <div className="text-center">
                             <span className={`section-label ${styles.labelWhite}`}>Contacto</span>
                             <h1 className={styles.heroTitle}>Empezamos con una conversación</h1>
                             <p className={styles.heroDesc}>
-                                Agendá una sesión exploratoria gratuita de 30 minutos. Sin compromiso. Conversamos sobre tus desafíos y evaluamos juntos la mejor manera de ayudarte.
+                                Agendá una sesión exploratoria gratuita de 30 minutos. Sin compromiso.
                             </p>
                         </div>
                     </div>
@@ -113,136 +136,143 @@ export default function ContactoPage() {
                 <section className={`section`}>
                     <div className="container">
                         <div className={styles.grid}>
-                            {/* Form */}
+                            {/* Form Column */}
                             <ScrollReveal variant="fade-right">
-                            <div className={styles.formCol}>
-                                {submitted ? (
-                                    <div className={styles.successBox}>
-                                        <div className={styles.successIcon}>
-                                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <circle cx="24" cy="24" r="24" fill="#5CA084" fillOpacity="0.12" />
-                                                <circle cx="24" cy="24" r="18" fill="#5CA084" />
-                                                <path d="M15 24.5L21 30.5L33 18" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-                                            </svg>
+                                <div className={styles.formCol}>
+                                    {submitted ? (
+                                        <div className={styles.successElegant}>
+                                            <CheckCircle2 size={56} color="var(--color-accent)" />
+                                            <h2>Listo, se envió.</h2>
+                                            <p>Estaremos en contacto. Muchas gracias.</p>
                                         </div>
-                                        <h2>¡Formulario enviado!</h2>
-                                        <p>Gracias por comunicarte. María va a estar en contacto con vos dentro de las próximas <strong>24-48 horas</strong> para coordinar tu sesión exploratoria gratuita.</p>
-                                        <button
-                                            onClick={() => { setSubmitted(false); setForm({ nombre: "", email: "", telefono: "", empresa: "", motivo: "", mensaje: "" }); }}
-                                            className={styles.resetBtn}
-                                        >
-                                            Rehacer formulario
-                                        </button>
-                                    </div>
-                                ) : (
-                                    <form onSubmit={handleSubmit} className={styles.form} noValidate>
-                                        <h2 className={styles.formTitle}>Contanos tu situación</h2>
-                                        <p className={styles.formSubtitle}>Cuanta más información nos des, mejor podremos preparar la sesión para que sea útil desde el primer minuto.</p>
-
-                                        <div className={styles.formRow}>
-                                            <div className="form-group">
-                                                <label htmlFor="nombre" className="form-label">Nombre y Apellido *</label>
-                                                <input id="nombre" name="nombre" type="text" required className="form-input"
-                                                    placeholder="Tu nombre completo" value={form.nombre} onChange={handleChange} />
+                                    ) : (
+                                        <div className={styles.form}>
+                                            <div className={styles.progressContainer}>
+                                                <div className={`${styles.progressStep} ${currentStep >= 1 ? styles.progressStepActive : ''}`}>1</div>
+                                                <div className={`${styles.progressStep} ${currentStep >= 2 ? (currentStep > 2 ? styles.progressStepCompleted : styles.progressStepActive) : ''}`}>2</div>
+                                                <div className={`${styles.progressStep} ${currentStep === 3 ? styles.progressStepActive : ''}`}>3</div>
                                             </div>
-                                            <div className="form-group">
-                                                <label htmlFor="email" className="form-label">Email profesional *</label>
-                                                <input id="email" name="email" type="email" required className="form-input"
-                                                    placeholder="tu@empresa.com" value={form.email} onChange={handleChange} />
+
+                                            <h2 className={styles.formTitle}>
+                                                {currentStep === 1 && "Datos de Contacto"}
+                                                {currentStep === 2 && "Sobre la Organización"}
+                                                {currentStep === 3 && "Tu Desafío Actual"}
+                                            </h2>
+                                            <p className={styles.formSubtitle}>Paso {currentStep} de 3</p>
+
+                                            {currentStep === 1 && (
+                                                <div className={styles.stepContainer}>
+                                                    <div className={styles.formRow}>
+                                                        <div className="form-group">
+                                                            <label htmlFor="nombre" className="form-label">Nombre Completo *</label>
+                                                            <input id="nombre" name="nombre" type="text" className="form-input" placeholder="Tu nombre" value={form.nombre} onChange={handleChange} />
+                                                        </div>
+                                                        <div className="form-group">
+                                                            <label htmlFor="email" className="form-label">Email Profesional *</label>
+                                                            <input id="email" name="email" type="email" className="form-input" placeholder="tu@empresa.com" value={form.email} onChange={handleChange} />
+                                                        </div>
+                                                    </div>
+                                                    <div className="form-group">
+                                                        <label htmlFor="telefono" className="form-label">Teléfono / WhatsApp *</label>
+                                                        <input id="telefono" name="telefono" type="tel" className="form-input" placeholder="+54 9 11 XXXX-XXXX" value={form.telefono} onChange={handleChange} />
+                                                    </div>
+                                                </div>
+                                            )}
+
+                                            {currentStep === 2 && (
+                                                <div className={styles.stepContainer}>
+                                                    <div className="form-group">
+                                                        <label htmlFor="empresa" className="form-label">Nombre de la Empresa o Rubro *</label>
+                                                        <input id="empresa" name="empresa" type="text" className="form-input" placeholder="Ej: Elevare Consulting" value={form.empresa} onChange={handleChange} />
+                                                    </div>
+                                                    <div className="form-group">
+                                                        <label htmlFor="motivo" className="form-label">¿Sobre qué te gustaría conversar? *</label>
+                                                        <select id="motivo" name="motivo" className="form-select" value={form.motivo} onChange={handleChange}>
+                                                            <option value="">Seleccioná una opción</option>
+                                                            {reasons.map(r => <option key={r} value={r}>{r}</option>)}
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            )}
+
+                                            {currentStep === 3 && (
+                                                <div className={styles.stepContainer}>
+                                                    <div className="form-group">
+                                                        <label htmlFor="mensaje" className="form-label">¿Cuál es tu situación o desafío principal? *</label>
+                                                        <textarea id="mensaje" name="mensaje" rows={4} className="form-textarea" placeholder="Describí brevemente cuál es la situación que querés resolver..." value={form.mensaje} onChange={handleChange} />
+                                                    </div>
+                                                </div>
+                                            )}
+
+                                            {error && (
+                                                <p style={{ color: "red", fontSize: "0.9rem", marginTop: "0.5rem" }}>{error}</p>
+                                            )}
+
+                                            <div className={styles.btnGroup}>
+                                                {currentStep > 1 && (
+                                                    <button type="button" onClick={handleBack} className={styles.btnBack}>
+                                                        Volver
+                                                    </button>
+                                                )}
+                                                
+                                                {currentStep < 3 ? (
+                                                    <button type="button" onClick={handleNext} className={styles.btnNext}>
+                                                        Siguiente <ChevronRight size={16} style={{ display: 'inline', verticalAlign: 'middle' }} />
+                                                    </button>
+                                                ) : (
+                                                    <button type="button" onClick={handleSubmit} className={styles.btnNext} disabled={loading}>
+                                                        {loading ? "Enviando..." : "Finalizar y Enviar"}
+                                                    </button>
+                                                )}
                                             </div>
+                                            
+                                            <p className={styles.disclaimer} style={{ marginTop: '1rem' }}>
+                                                Tu información es confidencial y no será compartida.
+                                            </p>
                                         </div>
-
-                                        <div className={styles.formRow}>
-                                            <div className="form-group">
-                                                <label htmlFor="telefono" className="form-label">Teléfono / WhatsApp *</label>
-                                                <input id="telefono" name="telefono" type="tel" required className="form-input"
-                                                    placeholder="+54 9 11 XXXX-XXXX" value={form.telefono} onChange={handleChange} />
-                                            </div>
-                                            <div className="form-group">
-                                                <label htmlFor="empresa" className="form-label">Empresa u Organización</label>
-                                                <input id="empresa" name="empresa" type="text" className="form-input"
-                                                    placeholder="Nombre de tu empresa" value={form.empresa} onChange={handleChange} />
-                                            </div>
-                                        </div>
-
-                                        <div className="form-group">
-                                            <label htmlFor="motivo" className="form-label">¿Sobre qué te gustaría conversar? *</label>
-                                            <select id="motivo" name="motivo" required className="form-select" value={form.motivo} onChange={handleChange}>
-                                                <option value="">Seleccioná una opción</option>
-                                                {reasons.map(r => <option key={r} value={r}>{r}</option>)}
-                                            </select>
-                                        </div>
-
-                                        <div className="form-group">
-                                            <label htmlFor="mensaje" className="form-label">Contame tu principal desafío *</label>
-                                            <textarea id="mensaje" name="mensaje" required className="form-textarea"
-                                                placeholder="Describí brevemente cuál es la situación que querés resolver o el objetivo que querés alcanzar. Cuanto más específico, mejor."
-                                                value={form.mensaje} onChange={handleChange} />
-                                        </div>
-
-                                        <button type="submit" className={`btn btn-primary btn-lg ${styles.submitBtn}`} disabled={loading}>
-                                            {loading ? "Enviando..." : "Agendar mi sesión exploratoria gratuita"}
-                                        </button>
-                                        {error && (
-                                            <p style={{ color: "red", fontSize: "0.9rem", marginTop: "0.5rem" }}>{error}</p>
-                                        )}
-                                        <p className={styles.disclaimer}>
-                                            Tu información es confidencial y no será compartida. Te respondemos en 24-48 horas hábiles.
-                                        </p>
-                                    </form>
-                                )}
-                            </div>
+                                    )}
+                                </div>
                             </ScrollReveal>
 
-                            {/* Info sidebar */}
+                            {/* Info sidebar - Minimalist & Elegant */}
                             <ScrollReveal variant="fade-left" delay={200}>
-                            <div className={styles.sidebar}>
-                                <div className={styles.sideCard}>
-                                    <h3>¿Qué pasa en la sesión?</h3>
-                                    <ul className={styles.sideList}>
-                                        {[
-                                            { icon: "💬", text: "Escuchamos tu situación actual: desafíos, contexto, objetivos" },
-                                            { icon: "🔍", text: "Evaluamos juntos si el coaching / mentoría es la solución que necesitás" },
-                                            { icon: "🗺️", text: "Te explicamos cómo trabajamos y qué proceso propone Elevare" },
-                                            { icon: "📋", text: "Si hay fit, te presentamos una propuesta a medida en los días siguientes" },
-                                        ].map(item => (
-                                            <li key={item.text} className={styles.sideItem}>
-                                                <span>{item.icon}</span>
-                                                <span>{item.text}</span>
+                                <div className={styles.sidebar}>
+                                    <div className={styles.sideCard} style={{ background: "transparent", border: "1px solid var(--color-gray-200)", padding: "var(--space-8)" }}>
+                                        <h3 style={{ marginBottom: "1.5rem", fontSize: "1.2rem" }}>En la Sesión Exploratoria:</h3>
+                                        <ul className={styles.sideList}>
+                                            <li className={styles.sideItem}>
+                                                <MessageSquare size={20} color="var(--color-primary)" />
+                                                <span>Escuchamos tus objetivos y el contexto actual de tu gestión.</span>
                                             </li>
-                                        ))}
-                                    </ul>
-                                </div>
+                                            <li className={styles.sideItem}>
+                                                <Target size={20} color="var(--color-primary)" />
+                                                <span>Evaluamos si nuestra metodología se alinea con tu desafío.</span>
+                                            </li>
+                                            <li className={styles.sideItem}>
+                                                <Briefcase size={20} color="var(--color-primary)" />
+                                                <span>Te presentamos un plan de acción ejecutivo a medida.</span>
+                                            </li>
+                                        </ul>
+                                    </div>
 
-                                <div className={styles.sideCard} style={{ background: "linear-gradient(135deg, var(--color-primary), var(--color-primary-dark))", color: "#fff" }}>
-                                    <h3 style={{ color: "#fff" }}>Sobre María Gómez</h3>
-                                    <p style={{ color: "rgba(255,255,255,0.8)", fontSize: "var(--text-sm)", lineHeight: "1.75", marginBottom: "1rem" }}>
-                                        20+ años de experiencia en coaching ontológico y desarrollo de liderazgo empresarial en Argentina y LATAM. Alianzas en Chile, Paraguay y EEUU.
-                                    </p>
-                                    <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
-                                        {["20+ años de experiencia comprobada", "Coaching ontológico profundo", "Presencia en 4 países LATAM", "Mentoría especializada en mujeres ejecutivas"].map(f => (
-                                            <span key={f} style={{ fontSize: "var(--text-xs)", color: "rgba(255,255,255,0.7)", display: "flex", gap: "0.5rem" }}>
-                                                <span style={{ color: "var(--color-accent-light)" }}>✓</span> {f}
-                                            </span>
-                                        ))}
+                                    <div className={styles.sideCard} style={{ background: "var(--color-cream)", border: "none" }}>
+                                        <h3 style={{ marginBottom: "1rem" }}>Contacto Directo</h3>
+                                        <div className={styles.contactLinks}>
+                                            <a href="mailto:contacto@elevareconsultingmg.com" className={styles.contactLink}>
+                                                <Mail size={18} color="var(--color-primary)" />
+                                                contacto@elevareconsultingmg.com
+                                            </a>
+                                            <a href="https://www.linkedin.com/in/elevare-consulting-729079200?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" className={styles.contactLink}>
+                                                <Linkedin size={18} color="var(--color-primary)" />
+                                                LinkedIn
+                                            </a>
+                                            <a href="https://www.instagram.com/elevareconsultingmg" target="_blank" rel="noopener noreferrer" className={styles.contactLink}>
+                                                <Instagram size={18} color="var(--color-primary)" />
+                                                Instagram
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
-
-                                <div className={styles.sideCard}>
-                                    <h3>Otras formas de contactar</h3>
-                                    <div className={styles.contactLinks}>
-                                        <a href="https://www.linkedin.com/in/elevare-consulting-729079200?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" className={styles.contactLink}>
-                                            <span>💼</span> LinkedIn — Elevare Consulting
-                                        </a>
-                                        <a href="https://www.instagram.com/elevareconsultingmg" target="_blank" rel="noopener noreferrer" className={styles.contactLink}>
-                                            <span>📸</span> Instagram — @elevareconsultingmg
-                                        </a>
-                                        <a href="mailto:contacto@elevareconsultingmg.com" className={styles.contactLink}>
-                                            <span>📧</span> contacto@elevareconsultingmg.com
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
                             </ScrollReveal>
                         </div>
                     </div>

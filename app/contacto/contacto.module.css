@@ -109,6 +109,34 @@
     line-height: 1.75;
 }
 
+.successElegant {
+    background: var(--color-dark);
+    color: var(--color-white);
+    border-radius: var(--radius-xl);
+    padding: var(--space-12) var(--space-8);
+    box-shadow: var(--shadow-xl);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+    align-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    animation: fadeInSlide 0.5s ease forwards;
+}
+
+.successElegant h2 {
+    font-size: var(--text-2xl);
+    font-family: var(--font-heading);
+    color: var(--color-accent);
+}
+
+.successElegant p {
+    font-size: var(--text-lg);
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 420px;
+    line-height: 1.6;
+}
+
 .resetBtn {
     margin-top: var(--space-2);
     background: none;
@@ -226,4 +254,104 @@
     .sidebar {
         grid-template-columns: 1fr;
     }
+}
+
+/* Multi-Step Form */
+.progressContainer {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: var(--space-6);
+    position: relative;
+}
+
+.progressContainer::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--color-gray-200);
+    z-index: 0;
+    transform: translateY(-50%);
+}
+
+.progressStep {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--color-gray-200);
+    color: var(--color-gray-500);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 600;
+    z-index: 1;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.progressStepActive {
+    background: var(--color-primary);
+    color: var(--color-white);
+    box-shadow: 0 0 0 4px rgba(29, 51, 108, 0.1);
+}
+
+.progressStepCompleted {
+    background: var(--color-accent);
+    color: var(--color-white);
+}
+
+.stepContainer {
+    animation: fadeInSlide 0.4s ease forwards;
+}
+
+@keyframes fadeInSlide {
+    from {
+        opacity: 0;
+        transform: translateX(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.btnGroup {
+    display: flex;
+    gap: var(--space-3);
+    margin-top: var(--space-4);
+}
+
+.btnBack {
+    background: transparent;
+    border: 1px solid var(--color-gray-300);
+    color: var(--color-gray-600);
+    padding: var(--space-3) var(--space-6);
+    border-radius: var(--radius-md);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btnBack:hover {
+    background: var(--color-gray-100);
+    color: var(--color-dark);
+}
+
+.btnNext {
+    flex: 1;
+    background: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    padding: var(--space-3) var(--space-6);
+    border-radius: var(--radius-md);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btnNext:hover {
+    background: var(--color-primary-dark);
 }
