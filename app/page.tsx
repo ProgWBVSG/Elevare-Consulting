@@ -164,20 +164,11 @@ export default async function Home() {
       <main>
         {/* ============ HERO ============ */}
         <section className={styles.hero}>
-          <div className={styles.heroBackground}>
-              <Image
-                src={heroImage}
-                alt="Management y Liderazgo Elevare Consulting"
-                fill
-                priority
-                className={styles.heroBgImage}
-              />
-              <div className={styles.heroOverlay}></div>
-            </div>
+          <HeroFloatingImages />
           <div className={`container ${styles.heroContainer}`}>
             <div className={styles.heroContent}>
               <ScrollReveal variant="fade-up">
-                <div className={styles.heroLabel}>
+                <div className={styles.heroBadge}>
                   {heroBadge}
                 </div>
               </ScrollReveal>
@@ -185,7 +176,7 @@ export default async function Home() {
               <ScrollReveal variant="fade-up" delay={150}>
                 <h1 className={styles.heroTitle}>
                   {heroTitleMain}<br />
-                  <em>{heroTitleSub}</em>
+                  <span className={styles.highlightText}>{heroTitleSub}</span>
                 </h1>
               </ScrollReveal>
 
