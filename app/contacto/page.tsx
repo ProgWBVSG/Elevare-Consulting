@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
 import ScrollReveal from "@/app/components/ScrollReveal";
@@ -25,6 +25,28 @@ export default function ContactoPage() {
     const [submitted, setSubmitted] = useState(false);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
+
+    const [contactInfo, setContactInfo] = useState({
+        email: "contacto@elevareconsultingmg.com",
+        linkedin: "https://www.linkedin.com/company/elevare",
+        instagram: "https://www.instagram.com/elevareconsultingmg"
+    });
+
+    useEffect(() => {
+        const fetchContent = async () => {
+            const { data } = await supabase.from('site_content').select('section_key, text_value').in('section_key', ['contact_email', 'contact_linkedin', 'contact_instagram']);
+            if (data) {
+                const map = new Map();
+                data.forEach(d => map.set(d.section_key, d.text_value));
+                setContactInfo({
+                    email: map.get('contact_email') || "contacto@elevareconsultingmg.com",
+                    linkedin: map.get('contact_linkedin') || "https://www.linkedin.com/company/elevare",
+                    instagram: map.get('contact_instagram') || "https://www.instagram.com/elevareconsultingmg"
+                });
+            }
+        }
+        fetchContent();
+    }, []);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         setForm({ ...form, [e.target.name]: e.target.value });
@@ -258,15 +280,15 @@ export default function ContactoPage() {
                                     <div className={styles.sideCard} style={{ background: "var(--color-cream)", border: "none" }}>
                                         <h3 style={{ marginBottom: "1rem" }}>Contacto Directo</h3>
                                         <div className={styles.contactLinks}>
-                                            <a href="mailto:contacto@elevareconsultingmg.com" className={styles.contactLink}>
+                                            <a href={`mailto:${contactInfo.email}`} className={styles.contactLink}>
                                                 <Mail size={18} color="var(--color-primary)" />
-                                                contacto@elevareconsultingmg.com
+                                                {contactInfo.email}
                                             </a>
-                                            <a href="https://www.linkedin.com/in/elevare-consulting-729079200?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" className={styles.contactLink}>
+                                            <a href={contactInfo.linkedin} target="_blank" rel="noopener noreferrer" className={styles.contactLink}>
                                                 <Linkedin size={18} color="var(--color-primary)" />
                                                 LinkedIn
                                             </a>
-                                            <a href="https://www.instagram.com/elevareconsultingmg" target="_blank" rel="noopener noreferrer" className={styles.contactLink}>
+                                            <a href={contactInfo.instagram} target="_blank" rel="noopener noreferrer" className={styles.contactLink}>
                                                 <Instagram size={18} color="var(--color-primary)" />
                                                 Instagram
                                             </a>

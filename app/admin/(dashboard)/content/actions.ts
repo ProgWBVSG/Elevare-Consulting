@@ -11,16 +11,55 @@ export async function updateContent(formData: FormData) {
     return { error: 'No autorizado' }
   }
 
-  // Iterate over form data and update the database
   const entries = Array.from(formData.entries())
   
   for (const [key, value] of entries) {
-    if (key.startsWith('$ACTION_ID_')) continue // Ignore Next.js internal action keys
+    // Ignorar variables internas de Next.js y variables auxiliares
+    if (key.startsWith('$ACTION_ID_')) continue
+    if (key.endsWith('_current')) continue
 
+    let textValueToSave = ''
+
+    // Manejo de Imágenes (Archivos)
+    if (value instanceof File && value.size > 0) {
+      const fileExt = value.name.split('.').pop()
+      const fileName = `${key}-${Date.now()}.${fileExt}`
+
+      // Subir a Supabase Storage
+      const { error: uploadError } = await supabase.storage
+        .from('public-images')
+        .upload(fileName, value, {
+          cacheControl: '3600',
+          upsert: true
+        })
+
+      if (uploadError) {
+        console.error('Upload Error:', uploadError)
+        return { error: `Error al subir imagen: ${key}` }
+      }
+
+      // Obtener URL pública
+      const { data: { publicUrl } } = supabase.storage
+        .from('public-images')
+        .getPublicUrl(fileName)
+
+      textValueToSave = publicUrl
+    } else if (typeof value === 'string') {
+      textValueToSave = value
+    } else {
+      // Es un archivo vacío (el usuario no subió nada nuevo)
+      continue
+    }
+
+    // Guardar en la tabla site_content
     const { error } = await supabase
       .from('site_content')
       .upsert(
-        { section_key: key, text_value: value as string, updated_at: new Date().toISOString() },
+        { 
+          section_key: key, 
+          text_value: textValueToSave, 
+          updated_at: new Date().toISOString() 
+        },
         { onConflict: 'section_key' }
       )
       
@@ -30,7 +69,7 @@ export async function updateContent(formData: FormData) {
     }
   }
 
-  // Revalidate the entire site so changes reflect immediately
+  // Revalidate so the whole site reflects the changes
   revalidatePath('/', 'layout')
   
   return { success: true }

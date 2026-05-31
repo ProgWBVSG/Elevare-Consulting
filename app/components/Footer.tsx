@@ -1,5 +1,9 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { useState, useEffect } from "react";
+import { supabase } from "@/lib/supabase";
 import styles from "./Footer.module.css";
 import LeadMagnetForm from "./LeadMagnetForm";
 
@@ -22,6 +26,35 @@ const legal = [
 ];
 
 export default function Footer() {
+    const [content, setContent] = useState({
+        email: "info@elevareconsultingmg.com",
+        address: "Buenos Aires, Argentina",
+        footerAbout: "Firma especializada en Desarrollo Organizacional. Convertimos el comportamiento en una ventaja competitiva concreta.",
+        copyright: `© ${new Date().getFullYear()} Elevare Consulting MG. Todos los derechos reservados.`,
+        instagram: "https://www.instagram.com/elevareconsultingmg",
+        linkedin: "https://www.linkedin.com/company/elevare"
+    });
+
+    useEffect(() => {
+        const fetchContent = async () => {
+            const { data } = await supabase.from('site_content').select('section_key, text_value')
+                .in('section_key', ['contact_email', 'footer_address', 'footer_about', 'footer_copyright', 'contact_instagram', 'contact_linkedin']);
+            if (data) {
+                const map = new Map();
+                data.forEach(d => map.set(d.section_key, d.text_value));
+                setContent(prev => ({
+                    email: map.get('contact_email') || prev.email,
+                    address: map.get('footer_address') || prev.address,
+                    footerAbout: map.get('footer_about') || prev.footerAbout,
+                    copyright: map.get('footer_copyright') || prev.copyright,
+                    instagram: map.get('contact_instagram') || prev.instagram,
+                    linkedin: map.get('contact_linkedin') || prev.linkedin
+                }));
+            }
+        };
+        fetchContent();
+    }, []);
+
     return (
         <footer className={styles.footer}>
             <div className={styles.top}>
@@ -37,12 +70,12 @@ export default function Footer() {
                                 </span>
                             </Link>
                             <p className={styles.tagline}>
-                                Firma especializada en Desarrollo Organizacional. Convertimos el comportamiento en una ventaja competitiva concreta.
+                                {content.footerAbout}
                             </p>
                             {/* Social */}
                             <div className={styles.social}>
                                 <a
-                                    href="https://www.instagram.com/elevareconsultingmg"
+                                    href={content.instagram}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className={styles.socialLink}
@@ -53,7 +86,7 @@ export default function Footer() {
                                     </svg>
                                 </a>
                                 <a
-                                    href="https://www.linkedin.com/in/elevare-consulting-729079200?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+                                    href={content.linkedin}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className={styles.socialLink}
@@ -68,11 +101,11 @@ export default function Footer() {
                             <address className={styles.nap}>
                                 <p>
                                     <strong>Elevare Consulting MG</strong><br />
-                                    Buenos Aires, Argentina<br />
+                                    {content.address}<br />
                                     Alianzas: Argentina · Chile · Paraguay · EEUU
                                 </p>
-                                <a href="mailto:info@elevareconsultingmg.com" className={styles.contact}>
-                                    info@elevareconsultingmg.com
+                                <a href={`mailto:${content.email}`} className={styles.contact}>
+                                    {content.email}
                                 </a>
                             </address>
                         </div>
@@ -118,7 +151,7 @@ export default function Footer() {
                 <div className={`container ${styles.bottomInner}`}>
                     <div className={styles.copyrightGroup}>
                         <p className={styles.copyright}>
-                            © {new Date().getFullYear()} Elevare Consulting MG. Todos los derechos reservados.
+                            {content.copyright}
                         </p>
                         <p className={styles.developer}>
                             Desarrollado por <a href="https://mybdigitals.com" target="_blank" rel="noopener noreferrer">MyB Digitals</a>

@@ -88,12 +88,21 @@ import FloatingWidgets from "./components/FloatingWidgets";
 import LoadingScreen from "./components/LoadingScreen";
 import { Analytics } from "@vercel/analytics/react"
 import { GoogleTagManager } from "@next/third-parties/google";
+import { createClient } from '@/lib/supabase/server';
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const supabase = await createClient();
+  const { data } = await supabase.from('site_content').select('section_key, text_value');
+  const content = new Map();
+  data?.forEach(item => content.set(item.section_key, item.text_value));
+
+  const waPhone = content.get('contact_whatsapp') || "5491125464650";
+  const waMsg = content.get('contact_whatsapp_text') || "Hola, estoy visitando el sitio de Elevare y me gustaría hacer una consulta.";
+
   return (
     <html lang="es-AR">
       <head>
@@ -196,7 +205,7 @@ export default function RootLayout({
         <GoogleTagManager gtmId="GTM-WS8LKHCH" />
         <LoadingScreen />
         {children}
-        <FloatingWidgets />
+        <FloatingWidgets waPhone={waPhone} waMsg={waMsg} />
         <Analytics />
       </body>
     </html>

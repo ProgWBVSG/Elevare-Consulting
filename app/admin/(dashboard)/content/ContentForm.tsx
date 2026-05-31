@@ -2,8 +2,54 @@
 
 import { useTransition, useState } from 'react'
 import { updateContent } from './actions'
-import { Save } from 'lucide-react'
+import { Save, Image as ImageIcon } from 'lucide-react'
 import styles from './content.module.css'
+
+// ─── ESQUEMA DEL CMS ────────────────────────────────
+export const CMS_SCHEMA = [
+  {
+    group: 'Inicio',
+    fields: [
+      { key: 'hero_badge', label: 'Badge Superior', type: 'text', default: 'Consultora de Negocios · Management & Desarrollo Organizacional' },
+      { key: 'hero_title_main', label: 'Título Principal', type: 'text', default: 'Potenciá tu Empresa' },
+      { key: 'hero_title_sub', label: 'Subtítulo', type: 'text', default: 'con Management Estratégico' },
+      { key: 'hero_subtitle', label: 'Párrafo Hero', type: 'textarea', default: 'Consultora especializada en management, desarrollo organizacional y estructuración financiera para PYMEs...' },
+      { key: 'hero_image', label: 'Imagen de Fondo del Hero', type: 'image', default: '' },
+      { key: 'pain_intro_badge', label: 'Badge Problemas', type: 'text', default: '¿Te identificás con esto?' },
+      { key: 'pain_intro_title', label: 'Título Problemas', type: 'text', default: '¿Tu empresa o tu gestión no está dando los resultados que esperabas?' },
+      { key: 'pain_intro_desc', label: 'Descripción Problemas', type: 'textarea', default: 'Trabajamos con dos tipos de desafíos...' },
+    ]
+  },
+  {
+    group: 'Contacto y Redes',
+    fields: [
+      { key: 'contact_whatsapp', label: 'Número de WhatsApp (ej. 5491112345678)', type: 'text', default: '5491112345678' },
+      { key: 'contact_whatsapp_text', label: 'Mensaje Predefinido de WhatsApp', type: 'textarea', default: 'Hola Elevare, vengo de la web y quiero consultar por...' },
+      { key: 'contact_email', label: 'Email de Contacto', type: 'text', default: 'contacto@elevareconsultingmg.com' },
+      { key: 'contact_linkedin', label: 'Link a LinkedIn', type: 'text', default: 'https://linkedin.com/company/elevare' },
+      { key: 'contact_instagram', label: 'Link a Instagram', type: 'text', default: 'https://instagram.com/elevare' },
+      { key: 'cta_intro_badge', label: 'Badge Siguiente Paso', type: 'text', default: 'Siguiente Paso' },
+      { key: 'cta_title', label: 'Título Final (Llamado a la Acción)', type: 'text', default: '¿Listo para profesionalizar la gestión de tu empresa?' },
+      { key: 'cta_desc', label: 'Descripción Final', type: 'textarea', default: 'Agendá una sesión exploratoria gratuita de 30 minutos...' },
+    ]
+  },
+  {
+    group: 'Footer Global',
+    fields: [
+      { key: 'footer_about', label: 'Texto "Sobre Nosotros" en Footer', type: 'textarea', default: 'Transformamos empresas estructurando el negocio y desarrollando a sus líderes.' },
+      { key: 'footer_address', label: 'Dirección (Sede)', type: 'text', default: 'Buenos Aires, Argentina' },
+      { key: 'footer_copyright', label: 'Texto Copyright', type: 'text', default: '© 2026 Elevare Consulting MG. Todos los derechos reservados.' },
+    ]
+  },
+  {
+    group: 'Imágenes Adicionales',
+    fields: [
+      { key: 'img_empresas_hero', label: 'Hero Empresas', type: 'image', default: '' },
+      { key: 'img_lideres_hero', label: 'Hero Líderes', type: 'image', default: '' },
+      { key: 'img_mujeres_hero', label: 'Hero Mujeres Ejecutivas', type: 'image', default: '' },
+    ]
+  }
+]
 
 type ContentItem = {
   id?: string
@@ -12,48 +58,23 @@ type ContentItem = {
   updated_at?: string
 }
 
-// Valores por defecto para sembrar la base de datos si está vacía
-const DEFAULT_CONTENT: ContentItem[] = [
-  { section_key: 'hero_badge', text_value: 'Consultora de Negocios · Management & Desarrollo Organizacional' },
-  { section_key: 'hero_title_main', text_value: 'Potenciá tu Empresa' },
-  { section_key: 'hero_title_sub', text_value: 'con Management Estratégico' },
-  { section_key: 'hero_subtitle', text_value: 'Consultora especializada en management, desarrollo organizacional y estructuración financiera para PYMEs. Diagnosticamos cultura, clima, procesos y liderazgo para convertirlos en ventajas competitivas concretas.' },
-  { section_key: 'pain_intro_badge', text_value: '¿Te identificás con esto?' },
-  { section_key: 'pain_intro_title', text_value: '¿Tu empresa o tu gestión no está dando los resultados que esperabas?' },
-  { section_key: 'pain_intro_desc', text_value: 'Trabajamos con dos tipos de desafíos — pero con la misma raíz: la necesidad de management profesional, estructura clara y liderazgo efectivo.' },
-  { section_key: 'pain_pyme_title', text_value: 'Para PYMEs que necesitan estructura' },
-  { section_key: 'pain_pyme_1_title', text_value: 'Tu equipo gerencial no lidera como esperabas' },
-  { section_key: 'pain_pyme_1_desc', text_value: 'Invirtieron en capacitaciones, pero los mandos medios siguen sin tomar decisiones autónomas ni asumir accountability.' },
-  { section_key: 'pain_lider_title', text_value: 'Para líderes que necesitan acompañamiento' },
-  { section_key: 'pain_lider_1_title', text_value: 'Sentís que liderás en piloto automático' },
-  { section_key: 'pain_lider_1_desc', text_value: 'Cumplís con el rol, pero sabés que podrías tener más impacto. Te falta una mirada externa estratégica.' },
-  { section_key: 'services_intro_badge', text_value: 'Nuestros Servicios' },
-  { section_key: 'services_intro_title', text_value: 'Cómo transformamos organizaciones y líderes' },
-  { section_key: 'why_intro_badge', text_value: '¿Por qué Elevare?' },
-  { section_key: 'why_intro_title', text_value: 'Líderes más efectivos. Equipos más rentables.' },
-  { section_key: 'why_intro_desc', text_value: 'Mientras otros facilitan talleres, nosotros diagnosticamos, diseñamos e implementamos hasta ver el cambio real. Management concreto, ejecución directa, resultados medibles.' },
-  { section_key: 'cta_intro_badge', text_value: 'Siguiente Paso' },
-  { section_key: 'cta_title', text_value: '¿Listo para profesionalizar la gestión de tu empresa?' },
-  { section_key: 'cta_desc', text_value: 'Agendá una sesión exploratoria gratuita de 30 minutos. Sin compromiso. Conversamos sobre tus desafíos específicos y evaluamos juntos cómo nuestra consultoría puede transformar tu organización.' },
-  { section_key: 'contact_email', text_value: 'hola@elevareconsulting.com' }
-]
-
 export default function ContentForm({ initialData }: { initialData: ContentItem[] }) {
   const [isPending, startTransition] = useTransition()
   const [message, setMessage] = useState<{ type: 'success' | 'error', text: string } | null>(null)
+  const [activeTab, setActiveTab] = useState(CMS_SCHEMA[0].group)
+  const [previewImages, setPreviewImages] = useState<Record<string, string>>({})
 
-  // Merge DB data with defaults
-  const mergedData = DEFAULT_CONTENT.map(def => {
-    const found = initialData.find(d => d.section_key === def.section_key)
-    return found || def
-  })
+  const getValue = (key: string, defaultValue: string) => {
+    const found = initialData.find(d => d.section_key === key)
+    return found ? found.text_value : defaultValue
+  }
 
-  // Add any extra keys that might be in DB but not in defaults
-  initialData.forEach(d => {
-    if (!mergedData.find(m => m.section_key === d.section_key)) {
-      mergedData.push(d)
+  const handleImageChange = (key: string, file: File | null) => {
+    if (file) {
+      const url = URL.createObjectURL(file)
+      setPreviewImages(prev => ({ ...prev, [key]: url }))
     }
-  })
+  }
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -73,30 +94,71 @@ export default function ContentForm({ initialData }: { initialData: ContentItem[
 
   return (
     <form onSubmit={handleSubmit} className={styles.form}>
-      <div className={styles.grid}>
-        {mergedData.map((item) => (
-          <div key={item.section_key} className={styles.field}>
-            <label htmlFor={item.section_key} className={styles.label}>
-              {item.section_key.replace(/_/g, ' ')}
-            </label>
-            {item.text_value.length > 80 || item.section_key.includes('desc') || item.section_key.includes('subtitle') ? (
-              <textarea
-                id={item.section_key}
-                name={item.section_key}
-                defaultValue={item.text_value}
-                className={styles.textarea}
-              />
-            ) : (
-              <input
-                type="text"
-                id={item.section_key}
-                name={item.section_key}
-                defaultValue={item.text_value}
-                className={styles.input}
-              />
-            )}
-          </div>
+      {/* TABS HEADER */}
+      <div className={styles.tabsContainer}>
+        {CMS_SCHEMA.map(tab => (
+          <button
+            key={tab.group}
+            type="button"
+            className={`${styles.tabBtn} ${activeTab === tab.group ? styles.tabBtnActive : ''}`}
+            onClick={() => setActiveTab(tab.group)}
+          >
+            {tab.group}
+          </button>
         ))}
+      </div>
+
+      {/* TAB CONTENT */}
+      <div className={styles.grid}>
+        {CMS_SCHEMA.find(t => t.group === activeTab)?.fields.map(field => {
+          const val = getValue(field.key, field.default)
+          const preview = previewImages[field.key] || (val.startsWith('http') ? val : null)
+
+          return (
+            <div key={field.key} className={styles.field}>
+              <label htmlFor={field.key} className={styles.label}>
+                {field.label}
+              </label>
+
+              {field.type === 'textarea' ? (
+                <textarea
+                  id={field.key}
+                  name={field.key}
+                  defaultValue={val}
+                  className={styles.textarea}
+                />
+              ) : field.type === 'image' ? (
+                <div className={styles.fileInputWrapper}>
+                  {preview ? (
+                    <img src={preview} alt="Preview" className={styles.imagePreview} />
+                  ) : (
+                    <div className={styles.imagePreview} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#f3f4f6' }}>
+                      <ImageIcon size={20} color="#9ca3af" />
+                    </div>
+                  )}
+                  <input
+                    type="file"
+                    id={field.key}
+                    name={field.key}
+                    accept="image/*"
+                    onChange={(e) => handleImageChange(field.key, e.target.files?.[0] || null)}
+                    className={styles.input}
+                    style={{ border: 'none', padding: 0 }}
+                  />
+                  <input type="hidden" name={`${field.key}_current`} value={val} />
+                </div>
+              ) : (
+                <input
+                  type="text"
+                  id={field.key}
+                  name={field.key}
+                  defaultValue={val}
+                  className={styles.input}
+                />
+              )}
+            </div>
+          )
+        })}
       </div>
 
       {message && (

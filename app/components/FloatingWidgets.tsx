@@ -5,9 +5,10 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 import styles from "./FloatingWidgets.module.css";
 
-const whastappNumber = "+5491125464650";
-const whatsappMsg = "Hola, estoy visitando el sitio de Elevare y me gustaría hacer una consulta.";
-const whatsappUrl = `https://wa.me/${whastappNumber}?text=${encodeURIComponent(whatsappMsg)}`;
+type FloatingWidgetsProps = {
+    waPhone: string;
+    waMsg: string;
+};
 
 const frequentQuestions = [
     "¿Qué es el Coaching Ontológico?",
@@ -21,10 +22,12 @@ type Message = {
     sender: "bot" | "user";
 };
 
-export default function FloatingWidgets() {
+export default function FloatingWidgets({ waPhone, waMsg }: FloatingWidgetsProps) {
     const pathname = usePathname();
     const [chatOpen, setChatOpen] = useState(false);
     const [messages, setMessages] = useState<Message[]>([]);
+
+    const whatsappUrl = `https://wa.me/${waPhone}?text=${encodeURIComponent(waMsg)}`;
 
     // No mostrar widgets flotantes en el panel de admin
     if (pathname.startsWith("/admin")) {

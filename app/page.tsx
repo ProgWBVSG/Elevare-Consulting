@@ -15,6 +15,7 @@ import LogoCarousel from "./components/LogoCarousel";
 import ScrollReveal from "./components/ScrollReveal";
 import HeroFloatingImages from "./components/HeroFloatingImages";
 import styles from "./page.module.css";
+import { createClient } from '@/lib/supabase/server';
 
 export const metadata: Metadata = {
   title: "Consultora de Negocios · Management y Desarrollo Organizacional para PYMEs | Elevare Consulting",
@@ -130,11 +131,23 @@ const blogPosts = [
   },
 ];
 
-import { createClient } from '@/lib/supabase/server'
-
 export default async function Home() {
   const supabase = await createClient();
-  const { data: contentData } = await supabase.from('site_content').select('*')
+  const { data } = await supabase.from('site_content').select('section_key, text_value');
+  const content = new Map();
+  data?.forEach(item => content.set(item.section_key, item.text_value));
+
+  const heroBadge = content.get('hero_badge') || "Consultora de Negocios · Management & Desarrollo Organizacional";
+  const heroTitleMain = content.get('hero_title_main') || "Potenciá tu Empresa";
+  const heroTitleSub = content.get('hero_title_sub') || "con Management Estratégico";
+  const heroSubtitle = content.get('hero_subtitle') || "Consultora especializada en management, desarrollo organizacional y estructuración financiera para PYMEs. Diagnosticamos cultura, clima, procesos y liderazgo para convertirlos en ventajas competitivas concretas.";
+  
+  const painIntroBadge = content.get('pain_intro_badge') || "¿Te identificás con esto?";
+  const painIntroTitle = content.get('pain_intro_title') || "¿Tu empresa o tu gestión no está dando los resultados que esperabas?";
+  const painIntroDesc = content.get('pain_intro_desc') || "Trabajamos con dos tipos de desafíos — pero con la misma raíz: la necesidad de management profesional, estructura clara y liderazgo efectivo.";
+  
+  const heroImage = content.get('hero_image') || "/hero-home.jpg";
+
   const { data: testimonials } = await supabase
     .from('testimonials')
     .select('*')
@@ -142,14 +155,7 @@ export default async function Home() {
     .order('created_at', { ascending: false })
     .limit(3);
   
-  // Transform data array to dictionary for easy access
-  const content = (contentData || []).reduce((acc: Record<string, string>, item) => {
-    acc[item.section_key] = item.text_value
-    return acc
-  }, {})
-
-  // Función helper segura
-  const getText = (key: string, fallback: string) => content[key] || fallback;
+  const getText = (key: string, fallback: string) => content.get(key) || fallback;
 
   return (
     <>
@@ -158,16 +164,36 @@ export default async function Home() {
       <main>
         {/* ============ HERO ============ */}
         <section className={styles.hero}>
-          <HeroFloatingImages />
+          <div className={styles.heroBackground}>
+              <Image
+                src={heroImage}
+                alt="Management y Liderazgo Elevare Consulting"
+                fill
+                priority
+                className={styles.heroBgImage}
+              />
+              <div className={styles.heroOverlay}></div>
+            </div>
           <div className={`container ${styles.heroContainer}`}>
             <div className={styles.heroContent}>
-              <div className={styles.heroBadge}>
-                {getText('hero_badge', 'CONSULTORÍA DE MANAGEMENT • BUENOS AIRES • LATAM')}
-              </div>
-              <h1 className={styles.heroTitle}>
-                {getText('hero_title_main', 'Management estratégico que transforma ')}
-                <span className={styles.highlightText}>{getText('hero_title_sub', 'resultados')}</span>
-              </h1>
+              <ScrollReveal variant="fade-up">
+                <div className={styles.heroLabel}>
+                  {heroBadge}
+                </div>
+              </ScrollReveal>
+
+              <ScrollReveal variant="fade-up" delay={150}>
+                <h1 className={styles.heroTitle}>
+                  {heroTitleMain}<br />
+                  <em>{heroTitleSub}</em>
+                </h1>
+              </ScrollReveal>
+
+              <ScrollReveal variant="fade-up" delay={300}>
+                <p className={styles.heroSubtitle}>
+                  {heroSubtitle}
+                </p>
+              </ScrollReveal>
               
               <div className={styles.heroCtas}>
                 <Link href="/contacto" className="btn btn-primary btn-lg">
@@ -187,15 +213,13 @@ export default async function Home() {
         {/* ============ PAIN POINTS — DOS AUDIENCIAS ============ */}
         <section className={`section bg-cream`}>
           <div className="container">
-            <ScrollReveal variant="fade-up">
-            <div className="text-center" style={{ marginBottom: "4rem" }}>
-              <span className="section-label">{getText('pain_intro_badge', '¿Te identificás con esto?')}</span>
-              <h2 className="section-title">{getText('pain_intro_title', '¿Tu empresa o tu gestión no está dando los resultados que esperabas?')}</h2>
-              <p className="section-subtitle">
-                {getText('pain_intro_desc', 'Trabajamos con dos tipos de desafíos — pero con la misma raíz: la necesidad de management profesional, estructura clara y liderazgo efectivo.')}
-              </p>
+            <div className={styles.painHeader}>
+              <ScrollReveal variant="fade-up">
+                <div className="section-label">{painIntroBadge}</div>
+                <h2 className="section-title">{painIntroTitle}</h2>
+                <p className="section-desc">{painIntroDesc}</p>
+              </ScrollReveal>
             </div>
-            </ScrollReveal>
 
             <div className={styles.painPointsGrid}>
               {/* PYMEs */}
