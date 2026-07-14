@@ -28,7 +28,7 @@ export default function ContactoPage() {
 
     const [contactInfo, setContactInfo] = useState({
         email: "contacto@elevareconsultingmg.com",
-        linkedin: "https://www.linkedin.com/company/elevare",
+        linkedin: "https://www.linkedin.com/in/elevare-consulting-729079200/?isSelfProfile=false",
         instagram: "https://www.instagram.com/elevareconsultingmg"
     });
 
@@ -40,7 +40,7 @@ export default function ContactoPage() {
                 data.forEach(d => map.set(d.section_key, d.text_value));
                 setContactInfo({
                     email: map.get('contact_email') || "contacto@elevareconsultingmg.com",
-                    linkedin: map.get('contact_linkedin') || "https://www.linkedin.com/company/elevare",
+                    linkedin: map.get('contact_linkedin') || "https://www.linkedin.com/in/elevare-consulting-729079200/?isSelfProfile=false",
                     instagram: map.get('contact_instagram') || "https://www.instagram.com/elevareconsultingmg"
                 });
             }

@@ -32,7 +32,7 @@ export default function Footer() {
         footerAbout: "Firma especializada en Desarrollo Organizacional. Convertimos el comportamiento en una ventaja competitiva concreta.",
         copyright: `© ${new Date().getFullYear()} Elevare Consulting MG. Todos los derechos reservados.`,
         instagram: "https://www.instagram.com/elevareconsultingmg",
-        linkedin: "https://www.linkedin.com/company/elevare"
+        linkedin: "https://www.linkedin.com/in/elevare-consulting-729079200/?isSelfProfile=false"
     });
 
     useEffect(() => {

@@ -26,7 +26,7 @@ export const CMS_SCHEMA = [
       { key: 'contact_whatsapp', label: 'Número de WhatsApp (ej. 5491112345678)', type: 'text', default: '5491112345678' },
       { key: 'contact_whatsapp_text', label: 'Mensaje Predefinido de WhatsApp', type: 'textarea', default: 'Hola Elevare, vengo de la web y quiero consultar por...' },
       { key: 'contact_email', label: 'Email de Contacto', type: 'text', default: 'contacto@elevareconsultingmg.com' },
-      { key: 'contact_linkedin', label: 'Link a LinkedIn', type: 'text', default: 'https://linkedin.com/company/elevare' },
+      { key: 'contact_linkedin', label: 'Link a LinkedIn', type: 'text', default: 'https://www.linkedin.com/in/elevare-consulting-729079200/?isSelfProfile=false' },
       { key: 'contact_instagram', label: 'Link a Instagram', type: 'text', default: 'https://instagram.com/elevare' },
       { key: 'cta_intro_badge', label: 'Badge Siguiente Paso', type: 'text', default: 'Siguiente Paso' },
       { key: 'cta_title', label: 'Título Final (Llamado a la Acción)', type: 'text', default: '¿Listo para profesionalizar la gestión de tu empresa?' },
