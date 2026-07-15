@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { Eye, Users, Zap, Wrench, Compass, Crown, CheckCircle, ArrowRight, Target, Brain } from "lucide-react";
+import { Eye, Users, Zap, Wrench, Compass, Crown, CheckCircle, ArrowRight, Target, Brain, Search, MessageSquare, TrendingUp } from "lucide-react";
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
 import ScrollReveal from "@/app/components/ScrollReveal";
@@ -30,10 +30,10 @@ const painPoints = [
 ];
 
 const process = [
-    { step: "01", title: "Diagnóstico de tu Liderazgo", desc: "Evaluamos tu estilo de gestión actual, desafíos específicos, contexto organizacional y objetivos. Identificamos los patrones que potencian tu liderazgo y los que lo están frenando." },
-    { step: "02", title: "Plan Estratégico Personalizado", desc: "Diseñamos tu ruta de desarrollo a medida — no hay programas genéricos. Trabajamos desde tu industria, tu organización, tu equipo y tus metas concretas de gestión." },
-    { step: "03", title: "Sesiones de Mentoría Estratégica", desc: "Encuentros de trabajo profundo donde combinamos coaching ejecutivo con herramientas concretas de management. Abordamos toma de decisiones, delegación, gestión de conflictos y liderazgo de equipos." },
-    { step: "04", title: "Resultados y Autonomía", desc: "Nos aseguramos de que los cambios sean duraderos. Desarrollamos tu autonomía como líder para que cada decisión tenga más claridad, cada equipo más estructura y cada resultado más consistencia." },
+    { step: "01", Icon: Search, title: "Diagnóstico de tu Liderazgo", desc: "Evaluamos tu estilo de gestión actual, desafíos específicos, contexto organizacional y objetivos. Identificamos los patrones que potencian tu liderazgo y los que lo están frenando." },
+    { step: "02", Icon: Compass, title: "Plan Estratégico Personalizado", desc: "Diseñamos tu ruta de desarrollo a medida — no hay programas genéricos. Trabajamos desde tu industria, tu organización, tu equipo y tus metas concretas de gestión." },
+    { step: "03", Icon: MessageSquare, title: "Sesiones de Mentoría Estratégica", desc: "Encuentros de trabajo profundo donde combinamos coaching ejecutivo con herramientas concretas de management. Abordamos toma de decisiones, delegación, gestión de conflictos y liderazgo de equipos." },
+    { step: "04", Icon: TrendingUp, title: "Resultados y Autonomía", desc: "Nos aseguramos de que los cambios sean duraderos. Desarrollamos tu autonomía como líder para que cada decisión tenga más claridad, cada equipo más estructura y cada resultado más consistencia." },
 ];
 
 const benefits = [
@@ -142,7 +142,7 @@ export default function MentoriaLideres() {
                 </section>
 
                 {/* Pain points */}
-                <section className="section bg-cream">
+                <section className={`section ${styles.lightSection}`}>
                     <div className="container">
                         <div className={styles.twoCol}>
                             <ScrollReveal variant="fade-right">
@@ -216,7 +216,7 @@ export default function MentoriaLideres() {
                 </section>
 
                 {/* Process */}
-                <section id="proceso" className="section bg-cream">
+                <section id="proceso" className={`section ${styles.lightSection}`}>
                     <div className="container">
                         <ScrollReveal variant="fade-up">
                         <div className="text-center" style={{ marginBottom: "4rem" }}>
@@ -228,7 +228,10 @@ export default function MentoriaLideres() {
                             {process.map((step, i) => (
                                 <ScrollReveal key={step.step} variant="fade-up" delay={i * 150}>
                                 <div className={styles.processCard} data-step={step.step}>
-                                    <div className={styles.stepNumber} style={{ background: "linear-gradient(135deg, var(--color-accent), var(--color-accent-dark))", boxShadow: "0 6px 24px rgba(214, 90, 32, 0.35), 0 0 0 6px rgba(214, 90, 32, 0.08)" }}>{step.step}</div>
+                                    <div className={styles.processHead}>
+                                        <span className={styles.processIconBadge}><step.Icon size={20} /></span>
+                                        <span className={styles.stepNumber}>{step.step}</span>
+                                    </div>
                                     <h3 className={styles.processTitle}>{step.title}</h3>
                                     <p className={styles.processDesc}>{step.desc}</p>
                                 </div>

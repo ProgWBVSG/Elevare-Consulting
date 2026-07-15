@@ -407,6 +407,48 @@
     font-weight: 400;
 }
 
+/* Light section — genuine cream background with navy text, for content shown
+   directly (not inside a white card) on top of what would otherwise be the
+   near-transparent global .bg-cream over the dark body. */
+.lightSection {
+    background: var(--color-cream);
+}
+
+.lightSection :global(.section-title) {
+    color: var(--color-primary);
+}
+
+.lightSection :global(.section-subtitle) {
+    color: var(--color-gray-700);
+}
+
+.lightSection .checkItem {
+    color: var(--color-primary);
+}
+
+.lightSection .processCard {
+    border-color: var(--color-gray-200);
+    background: var(--color-white);
+}
+
+.lightSection .processCard:hover {
+    border-color: rgba(196, 154, 67, 0.45);
+    background: var(--color-white);
+    box-shadow: var(--shadow-lg);
+}
+
+.lightSection .stepNumber {
+    color: rgba(29, 51, 108, 0.14);
+}
+
+.lightSection .processTitle {
+    color: var(--color-dark);
+}
+
+.lightSection .processDesc {
+    color: var(--color-gray-700);
+}
+
 /* Benefits */
 .benefitCard {
     display: flex;
