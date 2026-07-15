@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { Target, Settings, RefreshCw, User, HelpCircle, BarChart2, CheckCircle, ArrowRight } from "lucide-react";
+import { Target, Settings, RefreshCw, User, HelpCircle, BarChart2, CheckCircle, ArrowRight, Search, Layers, Users, Rocket, TrendingUp } from "lucide-react";
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
 import ScrollReveal from "@/app/components/ScrollReveal";
@@ -30,11 +30,11 @@ const painPoints = [
 ];
 
 const process = [
-    { step: "01", title: "Diagnóstico Organizacional", desc: "Evaluamos clima, cultura, procesos y estructura financiera. Sin supuestos: datos reales de tu empresa antes de cualquier recomendación." },
-    { step: "02", title: "Diseño de Estructura", desc: "Definimos roles, responsabilidades y mecanismos de accountability. Cada decisión tiene un dueño, cada proceso un estándar medible." },
-    { step: "03", title: "Desarrollo de Liderazgo", desc: "Formamos líderes que habilitan a sus equipos en lugar de controlarlos. Autonomía y responsabilidad colectiva como estándar operativo." },
-    { step: "04", title: "Implementación Directa", desc: "No solo recomendamos: acompañamos la ejecución. Diagnóstico, diseño y acción en un proceso integrado sin gaps entre consultoría y realidad." },
-    { step: "05", title: "Performance Sostenible", desc: "Alineamos sistemas de gestión y cultura para que los resultados se mantengan. Tu organización opera mejor incluso después de que nos vamos." },
+    { step: "01", Icon: Search, title: "Diagnóstico Organizacional", desc: "Evaluamos clima, cultura, procesos y estructura financiera. Sin supuestos: datos reales de tu empresa antes de cualquier recomendación." },
+    { step: "02", Icon: Layers, title: "Diseño de Estructura", desc: "Definimos roles, responsabilidades y mecanismos de accountability. Cada decisión tiene un dueño, cada proceso un estándar medible." },
+    { step: "03", Icon: Users, title: "Desarrollo de Liderazgo", desc: "Formamos líderes que habilitan a sus equipos en lugar de controlarlos. Autonomía y responsabilidad colectiva como estándar operativo." },
+    { step: "04", Icon: Rocket, title: "Implementación Directa", desc: "No solo recomendamos: acompañamos la ejecución. Diagnóstico, diseño y acción en un proceso integrado sin gaps entre consultoría y realidad." },
+    { step: "05", Icon: TrendingUp, title: "Performance Sostenible", desc: "Alineamos sistemas de gestión y cultura para que los resultados se mantengan. Tu organización opera mejor incluso después de que nos vamos." },
 ];
 
 const benefits = [
@@ -198,7 +198,10 @@ export default function Empresas() {
                             {process.map((step, i) => (
                                 <ScrollReveal key={step.step} variant="fade-up" delay={i * 150}>
                                 <div className={styles.processCard} data-step={step.step}>
-                                    <div className={styles.stepNumber}>{step.step}</div>
+                                    <div className={styles.processHead}>
+                                        <span className={styles.processIconBadge}><step.Icon size={20} /></span>
+                                        <span className={styles.stepNumber}>{step.step}</span>
+                                    </div>
                                     <h3 className={styles.processTitle}>{step.title}</h3>
                                     <p className={styles.processDesc}>{step.desc}</p>
                                 </div>
