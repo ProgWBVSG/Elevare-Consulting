@@ -121,20 +121,6 @@ export default function ContactoPage() {
                 console.error("Error de red enviando a Sheets:", e);
             }
 
-            // Send to MailerLite API Route
-            try {
-                const mlRes = await fetch("/api/mailerlite", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({
-                        email: form.email,
-                        nombre: form.nombre
-                    })
-                });
-            } catch (e) {
-                console.error("Error de red enviando a MailerLite:", e);
-            }
-
             setSubmitted(true);
         }
     };

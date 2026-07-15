@@ -5,7 +5,6 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import { supabase } from "@/lib/supabase";
 import styles from "./Footer.module.css";
-import LeadMagnetForm from "./LeadMagnetForm";
 
 const services = [
     { label: "Coaching y Consultoría para Empresas", href: "/empresas" },
@@ -132,15 +131,6 @@ export default function Footer() {
                                     </li>
                                 ))}
                             </ul>
-                        </div>
-
-                        {/* CTA column */}
-                        <div className={styles.ctaCol}>
-                            <h4 className={styles.colTitle}>¿Listo para transformar tu liderazgo?</h4>
-                            <p className={styles.ctaText}>
-                                Suscribite a nuestro newsletter para recibir herramientas de desarrollo profesional directo en tu correo.
-                            </p>
-                            <LeadMagnetForm />
                         </div>
                     </div>
                 </div>

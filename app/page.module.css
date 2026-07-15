@@ -1303,46 +1303,6 @@
 }
 
 /* =============================================
-   NEWSLETTER SECTION
-   ============================================= */
-.newsletterBox {
-  max-width: 680px;
-  margin: 0 auto;
-  text-align: center;
-  background: var(--color-white);
-  padding: clamp(2rem, 5vw, 3.5rem) clamp(1.5rem, 4vw, 3rem);
-  border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-lg);
-  border: 1px solid var(--color-gray-200);
-}
-
-.newsletterTitle {
-  font-size: clamp(1.4rem, 3.5vw, 2rem);
-  font-family: var(--font-heading);
-  color: var(--color-dark);
-  line-height: 1.25;
-  margin-bottom: var(--space-4);
-  font-weight: 800;
-}
-
-.newsletterDesc {
-  font-size: var(--text-base);
-  color: var(--color-gray-500);
-  line-height: 1.7;
-  margin-bottom: var(--space-8);
-  max-width: 500px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.newsletterDisclaimer {
-  font-size: var(--text-xs);
-  color: var(--color-gray-500);
-  margin-top: var(--space-4);
-  line-height: 1.5;
-}
-
-/* =============================================
    TESTIMONIAL STARS
    ============================================= */
 .testimonialStars {

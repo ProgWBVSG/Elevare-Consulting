@@ -15,15 +15,14 @@ export const metadata: Metadata = {
     apple: "/logo.png",
   },
   title: {
-    default: "Elevare Consulting MG | Coaching Ontológico y Mentoría Ejecutiva en Argentina",
+    default: "Elevare Consulting MG | Consultoría para Líderes y Organizaciones que Buscan Trascender",
     template: "%s | Elevare Consulting MG",
   },
   description:
-    "Firma de coaching ontológico y desarrollo organizacional con 20+ años de experiencia. Mentoría especializada para mujeres ejecutivas. Consultoría de liderazgo para PYMEs en Argentina, Paraguay, Chile y EEUU. Sesión exploratoria gratuita.",
+    "Consultoría de liderazgo y desarrollo organizacional con 20+ años de experiencia, para líderes y organizaciones que buscan trascender. Mentoría especializada para mujeres ejecutivas. Consultoría de liderazgo para PYMEs en Argentina, Paraguay, Chile y EEUU. Sesión exploratoria gratuita.",
   keywords: [
-    "coaching ontológico",
-    "coaching ontológico empresarial",
-    "coaching ontológico Argentina",
+    "consultoría para líderes",
+    "consultoría organizacional",
     "consultoría liderazgo",
     "desarrollo organizacional",
     "desarrollo organizacional PYMEs",
@@ -46,23 +45,23 @@ export const metadata: Metadata = {
     locale: "es_AR",
     url: "https://elevareconsultingmg.com",
     siteName: "Elevare Consulting MG",
-    title: "Elevare Consulting MG | Coaching Ontológico y Desarrollo Organizacional",
+    title: "Elevare Consulting MG | Consultoría para Líderes y Organizaciones que Buscan Trascender",
     description:
-      "Transformamos líderes y organizaciones con coaching ontológico. Mentoría para mujeres ejecutivas, consultoría de procesos y desarrollo de liderazgo en Argentina y LATAM. 20+ años de experiencia.",
+      "Consultoría para líderes y organizaciones que buscan trascender. Mentoría para mujeres ejecutivas, consultoría de procesos y desarrollo de liderazgo en Argentina y LATAM. 20+ años de experiencia.",
     images: [
       {
         url: "/logo.png",
         width: 512,
         height: 512,
-        alt: "Elevare Consulting MG — Coaching Ontológico y Mentoría Ejecutiva",
+        alt: "Elevare Consulting MG — Consultoría para Líderes y Organizaciones que Buscan Trascender",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Elevare Consulting MG | Coaching Ontológico y Mentoría Ejecutiva",
+    title: "Elevare Consulting MG | Consultoría para Líderes y Organizaciones que Buscan Trascender",
     description:
-      "Firma de coaching ontológico con 20+ años transformando líderes en Argentina y LATAM. Mentoría para mujeres ejecutivas. Sesión exploratoria gratuita.",
+      "Consultoría para líderes y organizaciones que buscan trascender, con 20+ años transformando líderes en Argentina y LATAM. Mentoría para mujeres ejecutivas. Sesión exploratoria gratuita.",
     images: ["/logo.png"],
   },
   robots: {
@@ -122,7 +121,7 @@ export default async function RootLayout({
                   name: "Elevare Consulting MG",
                   alternateName: "Elevare Consulting",
                   description:
-                    "Firma de coaching ontológico y desarrollo organizacional con 20+ años de experiencia. Consultoría de liderazgo para PYMEs y mentoría ejecutiva para mujeres en Argentina y LATAM.",
+                    "Consultoría para líderes y organizaciones que buscan trascender, con 20+ años de experiencia. Consultoría de liderazgo para PYMEs y mentoría ejecutiva para mujeres en Argentina y LATAM.",
                   url: "https://elevareconsultingmg.com",
                   logo: "https://elevareconsultingmg.com/logo.png",
                   image: "https://elevareconsultingmg.com/logo.png",
@@ -160,7 +159,7 @@ export default async function RootLayout({
                     { "@type": "Country", name: "United States" },
                   ],
                   serviceType: [
-                    "Coaching Ontológico",
+                    "Consultoría para Líderes",
                     "Coaching Ejecutivo",
                     "Consultoría de Desarrollo Organizacional",
                     "Mentoría Ejecutiva para Mujeres",
@@ -168,7 +167,7 @@ export default async function RootLayout({
                     "Diagnóstico Organizacional",
                   ],
                   knowsAbout: [
-                    "Coaching ontológico",
+                    "Consultoría para líderes y organizaciones",
                     "Inteligencia relacional",
                     "Desarrollo organizacional",
                     "Liderazgo femenino",
@@ -190,7 +189,7 @@ export default async function RootLayout({
                   "@id": "https://elevareconsultingmg.com/#website",
                   url: "https://elevareconsultingmg.com",
                   name: "Elevare Consulting MG",
-                  description: "Coaching Ontológico y Desarrollo Organizacional en Argentina y LATAM",
+                  description: "Consultoría para Líderes y Organizaciones que Buscan Trascender en Argentina y LATAM",
                   publisher: {
                     "@id": "https://elevareconsultingmg.com/#organization",
                   },

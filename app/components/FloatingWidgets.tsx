@@ -11,7 +11,7 @@ type FloatingWidgetsProps = {
 };
 
 const frequentQuestions = [
-    "¿Qué es el Coaching Ontológico?",
+    "¿Qué es la consultoría Elevare?",
     "¿Qué es el método Elevare?",
     "¿Qué mentorías ofrecen?",
     "¿La consultoría empresarial es online?",
@@ -37,10 +37,10 @@ export default function FloatingWidgets({ waPhone, waMsg }: FloatingWidgetsProps
     const handleQuestionClick = (question: string) => {
         let response = "Interesante pregunta. Para darte la mejor respuesta, sumate a una sesión exploratoria con María en la página de Contacto.";
 
-        if (question.includes("Coaching Ontológico")) {
-            response = "El coaching ontológico trabaja desde el SER del líder: sus creencias, su comunicación y su mundo emocional profundo para generar cambios orgánicos y sostenibles.";
+        if (question.includes("consultoría Elevare")) {
+            response = "Elevare es consultoría de liderazgo y desarrollo organizacional para líderes y organizaciones que buscan trascender: trabajamos las creencias, la comunicación y los sistemas de gestión para generar cambios reales y sostenibles.";
         } else if (question.includes("método Elevare")) {
-            response = "Nuestro método combina profundidad ontológica psicológica con aplicabilidad inmediata. Transformamos líderes desarrollando sistemas estructurales que luego funcionan solos.";
+            response = "Nuestro método combina profundidad estratégica y humana con aplicabilidad inmediata. Transformamos líderes desarrollando sistemas estructurales que luego funcionan solos.";
         } else if (question.includes("mentorías")) {
             response = "Ofrecemos Mentoría Ejecutiva especializada para mujeres líderes, abordando desafíos como el síndrome del impostor, comunicación asertiva y doble carga de expectativas.";
         } else if (question.includes("online")) {

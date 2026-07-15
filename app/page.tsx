@@ -9,7 +9,6 @@ import {
 } from "lucide-react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import LeadMagnetForm from "./components/LeadMagnetForm";
 import CounterBadge from "./components/CounterBadge";
 import LogoCarousel from "./components/LogoCarousel";
 import ScrollReveal from "./components/ScrollReveal";
@@ -410,27 +409,6 @@ export default async function Home() {
                 Ver más casos de éxito en video →
               </Link>
             </div>
-          </div>
-        </section>
-
-        {/* ============ NEWSLETTER CAPTURE ============ */}
-        <section className="section bg-cream">
-          <div className="container">
-            <ScrollReveal variant="flip-up">
-            <div className={styles.newsletterBox}>
-              <span className="section-label">Newsletter de Liderazgo</span>
-              <h2 className={styles.newsletterTitle}>
-                Insights de liderazgo directo a tu inbox
-              </h2>
-              <p className={styles.newsletterDesc}>
-                Estrategias concretas, casos reales y herramientas de coaching ejecutivo. Sin ruido, solo contenido que transforma. Una vez por semana.
-              </p>
-              <LeadMagnetForm />
-              <p className={styles.newsletterDisclaimer}>
-                Sin spam. Podés desuscribirte cuando quieras.
-              </p>
-            </div>
-            </ScrollReveal>
           </div>
         </section>
 
