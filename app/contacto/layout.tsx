@@ -3,11 +3,11 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Contacto | Agendar Sesión Exploratoria Gratuita | Elevare Consulting",
   description:
-    "Agendá una sesión exploratoria gratuita de 30 minutos con María Gómez. Coaching ontológico, mentoría ejecutiva para mujeres y consultoría organizacional. Buenos Aires, Argentina. Sin compromiso.",
+    "Agendá una sesión exploratoria gratuita de 30 minutos con María Gómez. Consultoría estratégica, mentoría ejecutiva para mujeres y consultoría organizacional. Buenos Aires, Argentina. Sin compromiso.",
   openGraph: {
     title: "Contacto | Sesión Exploratoria Gratuita | Elevare Consulting",
     description:
-      "Conversemos sobre tus desafíos de liderazgo. Agendar una sesión gratuita de 30 minutos con especialista en coaching ontológico y desarrollo organizacional.",
+      "Conversemos sobre tus desafíos de liderazgo. Agendar una sesión gratuita de 30 minutos con especialista en consultoría de liderazgo y desarrollo organizacional.",
     url: "https://elevareconsultingmg.com/contacto",
   },
   alternates: {
@@ -32,7 +32,7 @@ export default function ContactoLayout({
                 "@type": "ContactPage",
                 name: "Contacto — Elevare Consulting",
                 description:
-                  "Formulario de contacto para agendar sesión exploratoria gratuita de coaching ontológico y mentoría ejecutiva.",
+                  "Formulario de contacto para agendar sesión exploratoria gratuita de consultoría estratégica y mentoría ejecutiva.",
                 url: "https://elevareconsultingmg.com/contacto",
                 mainEntity: {
                   "@type": "ProfessionalService",

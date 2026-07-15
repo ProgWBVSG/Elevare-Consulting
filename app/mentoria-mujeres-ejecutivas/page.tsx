@@ -8,10 +8,10 @@ import styles from "../service.module.css";
 export const metadata: Metadata = {
     title: "Mentoría para Mujeres Ejecutivas | Coaching de Liderazgo Femenino | Elevare",
     description:
-        "Mentoría especializada para mujeres en posiciones de liderazgo en Argentina y LATAM. Superá el síndrome del impostor, consolidá tu autoridad y desarrollá un estilo de gestión auténtico con coaching ontológico. Sesión exploratoria gratuita.",
+        "Mentoría especializada para mujeres en posiciones de liderazgo en Argentina y LATAM. Superá el síndrome del impostor, consolidá tu autoridad y desarrollá un estilo de gestión auténtico con consultoría estratégica. Sesión exploratoria gratuita.",
     openGraph: {
         title: "Mentoría Ejecutiva para Mujeres Líderes | Elevare Consulting",
-        description: "Acompañamiento especializado para mujeres que quieren liderar con autenticidad. Coaching ontológico + herramientas concretas de gestión. 20+ años.",
+        description: "Acompañamiento especializado para mujeres que quieren liderar con autenticidad. Consultoría estratégica + herramientas concretas de gestión. 20+ años.",
         url: "https://elevareconsultingmg.com/mentoria-mujeres-ejecutivas",
     },
     alternates: {
@@ -30,7 +30,7 @@ const painPoints = [
 const process = [
     { step: "01", title: "Session de Diagnóstico Inicial", desc: "Entendemos tu situación actual, desafíos específicos, contexto organizacional y lo que querés lograr. Mapeamos tus fortalezas reales y los bloqueos que están frenando tu desarrollo." },
     { step: "02", title: "Plan de Mentoría Personalizado", desc: "Diseñamos tu ruta de desarrollo a medida. No hay programas genéricos: trabajamos desde TU contexto, industria, organización y objetivos profesionales específicos." },
-    { step: "03", title: "Sesiones de Acompañamiento", desc: "Encuentros de trabajo profundo donde combinamos coaching ontológico (desde el SER) con herramientas concretas de gestión. Abordamos tanto los aspectos técnicos como los emocionales del liderazgo." },
+    { step: "03", title: "Sesiones de Acompañamiento", desc: "Encuentros de trabajo profundo donde combinamos trabajo desde el SER con herramientas concretas de gestión. Abordamos tanto los aspectos técnicos como los emocionales del liderazgo." },
     { step: "04", title: "Integración y Sostenibilidad", desc: "Nos aseguramos de que los cambios sean duraderos. Desarrollamos tu autonomía como líder para que no dependas del proceso de mentoría para seguir creciendo." },
 ];
 
@@ -164,7 +164,7 @@ export default function MentoriaMujeres() {
                                     Las mujeres en posiciones de liderazgo enfrentan desafíos específicos que los programas genéricos de management no contemplan: el síndrome del impostor bajo presión, la doble carga de expectativas, la comunicación asertiva en entornos mayormente masculinos.
                                 </p>
                                 <p>
-                                    El proceso de mentoría con coaching ontológico aborda estas particularidades de forma directa, con profundidad y sin romanticismos. No somos un club de autoayuda — somos un espacio de trabajo serio con resultados concretos.
+                                    Nuestro proceso de mentoría aborda estas particularidades de forma directa, con profundidad y sin romanticismos. No somos un club de autoayuda — somos un espacio de trabajo serio con resultados concretos.
                                 </p>
                                 <Link href="/sobre-maria" className={styles.infoLink}>→ Conocer la metodología y la trayectoria de María</Link>
                             </div>

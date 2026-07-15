@@ -5,12 +5,12 @@ import Footer from "@/app/components/Footer";
 import styles from "./faq.module.css";
 
 export const metadata: Metadata = {
-    title: "Preguntas Frecuentes sobre Coaching Ontológico y Mentoría Ejecutiva",
+    title: "Preguntas Frecuentes sobre Consultoría de Liderazgo y Mentoría Ejecutiva",
     description:
-        "Respuestas a las preguntas más comunes sobre coaching ontológico, mentoría ejecutiva para mujeres y consultoría de desarrollo organizacional para PYMEs. Tiempos, inversión, proceso, metodología y diferencias con el coaching tradicional.",
+        "Respuestas a las preguntas más comunes sobre consultoría estratégica, mentoría ejecutiva para mujeres y consultoría de desarrollo organizacional para PYMEs. Tiempos, inversión, proceso y metodología.",
     openGraph: {
-        title: "Preguntas Frecuentes | Coaching Ontológico | Elevare Consulting",
-        description: "Todo lo que necesitás saber sobre coaching ontológico, mentoría ejecutiva y consultoría organizacional antes de agendar tu sesión.",
+        title: "Preguntas Frecuentes | Consultoría de Liderazgo | Elevare Consulting",
+        description: "Todo lo que necesitás saber sobre consultoría estratégica, mentoría ejecutiva y consultoría organizacional antes de agendar tu sesión.",
         url: "https://elevareconsultingmg.com/faq",
     },
     alternates: {
@@ -20,10 +20,10 @@ export const metadata: Metadata = {
 
 const faqs = [
     {
-        category: "Sobre el Coaching Ontológico",
+        category: "Sobre la Consultoría Elevare",
         items: [
-            { q: "¿Qué es el coaching ontológico y en qué se diferencia del coaching tradicional?", a: "El coaching ontológico trabaja desde el SER del líder: sus creencias, su forma de comunicarse y su mundo emocional. A diferencia del coaching tradicional —que se enfoca principalmente en metas y acciones—, el coaching ontológico genera transformaciones profundas que cambian cómo la persona se relaciona con su trabajo, su equipo y sus desafíos. Los cambios son duraderos porque abordan la raíz del comportamiento, no solo la superficie." },
-            { q: "¿Cómo sé si el coaching ontológico es para mí?", a: "Si sentís que ya conocés las técnicas y las estrategias pero algo interno te impide aplicarlas consistentemente, el coaching ontológico es probablemente lo que necesitás. También es ideal si atravesás una transición importante de rol, si hay un patrón que se repite en tu liderazgo sin importar las acciones que tomás, o si buscás un cambio más profundo que una capacitación convencional." },
+            { q: "¿Qué es la consultoría Elevare y en qué se diferencia de una capacitación tradicional?", a: "Nuestro enfoque trabaja desde el SER del líder: sus creencias, su forma de comunicarse y su mundo emocional. A diferencia de una capacitación tradicional —que se enfoca principalmente en metas y acciones—, genera transformaciones profundas que cambian cómo la persona se relaciona con su trabajo, su equipo y sus desafíos. Los cambios son duraderos porque abordan la raíz del comportamiento, no solo la superficie." },
+            { q: "¿Cómo sé si este proceso es para mí?", a: "Si sentís que ya conocés las técnicas y las estrategias pero algo interno te impide aplicarlas consistentemente, este proceso es probablemente lo que necesitás. También es ideal si atravesás una transición importante de rol, si hay un patrón que se repite en tu liderazgo sin importar las acciones que tomás, o si buscás un cambio más profundo que una capacitación convencional." },
             { q: "¿Cuánto tiempo duran los procesos de coaching?", a: "Depende del objetivo y la profundidad del trabajo. Los procesos más cortos (para objetivos específicos) suelen ser de 3 meses. Los de transformación más profunda van de 6 a 12 meses. En la sesión exploratoria gratuita evaluamos tu situación y te recomendamos el proceso más adecuado." },
         ],
     },

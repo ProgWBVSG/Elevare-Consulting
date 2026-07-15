@@ -10,7 +10,7 @@ import styles from "../service.module.css";
 export const metadata: Metadata = {
     title: "Coaching y Consultoría para Empresas | Desarrollo Organizacional | Elevare Consulting",
     description:
-        "Consultoría de desarrollo organizacional para PYMEs en Argentina. Coaching ontológico empresarial, optimización de procesos, liderazgo de equipos y reducción de rotación. Diagnóstico gratuito. 20+ años de experiencia.",
+        "Consultoría de desarrollo organizacional para PYMEs en Argentina. Consultoría estratégica de liderazgo empresarial, optimización de procesos, liderazgo de equipos y reducción de rotación. Diagnóstico gratuito. 20+ años de experiencia.",
     openGraph: {
         title: "Coaching y Consultoría para Empresas | Elevare Consulting",
         description: "Analizamos cultura, procesos y dinámicas de liderazgo. Diseñamos e implementamos soluciones con cambios medibles y sostenibles. Diagnóstico gratuito.",
@@ -47,7 +47,7 @@ const benefits = [
 const faqs = [
     { q: "¿Cuánto tiempo toma ver resultados?", a: "Los primeros cambios se notan en 4-8 semanas (claridad de roles, reuniones efectivas). Los resultados medibles y de fondo (rotación, KPIs consistentes) suelen evidenciarse entre los 3 y 6 meses." },
     { q: "¿El coaching funciona en PYMEs con cultura familiar?", a: "Es donde mejor funciona. No buscamos corporativizar tu empresa, sino potenciar lo mejor que ya tiene mientras resolvemos lo que frena el crecimiento y sistematizamos la gestión." },
-    { q: "¿Qué diferencia este enfoque dual?", a: "Integramos el coaching ontológico (trabajando el 'ser' del líder) con la consultoría dura de procesos (optimizando el 'hacer'). El resultado es una transformación profunda que impacta directamente en la rentabilidad." },
+    { q: "¿Qué diferencia este enfoque dual?", a: "Integramos el trabajo profundo sobre el 'ser' del líder (creencias, comunicación, patrones de decisión) con la consultoría dura de procesos (optimizando el 'hacer'). El resultado es una transformación profunda que impacta directamente en la rentabilidad." },
     { q: "¿Pueden implementar mejoras sin interrumpir las operaciones?", a: "Sí, diseñamos los cambios para minimizar la disrupción operacional. Empezamos con los líderes clave y procesos de menor riesgo, escalando gradualmente." },
     { q: "¿Cuál es la inversión aproximada?", a: "Depende del tamaño de tu empresa y el alcance del programa. Ofrecemos una sesión exploratoria gratuita donde evaluamos tu situación y te presentamos una propuesta a medida. Agenda sin compromiso." },
 ];
@@ -85,7 +85,7 @@ const empresasSchemaLD = {
             mainEntity: [
                 { "@type": "Question", name: "¿Cuánto tiempo toma ver resultados?", acceptedAnswer: { "@type": "Answer", text: "Los primeros cambios se notan en 4-8 semanas. Los resultados medibles suelen evidenciarse entre los 3 y 6 meses." } },
                 { "@type": "Question", name: "¿El coaching funciona en PYMEs con cultura familiar?", acceptedAnswer: { "@type": "Answer", text: "Es donde mejor funciona. No buscamos corporativizar tu empresa, sino potenciar lo mejor que ya tiene mientras resolvemos lo que frena el crecimiento." } },
-                { "@type": "Question", name: "¿Qué diferencia este enfoque dual?", acceptedAnswer: { "@type": "Answer", text: "Integramos el coaching ontológico con la consultoría dura de procesos. El resultado es una transformación profunda que impacta directamente en la rentabilidad." } },
+                { "@type": "Question", name: "¿Qué diferencia este enfoque dual?", acceptedAnswer: { "@type": "Answer", text: "Integramos el trabajo profundo sobre el liderazgo con la consultoría dura de procesos. El resultado es una transformación profunda que impacta directamente en la rentabilidad." } },
                 { "@type": "Question", name: "¿Pueden implementar mejoras sin interrumpir las operaciones?", acceptedAnswer: { "@type": "Answer", text: "Sí, diseñamos los cambios para minimizar la disrupción operacional, empezando con los líderes clave y procesos de menor riesgo." } },
                 { "@type": "Question", name: "¿Cuál es la inversión aproximada?", acceptedAnswer: { "@type": "Answer", text: "Depende del tamaño de tu empresa y el alcance del programa. Ofrecemos una sesión exploratoria gratuita donde evaluamos tu situación y te presentamos una propuesta a medida." } },
             ],

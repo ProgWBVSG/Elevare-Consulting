@@ -9,10 +9,10 @@ import { createClient } from '@/lib/supabase/server';
 
 export const metadata: Metadata = {
     title: 'Casos de Éxito y Testimonios de Coaching | Elevare Consulting',
-    description: 'Descubrí cómo líderes y PYMEs transformaron su realidad con coaching ontológico. Casos reales con resultados medibles: 25% menos rotación, expansión internacional, equipos autónomos. Liderá el cambio.',
+    description: 'Descubrí cómo líderes y PYMEs transformaron su realidad con consultoría estratégica. Casos reales con resultados medibles: 25% menos rotación, expansión internacional, equipos autónomos. Liderá el cambio.',
     openGraph: {
         title: 'Testimonios y Casos de Éxito | Elevare Consulting',
-        description: 'Historias reales de PYMEs y mujeres ejecutivas que transformaron su liderazgo con coaching ontológico. Resultados medibles y sostenibles.',
+        description: 'Historias reales de PYMEs y mujeres ejecutivas que transformaron su liderazgo con consultoría estratégica. Resultados medibles y sostenibles.',
         url: 'https://elevareconsultingmg.com/testimonios',
     },
     alternates: {
@@ -47,7 +47,7 @@ const testimoniosSchemaLD = {
                     "@type": "Review",
                     author: { "@type": "Person", name: "Camila V." },
                     reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
-                    reviewBody: "El proceso de coaching ontológico me cambió la perspectiva completa. Transformé cómo veo mi rol como líder.",
+                    reviewBody: "El proceso de consultoría con Elevare me cambió la perspectiva completa. Transformé cómo veo mi rol como líder.",
                 },
             ],
         },

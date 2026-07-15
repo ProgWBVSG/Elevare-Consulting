@@ -10,10 +10,10 @@ import styles from "./sobreMaria.module.css";
 export const metadata: Metadata = {
     title: "María Gómez | Coach Ejecutiva · Consultora de Liderazgo · 20+ Años",
     description:
-        "Conocé a María Gómez: 20+ años liderando equipos de +470 personas, gestión multinacional en LATAM y coaching ontológico ejecutivo. Fundadora de Elevare Consulting. Directora Asociada de la Cámara de Comercio de Mujeres de EE.UU. Especialista en Inteligencia Relacional.",
+        "Conocé a María Gómez: 20+ años liderando equipos de +470 personas, gestión multinacional en LATAM y consultoría ejecutiva de liderazgo. Fundadora de Elevare Consulting. Directora Asociada de la Cámara de Comercio de Mujeres de EE.UU. Especialista en Inteligencia Relacional.",
     openGraph: {
         title: "María Gómez | Coach Ejecutiva & Desarrollo Organizacional",
-        description: "20+ años transformando líderes y organizaciones. Fundadora de Elevare Consulting. Especialista en Inteligencia Relacional y coaching ontológico.",
+        description: "20+ años transformando líderes y organizaciones. Fundadora de Elevare Consulting. Especialista en Inteligencia Relacional y consultoría de liderazgo.",
         url: "https://elevareconsultingmg.com/sobre-maria",
     },
     alternates: {
@@ -63,7 +63,7 @@ const sobreMariaSchemaLD = {
             },
             alumniOf: [],
             knowsAbout: [
-                "Coaching ontológico",
+                "Consultoría de liderazgo",
                 "Inteligencia relacional",
                 "Desarrollo organizacional",
                 "Liderazgo ejecutivo",
