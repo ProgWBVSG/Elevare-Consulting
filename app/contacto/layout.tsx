@@ -37,7 +37,7 @@ export default function ContactoLayout({
                 mainEntity: {
                   "@type": "ProfessionalService",
                   name: "Elevare Consulting MG",
-                  telephone: "+54-9-11-0000-0000",
+                  telephone: "+54-9-11-2546-4650",
                   email: "contacto@elevareconsultingmg.com",
                   url: "https://elevareconsultingmg.com",
                   address: {
