@@ -23,7 +23,7 @@ export const CMS_SCHEMA = [
   {
     group: 'Contacto y Redes',
     fields: [
-      { key: 'contact_whatsapp', label: 'Número de WhatsApp (ej. 5491112345678)', type: 'text', default: '5491112345678' },
+      { key: 'contact_whatsapp', label: 'Número de WhatsApp (ej. 5491125464650)', type: 'text', default: '5491125464650' },
       { key: 'contact_whatsapp_text', label: 'Mensaje Predefinido de WhatsApp', type: 'textarea', default: 'Hola Elevare, vengo de la web y quiero consultar por...' },
       { key: 'contact_email', label: 'Email de Contacto', type: 'text', default: 'contacto@elevareconsultingmg.com' },
       { key: 'contact_linkedin', label: 'Link a LinkedIn', type: 'text', default: 'https://www.linkedin.com/in/elevare-consulting-729079200/?isSelfProfile=false' },
