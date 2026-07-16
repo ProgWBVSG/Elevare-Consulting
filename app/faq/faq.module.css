@@ -134,6 +134,6 @@ details[open] .faqQ::after {
 
 .ctaBox p {
     font-size: var(--text-base);
-    color: var(--color-gray-600);
+    color: var(--color-gray-700);
     margin-bottom: var(--space-6);
 }

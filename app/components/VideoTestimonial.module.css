@@ -208,7 +208,7 @@
 
 .infoSection p {
     font-size: var(--text-sm);
-    color: var(--color-gray-600);
+    color: var(--color-gray-700);
     line-height: 1.6;
 }
 
