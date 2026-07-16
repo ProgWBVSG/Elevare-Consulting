@@ -553,27 +553,9 @@ details[open] .faqQ::after {
 
 /* Bottom CTA */
 .bottomCta {
-    position: relative;
     background: linear-gradient(135deg, #0e1a38 0%, var(--color-primary) 100%);
     padding: var(--space-20) 0;
     text-align: center;
-}
-
-.bottomCtaWave {
-    position: absolute;
-    top: -2px; /* Fix for sub-pixel hairline gaps */
-    left: 0;
-    right: 0;
-    line-height: 0;
-    pointer-events: none;
-    z-index: 1;
-}
-
-.bottomCtaWave svg {
-    display: block;
-    width: 100%;
-    height: auto;
-    min-height: 80px;
 }
 
 .bottomCtaInner {

@@ -331,15 +331,6 @@ export default function MentoriaLideres() {
 
                 {/* CTA */}
                 <section className={styles.bottomCta} style={{ background: "linear-gradient(135deg, #2E1A0E 0%, var(--color-accent-dark) 100%)" }}>
-                    {/* Wave — cuts the straight top edge into an undulating line, same technique as the hero */}
-                    <div className={styles.bottomCtaWave} aria-hidden="true">
-                        <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M0,0 L0,60 C120,20 240,10 360,30 C480,50 600,90 720,95 C840,100 960,65 1080,45 C1200,25 1320,20 1440,40 L1440,0 Z"
-                                fill="#2E1A0E"
-                            />
-                        </svg>
-                    </div>
                     <div className="container">
                         <ScrollReveal variant="fade-up">
                             <div className={styles.bottomCtaInner}>
