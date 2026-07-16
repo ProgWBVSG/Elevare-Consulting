@@ -577,6 +577,10 @@ details[open] .faqQ::after {
     min-height: 80px;
 }
 
+.bottomCtaHasWave {
+    padding-top: calc(var(--space-20) + 70px);
+}
+
 .bottomCtaInner {
     display: flex;
     flex-direction: column;

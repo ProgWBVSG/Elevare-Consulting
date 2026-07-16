@@ -330,7 +330,7 @@ export default function MentoriaLideres() {
                 </section>
 
                 {/* CTA */}
-                <section className={styles.bottomCta} style={{ background: "linear-gradient(135deg, #2E1A0E 0%, var(--color-accent-dark) 100%)" }}>
+                <section className={`${styles.bottomCta} ${styles.bottomCtaHasWave}`} style={{ background: "linear-gradient(135deg, #2E1A0E 0%, var(--color-accent-dark) 100%)" }}>
                     {/* Wave — filled with the color of the section above (body dark), same technique as the hero */}
                     <div className={styles.bottomCtaWave} aria-hidden="true">
                         <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
