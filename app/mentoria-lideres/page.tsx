@@ -177,7 +177,7 @@ export default function MentoriaLideres() {
                                 <div className={styles.infoBox} style={{ borderTopColor: "var(--color-accent)", marginTop: "2rem", paddingTop: "2rem", borderTop: "4px solid var(--color-accent)" }}>
                                     <div className={styles.infoBoxIcon}><Crown size={28} /></div>
                                     <h3 style={{ fontSize: "1.25rem", margin: "1rem 0" }}>¿Por qué mentoría 1 a 1 y no un programa grupal?</h3>
-                                    <p style={{ fontSize: "0.95rem", color: "var(--color-gray-600)" }}>
+                                    <p style={{ fontSize: "0.95rem", color: "var(--color-gray-700)" }}>
                                         Porque tus desafíos son <strong>únicos</strong>. Un programa grupal aborda temas generales; la mentoría 1 a 1 trabaja sobre <strong>tu realidad específica</strong>, tus conflictos reales, tus decisiones pendientes. Es un espacio privado y confidencial donde podés ser completamente honesto sobre lo que está pasando.
                                     </p>
                                 </div>
@@ -267,7 +267,7 @@ export default function MentoriaLideres() {
                 </section>
 
                 {/* Sobre María — credenciales */}
-                <section className="section bg-cream">
+                <section className={`section ${styles.lightSection}`}>
                     <div className="container">
                         <div className={styles.twoCol}>
                             <ScrollReveal variant="fade-right">
@@ -331,6 +331,15 @@ export default function MentoriaLideres() {
 
                 {/* CTA */}
                 <section className={styles.bottomCta} style={{ background: "linear-gradient(135deg, #2E1A0E 0%, var(--color-accent-dark) 100%)" }}>
+                    {/* Wave — cuts the straight top edge into an undulating line, same technique as the hero */}
+                    <div className={styles.bottomCtaWave} aria-hidden="true">
+                        <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M0,0 L0,60 C120,20 240,10 360,30 C480,50 600,90 720,95 C840,100 960,65 1080,45 C1200,25 1320,20 1440,40 L1440,0 Z"
+                                fill="#2E1A0E"
+                            />
+                        </svg>
+                    </div>
                     <div className="container">
                         <ScrollReveal variant="fade-up">
                             <div className={styles.bottomCtaInner}>
