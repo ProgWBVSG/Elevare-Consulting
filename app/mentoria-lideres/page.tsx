@@ -273,7 +273,7 @@ export default function MentoriaLideres() {
                             <ScrollReveal variant="fade-right">
                             <div>
                                 <span className="section-label">Tu Mentora</span>
-                                <h2 className="section-title">María Gómez — 20+ años forjando líderes</h2>
+                                <h2 className="section-title">María Gómez</h2>
                                 <p style={{ color: "var(--color-gray-700)", fontSize: "var(--text-base)", lineHeight: "1.75", marginBottom: "1.5rem" }}>
                                     <strong>No nació consultora — se forjó en la línea de fuego corporativa.</strong> María ha dirigido equipos de más de 470 personas, coordinó proyectos multinacionales en LATAM y es Directora Asociada de la Cámara de Comercio de Mujeres de EE.UU. (Miami Chapter).
                                 </p>
@@ -293,14 +293,30 @@ export default function MentoriaLideres() {
                             </div>
                             </ScrollReveal>
                             <ScrollReveal variant="fade-left" delay={200}>
-                            <div style={{ display: "flex", justifyContent: "center" }}>
-                                <Image
-                                    src="/maria-hero.png"
-                                    alt="María Gómez - Mentora estratégica para líderes"
-                                    width={400}
-                                    height={480}
-                                    style={{ borderRadius: "var(--radius-xl)", boxShadow: "var(--shadow-xl)", width: "100%", maxWidth: "400px", height: "auto" }}
-                                />
+                            <div className={styles.mentorPhotoCol}>
+                                <div className={styles.mentorPhotoFrame}>
+                                    <Image
+                                        src="/maria-hero.png"
+                                        alt="María Gómez - Mentora estratégica para líderes"
+                                        width={400}
+                                        height={480}
+                                        className={styles.mentorPhoto}
+                                    />
+                                </div>
+                                <div className={styles.mentorStats}>
+                                    <div className={styles.mentorStat}>
+                                        <strong>20+</strong>
+                                        <span>Años forjando líderes</span>
+                                    </div>
+                                    <div className={styles.mentorStat}>
+                                        <strong>470+</strong>
+                                        <span>Personas lideradas</span>
+                                    </div>
+                                    <div className={styles.mentorStat}>
+                                        <strong>4</strong>
+                                        <span>Países con alianzas</span>
+                                    </div>
+                                </div>
                             </div>
                             </ScrollReveal>
                         </div>
