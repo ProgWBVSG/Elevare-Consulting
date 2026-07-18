@@ -104,8 +104,8 @@ export default async function Home() {
   data?.forEach(item => content.set(item.section_key, item.text_value));
 
   const heroBadge = content.get('hero_badge') || "Consultoría de Liderazgo y Desarrollo Organizacional";
-  const heroTitleMain = content.get('hero_title_main') || "Hacé crecer tu empresa";
-  const heroTitleSub = content.get('hero_title_sub') || "sin que todo dependa de vos";
+  const heroTitleMain = content.get('hero_title_main') || "Potenciá tu Empresa con";
+  const heroTitleSub = content.get('hero_title_sub') || "Management Estratégico";
   const heroSubtitle = content.get('hero_subtitle') || "Diagnosticamos qué está frenando tu organización, diseñamos la estructura que falta y acompañamos la ejecución hasta que los resultados se sostienen solos.";
 
   const painIntroBadge = content.get('pain_intro_badge') || "¿Te suena familiar?";
