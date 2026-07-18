@@ -16,13 +16,13 @@ import styles from "./page.module.css";
 import { createClient } from '@/lib/supabase/server';
 
 export const metadata: Metadata = {
-  title: "Consultora de Negocios · Management y Desarrollo Organizacional para PYMEs | Elevare Consulting",
+  title: "Consultoría de Liderazgo y Desarrollo Organizacional para PYMEs | Elevare Consulting",
   description:
-    "Elevare Consulting: consultora de negocios especializada en management, desarrollo organizacional, liderazgo y estructuración financiera para PYMEs en Argentina y LATAM. Mentorías 1 a 1 para líderes. Diagnóstico de clima, cultura y procesos. 20+ años de experiencia.",
+    "Diagnosticamos qué frena a tu empresa y te acompañamos hasta el resultado. Consultoría de liderazgo y desarrollo organizacional para PYMEs en Argentina y LATAM.",
   openGraph: {
-    title: "Elevare Consulting | Consultora de Negocios · Management · Desarrollo Organizacional",
+    title: "Consultoría de Liderazgo y Desarrollo Organizacional | Elevare Consulting",
     description:
-      "Consultora especializada en management, cultura organizacional y liderazgo para PYMEs. Mentorías 1 a 1 para líderes. Diagnóstico de clima y procesos. Argentina y LATAM.",
+      "Diagnosticamos qué frena a tu empresa, diseñamos la estructura que falta y acompañamos la ejecución. Consultoría de liderazgo para PYMEs en Argentina y LATAM.",
     url: "https://elevareconsultingmg.com",
   },
   alternates: {
