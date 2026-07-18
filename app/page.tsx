@@ -197,7 +197,7 @@ export default async function Home() {
                     </li>
                   ))}
                 </ul>
-                <Link href="/empresas" className="btn btn-secondary" style={{ marginTop: "2rem", width: "100%" }}>
+                <Link href="/empresas" className={`btn btn-secondary ${styles.painCta}`}>
                   Ver solución para tu empresa →
                 </Link>
               </div>
@@ -221,7 +221,7 @@ export default async function Home() {
                     </li>
                   ))}
                 </ul>
-                <Link href="/mentoria-lideres" className="btn btn-secondary" style={{ marginTop: "2rem", width: "100%" }}>
+                <Link href="/mentoria-lideres" className={`btn btn-secondary ${styles.painCta}`}>
                   Ver mentorías para líderes →
                 </Link>
               </div>

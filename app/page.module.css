@@ -232,16 +232,35 @@
 /* =============================================
    PAIN POINTS
    ============================================= */
+.painHeader {
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto var(--space-16);
+}
+
+.painHeader :global(.section-desc) {
+  font-size: var(--text-lg);
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.7;
+  max-width: 620px;
+  margin: 0 auto;
+}
+
 .painPointsGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
   gap: var(--space-8);
+  align-items: stretch;
 }
 
 .painCard {
-  border: none;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--color-gray-200);
   box-shadow: var(--shadow-lg);
   border-top: 4px solid var(--color-primary);
+  padding: var(--space-10);
 }
 
 .painCardSecondary {
@@ -258,7 +277,20 @@
 }
 
 .painCardIcon {
-  font-size: 2.5rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(29, 51, 108, 0.08);
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.painCardSecondary .painCardIcon {
+  background: rgba(58, 124, 165, 0.1);
+  color: var(--color-secondary);
 }
 
 .painCardTitle {
@@ -270,32 +302,53 @@
 .painList {
   display: flex;
   flex-direction: column;
-  gap: var(--space-5);
+  gap: var(--space-3);
+  flex: 1;
 }
 
 .painItem {
   display: flex;
   gap: var(--space-4);
   align-items: flex-start;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  transition: background var(--transition-base);
+}
+
+.painItem:hover {
+  background: var(--color-gray-100);
 }
 
 .painEmoji {
-  font-size: 1.5rem;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(196, 154, 67, 0.12);
+  color: var(--color-accent-dark);
   flex-shrink: 0;
 }
 
 .painItem strong {
   display: block;
-  font-size: var(--text-sm);
-  font-weight: 600;
+  font-size: var(--text-base);
+  font-weight: 700;
   color: var(--color-dark);
   margin-bottom: var(--space-1);
+  line-height: 1.35;
 }
 
 .painItem p {
   font-size: var(--text-sm);
-  color: var(--color-gray-500);
-  line-height: 1.6;
+  color: var(--color-gray-700);
+  line-height: 1.65;
+}
+
+.painCta {
+  margin-top: var(--space-8);
+  width: 100%;
 }
 
 .btnGreen {
