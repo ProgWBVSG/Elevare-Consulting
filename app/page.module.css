@@ -1303,6 +1303,71 @@
 }
 
 /* =============================================
+   AUTHORITY — MARÍA
+   ============================================= */
+.authorityGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 400px) 1fr;
+  gap: var(--space-16);
+  align-items: center;
+}
+
+.authorityImageWrap {
+  display: flex;
+  justify-content: center;
+}
+
+.authorityImage {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-xl);
+}
+
+.authorityText {
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.75;
+  margin-bottom: var(--space-6);
+  max-width: 560px;
+}
+
+.authorityText strong {
+  color: var(--color-white);
+}
+
+.authorityList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-bottom: var(--space-6);
+  list-style: none;
+  padding: 0;
+}
+
+.authorityList li {
+  display: flex;
+  gap: var(--space-3);
+  align-items: flex-start;
+  font-weight: 600;
+  font-size: var(--text-sm);
+  color: var(--color-white);
+}
+
+.authorityList svg {
+  color: var(--color-accent);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+@media (max-width: 900px) {
+  .authorityGrid {
+    grid-template-columns: 1fr;
+    gap: var(--space-10);
+  }
+}
+
+/* =============================================
    TESTIMONIAL STARS
    ============================================= */
 .testimonialStars {

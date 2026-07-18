@@ -9,7 +9,6 @@ import {
 } from "lucide-react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import CounterBadge from "./components/CounterBadge";
 import LogoCarousel from "./components/LogoCarousel";
 import ScrollReveal from "./components/ScrollReveal";
 import HeroFloatingImages from "./components/HeroFloatingImages";
@@ -31,11 +30,6 @@ export const metadata: Metadata = {
   },
 };
 
-const trustBadges = [
-  { value: "20+", label: "Años de Experiencia" },
-  { value: "4", label: "Países con Alianzas" },
-];
-
 const pymesPainPoints = [
   { Icon: Target, title: "Tu equipo gerencial no lidera como esperabas", desc: "Invirtieron en capacitaciones, pero los mandos medios siguen sin tomar decisiones autónomas ni asumir accountability." },
   { Icon: RefreshCw, title: "Alta rotación y clima laboral deteriorado", desc: "El clima es tenso, personas valiosas renuncian y cada día es apagar un incendio. Falta diagnóstico real." },
@@ -55,20 +49,20 @@ const lideresPainPoints = [
 const services = [
   {
     Icon: Building2,
-    title: "Management & Desarrollo Organizacional para PYMEs",
-    description: "Diagnosticamos cultura, clima, procesos y liderazgo en tu empresa. Diseñamos e implementamos soluciones de management que transforman la organización: roles claros, accountability real y estructura financiera sólida.",
-    benefits: ["Diagnóstico de clima, cultura y procesos organizacionales", "Estructuración financiera y proyección de crecimiento", "Líderes internos con accountability y decisiones autónomas"],
+    title: "Consultoría para tu Empresa",
+    description: "Para PYMEs que facturan pero operan en el desorden. Diagnosticamos clima, cultura, procesos y números — y después construimos con vos la estructura que falta.",
+    benefits: ["Sabés exactamente qué frena tu empresa, con datos y no supuestos", "Roles y procesos claros: cada decisión tiene un dueño", "Un equipo gerencial que decide sin depender de vos"],
     href: "/empresas",
-    cta: "Conocé el programa completo",
+    cta: "Ver el programa para empresas",
     color: "primary",
   },
   {
     Icon: Crown,
-    title: "Mentorías 1 a 1 para Líderes",
-    description: "Acompañamiento estratégico personalizado para líderes que necesitan elevar su gestión. Trabajamos sobre toma de decisiones, delegación, management de equipos y desarrollo de competencias directivas.",
-    benefits: ["Claridad en toma de decisiones estratégicas", "Herramientas de management aplicables a tu día a día", "Perspectiva externa profesional y confidencial"],
+    title: "Mentoría 1 a 1 para Líderes",
+    description: "Un espacio estratégico y confidencial para ordenar tu gestión: toma de decisiones, delegación y manejo de equipos. Herramientas concretas que aplicás al día siguiente.",
+    benefits: ["Decidís con claridad, no desde la urgencia", "Delegás con confianza y tu equipo gana autonomía real", "Acompañamiento senior enfocado en TU caso, no teoría genérica"],
     href: "/mentoria-lideres",
-    cta: "Comenzá tu mentoría",
+    cta: "Conocer la mentoría",
     color: "secondary",
   },
 ];
@@ -103,47 +97,20 @@ const differentiators = [
 
 
 
-const blogPosts = [
-  {
-    title: "5 Señales de que tu PYME Necesita Consultoría Organizacional",
-    excerpt: "Si tu equipo gerencial no decide de forma autónoma, los procesos fallan y el clima se deteriora, hay señales claras que no podés ignorar.",
-    category: "Management",
-    date: "Enero 2026",
-    href: "/blog/senales-pyme-necesita-consultoria",
-    readTime: "8 min",
-  },
-  {
-    title: "Cómo Estructurar Financieramente tu PYME para Crecer",
-    excerpt: "La mayoría de las PYMEs facturan pero no tienen visibilidad financiera real. Te mostramos cómo ordenar los números para escalar.",
-    category: "Estructuración Financiera",
-    date: "Febrero 2026",
-    href: "/blog/estructurar-financieramente-pyme",
-    readTime: "10 min",
-  },
-  {
-    title: "Liderazgo Efectivo: De Controlar a Habilitar a tu Equipo",
-    excerpt: "Los mejores líderes no dirigen cada movimiento — habilitan a sus equipos para operar con autonomía, confianza y accountability.",
-    category: "Liderazgo",
-    date: "Febrero 2026",
-    href: "/blog/liderazgo-efectivo-habilitar-equipo",
-    readTime: "12 min",
-  },
-];
-
 export default async function Home() {
   const supabase = await createClient();
   const { data } = await supabase.from('site_content').select('section_key, text_value');
   const content = new Map();
   data?.forEach(item => content.set(item.section_key, item.text_value));
 
-  const heroBadge = content.get('hero_badge') || "Consultora de Negocios · Management & Desarrollo Organizacional";
-  const heroTitleMain = content.get('hero_title_main') || "Potenciá tu Empresa";
-  const heroTitleSub = content.get('hero_title_sub') || "con Management Estratégico";
-  const heroSubtitle = content.get('hero_subtitle') || "Consultora especializada en management, desarrollo organizacional y estructuración financiera para PYMEs. Diagnosticamos cultura, clima, procesos y liderazgo para convertirlos en ventajas competitivas concretas.";
-  
-  const painIntroBadge = content.get('pain_intro_badge') || "¿Te identificás con esto?";
-  const painIntroTitle = content.get('pain_intro_title') || "¿Tu empresa o tu gestión no está dando los resultados que esperabas?";
-  const painIntroDesc = content.get('pain_intro_desc') || "Trabajamos con dos tipos de desafíos — pero con la misma raíz: la necesidad de management profesional, estructura clara y liderazgo efectivo.";
+  const heroBadge = content.get('hero_badge') || "Consultoría de Liderazgo y Desarrollo Organizacional";
+  const heroTitleMain = content.get('hero_title_main') || "Hacé crecer tu empresa";
+  const heroTitleSub = content.get('hero_title_sub') || "sin que todo dependa de vos";
+  const heroSubtitle = content.get('hero_subtitle') || "Diagnosticamos qué está frenando tu organización, diseñamos la estructura que falta y acompañamos la ejecución hasta que los resultados se sostienen solos.";
+
+  const painIntroBadge = content.get('pain_intro_badge') || "¿Te suena familiar?";
+  const painIntroTitle = content.get('pain_intro_title') || "El problema no es la falta de esfuerzo. Es la falta de estructura.";
+  const painIntroDesc = content.get('pain_intro_desc') || "Trabajamos sobre dos frentes: tu empresa y tu forma de liderar. Si te reconocés en alguno de estos puntos, hay margen concreto para mejorar.";
   
   const heroImage = content.get('hero_image') || "/hero-home.jpg";
 
@@ -187,11 +154,11 @@ export default async function Home() {
               
               <div className={styles.heroCtas}>
                 <Link href="/contacto" className="btn btn-primary btn-lg">
-                  Agendar consultoría
+                  Reservar mi sesión gratuita
                 </Link>
-                <Link href="/sobre-maria" className={`btn btn-outline-white ${styles.heroSecondaryBtn}`}>
-                  Nuestra firma
-                </Link>
+                <a href="#servicios" className={`btn btn-outline-white ${styles.heroSecondaryBtn}`}>
+                  Ver cómo trabajamos ↓
+                </a>
               </div>
             </div>
           </div>
@@ -264,12 +231,12 @@ export default async function Home() {
         </section>
 
         {/* ============ SERVICIOS ============ */}
-        <section className="section">
+        <section id="servicios" className="section">
           <div className="container">
             <ScrollReveal variant="fade-up">
             <div className="text-center" style={{ marginBottom: "4rem" }}>
-              <span className="section-label">{getText('services_intro_badge', 'Nuestros Servicios')}</span>
-              <h2 className="section-title">{getText('services_intro_title', 'Cómo transformamos organizaciones y líderes')}</h2>
+              <span className="section-label">{getText('services_intro_badge', 'La Solución')}</span>
+              <h2 className="section-title">{getText('services_intro_title', 'Dos formas de trabajar con Elevare')}</h2>
             </div>
             </ScrollReveal>
 
@@ -317,13 +284,13 @@ export default async function Home() {
             <ScrollReveal variant="fade-right">
             <div className={styles.diffHeader}>
               <div className={styles.diffHeaderLeft}>
-                <span className={`section-label ${styles.labelLight}`}>{getText('why_intro_badge', '¿Por qué Elevare?')}</span>
+                <span className={`section-label ${styles.labelLight}`}>{getText('why_intro_badge', 'Cómo Trabajamos')}</span>
                 <h2 className={styles.diffSectionTitle}>
-                  {getText('why_intro_title', 'Líderes más efectivos. Equipos más rentables.')}
+                  {getText('why_intro_title', 'Un método que termina en resultados, no en un informe')}
                 </h2>
               </div>
               <p className={styles.diffHeaderDesc}>
-                {getText('why_intro_desc', 'Mientras otros facilitan talleres, nosotros diagnosticamos, diseñamos e implementamos hasta ver el cambio real. Management concreto, ejecución directa, resultados medibles.')}
+                {getText('why_intro_desc', 'Diagnóstico con datos reales, diseño de estructura y acompañamiento en la ejecución. Nos quedamos hasta ver el cambio funcionando en tu operación — y que se sostenga cuando ya no estemos.')}
               </p>
             </div>
             </ScrollReveal>
@@ -358,9 +325,48 @@ export default async function Home() {
             </div>
 
             <div className={styles.diffFooter}>
-              <Link href="/sobre-maria" className="btn btn-outline-white btn-lg">
-                Conocé la historia de Elevare →
+              <Link href="/contacto" className="btn btn-outline-white btn-lg">
+                Empezar con un diagnóstico gratuito →
               </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* ============ AUTORIDAD — MARÍA ============ */}
+        <section className="section">
+          <div className="container">
+            <div className={styles.authorityGrid}>
+              <ScrollReveal variant="fade-right">
+                <div className={styles.authorityImageWrap}>
+                  <Image
+                    src="/maria-hero.png"
+                    alt="María Gómez, fundadora de Elevare Consulting"
+                    width={420}
+                    height={500}
+                    className={styles.authorityImage}
+                  />
+                </div>
+              </ScrollReveal>
+              <ScrollReveal variant="fade-left" delay={150}>
+                <div>
+                  <span className="section-label">Quién te acompaña</span>
+                  <h2 className="section-title">María Gómez — la experiencia detrás de Elevare</h2>
+                  <p className={styles.authorityText}>
+                    Antes de fundar Elevare, María dirigió equipos de más de <strong>470 personas</strong> y coordinó operaciones multinacionales en LATAM. No aprendió liderazgo en un libro: <strong>lo ejerció bajo presión durante más de 20 años.</strong>
+                  </p>
+                  <ul className={styles.authorityList}>
+                    <li><CheckCircle size={16} /> 20+ años liderando equipos y operaciones reales</li>
+                    <li><CheckCircle size={16} /> Directora Asociada — Cámara de Comercio de Mujeres de EE.UU. (Miami)</li>
+                    <li><CheckCircle size={16} /> Creadora de la metodología de Inteligencia Relacional</li>
+                  </ul>
+                  <p className={styles.authorityText}>
+                    Por eso cada recomendación que recibís no sale de un manual: viene de alguien que ya estuvo en tu silla.
+                  </p>
+                  <Link href="/sobre-maria" className="btn btn-outline">
+                    Conocé su historia completa →
+                  </Link>
+                </div>
+              </ScrollReveal>
             </div>
           </div>
         </section>
@@ -370,8 +376,8 @@ export default async function Home() {
           <div className="container">
             <ScrollReveal variant="fade-up">
             <div className="text-center" style={{ marginBottom: "4rem" }}>
-              <span className="section-label">Testimonios</span>
-              <h2 className="section-title">Lo que dicen quienes ya transformaron su liderazgo</h2>
+              <span className="section-label">Resultados</span>
+              <h2 className="section-title">Líderes y empresas que ya pasaron por el proceso</h2>
             </div>
             </ScrollReveal>
 
@@ -418,19 +424,19 @@ export default async function Home() {
             <div className={styles.ctaBox}>
               <ScrollReveal variant="fade-right">
               <div className={styles.ctaContent}>
-                <span className={`section-label ${styles.labelLight}`}>{getText('cta_intro_badge', 'Siguiente Paso')}</span>
+                <span className={`section-label ${styles.labelLight}`}>{getText('cta_intro_badge', 'Empezá Hoy')}</span>
                 <h2 className={styles.ctaTitle}>
-                  {getText('cta_title', '¿Listo para profesionalizar la gestión de tu empresa?')}
+                  {getText('cta_title', 'El primer paso son 30 minutos. Y no cuesta nada.')}
                 </h2>
                 <p className={styles.ctaDesc}>
-                  {getText('cta_desc', 'Agendá una sesión exploratoria gratuita de 30 minutos. Sin compromiso. Conversamos sobre tus desafíos específicos y evaluamos juntos cómo nuestra consultoría puede transformar tu organización.')}
+                  {getText('cta_desc', 'En la sesión exploratoria gratuita escuchamos tu situación y te damos una devolución honesta: qué está pasando en tu organización y por dónde empezar. Sin compromiso y sin presión de venta.')}
                 </p>
                 <div className={styles.ctaBtns}>
                   <Link href="/contacto" className="btn btn-primary btn-lg">
-                    Agendar mi sesión gratuita ahora
+                    Reservar mi sesión gratuita
                   </Link>
-                  <Link href="/servicios" className="btn btn-outline-white">
-                    Ver todos los servicios
+                  <Link href="/testimonios" className="btn btn-outline-white">
+                    Ver casos de éxito
                   </Link>
                 </div>
               </div>
