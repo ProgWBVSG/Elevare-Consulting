@@ -111,9 +111,6 @@ export default function MentoriaLideres() {
                     <div className="container">
                         <div className={styles.heroCentered}>
                             <div className={styles.heroCopy}>
-                                <nav className={styles.breadcrumb} aria-label="breadcrumb">
-                                    <Link href="/">Inicio</Link> / <Link href="/servicios">Servicios</Link> / <span>Mentorías para Líderes</span>
-                                </nav>
                                 <span className={`section-label ${styles.labelWhite}`}>Para CEOs, Gerentes y Directivos</span>
                                 <h1 className={styles.heroTitle}>Mentoría Estratégica que Eleva tu Gestión al Siguiente Nivel</h1>
                                 <p className={styles.heroDesc}>
