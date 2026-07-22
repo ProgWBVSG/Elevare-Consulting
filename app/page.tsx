@@ -2,10 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import {
-  Target, RefreshCw, Settings, TrendingDown, HelpCircle,
-  Eye, Users, Zap, Wrench, Compass,
+  Target, Zap,
   Building2, Crown, Trophy, Brain, Scale, Globe,
-  Sparkles, Star, CheckCircle, ArrowRight, ChevronRight
+  CheckCircle, ArrowRight
 } from "lucide-react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -30,40 +29,44 @@ export const metadata: Metadata = {
   },
 };
 
-const pymesPainPoints = [
-  { Icon: Target, title: "Tu equipo gerencial no lidera como esperabas", desc: "Invirtieron en capacitaciones, pero los mandos medios siguen sin tomar decisiones autónomas ni asumir accountability." },
-  { Icon: RefreshCw, title: "Alta rotación y clima laboral deteriorado", desc: "El clima es tenso, personas valiosas renuncian y cada día es apagar un incendio. Falta diagnóstico real." },
-  { Icon: Settings, title: "Procesos ineficientes sin roles claros", desc: "Todos lo saben, nadie actúa. Las reuniones no producen resultados. Falta estructura organizacional." },
-  { Icon: TrendingDown, title: "Sin estructura financiera ni proyección", desc: "Tu PYME factura pero no tiene visibilidad financiera. Necesitás ordenar números para crecer sostenidamente." },
-  { Icon: HelpCircle, title: "Cultura organizacional débil o inexistente", desc: "No hay valores claros, la comunicación falla y cada área trabaja aislada. Tu empresa necesita identidad." },
-];
-
-const lideresPainPoints = [
-  { Icon: Eye, title: "Sentís que liderás en piloto automático", desc: "Cumplís con el rol, pero sabés que podrías tener más impacto. Te falta una mirada externa estratégica." },
-  { Icon: Users, title: "No lográs que tu equipo funcione sin vos", desc: "Terminás haciendo todo porque es más rápido que delegar. Tu equipo no tiene autonomía real." },
-  { Icon: Zap, title: "Desgaste por falta de procesos claros", desc: "Trabajás el doble porque no hay estructura. Las decisiones se concentran en vos y el burnout acecha." },
-  { Icon: Wrench, title: "Necesitás herramientas de gestión concretas", desc: "Los cursos genéricos no alcanzan. Necesitás metodología aplicable a TU realidad y TU equipo." },
-  { Icon: Compass, title: "Soledad en la toma de decisiones críticas", desc: "Tenés responsabilidades enormes sin un espacio profesional donde analizar opciones con claridad." },
-];
-
-const services = [
+const audiences = [
   {
     Icon: Building2,
-    title: "Consultoría para tu Empresa",
-    description: "Para PYMEs que facturan pero operan en el desorden. Diagnosticamos clima, cultura, procesos y números — y después construimos con vos la estructura que falta.",
-    benefits: ["Sabés exactamente qué frena tu empresa, con datos y no supuestos", "Roles y procesos claros: cada decisión tiene un dueño", "Un equipo gerencial que decide sin depender de vos"],
+    color: "primary",
+    title: "Para tu Empresa",
+    subtitle: "PYMEs que facturan, pero operan en el desorden",
+    pains: [
+      "Tu equipo gerencial no decide sin vos y la rotación es alta",
+      "Procesos rotos que todos ven, pero nadie arregla",
+      "Facturás, pero sin visibilidad financiera para crecer",
+    ],
+    solution: "Diagnosticamos clima, cultura, procesos y números — y construimos con vos la estructura que falta.",
+    benefits: [
+      "Sabés qué frena tu empresa, con datos y no supuestos",
+      "Roles y procesos claros: cada decisión tiene un dueño",
+      "Un equipo gerencial que decide sin depender de vos",
+    ],
     href: "/empresas",
     cta: "Ver el programa para empresas",
-    color: "primary",
   },
   {
     Icon: Crown,
-    title: "Mentoría 1 a 1 para Líderes",
-    description: "Un espacio estratégico y confidencial para ordenar tu gestión: toma de decisiones, delegación y manejo de equipos. Herramientas concretas que aplicás al día siguiente.",
-    benefits: ["Decidís con claridad, no desde la urgencia", "Delegás con confianza y tu equipo gana autonomía real", "Acompañamiento senior enfocado en TU caso, no teoría genérica"],
+    color: "secondary",
+    title: "Para tu Liderazgo",
+    subtitle: "Líderes que cargan todo sobre sus hombros",
+    pains: [
+      "Liderás en piloto automático y todo depende de vos",
+      "Trabajás el doble porque no hay estructura ni delegación",
+      "Enfrentás las decisiones críticas en soledad",
+    ],
+    solution: "Un espacio estratégico y confidencial para ordenar tu gestión: decisiones, delegación y manejo de equipos.",
+    benefits: [
+      "Decidís con claridad, no desde la urgencia",
+      "Delegás con confianza y tu equipo gana autonomía",
+      "Herramientas concretas que aplicás al día siguiente",
+    ],
     href: "/mentoria-lideres",
     cta: "Conocer la mentoría",
-    color: "secondary",
   },
 ];
 
@@ -110,7 +113,7 @@ export default async function Home() {
 
   const painIntroBadge = content.get('pain_intro_badge') || "¿Te suena familiar?";
   const painIntroTitle = content.get('pain_intro_title') || "El problema no es la falta de esfuerzo. Es la falta de estructura.";
-  const painIntroDesc = content.get('pain_intro_desc') || "Trabajamos sobre dos frentes: tu empresa y tu forma de liderar. Si te reconocés en alguno de estos puntos, hay margen concreto para mejorar.";
+  const painIntroDesc = content.get('pain_intro_desc') || "Trabajamos dos frentes con la misma raíz. Encontrá el que más se parece a tu situación y mirá cómo lo resolvemos.";
   
   const heroImage = content.get('hero_image') || "/hero-home.jpg";
 
@@ -167,8 +170,8 @@ export default async function Home() {
         {/* ============ LOGO CAROUSEL — CONFIANZA ============ */}
         <LogoCarousel />
 
-        {/* ============ PAIN POINTS — DOS AUDIENCIAS ============ */}
-        <section className={`section bg-cream`}>
+        {/* ============ PROBLEMA → SOLUCIÓN POR AUDIENCIA ============ */}
+        <section id="servicios" className={`section bg-cream`}>
           <div className="container">
             <div className={styles.painHeader}>
               <ScrollReveal variant="fade-up">
@@ -179,93 +182,45 @@ export default async function Home() {
             </div>
 
             <div className={styles.painPointsGrid}>
-              {/* PYMEs */}
-              <ScrollReveal variant="fade-right" delay={100}>
-              <div className={`card ${styles.painCard}`}>
-                <div className={styles.painCardHeader}>
-                  <span className={styles.painCardIcon}><Building2 size={22} /></span>
-                  <h3 className={styles.painCardTitle}>Para PYMEs que necesitan estructura</h3>
-                </div>
-                <ul className={styles.painList}>
-                  {pymesPainPoints.map((p) => (
-                    <li key={p.title} className={styles.painItem}>
-                      <span className={styles.painEmoji}><p.Icon size={18} /></span>
+              {audiences.map((a, i) => (
+                <ScrollReveal key={a.title} variant={i === 0 ? "fade-right" : "fade-left"} delay={100 + i * 150}>
+                  <div className={`card ${styles.solutionCard} ${a.color === "secondary" ? styles.solutionCardSecondary : ""}`}>
+                    <div className={styles.solutionHeader}>
+                      <span className={styles.solutionIcon}><a.Icon size={26} /></span>
                       <div>
-                        <strong>{p.title}</strong>
-                        <p>{p.desc}</p>
+                        <h3 className={styles.solutionTitle}>{a.title}</h3>
+                        <p className={styles.solutionSubtitle}>{a.subtitle}</p>
                       </div>
-                    </li>
-                  ))}
-                </ul>
-                <Link href="/empresas" className={`btn btn-secondary ${styles.painCta}`}>
-                  Ver solución para tu empresa →
-                </Link>
-              </div>
-              </ScrollReveal>
-
-              {/* Líderes */}
-              <ScrollReveal variant="fade-left" delay={250}>
-              <div className={`card ${styles.painCard} ${styles.painCardSecondary}`}>
-                <div className={styles.painCardHeader}>
-                  <span className={styles.painCardIcon}><Crown size={22} /></span>
-                  <h3 className={styles.painCardTitle}>Para líderes que necesitan acompañamiento</h3>
-                </div>
-                <ul className={styles.painList}>
-                  {lideresPainPoints.map((p) => (
-                    <li key={p.title} className={styles.painItem}>
-                      <span className={styles.painEmoji}><p.Icon size={18} /></span>
-                      <div>
-                        <strong>{p.title}</strong>
-                        <p>{p.desc}</p>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-                <Link href="/mentoria-lideres" className={`btn btn-secondary ${styles.painCta}`}>
-                  Ver mentorías para líderes →
-                </Link>
-              </div>
-              </ScrollReveal>
-            </div>
-          </div>
-        </section>
-
-        {/* ============ SERVICIOS ============ */}
-        <section id="servicios" className="section">
-          <div className="container">
-            <ScrollReveal variant="fade-up">
-            <div className="text-center" style={{ marginBottom: "4rem" }}>
-              <span className="section-label">{getText('services_intro_badge', 'La Solución')}</span>
-              <h2 className="section-title">{getText('services_intro_title', 'Dos formas de trabajar con Elevare')}</h2>
-            </div>
-            </ScrollReveal>
-
-            <div className={styles.servicesGrid}>
-              {services.map((service, index) => (
-                <ScrollReveal 
-                  key={service.title} 
-                  variant="zoom-in" 
-                  delay={index * 200}
-                  className={`${styles.serviceCard} ${styles[`serviceCard--${service.color}`]}`}
-                >
-                  <div className={styles.serviceImageContainer}>
-                    <div className={styles.serviceImagePlaceholder}>
-                      <service.Icon size={48} strokeWidth={1.2} />
                     </div>
-                  </div>
-                  <div className={styles.serviceContent}>
-                    <span className={styles.serviceIcon}><service.Icon size={26} /></span>
-                    <h3 className={styles.serviceTitle}>{service.title}</h3>
-                    <p className={styles.serviceDesc}>{service.description}</p>
-                    <ul className={styles.serviceBenefits}>
-                      {service.benefits.map((b) => (
-                        <li key={b}>
-                          <CheckCircle size={15} style={{ flexShrink: 0, marginTop: 2 }} /> {b}
-                        </li>
-                      ))}
-                    </ul>
-                    <Link href={service.href} className={`btn btn-outline ${styles.serviceBtn}`}>
-                      {service.cta} <ArrowRight size={15} style={{ marginLeft: 4 }} />
+
+                    <div>
+                      <span className={styles.blockLabel}>Si esto te suena</span>
+                      <ul className={styles.painListSimple}>
+                        {a.pains.map((p) => (
+                          <li key={p} className={styles.painItemSimple}>
+                            <span className={styles.painDot} aria-hidden="true" />
+                            {p}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div className={styles.solutionDivider} aria-hidden="true" />
+
+                    <div>
+                      <span className={styles.blockLabel}>Lo que hacemos por vos</span>
+                      <p className={styles.solutionDesc}>{a.solution}</p>
+                      <ul className={styles.benefitList}>
+                        {a.benefits.map((b) => (
+                          <li key={b}>
+                            <CheckCircle size={15} /> {b}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <Link href={a.href} className={`btn ${a.color === "secondary" ? "btn-secondary" : "btn-primary"} ${styles.painCta}`}>
+                      {a.cta} <ArrowRight size={15} style={{ marginLeft: 4 }} />
                     </Link>
                   </div>
                 </ScrollReveal>
