@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import {
-  Target, Zap,
-  Building2, Crown, Trophy, Brain, Scale, Globe,
-  CheckCircle, ArrowRight
+  Coins, Compass, Workflow, Building2, ShoppingBag, Network,
+  Search, Target, Rocket, LineChart, CheckCircle, ArrowRight
 } from "lucide-react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -15,13 +13,13 @@ import styles from "./page.module.css";
 import { createClient } from '@/lib/supabase/server';
 
 export const metadata: Metadata = {
-  title: "Consultoría de Liderazgo y Desarrollo Organizacional para PYMEs | Elevare Consulting",
+  title: "Consultoría Organizacional basada en Ciencias del Comportamiento | Elevare Consulting",
   description:
-    "Diagnosticamos qué frena a tu empresa y te acompañamos hasta el resultado. Consultoría de liderazgo y desarrollo organizacional para PYMEs en Argentina y LATAM.",
+    "Transformamos organizaciones a través de las ciencias del comportamiento. Estructura de financiamiento, liderazgo, procesos y diseño organizacional para empresas que buscan crecer. Solicitá tu diagnóstico.",
   openGraph: {
-    title: "Consultoría de Liderazgo y Desarrollo Organizacional | Elevare Consulting",
+    title: "Elevare Consulting | Transformación organizacional con base científica",
     description:
-      "Diagnosticamos qué frena a tu empresa, diseñamos la estructura que falta y acompañamos la ejecución. Consultoría de liderazgo para PYMEs en Argentina y LATAM.",
+      "Diagnóstico, intervención y resultados de gestión basados en ciencias del comportamiento. Consultoría integral para organizaciones que quieren crecer.",
     url: "https://elevareconsultingmg.com",
   },
   alternates: {
@@ -29,76 +27,96 @@ export const metadata: Metadata = {
   },
 };
 
-const audiences = [
+// Tres ejes principales — las puertas de entrada
+const ejes = [
+  {
+    Icon: Coins,
+    title: "Estructura de Financiamiento",
+    line: "El crecimiento no se financia con intuición. Ordenamos tus números y tu estructura de capital para que escalar deje de ser una apuesta.",
+  },
+  {
+    Icon: Compass,
+    title: "Desarrollo de Liderazgo",
+    line: "Esto no es un curso. Es reingeniería de cómo tu gente decide, delega y lidera, con criterio propio y accountability real.",
+  },
+  {
+    Icon: Workflow,
+    title: "Gestión de Procesos",
+    line: "Cuando el proceso es claro, el resultado deja de depender de la suerte. Cada decisión con un dueño, cada resultado con un porqué.",
+  },
+];
+
+// Los 6 servicios, bajo el paraguas de Coaching Ejecutivo
+const services = [
+  {
+    Icon: Coins,
+    title: "Estructura de Financiamiento",
+    desc: "Ordenamos tus números, tu estructura de capital y tu proyección para que escalar sea una decisión informada y no una apuesta.",
+  },
   {
     Icon: Building2,
-    color: "primary",
-    title: "Para tu Empresa",
-    subtitle: "PYMEs que facturan, pero operan en el desorden",
-    pains: [
-      "Tu equipo gerencial no decide sin vos y la rotación es alta",
-      "Procesos rotos que todos ven, pero nadie arregla",
-      "Facturás, pero sin visibilidad financiera para crecer",
-    ],
-    solution: "Diagnosticamos clima, cultura, procesos y números — y construimos con vos la estructura que falta.",
-    benefits: [
-      "Sabés qué frena tu empresa, con datos y no supuestos",
-      "Roles y procesos claros: cada decisión tiene un dueño",
-      "Un equipo gerencial que decide sin depender de vos",
-    ],
-    href: "/empresas",
-    cta: "Ver el programa para empresas",
+    title: "Desarrollo Organizacional",
+    desc: "La cultura decide lo que la estrategia promete. Alineamos cultura, estructura y procesos para rendir hoy y evolucionar para lo que viene.",
   },
   {
-    Icon: Crown,
-    color: "secondary",
-    title: "Para tu Liderazgo",
-    subtitle: "Líderes que cargan todo sobre sus hombros",
-    pains: [
-      "Liderás en piloto automático y todo depende de vos",
-      "Trabajás el doble porque no hay estructura ni delegación",
-      "Enfrentás las decisiones críticas en soledad",
-    ],
-    solution: "Un espacio estratégico y confidencial para ordenar tu gestión: decisiones, delegación y manejo de equipos.",
-    benefits: [
-      "Decidís con claridad, no desde la urgencia",
-      "Delegás con confianza y tu equipo gana autonomía",
-      "Herramientas concretas que aplicás al día siguiente",
-    ],
-    href: "/mentoria-lideres",
-    cta: "Conocer la mentoría",
+    Icon: ShoppingBag,
+    title: "Academia de Retail",
+    desc: "El retail se gana en el detalle operativo, todos los días. Formación y estándares de gestión diseñados para la realidad del punto de venta.",
+  },
+  {
+    Icon: Compass,
+    title: "Desarrollo de Liderazgo",
+    desc: "Formamos líderes que habilitan equipos autónomos, con criterio propio y responsabilidad colectiva como estándar operativo.",
+  },
+  {
+    Icon: Workflow,
+    title: "Gestión de Procesos",
+    desc: "Diseñamos y estandarizamos procesos para que cada decisión tenga un dueño y cada resultado, una causa que se puede repetir.",
+  },
+  {
+    Icon: Network,
+    title: "Diseño Organizacional",
+    desc: "La estructura sigue al propósito, no al organigrama heredado. Rediseñamos roles para sostener la performance mientras la empresa crece.",
   },
 ];
 
-const differentiators = [
+// Método Elevare — texto verbatim provisto por la clienta (no modificar)
+const metodo = [
   {
-    Icon: Trophy,
-    title: "Diagnóstico Organizacional",
-    desc: "Evaluamos clima, cultura, procesos y estructura financiera para identificar exactamente qué frena tu crecimiento. Sin supuestos: datos reales de tu empresa.",
+    Icon: Search,
+    num: "1",
+    title: "DIAGNÓSTICO",
+    subtitle: "Medición del punto de partida",
+    desc: "Relevamiento multinivel de la organización: indicadores de gestión existentes, estructura y procesos, y patrones de comportamiento individual, relacional y organizacional que sostienen — o frenan — el resultado actual. Se establece una línea base cuantitativa (KPIs) y cualitativa (conductual) contra la cual se medirá el avance.",
   },
   {
-    Icon: Brain,
-    title: "Diseño de Estructura y Procesos",
-    desc: "Definimos roles, responsabilidades y mecanismos de accountability claros. Cada decisión tiene un dueño, cada proceso tiene un estándar.",
+    Icon: Target,
+    num: "2",
+    title: "PROPUESTA A MEDIDA",
+    subtitle: "",
+    desc: "A partir del diagnóstico, se definen objetivos de intervención en términos de KPIs concretos, se identifica en qué nivel se interviene primero — individual, relacional u organizacional — y se evalúa la viabilidad de la intervención antes de proponerla. Cada propuesta responde a una hipótesis explícita: qué comportamiento sostiene el resultado que se busca cambiar.",
   },
   {
-    Icon: Scale,
-    title: "Desarrollo de Liderazgo Interno",
-    desc: "Formamos líderes que habilitan a sus equipos en lugar de controlarlos. Autonomía, confianza y responsabilidad colectiva como estándar.",
+    Icon: Rocket,
+    num: "3",
+    title: "EJECUCIÓN",
+    subtitle: "",
+    desc: "Implementación de la estrategia de cambio acordada, con planificación de hitos y seguimiento activo del comportamiento durante el proceso — no solo al cierre. Si el patrón que sostenía el problema no está cambiando, el enfoque se ajusta en el camino.",
   },
   {
-    Icon: Globe,
-    title: "Implementación Directa",
-    desc: "No solo recomendamos: acompañamos la ejecución hasta ver cambios concretos. Diagnóstico, diseño y acción en un solo proceso integrado.",
-  },
-  {
-    Icon: Zap,
-    title: "Performance Sostenible",
-    desc: "Alineamos los sistemas de gestión y cultura para que los resultados se mantengan. Tu organización opera mejor incluso después de que nos vamos.",
+    Icon: LineChart,
+    num: "4",
+    title: "MEDICIÓN DE RESULTADOS",
+    subtitle: "",
+    desc: "Evaluación de impacto contra los KPIs definidos en la Fase 2 y contra la línea base de la Fase 1. El cierre no se limita a verificar si se cumplió el objetivo, sino si el cambio de comportamiento quedó instalado — condición necesaria para que el resultado sea sostenible en el tiempo.",
   },
 ];
 
-
+const trackRecord = [
+  { value: "20+", label: "Años de experiencia" },
+  { value: "470+", label: "Personas gestionadas" },
+  { value: "4", label: "Países con alianzas" },
+];
 
 export default async function Home() {
   const supabase = await createClient();
@@ -106,16 +124,9 @@ export default async function Home() {
   const content = new Map();
   data?.forEach(item => content.set(item.section_key, item.text_value));
 
-  const heroBadge = content.get('hero_badge') || "Consultoría de Liderazgo y Desarrollo Organizacional";
-  const heroTitleMain = content.get('hero_title_main') || "Potenciá tu Empresa con";
-  const heroTitleSub = content.get('hero_title_sub') || "Management Estratégico";
-  const heroSubtitle = content.get('hero_subtitle') || "Diagnosticamos qué está frenando tu organización, diseñamos la estructura que falta y acompañamos la ejecución hasta que los resultados se sostienen solos.";
-
-  const painIntroBadge = content.get('pain_intro_badge') || "¿Te suena familiar?";
-  const painIntroTitle = content.get('pain_intro_title') || "El problema no es la falta de esfuerzo. Es la falta de estructura.";
-  const painIntroDesc = content.get('pain_intro_desc') || "Trabajamos dos frentes con la misma raíz. Encontrá el que más se parece a tu situación y mirá cómo lo resolvemos.";
-  
-  const heroImage = content.get('hero_image') || "/hero-home.jpg";
+  const heroTitleMain = content.get('hero_title_main') || "Transformamos organizaciones a través de las";
+  const heroTitleSub = content.get('hero_title_sub') || "ciencias del comportamiento";
+  const heroSubtitle = content.get('hero_subtitle') || "Las empresas no se frenan por falta de talento, sino por estructuras, procesos y decisiones que dejaron de acompañar su crecimiento. Medimos qué lo sostiene, intervenimos con base científica y nos quedamos hasta que el cambio queda instalado.";
 
   const { data: testimonials } = await supabase
     .from('testimonials')
@@ -123,8 +134,6 @@ export default async function Home() {
     .eq('is_active', true)
     .order('created_at', { ascending: false })
     .limit(3);
-  
-  const getText = (key: string, fallback: string) => content.get(key) || fallback;
 
   return (
     <>
@@ -136,287 +145,200 @@ export default async function Home() {
           <HeroFloatingImages />
           <div className={`container ${styles.heroContainer}`}>
             <div className={styles.heroContent}>
-              <ScrollReveal variant="fade-up">
-                <div className={styles.heroBadge}>
-                  {heroBadge}
-                </div>
-              </ScrollReveal>
-
-              <ScrollReveal variant="fade-up" delay={150}>
+              <ScrollReveal variant="fade-up" delay={100}>
                 <h1 className={styles.heroTitle}>
-                  {heroTitleMain}<br />
+                  {heroTitleMain}{" "}
                   <span className={styles.highlightText}>{heroTitleSub}</span>
                 </h1>
               </ScrollReveal>
 
-              <ScrollReveal variant="fade-up" delay={300}>
+              <ScrollReveal variant="fade-up" delay={250}>
                 <p className={styles.heroSubtitle}>
                   {heroSubtitle}
                 </p>
               </ScrollReveal>
-              
+
               <div className={styles.heroCtas}>
                 <Link href="/contacto" className="btn btn-primary btn-lg">
-                  Reservar mi sesión gratuita
+                  Solicitá tu Diagnóstico
                 </Link>
-                <a href="#servicios" className={`btn btn-outline-white ${styles.heroSecondaryBtn}`}>
-                  Ver cómo trabajamos ↓
+                <a href="#metodo" className={`btn btn-outline-white ${styles.heroSecondaryBtn}`}>
+                  Conocé el método ↓
                 </a>
               </div>
             </div>
           </div>
         </section>
 
-        {/* ============ LOGO CAROUSEL — CONFIANZA ============ */}
+        {/* ============ TRUST STRIP ============ */}
         <LogoCarousel />
 
-        {/* ============ PROBLEMA → SOLUCIÓN POR AUDIENCIA ============ */}
-        <section id="servicios" className={`section bg-cream`}>
-          <div className="container">
-            <div className={styles.painHeader}>
-              <ScrollReveal variant="fade-up">
-                <div className="section-label">{painIntroBadge}</div>
-                <h2 className="section-title">{painIntroTitle}</h2>
-                <p className="section-desc">{painIntroDesc}</p>
-              </ScrollReveal>
-            </div>
-
-            <div className={styles.painPointsGrid}>
-              {audiences.map((a, i) => (
-                <ScrollReveal key={a.title} variant={i === 0 ? "fade-right" : "fade-left"} delay={100 + i * 150}>
-                  <div className={`card ${styles.solutionCard} ${a.color === "secondary" ? styles.solutionCardSecondary : ""}`}>
-                    <div className={styles.solutionHeader}>
-                      <span className={styles.solutionIcon}><a.Icon size={26} /></span>
-                      <div>
-                        <h3 className={styles.solutionTitle}>{a.title}</h3>
-                        <p className={styles.solutionSubtitle}>{a.subtitle}</p>
-                      </div>
-                    </div>
-
-                    <div>
-                      <span className={styles.blockLabel}>Si esto te suena</span>
-                      <ul className={styles.painListSimple}>
-                        {a.pains.map((p) => (
-                          <li key={p} className={styles.painItemSimple}>
-                            <span className={styles.painDot} aria-hidden="true" />
-                            {p}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    <div className={styles.solutionDivider} aria-hidden="true" />
-
-                    <div>
-                      <span className={styles.blockLabel}>Lo que hacemos por vos</span>
-                      <p className={styles.solutionDesc}>{a.solution}</p>
-                      <ul className={styles.benefitList}>
-                        {a.benefits.map((b) => (
-                          <li key={b}>
-                            <CheckCircle size={15} /> {b}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    <Link href={a.href} className={`btn ${a.color === "secondary" ? "btn-secondary" : "btn-primary"} ${styles.painCta}`}>
-                      {a.cta} <ArrowRight size={15} style={{ marginLeft: 4 }} />
-                    </Link>
-                  </div>
-                </ScrollReveal>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ============ POR QUÉ ELEVARE ============ */}
-        <section className={styles.diffSection}>
-          {/* Elemento decorativo de fondo */}
-          <div className={styles.diffBgOrb} aria-hidden="true" />
-          <div className={styles.diffBgOrbTwo} aria-hidden="true" />
-
-          <div className="container">
-            <ScrollReveal variant="fade-right">
-            <div className={styles.diffHeader}>
-              <div className={styles.diffHeaderLeft}>
-                <span className={`section-label ${styles.labelLight}`}>{getText('why_intro_badge', 'Cómo Trabajamos')}</span>
-                <h2 className={styles.diffSectionTitle}>
-                  {getText('why_intro_title', 'Un método que termina en resultados, no en un informe')}
-                </h2>
-              </div>
-              <p className={styles.diffHeaderDesc}>
-                {getText('why_intro_desc', 'Diagnóstico con datos reales, diseño de estructura y acompañamiento en la ejecución. Nos quedamos hasta ver el cambio funcionando en tu operación — y que se sostenga cuando ya no estemos.')}
-              </p>
-            </div>
-            </ScrollReveal>
-
-            <div className={styles.diffLayout}>
-              {/* Tarjeta destacada — primera */}
-              {differentiators.slice(0, 1).map(({ Icon: FIcon, title, desc }) => (
-                <ScrollReveal key={title} variant="fade-up" delay={100}>
-                <div className={styles.diffCardFeatured}>
-                  <span className={styles.diffNum}>01</span>
-                  <div className={styles.diffIconLg}><FIcon size={28} /></div>
-                  <h3 className={styles.diffTitleFeatured}>{title}</h3>
-                  <p className={styles.diffDescFeatured}>{desc}</p>
-                  <div className={styles.diffAccentLine} />
-                </div>
-                </ScrollReveal>
-              ))}
-
-              {/* Grid 2×2 con el resto */}
-              <div className={styles.diffSubGrid}>
-                {differentiators.slice(1).map(({ Icon: DIcon, title, desc }, i) => (
-                  <ScrollReveal key={title} variant="fade-up" delay={200 + i * 120} stagger={0} index={0}>
-                  <div className={styles.diffCardSmall}>
-                    <span className={styles.diffNumSm}>0{i + 2}</span>
-                    <div className={styles.diffIconSm}><DIcon size={18} /></div>
-                    <h4 className={styles.diffTitleSm}>{title}</h4>
-                    <p className={styles.diffDescSm}>{desc}</p>
-                  </div>
-                  </ScrollReveal>
-                ))}
-              </div>
-            </div>
-
-            <div className={styles.diffFooter}>
-              <Link href="/contacto" className="btn btn-outline-white btn-lg">
-                Empezar con un diagnóstico gratuito →
-              </Link>
-            </div>
-          </div>
-        </section>
-
-        {/* ============ AUTORIDAD — MARÍA ============ */}
+        {/* ============ TRES EJES ============ */}
         <section className="section">
           <div className="container">
-            <div className={styles.authorityGrid}>
-              <ScrollReveal variant="fade-right">
-                <div className={styles.authorityImageWrap}>
-                  <Image
-                    src="/maria-hero.png"
-                    alt="María Gómez, fundadora de Elevare Consulting"
-                    width={420}
-                    height={500}
-                    className={styles.authorityImage}
-                  />
-                </div>
-              </ScrollReveal>
-              <ScrollReveal variant="fade-left" delay={150}>
-                <div>
-                  <span className="section-label">Quién te acompaña</span>
-                  <h2 className="section-title">María Gómez — la experiencia detrás de Elevare</h2>
-                  <p className={styles.authorityText}>
-                    Antes de fundar Elevare, María dirigió equipos de más de <strong>470 personas</strong> y coordinó operaciones multinacionales en LATAM. No aprendió liderazgo en un libro: <strong>lo ejerció bajo presión durante más de 20 años.</strong>
-                  </p>
-                  <ul className={styles.authorityList}>
-                    <li><CheckCircle size={16} /> 20+ años liderando equipos y operaciones reales</li>
-                    <li><CheckCircle size={16} /> Directora Asociada — Cámara de Comercio de Mujeres de EE.UU. (Miami)</li>
-                    <li><CheckCircle size={16} /> Creadora de la metodología de Inteligencia Relacional</li>
-                  </ul>
-                  <p className={styles.authorityText}>
-                    Por eso cada recomendación que recibís no sale de un manual: viene de alguien que ya estuvo en tu silla.
-                  </p>
-                  <Link href="/sobre-maria" className="btn btn-outline">
-                    Conocé su historia completa →
-                  </Link>
-                </div>
-              </ScrollReveal>
+            <ScrollReveal variant="fade-up">
+              <div className={styles.centeredHead}>
+                <h2 className="section-title">Tres frentes donde se define el resultado</h2>
+                <p className="section-desc">
+                  La mayoría de los problemas de una organización no son de talento, sino de dinero mal estructurado, liderazgo sin método y procesos que dependen de las personas correctas.
+                </p>
+              </div>
+            </ScrollReveal>
+
+            <div className={styles.ejesGrid}>
+              {ejes.map((e, i) => (
+                <ScrollReveal key={e.title} variant="fade-up" delay={100 + i * 120}>
+                  <div className={styles.ejeCard}>
+                    <span className={styles.ejeIcon}><e.Icon size={26} /></span>
+                    <h3 className={styles.ejeTitle}>{e.title}</h3>
+                    <p className={styles.ejeLine}>{e.line}</p>
+                  </div>
+                </ScrollReveal>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* ============ TESTIMONIOS ============ */}
-        <section className="section bg-cream">
+        {/* ============ SERVICIOS ============ */}
+        <section id="servicios" className="section bg-cream">
           <div className="container">
             <ScrollReveal variant="fade-up">
-            <div className="text-center" style={{ marginBottom: "4rem" }}>
-              <span className="section-label">Resultados</span>
-              <h2 className="section-title">Líderes y empresas que ya pasaron por el proceso</h2>
-            </div>
+              <div className={styles.centeredHead}>
+                <h2 className="section-title">Un sistema integral de consultoría</h2>
+                <p className="section-desc">
+                  Seis capacidades que se combinan según lo que tu organización necesita primero. Todas se integran en nuestro Coaching Ejecutivo, el marco desde el cual definimos por dónde intervenir.
+                </p>
+              </div>
             </ScrollReveal>
 
-            <div className="grid-3">
-              {testimonials?.map((t, idx) => (
-              <ScrollReveal key={t.id || idx} variant="zoom-in" delay={idx * 150}>
-                <div className={`card ${styles.testiCard}`}>
-                  <div className={styles.testiStars}>★★★★★</div>
-                  <p className={styles.testiText}>&ldquo;{t.text}&rdquo;</p>
-                  {t.highlight && (
-                    <div className={styles.testiResult}>
-                      <CheckCircle size={14} style={{ color: "var(--color-secondary)", marginTop: 2, flexShrink: 0 }} />
-                      <span>{t.highlight}</span>
-                    </div>
-                  )}
-                  <div className={styles.testiAuthor}>
-                    {t.image_url ? (
-                      <img src={t.image_url} alt={t.name} className={styles.testiAvatar} style={{ width: 40, height: 40, borderRadius: '50%', objectFit: 'cover' }} />
-                    ) : (
-                      <div className={styles.testiAvatar}>{t.name[0]}</div>
-                    )}
-                    <div className={styles.testiAuthorInfo}>
-                      <strong>{t.name}</strong>
-                      <span>{t.role}</span>
-                      <span className={styles.testiCompany}>{t.company}</span>
-                    </div>
+            <div className={styles.svcGrid}>
+              {services.map((s, i) => (
+                <ScrollReveal key={s.title} variant="fade-up" delay={80 + i * 80}>
+                  <div className={styles.svcCard}>
+                    <span className={styles.svcIcon}><s.Icon size={24} /></span>
+                    <h3 className={styles.svcTitle}>{s.title}</h3>
+                    <p className={styles.svcDesc}>{s.desc}</p>
                   </div>
-                </div>
-              </ScrollReveal>
-            ))}
+                </ScrollReveal>
+              ))}
             </div>
 
-            <div className="text-center" style={{ marginTop: "3rem" }}>
-              <Link href="/testimonios" className="btn btn-outline">
-                Ver más casos de éxito en video →
-              </Link>
+            <ScrollReveal variant="fade-up">
+              <div className={styles.svcCta}>
+                <Link href="/contacto" className="btn btn-primary btn-lg">
+                  Solicitá tu Diagnóstico <ArrowRight size={16} style={{ marginLeft: 6 }} />
+                </Link>
+              </div>
+            </ScrollReveal>
+          </div>
+        </section>
+
+        {/* ============ MÉTODO ELEVARE ============ */}
+        <section id="metodo" className={styles.metodoSection}>
+          <div className={styles.metodoOrb} aria-hidden="true" />
+          <div className="container">
+            <ScrollReveal variant="fade-up">
+              <div className={styles.centeredHead}>
+                <h2 className={styles.metodoTitle}>Método Elevare</h2>
+                <p className={styles.metodoLead}>
+                  Diagnóstico, intervención y resultados de gestión basados en ciencias del comportamiento.
+                </p>
+              </div>
+            </ScrollReveal>
+
+            <div className={styles.metodoGrid}>
+              {metodo.map((m, i) => (
+                <ScrollReveal key={m.num} variant="fade-up" delay={100 + i * 120}>
+                  <div className={styles.metodoCard}>
+                    <div className={styles.metodoCardTop}>
+                      <span className={styles.metodoNum}>{m.num}</span>
+                      <span className={styles.metodoIcon}><m.Icon size={22} /></span>
+                    </div>
+                    <h3 className={styles.metodoCardTitle}>{m.title}</h3>
+                    {m.subtitle && <p className={styles.metodoCardSubtitle}>{m.subtitle}</p>}
+                    <p className={styles.metodoCardDesc}>{m.desc}</p>
+                  </div>
+                </ScrollReveal>
+              ))}
             </div>
+          </div>
+        </section>
+
+        {/* ============ SOBRE NOSOTROS ============ */}
+        <section id="sobre-nosotros" className="section">
+          <div className="container">
+            <ScrollReveal variant="fade-up">
+              <div className={styles.centeredHead}>
+                <h2 className="section-title">Detrás de Elevare hay un equipo, no una fórmula</h2>
+                <p className="section-desc">
+                  Somos un equipo multidisciplinario de consultores en comportamiento organizacional, finanzas, procesos y liderazgo. No trabajamos desde la teoría: cada intervención combina evidencia, experiencia de gestión real y la obsesión por que el cambio quede instalado y se sostenga.
+                </p>
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal variant="fade-up" delay={120}>
+              <div className={styles.trackRecord}>
+                {trackRecord.map((t) => (
+                  <div key={t.label} className={styles.trackItem}>
+                    <strong>{t.value}</strong>
+                    <span>{t.label}</span>
+                  </div>
+                ))}
+              </div>
+            </ScrollReveal>
+
+            {testimonials && testimonials.length > 0 && (
+              <>
+                <ScrollReveal variant="fade-up">
+                  <h3 className={styles.casosTitle}>Casos de éxito</h3>
+                </ScrollReveal>
+                <div className="grid-3">
+                  {testimonials.map((t, idx) => (
+                    <ScrollReveal key={t.id || idx} variant="fade-up" delay={idx * 120}>
+                      <div className={`card ${styles.testiCard}`}>
+                        <div className={styles.testiStars}>★★★★★</div>
+                        <p className={styles.testiText}>&ldquo;{t.text}&rdquo;</p>
+                        {t.highlight && (
+                          <div className={styles.testiResult}>
+                            <CheckCircle size={14} style={{ color: "var(--color-secondary)", marginTop: 2, flexShrink: 0 }} />
+                            <span>{t.highlight}</span>
+                          </div>
+                        )}
+                        <div className={styles.testiAuthor}>
+                          {t.image_url ? (
+                            <img src={t.image_url} alt={t.name} className={styles.testiAvatar} style={{ width: 40, height: 40, borderRadius: '50%', objectFit: 'cover' }} />
+                          ) : (
+                            <div className={styles.testiAvatar}>{t.name[0]}</div>
+                          )}
+                          <div className={styles.testiAuthorInfo}>
+                            <strong>{t.name}</strong>
+                            <span>{t.role}</span>
+                            <span className={styles.testiCompany}>{t.company}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </ScrollReveal>
+                  ))}
+                </div>
+              </>
+            )}
           </div>
         </section>
 
         {/* ============ CTA FINAL ============ */}
         <section className={styles.ctaSection}>
           <div className="container">
-            <div className={styles.ctaBox}>
-              <ScrollReveal variant="fade-right">
-              <div className={styles.ctaContent}>
-                <span className={`section-label ${styles.labelLight}`}>{getText('cta_intro_badge', 'Empezá Hoy')}</span>
-                <h2 className={styles.ctaTitle}>
-                  {getText('cta_title', 'El primer paso son 30 minutos. Y no cuesta nada.')}
-                </h2>
-                <p className={styles.ctaDesc}>
-                  {getText('cta_desc', 'En la sesión exploratoria gratuita escuchamos tu situación y te damos una devolución honesta: qué está pasando en tu organización y por dónde empezar. Sin compromiso y sin presión de venta.')}
+            <ScrollReveal variant="fade-up">
+              <div className={styles.ctaInner}>
+                <h2 className={styles.ctaFinalTitle}>¿Listo para transformar tu organización?</h2>
+                <p className={styles.ctaFinalDesc}>
+                  Empezamos siempre por el diagnóstico. Medimos el punto de partida y te mostramos, con datos, qué está sosteniendo tus resultados actuales y por dónde conviene intervenir.
                 </p>
-                <div className={styles.ctaBtns}>
-                  <Link href="/contacto" className="btn btn-primary btn-lg">
-                    Reservar mi sesión gratuita
-                  </Link>
-                  <Link href="/testimonios" className="btn btn-outline-white">
-                    Ver casos de éxito
-                  </Link>
-                </div>
+                <Link href="/contacto" className="btn btn-primary btn-lg">
+                  Solicitá tu Diagnóstico
+                </Link>
               </div>
-              </ScrollReveal>
-              <div className={styles.ctaVisual}>
-                <div className={styles.ctaImageWrapper}>
-                  <Image
-                    src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1200&auto=format&fit=crop"
-                    alt="Coaching profesional de equipos y management empresarial"
-                    width={800}
-                    height={1000}
-                    className={styles.ctaImage}
-                  />
-                  <div className={styles.ctaFloatingCard}>
-                    <span className={styles.ctaFloatingIcon} aria-hidden="true">
-                      <Target size={22} strokeWidth={1.5} />
-                    </span>
-                    <div>
-                      <strong>Sesión Exploratoria</strong>
-                      <span>30 min · Gratuita</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            </ScrollReveal>
           </div>
         </section>
       </main>

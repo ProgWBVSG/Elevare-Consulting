@@ -187,6 +187,11 @@ p {
   padding: var(--space-24) 0;
 }
 
+/* Offset para anclas: el header fijo (72px) no debe tapar la sección */
+section[id] {
+  scroll-margin-top: 90px;
+}
+
 .section--sm {
   padding: var(--space-16) 0;
 }

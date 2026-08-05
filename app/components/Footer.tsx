@@ -13,9 +13,9 @@ const services = [
 ];
 
 const links = [
-    { label: "Sobre María", href: "/sobre-maria" },
+    { label: "Sobre Nosotros", href: "/#sobre-nosotros" },
+    { label: "Método Elevare", href: "/#metodo" },
     { label: "Casos de Éxito", href: "/testimonios" },
-    { label: "Preguntas Frecuentes", href: "/faq" },
     { label: "Contacto", href: "/contacto" },
 ];
 

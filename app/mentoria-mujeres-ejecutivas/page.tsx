@@ -166,7 +166,7 @@ export default function MentoriaMujeres() {
                                 <p>
                                     Nuestro proceso de mentoría aborda estas particularidades de forma directa, con profundidad y sin romanticismos. No somos un club de autoayuda — somos un espacio de trabajo serio con resultados concretos.
                                 </p>
-                                <Link href="/sobre-maria" className={styles.infoLink}>→ Conocer la metodología y la trayectoria de María</Link>
+                                <Link href="/#sobre-nosotros" className={styles.infoLink}>→ Conocé nuestro método y nuestro equipo</Link>
                             </div>
                         </div>
                     </div>
