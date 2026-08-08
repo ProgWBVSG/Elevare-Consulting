@@ -126,7 +126,6 @@ export default async function Home() {
 
   const heroTitleMain = content.get('hero_title_main') || "Transformamos organizaciones a través de las";
   const heroTitleSub = content.get('hero_title_sub') || "ciencias del comportamiento";
-  const heroSubtitle = content.get('hero_subtitle') || "Las empresas no se frenan por falta de talento, sino por estructuras, procesos y decisiones que dejaron de acompañar su crecimiento. Medimos qué lo sostiene, intervenimos con base científica y nos quedamos hasta que el cambio queda instalado.";
 
   const { data: testimonials } = await supabase
     .from('testimonials')
@@ -151,13 +150,7 @@ export default async function Home() {
               </h1>
             </ScrollReveal>
 
-            <ScrollReveal variant="fade-up" delay={200}>
-              <p className={styles.heroSubtitle}>
-                {heroSubtitle}
-              </p>
-            </ScrollReveal>
-
-            <ScrollReveal variant="fade-up" delay={320} className={styles.heroCarouselWrap}>
+            <ScrollReveal variant="fade-up" delay={200} className={styles.heroCarouselWrap}>
               <ServiceCarousel />
             </ScrollReveal>
 

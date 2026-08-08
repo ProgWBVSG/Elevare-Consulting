@@ -1,7 +1,7 @@
 /* ===== HERO ===== */
 .hero {
     position: relative;
-    padding: calc(72px + var(--space-24)) 0 var(--space-24);
+    padding: var(--space-20) 0 var(--space-24);
     background: linear-gradient(135deg, #0e1a38 0%, var(--color-primary) 60%, #141f45 100%);
     overflow: hidden;
 }
