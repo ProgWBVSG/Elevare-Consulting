@@ -7,9 +7,12 @@ import { supabase } from "@/lib/supabase";
 import styles from "./Footer.module.css";
 
 const services = [
-    { label: "Coaching y Consultoría para Empresas", href: "/empresas" },
-    { label: "Mentorías 1 a 1 para Líderes", href: "/mentoria-lideres" },
-    { label: "Mentoría para Mujeres Ejecutivas", href: "/mentoria-mujeres-ejecutivas" },
+    { label: "Estructura de Financiamiento", href: "/servicios" },
+    { label: "Desarrollo Organizacional", href: "/servicios" },
+    { label: "Desarrollo de Liderazgo", href: "/servicios" },
+    { label: "Gestión de Procesos", href: "/servicios" },
+    { label: "Diseño Organizacional", href: "/servicios" },
+    { label: "Academia de Retail", href: "/servicios" },
 ];
 
 const links = [
@@ -114,7 +117,7 @@ export default function Footer() {
                             <h4 className={styles.colTitle}>Servicios</h4>
                             <ul className={styles.linkList}>
                                 {services.map((s) => (
-                                    <li key={s.href}>
+                                    <li key={s.label}>
                                         <Link href={s.href} className={styles.footerLink}>{s.label}</Link>
                                     </li>
                                 ))}
