@@ -8,7 +8,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import LogoCarousel from "./components/LogoCarousel";
 import ScrollReveal from "./components/ScrollReveal";
-import HeroFloatingImages from "./components/HeroFloatingImages";
+import ServiceCarousel from "./components/ServiceCarousel";
 import styles from "./page.module.css";
 import { createClient } from '@/lib/supabase/server';
 
@@ -142,30 +142,32 @@ export default async function Home() {
       <main>
         {/* ============ HERO ============ */}
         <section className={styles.hero}>
-          <HeroFloatingImages />
+          <div className={styles.heroOrb} aria-hidden="true" />
           <div className={`container ${styles.heroContainer}`}>
-            <div className={styles.heroContent}>
-              <ScrollReveal variant="fade-up" delay={100}>
-                <h1 className={styles.heroTitle}>
-                  {heroTitleMain}{" "}
-                  <span className={styles.highlightText}>{heroTitleSub}</span>
-                </h1>
-              </ScrollReveal>
+            <ScrollReveal variant="fade-up" delay={80}>
+              <h1 className={styles.heroTitle}>
+                {heroTitleMain}{" "}
+                <span className={styles.highlightText}>{heroTitleSub}</span>
+              </h1>
+            </ScrollReveal>
 
-              <ScrollReveal variant="fade-up" delay={250}>
-                <p className={styles.heroSubtitle}>
-                  {heroSubtitle}
-                </p>
-              </ScrollReveal>
+            <ScrollReveal variant="fade-up" delay={200}>
+              <p className={styles.heroSubtitle}>
+                {heroSubtitle}
+              </p>
+            </ScrollReveal>
 
-              <div className={styles.heroCtas}>
-                <Link href="/contacto" className="btn btn-primary btn-lg">
-                  Solicitá tu Diagnóstico
-                </Link>
-                <a href="#metodo" className={`btn btn-outline-white ${styles.heroSecondaryBtn}`}>
-                  Conocé el método ↓
-                </a>
-              </div>
+            <ScrollReveal variant="fade-up" delay={320} className={styles.heroCarouselWrap}>
+              <ServiceCarousel />
+            </ScrollReveal>
+
+            <div className={styles.heroCtas}>
+              <Link href="/contacto" className="btn btn-primary btn-lg">
+                Solicitá tu Diagnóstico
+              </Link>
+              <a href="#metodo" className={`btn btn-outline-white ${styles.heroSecondaryBtn}`}>
+                Conocé el método ↓
+              </a>
             </div>
           </div>
         </section>
