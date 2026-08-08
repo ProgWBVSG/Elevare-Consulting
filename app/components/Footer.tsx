@@ -16,7 +16,7 @@ const services = [
 ];
 
 const links = [
-    { label: "Sobre Nosotros", href: "/#sobre-nosotros" },
+    { label: "Sobre Nosotros", href: "/sobre-nosotros" },
     { label: "Método Elevare", href: "/#metodo" },
     { label: "Casos de Éxito", href: "/testimonios" },
     { label: "Contacto", href: "/contacto" },
