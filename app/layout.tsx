@@ -81,7 +81,6 @@ export const metadata: Metadata = {
 };
 
 import FloatingWidgets from "./components/FloatingWidgets";
-import LoadingScreen from "./components/LoadingScreen";
 import { Analytics } from "@vercel/analytics/react"
 import { GoogleTagManager } from "@next/third-parties/google";
 import { createClient } from '@/lib/supabase/server';
@@ -199,7 +198,6 @@ export default async function RootLayout({
       </head>
       <body>
         <GoogleTagManager gtmId="GTM-WS8LKHCH" />
-        <LoadingScreen />
         {children}
         <FloatingWidgets waPhone={waPhone} waMsg={waMsg} />
         <Analytics />
