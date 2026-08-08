@@ -9,12 +9,14 @@ import styles from "./contacto.module.css";
 import { MessageSquare, Target, Briefcase, Linkedin, Instagram, Mail, CheckCircle2, ChevronRight, ChevronLeft } from "lucide-react";
 
 const reasons = [
-    "Coaching interno para mi empresa",
-    "Mentoría ejecutiva para mujeres",
-    "Consultoría de procesos y gestión",
-    "Diagnóstico organizacional",
-    "Taller o capacitación grupal",
-    "Otro / múltiple",
+    "Estructura de Financiamiento",
+    "Desarrollo Organizacional",
+    "Academia de Retail",
+    "Desarrollo de Liderazgo",
+    "Gestión de Procesos",
+    "Diseño Organizacional",
+    "Coaching Ejecutivo (integral)",
+    "No estoy seguro, necesito orientación",
 ];
 
 export default function ContactoPage() {
@@ -132,10 +134,9 @@ export default function ContactoPage() {
                 <section className={styles.hero}>
                     <div className="container">
                         <div className="text-center">
-                            <span className={`section-label ${styles.labelWhite}`}>Contacto</span>
-                            <h1 className={styles.heroTitle}>Empezamos con una conversación</h1>
+                            <h1 className={styles.heroTitle}>Empecemos por el diagnóstico</h1>
                             <p className={styles.heroDesc}>
-                                Agendá una sesión exploratoria gratuita de 30 minutos. Sin compromiso.
+                                Contanos dónde está trabada tu organización. Escuchamos tu situación y te damos una devolución concreta: qué la está frenando y por dónde conviene empezar. Sin costo y sin compromiso.
                             </p>
                         </div>
                     </div>
@@ -246,19 +247,19 @@ export default function ContactoPage() {
                             <ScrollReveal variant="fade-left" delay={200}>
                                 <div className={styles.sidebar}>
                                     <div className={styles.sideCard} style={{ background: "transparent", border: "1px solid rgba(255,255,255,0.2)", padding: "var(--space-8)", color: "#fff" }}>
-                                        <h3 style={{ marginBottom: "1.5rem", fontSize: "1.2rem", color: "#fff" }}>En la Sesión Exploratoria:</h3>
+                                        <h3 style={{ marginBottom: "1.5rem", fontSize: "1.2rem", color: "#fff" }}>Qué pasa después:</h3>
                                         <ul className={styles.sideList}>
                                             <li className={styles.sideItem} style={{ color: "rgba(255,255,255,0.9)" }}>
                                                 <MessageSquare size={20} color="var(--color-accent)" />
-                                                <span>Escuchamos tus objetivos y el contexto actual de tu gestión.</span>
+                                                <span>Escuchamos tu situación y el contexto real de tu organización.</span>
                                             </li>
                                             <li className={styles.sideItem} style={{ color: "rgba(255,255,255,0.9)" }}>
                                                 <Target size={20} color="var(--color-accent)" />
-                                                <span>Evaluamos si nuestra metodología se alinea con tu desafío.</span>
+                                                <span>Identificamos qué comportamiento está sosteniendo el problema.</span>
                                             </li>
                                             <li className={styles.sideItem} style={{ color: "rgba(255,255,255,0.9)" }}>
                                                 <Briefcase size={20} color="var(--color-accent)" />
-                                                <span>Te presentamos un plan de acción ejecutivo a medida.</span>
+                                                <span>Te devolvemos por dónde empezar, con base en evidencia.</span>
                                             </li>
                                         </ul>
                                     </div>
