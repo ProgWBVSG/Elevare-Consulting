@@ -21,6 +21,7 @@
   --color-gray-100: #f5f6fa;
   --color-gray-200: #e2e4ec;
   --color-gray-300: #ccd0dc;
+  --color-gray-400: #a3a8ba;
   --color-gray-500: #7a7f92;
   --color-gray-700: #3d4155;
   --color-white: #ffffff;
@@ -46,6 +47,7 @@
   --space-2: clamp(0.4rem, 1vw, 0.5rem);
   --space-3: clamp(0.6rem, 1.2vw, 0.75rem);
   --space-4: clamp(0.75rem, 1.5vw, 1rem);
+  --space-5: clamp(0.875rem, 1.75vw, 1.25rem);
   --space-6: clamp(1rem, 2vw, 1.5rem);
   --space-8: clamp(1.25rem, 2.5vw, 2rem);
   --space-10: clamp(1.5rem, 3vw, 2.5rem);
