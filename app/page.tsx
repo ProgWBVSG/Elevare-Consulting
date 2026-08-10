@@ -126,15 +126,6 @@ export default async function Home() {
               </h1>
             </ScrollReveal>
 
-            <div className={styles.heroCtas}>
-              <Link href="/contacto" className="btn btn-primary btn-lg">
-                Solicitá tu Diagnóstico
-              </Link>
-              <a href="#metodo" className={`btn btn-outline-white ${styles.heroSecondaryBtn}`}>
-                Conocé el método ↓
-              </a>
-            </div>
-
             <div className={styles.heroGrid}>
               {heroServices.map((s, i) => (
                 <ScrollReveal key={s.title} variant="fade-up" delay={140 + i * 70}>
@@ -145,7 +136,7 @@ export default async function Home() {
                         alt={s.title}
                         fill
                         priority={i < 3}
-                        sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 30vw"
+                        sizes="(max-width: 520px) 90vw, (max-width: 900px) 45vw, 25vw"
                         className={styles.heroCardImg}
                       />
                     </div>
@@ -158,6 +149,15 @@ export default async function Home() {
                   </Link>
                 </ScrollReveal>
               ))}
+            </div>
+
+            <div className={styles.heroCtas}>
+              <Link href="/contacto" className="btn btn-primary btn-lg">
+                Solicitá tu Diagnóstico
+              </Link>
+              <a href="#metodo" className={`btn btn-outline-white ${styles.heroSecondaryBtn}`}>
+                Conocé el método ↓
+              </a>
             </div>
           </div>
         </section>
