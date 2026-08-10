@@ -22,7 +22,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #0e1a38 0%, #0e1a38 40%, #1d336c 100%);
+  background: linear-gradient(135deg, #1E2A78 0%, #1E2A78 40%, #343D99 100%);
   padding: 1.5rem;
   font-family: 'Inter', 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
   position: relative;
@@ -43,7 +43,7 @@
 .page::before {
   width: 400px;
   height: 400px;
-  background: #1d336c;
+  background: #343D99;
   top: -100px;
   right: -100px;
 }
@@ -51,7 +51,7 @@
 .page::after {
   width: 300px;
   height: 300px;
-  background: #3a7ca5;
+  background: #5A63C4;
   bottom: -80px;
   left: -80px;
 }
@@ -84,12 +84,12 @@
   width: 56px;
   height: 56px;
   border-radius: 16px;
-  background: linear-gradient(135deg, #1d336c 0%, #3a7ca5 100%);
+  background: linear-gradient(135deg, #343D99 0%, #5A63C4 100%);
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto 1.25rem;
-  box-shadow: 0 4px 20px rgba(29, 51, 108, 0.4);
+  box-shadow: 0 4px 20px rgba(52, 61, 153, 0.4);
 }
 
 .iconCircle svg {
@@ -159,9 +159,9 @@
 }
 
 .input:focus {
-  border-color: #1d336c;
+  border-color: #343D99;
   background: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 0 0 3px rgba(29, 51, 108, 0.25);
+  box-shadow: 0 0 0 3px rgba(52, 61, 153, 0.25);
 }
 
 /* ─── ERROR MESSAGE ────────────────────────────── */
@@ -179,7 +179,7 @@
 .button {
   width: 100%;
   padding: 0.9rem 1.5rem;
-  background: linear-gradient(135deg, #c49a43 0%, #d4b060 100%);
+  background: linear-gradient(135deg, #ED6E18 0%, #F79246 100%);
   color: #ffffff;
   font-size: 0.95rem;
   font-weight: 700;
@@ -188,7 +188,7 @@
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.25s ease;
-  box-shadow: 0 4px 20px rgba(196, 154, 67, 0.35);
+  box-shadow: 0 4px 20px rgba(237, 110, 24, 0.35);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -198,8 +198,8 @@
 
 .button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 28px rgba(196, 154, 67, 0.5);
-  background: linear-gradient(135deg, #a67e2e 0%, #c49a43 100%);
+  box-shadow: 0 8px 28px rgba(237, 110, 24, 0.5);
+  background: linear-gradient(135deg, #C25610 0%, #ED6E18 100%);
 }
 
 .button:active {

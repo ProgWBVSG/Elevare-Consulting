@@ -9,13 +9,11 @@ import styles from "./contacto.module.css";
 import { MessageSquare, Target, Briefcase, Linkedin, Instagram, Mail, CheckCircle2, ChevronRight, ChevronLeft } from "lucide-react";
 
 const reasons = [
-    "Estructura de Financiamiento",
     "Desarrollo Organizacional",
     "Academia de Retail",
-    "Desarrollo de Liderazgo",
-    "Gestión de Procesos",
-    "Diseño Organizacional",
-    "Coaching Ejecutivo (integral)",
+    "Estructuración de Financiamiento",
+    "Tecnología",
+    "Consultoría integral",
     "No estoy seguro, necesito orientación",
 ];
 

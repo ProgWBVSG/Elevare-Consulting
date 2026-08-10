@@ -13,7 +13,7 @@
 .title {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #0e1a38;
+  color: #1E2A78;
 }
 
 .subtitle {
@@ -124,7 +124,7 @@
 }
 
 .card:hover .externalIcon {
-  color: #1d336c;
+  color: #343D99;
 }
 
 .cardTitle {
@@ -152,7 +152,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: #1d336c;
+  background: #343D99;
   color: white;
   padding: 0.875rem 2rem;
   border-radius: 8px;
@@ -160,13 +160,13 @@
   font-size: 1rem;
   text-decoration: none;
   transition: all 0.2s ease;
-  box-shadow: 0 4px 12px rgba(29, 51, 108, 0.2);
+  box-shadow: 0 4px 12px rgba(52, 61, 153, 0.2);
 }
 
 .btnPrimary:hover {
-  background: #141f45;
+  background: #18215F;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(29, 51, 108, 0.3);
+  box-shadow: 0 6px 20px rgba(52, 61, 153, 0.3);
 }
 
 @media (max-width: 768px) {

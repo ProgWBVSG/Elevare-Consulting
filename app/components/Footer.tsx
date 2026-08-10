@@ -7,12 +7,10 @@ import { supabase } from "@/lib/supabase";
 import styles from "./Footer.module.css";
 
 const services = [
-    { label: "Estructura de Financiamiento", href: "/servicios" },
     { label: "Desarrollo Organizacional", href: "/servicios" },
-    { label: "Desarrollo de Liderazgo", href: "/servicios" },
-    { label: "Gestión de Procesos", href: "/servicios" },
-    { label: "Diseño Organizacional", href: "/servicios" },
     { label: "Academia de Retail", href: "/servicios" },
+    { label: "Estructuración de Financiamiento", href: "/servicios" },
+    { label: "Tecnología", href: "/servicios" },
 ];
 
 const links = [

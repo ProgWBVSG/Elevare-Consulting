@@ -280,14 +280,14 @@ void main() {
 // replacing the generator's default green recipe. Values are linear 0..1 RGB.
 const UNIFORMS = {
   colors: [
-    [0.043, 0.075, 0.125], // #0b1320 — body navy, keeps the section grounded
-    [0.055, 0.102, 0.220], // #0e1a38 — dark navy
-    [0.114, 0.200, 0.424], // #1d336c — brand primary
-    [0.769, 0.604, 0.263], // #c49a43 — brand gold highlight
-    [0.769, 0.604, 0.263],
-    [0.769, 0.604, 0.263],
-    [0.769, 0.604, 0.263],
-    [0.769, 0.604, 0.263],
+    [0.094, 0.129, 0.373], // #18215F — deepest navy, grounds the section
+    [0.118, 0.165, 0.471], // #1E2A78 — brand navy, dark
+    [0.204, 0.239, 0.600], // #343D99 — brand navy
+    [0.929, 0.431, 0.094], // #ED6E18 — brand orange highlight
+    [0.929, 0.431, 0.094],
+    [0.929, 0.431, 0.094],
+    [0.929, 0.431, 0.094],
+    [0.929, 0.431, 0.094],
   ] as [number, number, number][],
   colorCount: 4,
   scale: 1.860,

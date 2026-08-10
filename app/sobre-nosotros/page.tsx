@@ -17,18 +17,18 @@ export const metadata: Metadata = {
 const valores = [
   {
     Icon: Microscope,
-    title: "Evidencia, no opinión",
-    desc: "Medimos el punto de partida y el impacto de cada intervención. Las decisiones responden a datos de tu organización, no a intuiciones ni a recetas prearmadas.",
+    title: "Decisiones con evidencia",
+    desc: "Medimos el punto de partida y el impacto de cada intervención. Cada decisión responde a datos concretos de tu organización.",
   },
   {
     Icon: Briefcase,
-    title: "Gestión real, no teoría",
-    desc: "Nuestro equipo dirigió operaciones, finanzas y equipos antes de asesorarlos. Hablamos desde la experiencia de haber estado en la silla, bajo presión.",
+    title: "Experiencia de gestión real",
+    desc: "Nuestro equipo dirigió operaciones, finanzas y equipos antes de asesorarlos. Hablamos desde la experiencia de haber estado en esa silla, bajo presión.",
   },
   {
     Icon: Repeat,
     title: "Cambio que se sostiene",
-    desc: "No cerramos cuando se cumple el objetivo, sino cuando el nuevo comportamiento quedó instalado. Esa es la condición para que el resultado dure.",
+    desc: "Cerramos cuando el nuevo comportamiento quedó instalado en el equipo. Esa es la condición para que el resultado se sostenga en el tiempo.",
   },
 ];
 
@@ -77,9 +77,9 @@ export default async function SobreNosotros() {
           <div className={styles.heroOrb} aria-hidden="true" />
           <div className="container">
             <div className={styles.heroInner}>
-              <h1 className={styles.heroTitle}>Detrás de Elevare hay un equipo, no una fórmula</h1>
+              <h1 className={styles.heroTitle}>Detrás de Elevare hay un equipo con experiencia de gestión</h1>
               <p className={styles.heroSubtitle}>
-                Somos consultores en comportamiento organizacional, finanzas, procesos y liderazgo. Cada intervención combina evidencia, experiencia de gestión real y una obsesión: que el cambio quede instalado y se sostenga cuando ya no estamos.
+                Somos consultores en comportamiento organizacional, finanzas, procesos y liderazgo. Cada intervención combina evidencia, experiencia de gestión real y un objetivo claro: que el cambio quede instalado y se sostenga cuando ya no estamos.
               </p>
               <Link href="/contacto" className="btn btn-primary btn-lg">
                 Solicitá tu Diagnóstico

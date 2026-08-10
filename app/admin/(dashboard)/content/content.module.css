@@ -8,7 +8,7 @@
 .title {
   font-size: 1.5rem;
   font-weight: 800;
-  color: #0e1a38;
+  color: #1E2A78;
   margin: 0 0 0.25rem;
 }
 
@@ -68,7 +68,7 @@
   border-radius: 8px;
   font-size: 0.875rem;
   font-family: inherit;
-  color: #0e1a38;
+  color: #1E2A78;
   background: #ffffff;
   transition: all 0.2s ease;
   outline: none;
@@ -77,8 +77,8 @@
 
 .input:focus,
 .textarea:focus {
-  border-color: #1d336c;
-  box-shadow: 0 0 0 3px rgba(29, 51, 108, 0.12);
+  border-color: #343D99;
+  box-shadow: 0 0 0 3px rgba(52, 61, 153, 0.12);
 }
 
 .textarea {
@@ -96,8 +96,8 @@
 }
 
 .messageSuccess {
-  background: rgba(58, 124, 165, 0.1);
-  border: 1px solid rgba(58, 124, 165, 0.25);
+  background: rgba(90, 99, 196, 0.1);
+  border: 1px solid rgba(90, 99, 196, 0.25);
   color: #3d7c5e;
 }
 
@@ -120,7 +120,7 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.7rem 1.5rem;
-  background: #1d336c;
+  background: #343D99;
   color: white;
   font-size: 0.875rem;
   font-weight: 600;
@@ -129,13 +129,13 @@
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.2s ease;
-  box-shadow: 0 2px 10px rgba(29, 51, 108, 0.25);
+  box-shadow: 0 2px 10px rgba(52, 61, 153, 0.25);
 }
 
 .saveBtn:hover {
-  background: #141f45;
+  background: #18215F;
   transform: translateY(-1px);
-  box-shadow: 0 4px 16px rgba(29, 51, 108, 0.35);
+  box-shadow: 0 4px 16px rgba(52, 61, 153, 0.35);
 }
 
 .saveBtn:active {
@@ -206,11 +206,11 @@
 }
 
 .tabBtn:hover {
-  color: #1d336c;
+  color: #343D99;
 }
 
 .tabBtnActive {
-  color: #1d336c;
+  color: #343D99;
 }
 
 .tabBtnActive::after {
@@ -220,7 +220,7 @@
   left: 0;
   right: 0;
   height: 2px;
-  background: #1d336c;
+  background: #343D99;
   border-radius: 2px 2px 0 0;
 }
 

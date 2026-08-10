@@ -5,19 +5,19 @@
    ============================================= */
 :root {
   /* Colors — Elevare Brand 2026 */
-  --color-primary: #1d336c;
-  --color-primary-dark: #141f45;
-  --color-primary-light: #2e4d8a;
-  --color-secondary: #3a7ca5;
-  --color-secondary-dark: #2d6080;
-  --color-secondary-light: #5a9bc0;
-  --color-accent: #c49a43;
-  --color-accent-dark: #a67e2e;
-  --color-accent-light: #d4b060;
+  --color-primary: #343D99;
+  --color-primary-dark: #18215F;
+  --color-primary-light: #4B55B8;
+  --color-secondary: #5A63C4;
+  --color-secondary-dark: #3A4293;
+  --color-secondary-light: #7C84D6;
+  --color-accent: #ED6E18;
+  --color-accent-dark: #C25610;
+  --color-accent-light: #F79246;
   --color-cream: #f0f2f7;
   --color-cream-dark: #e2e6f0;
-  --color-dark: #0e1a38;
-  --color-dark-soft: #1a2850;
+  --color-dark: #1E2A78;
+  --color-dark-soft: #2A3690;
   --color-gray-100: #f5f6fa;
   --color-gray-200: #e2e4ec;
   --color-gray-300: #ccd0dc;
@@ -104,7 +104,7 @@ body {
   font-size: var(--text-base);
   line-height: 1.7;
   color: var(--color-white);
-  background-color: #0B1320;
+  background-color: #1E2A78;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
@@ -266,14 +266,14 @@ section[id] {
   background: var(--color-accent);
   color: var(--color-white);
   border-color: var(--color-accent);
-  box-shadow: 0 4px 20px rgba(196, 154, 67, 0.35);
+  box-shadow: 0 4px 20px rgba(237, 110, 24, 0.35);
 }
 
 .btn-primary:hover {
   background: var(--color-accent-dark);
   border-color: var(--color-accent-dark);
   transform: translateY(-2px);
-  box-shadow: 0 8px 28px rgba(196, 154, 67, 0.45);
+  box-shadow: 0 8px 28px rgba(237, 110, 24, 0.45);
 }
 
 .btn-secondary {
@@ -337,17 +337,17 @@ section[id] {
 }
 
 .badge-primary {
-  background: rgba(29, 51, 108, 0.1);
+  background: rgba(52, 61, 153, 0.1);
   color: var(--color-primary);
 }
 
 .badge-secondary {
-  background: rgba(58, 124, 165, 0.1);
+  background: rgba(90, 99, 196, 0.1);
   color: var(--color-secondary-dark);
 }
 
 .badge-accent {
-  background: rgba(196, 154, 67, 0.12);
+  background: rgba(237, 110, 24, 0.12);
   color: var(--color-accent-dark);
 }
 
@@ -476,7 +476,7 @@ section[id] {
 .form-select:focus {
   outline: none;
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(29, 51, 108, 0.15);
+  box-shadow: 0 0 0 3px rgba(52, 61, 153, 0.15);
 }
 
 .form-textarea {
@@ -508,7 +508,7 @@ section[id] {
 }
 
 .bg-gradient-hero {
-  background: linear-gradient(135deg, #0e1a38 0%, #1d336c 60%, #141f45 100%);
+  background: linear-gradient(135deg, #1E2A78 0%, #343D99 60%, #18215F 100%);
 }
 
 /* White text contexts */
@@ -728,23 +728,23 @@ section[id] {
 
 .tag-expertise--primary {
   color: var(--color-primary);
-  border-color: rgba(29, 51, 108, 0.3);
-  background: rgba(29, 51, 108, 0.06);
+  border-color: rgba(52, 61, 153, 0.3);
+  background: rgba(52, 61, 153, 0.06);
 }
 
 .tag-expertise--primary:hover {
-  background: rgba(29, 51, 108, 0.12);
+  background: rgba(52, 61, 153, 0.12);
   border-color: var(--color-primary);
 }
 
 .tag-expertise--green {
   color: var(--color-secondary-dark);
-  border-color: rgba(58, 124, 165, 0.3);
-  background: rgba(58, 124, 165, 0.07);
+  border-color: rgba(90, 99, 196, 0.3);
+  background: rgba(90, 99, 196, 0.07);
 }
 
 .tag-expertise--green:hover {
-  background: rgba(58, 124, 165, 0.15);
+  background: rgba(90, 99, 196, 0.15);
   border-color: var(--color-secondary);
 }
 

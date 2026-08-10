@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import {
-  Coins, Compass, Workflow, Building2, ShoppingBag, Network,
+  Coins, Building2, ShoppingBag, Cpu,
   Search, Target, Rocket, LineChart, CheckCircle, ArrowRight
 } from "lucide-react";
 import Header from "./components/Header";
@@ -28,66 +28,36 @@ export const metadata: Metadata = {
   },
 };
 
-// Tres ejes principales — las puertas de entrada
-// Grid shown in the hero: the six services, each linking to /servicios.
+
+// Grid shown in the hero: the four service areas, each linking to /servicios.
 const heroServices = [
-  { title: "Estructura de Financiamiento", image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=800&auto=format&fit=crop", href: "/servicios" },
   { title: "Desarrollo Organizacional", image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800&auto=format&fit=crop", href: "/servicios" },
   { title: "Academia de Retail", image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=800&auto=format&fit=crop", href: "/servicios" },
-  { title: "Desarrollo de Liderazgo", image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800&auto=format&fit=crop", href: "/servicios" },
-  { title: "Gestión de Procesos", image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=800&auto=format&fit=crop", href: "/servicios" },
-  { title: "Diseño Organizacional", image: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=800&auto=format&fit=crop", href: "/servicios" },
+  { title: "Estructuración de Financiamiento", image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=800&auto=format&fit=crop", href: "/servicios" },
+  { title: "Tecnología", image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=800&auto=format&fit=crop", href: "/servicios" },
 ];
 
-const ejes = [
-  {
-    Icon: Coins,
-    title: "Estructura de Financiamiento",
-    line: "El crecimiento no se financia con intuición. Ordenamos tus números y tu estructura de capital para que escalar deje de ser una apuesta.",
-  },
-  {
-    Icon: Compass,
-    title: "Desarrollo de Liderazgo",
-    line: "Esto no es un curso. Es reingeniería de cómo tu gente decide, delega y lidera, con criterio propio y accountability real.",
-  },
-  {
-    Icon: Workflow,
-    title: "Gestión de Procesos",
-    line: "Cuando el proceso es claro, el resultado deja de depender de la suerte. Cada decisión con un dueño, cada resultado con un porqué.",
-  },
-];
-
-// Los 6 servicios, bajo el paraguas de Coaching Ejecutivo
+// Consultora de Negocios — las cuatro áreas en las que trabajamos
 const services = [
-  {
-    Icon: Coins,
-    title: "Estructura de Financiamiento",
-    desc: "Ordenamos tus números, tu estructura de capital y tu proyección para que escalar sea una decisión informada y no una apuesta.",
-  },
   {
     Icon: Building2,
     title: "Desarrollo Organizacional",
-    desc: "La cultura decide lo que la estrategia promete. Alineamos cultura, estructura y procesos para rendir hoy y evolucionar para lo que viene.",
+    desc: "Alineamos cultura, estructura y procesos para que la organización rinda hoy y evolucione con lo que viene. Roles claros, decisiones con dueño y equipos que sostienen el resultado.",
   },
   {
     Icon: ShoppingBag,
     title: "Academia de Retail",
-    desc: "El retail se gana en el detalle operativo, todos los días. Formación y estándares de gestión diseñados para la realidad del punto de venta.",
+    desc: "Formación y estándares de gestión para la realidad del punto de venta: equipos preparados, indicadores a la vista y una experiencia de cliente que se repite y escala.",
   },
   {
-    Icon: Compass,
-    title: "Desarrollo de Liderazgo",
-    desc: "Formamos líderes que habilitan equipos autónomos, con criterio propio y responsabilidad colectiva como estándar operativo.",
+    Icon: Coins,
+    title: "Estructuración de Financiamiento",
+    desc: "Ordenamos tus números, tu estructura de capital y tu proyección para que cada decisión de inversión y crecimiento se tome con información concreta.",
   },
   {
-    Icon: Workflow,
-    title: "Gestión de Procesos",
-    desc: "Diseñamos y estandarizamos procesos para que cada decisión tenga un dueño y cada resultado, una causa que se puede repetir.",
-  },
-  {
-    Icon: Network,
-    title: "Diseño Organizacional",
-    desc: "La estructura sigue al propósito, no al organigrama heredado. Rediseñamos roles para sostener la performance mientras la empresa crece.",
+    Icon: Cpu,
+    title: "Tecnología",
+    desc: "Incorporamos herramientas y sistemas que sostienen la operación: información confiable, procesos digitalizados y datos disponibles en el momento de decidir.",
   },
 ];
 
@@ -200,40 +170,14 @@ export default async function Home() {
         {/* ============ TRUST STRIP ============ */}
         <LogoCarousel />
 
-        {/* ============ TRES EJES ============ */}
-        <section className="section">
-          <div className="container">
-            <ScrollReveal variant="fade-up">
-              <div className={styles.centeredHead}>
-                <h2 className="section-title">Tres frentes donde se define el resultado</h2>
-                <p className="section-desc">
-                  La mayoría de los problemas de una organización no son de talento, sino de dinero mal estructurado, liderazgo sin método y procesos que dependen de las personas correctas.
-                </p>
-              </div>
-            </ScrollReveal>
-
-            <div className={styles.ejesGrid}>
-              {ejes.map((e, i) => (
-                <ScrollReveal key={e.title} variant="fade-up" delay={100 + i * 120}>
-                  <div className={styles.ejeCard}>
-                    <span className={styles.ejeIcon}><e.Icon size={26} /></span>
-                    <h3 className={styles.ejeTitle}>{e.title}</h3>
-                    <p className={styles.ejeLine}>{e.line}</p>
-                  </div>
-                </ScrollReveal>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* ============ SERVICIOS ============ */}
         <section id="servicios" className="section bg-cream">
           <div className="container">
             <ScrollReveal variant="fade-up">
               <div className={styles.centeredHead}>
-                <h2 className="section-title">Un sistema integral de consultoría</h2>
+                <h2 className="section-title">Consultora de Negocios</h2>
                 <p className="section-desc">
-                  Seis capacidades que se combinan según lo que tu organización necesita primero. Todas se integran en nuestro Coaching Ejecutivo, el marco desde el cual definimos por dónde intervenir.
+                  Cuatro áreas que se combinan según lo que tu organización necesita primero. Empezamos por el diagnóstico y desde ahí definimos por dónde conviene intervenir.
                 </p>
               </div>
             </ScrollReveal>
@@ -296,7 +240,7 @@ export default async function Home() {
           <div className="container">
             <ScrollReveal variant="fade-up">
               <div className={styles.centeredHead}>
-                <h2 className="section-title">Detrás de Elevare hay un equipo, no una fórmula</h2>
+                <h2 className="section-title">Detrás de Elevare hay un equipo con experiencia de gestión</h2>
                 <p className="section-desc">
                   Somos un equipo multidisciplinario de consultores en comportamiento organizacional, finanzas, procesos y liderazgo. No trabajamos desde la teoría: cada intervención combina evidencia, experiencia de gestión real y la obsesión por que el cambio quede instalado y se sostenga.
                 </p>

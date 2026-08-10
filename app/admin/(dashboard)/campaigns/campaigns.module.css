@@ -16,7 +16,7 @@
 .sectionTitle {
   font-size: 1.1rem;
   font-weight: 700;
-  color: #0e1a38;
+  color: #1E2A78;
   margin-bottom: 1rem;
   display: flex;
   align-items: center;
@@ -54,7 +54,7 @@
 }
 
 .radioInput {
-  accent-color: #1d336c;
+  accent-color: #343D99;
   width: 1.1rem;
   height: 1.1rem;
   cursor: pointer;
@@ -88,7 +88,7 @@
 }
 
 .leadCheck {
-  accent-color: #1d336c;
+  accent-color: #343D99;
   width: 1.1rem;
   height: 1.1rem;
   cursor: pointer;
@@ -142,8 +142,8 @@
 
 .input:focus, .textarea:focus {
   outline: none;
-  border-color: #1d336c;
-  box-shadow: 0 0 0 3px rgba(29, 51, 108, 0.1);
+  border-color: #343D99;
+  box-shadow: 0 0 0 3px rgba(52, 61, 153, 0.1);
 }
 
 .fileInputWrapper {
@@ -204,7 +204,7 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  background: #c49a43;
+  background: #ED6E18;
   color: white;
   padding: 0.875rem 2rem;
   border-radius: 8px;
@@ -213,7 +213,7 @@
   border: none;
   cursor: pointer;
   transition: all 0.2s ease;
-  box-shadow: 0 4px 12px rgba(196, 154, 67, 0.2);
+  box-shadow: 0 4px 12px rgba(237, 110, 24, 0.2);
 }
 
 .submitBtn:hover {
@@ -264,7 +264,7 @@
 .title {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #0e1a38;
+  color: #1E2A78;
 }
 
 .subtitle {
@@ -298,8 +298,8 @@
 }
 
 .tabActive {
-  color: #1d336c;
-  border-bottom-color: #1d336c;
+  color: #343D99;
+  border-bottom-color: #343D99;
 }
 
 /* HISTORY TABLE */
