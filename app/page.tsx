@@ -93,11 +93,6 @@ const metodo = [
   },
 ];
 
-const trackRecord = [
-  { value: "20+", label: "Años de experiencia" },
-  { value: "470+", label: "Personas gestionadas" },
-  { value: "4", label: "Países con alianzas" },
-];
 
 export default async function Home() {
   const supabase = await createClient();
@@ -242,19 +237,8 @@ export default async function Home() {
               <div className={styles.centeredHead}>
                 <h2 className="section-title">Detrás de Elevare hay un equipo con experiencia de gestión</h2>
                 <p className="section-desc">
-                  Somos un equipo multidisciplinario de consultores en comportamiento organizacional, finanzas, procesos y liderazgo. No trabajamos desde la teoría: cada intervención combina evidencia, experiencia de gestión real y la obsesión por que el cambio quede instalado y se sostenga.
+                  Somos un equipo multidisciplinario de consultores en comportamiento organizacional, finanzas, procesos y liderazgo. Cada intervención combina evidencia, más de veinte años de experiencia dirigiendo equipos y el compromiso de que el cambio quede instalado y se sostenga.
                 </p>
-              </div>
-            </ScrollReveal>
-
-            <ScrollReveal variant="fade-up" delay={120}>
-              <div className={styles.trackRecord}>
-                {trackRecord.map((t) => (
-                  <div key={t.label} className={styles.trackItem}>
-                    <strong>{t.value}</strong>
-                    <span>{t.label}</span>
-                  </div>
-                ))}
               </div>
             </ScrollReveal>
 

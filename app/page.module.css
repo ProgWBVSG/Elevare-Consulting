@@ -1877,34 +1877,6 @@
   line-height: 1.75;
 }
 
-/* Sobre nosotros — track record */
-.trackRecord {
-  display: flex;
-  justify-content: center;
-  gap: var(--space-16);
-  flex-wrap: wrap;
-  margin: 0 0 var(--space-20);
-}
-
-.trackItem {
-  text-align: center;
-}
-
-.trackItem strong {
-  display: block;
-  font-family: var(--font-heading);
-  font-size: clamp(2rem, 5vw, 3rem);
-  color: var(--color-accent);
-  line-height: 1;
-}
-
-.trackItem span {
-  display: block;
-  font-size: var(--text-sm);
-  color: rgba(255, 255, 255, 0.6);
-  margin-top: var(--space-3);
-}
-
 .casosTitle {
   text-align: center;
   font-family: var(--font-heading);
@@ -2001,9 +1973,6 @@
     grid-template-columns: 1fr;
   }
 
-  .trackRecord {
-    gap: var(--space-10);
-  }
 }
 
 @media (min-width: 601px) and (max-width: 900px) {
