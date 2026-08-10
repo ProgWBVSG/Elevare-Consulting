@@ -518,7 +518,9 @@ export function ShaderBackground({ className }: { className?: string }) {
     }
     document.addEventListener("visibilitychange", onVisibilityChange)
 
-    function render(now: number) {
+    // Arrow function (not a hoisted declaration) so TypeScript keeps the
+    // non-null narrowing of `canvas` and `gl` from the guards above.
+    const render = (now: number) => {
       raf = 0
       if (disposed || !visible || !inView) return
       const dt = lastNow === null ? 0 : Math.min((now - lastNow) / 1000, 0.1)
@@ -560,6 +562,7 @@ export function ShaderBackground({ className }: { className?: string }) {
       else lastNow = null
     }
     requestRender()
+
     return () => {
       disposed = true
       cancelAnimationFrame(raf)
