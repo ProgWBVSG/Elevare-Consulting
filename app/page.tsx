@@ -9,7 +9,6 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import LogoCarousel from "./components/LogoCarousel";
 import ScrollReveal from "./components/ScrollReveal";
-import ServiceCarousel from "./components/ServiceCarousel";
 import { ShaderBackground } from "./components/ShaderBackground";
 import styles from "./page.module.css";
 import { createClient } from '@/lib/supabase/server';
@@ -30,6 +29,16 @@ export const metadata: Metadata = {
 };
 
 // Tres ejes principales — las puertas de entrada
+// Grid shown in the hero: the six services, each linking to /servicios.
+const heroServices = [
+  { title: "Estructura de Financiamiento", image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=800&auto=format&fit=crop", href: "/servicios" },
+  { title: "Desarrollo Organizacional", image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800&auto=format&fit=crop", href: "/servicios" },
+  { title: "Academia de Retail", image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=800&auto=format&fit=crop", href: "/servicios" },
+  { title: "Desarrollo de Liderazgo", image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800&auto=format&fit=crop", href: "/servicios" },
+  { title: "Gestión de Procesos", image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=800&auto=format&fit=crop", href: "/servicios" },
+  { title: "Diseño Organizacional", image: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=800&auto=format&fit=crop", href: "/servicios" },
+];
+
 const ejes = [
   {
     Icon: Coins,
@@ -143,17 +152,13 @@ export default async function Home() {
       <main>
         {/* ============ HERO ============ */}
         <section className={styles.hero}>
-          <div className={styles.heroOrb} aria-hidden="true" />
+          <ShaderBackground className={styles.heroShader} />
           <div className={`container ${styles.heroContainer}`}>
             <ScrollReveal variant="fade-up" delay={80}>
               <h1 className={styles.heroTitle}>
                 {heroTitleMain}{" "}
                 <span className={styles.highlightText}>{heroTitleSub}</span>
               </h1>
-            </ScrollReveal>
-
-            <ScrollReveal variant="fade-up" delay={200} className={styles.heroCarouselWrap}>
-              <ServiceCarousel />
             </ScrollReveal>
 
             <div className={styles.heroCtas}>
@@ -163,6 +168,31 @@ export default async function Home() {
               <a href="#metodo" className={`btn btn-outline-white ${styles.heroSecondaryBtn}`}>
                 Conocé el método ↓
               </a>
+            </div>
+
+            <div className={styles.heroGrid}>
+              {heroServices.map((s, i) => (
+                <ScrollReveal key={s.title} variant="fade-up" delay={140 + i * 70}>
+                  <Link href={s.href} className={styles.heroCard} aria-label={s.title}>
+                    <div className={styles.heroCardImgWrap}>
+                      <Image
+                        src={s.image}
+                        alt={s.title}
+                        fill
+                        priority={i < 3}
+                        sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 30vw"
+                        className={styles.heroCardImg}
+                      />
+                    </div>
+                    <div className={styles.heroCardBody}>
+                      <h3 className={styles.heroCardTitle}>{s.title}</h3>
+                      <span className={styles.heroCardArrow} aria-hidden="true">
+                        <ArrowRight size={18} />
+                      </span>
+                    </div>
+                  </Link>
+                </ScrollReveal>
+              ))}
             </div>
           </div>
         </section>
