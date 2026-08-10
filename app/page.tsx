@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import {
   Coins, Compass, Workflow, Building2, ShoppingBag, Network,
   Search, Target, Rocket, LineChart, CheckCircle, ArrowRight
@@ -9,6 +10,7 @@ import Footer from "./components/Footer";
 import LogoCarousel from "./components/LogoCarousel";
 import ScrollReveal from "./components/ScrollReveal";
 import ServiceCarousel from "./components/ServiceCarousel";
+import { ShaderBackground } from "./components/ShaderBackground";
 import styles from "./page.module.css";
 import { createClient } from '@/lib/supabase/server';
 
@@ -322,8 +324,9 @@ export default async function Home() {
 
         {/* ============ CTA FINAL ============ */}
         <section className={styles.ctaSection}>
-          <div className="container">
-            <ScrollReveal variant="fade-up">
+          <ShaderBackground className={styles.ctaShader} />
+          <div className={`container ${styles.ctaGrid}`}>
+            <ScrollReveal variant="fade-right">
               <div className={styles.ctaInner}>
                 <h2 className={styles.ctaFinalTitle}>¿Listo para transformar tu organización?</h2>
                 <p className={styles.ctaFinalDesc}>
@@ -334,6 +337,17 @@ export default async function Home() {
                 </Link>
               </div>
             </ScrollReveal>
+
+            <div className={styles.ctaPhotoCol}>
+              <Image
+                src="/maria-cutout.png"
+                alt="María Gómez, fundadora de Elevare Consulting"
+                width={408}
+                height={612}
+                quality={95}
+                className={styles.ctaPhoto}
+              />
+            </div>
           </div>
         </section>
       </main>
