@@ -12,7 +12,8 @@ export const metadata: Metadata = {
         title: "Preguntas Frecuentes | Consultoría de Liderazgo | Elevare Consulting",
         description: "Todo lo que necesitás saber sobre consultoría estratégica, mentoría ejecutiva y consultoría organizacional antes de agendar tu sesión.",
         url: "https://elevareconsultingmg.com/faq",
-    },
+        images: [{ url: "/og-elevare.png", width: 1200, height: 630, alt: "Elevare Consulting — Consultora de Negocios" }],
+},
     alternates: {
         canonical: "https://elevareconsultingmg.com/faq",
     },

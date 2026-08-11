@@ -47,6 +47,90 @@
     align-items: flex-end;
 }
 
+/* Aviso breve junto al globo del asistente */
+.nudge {
+    position: absolute;
+    right: calc(100% + 12px);
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 10px 8px 14px;
+    border-radius: 999px;
+    background: var(--color-white);
+    color: var(--color-primary-dark);
+    box-shadow: 0 10px 26px -10px rgba(0, 0, 0, 0.45);
+    white-space: nowrap;
+    animation: nudgeIn 0.45s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+/* Puntita que apunta al globo */
+.nudge::after {
+    content: '';
+    position: absolute;
+    right: -5px;
+    top: 50%;
+    width: 10px;
+    height: 10px;
+    background: var(--color-white);
+    transform: translateY(-50%) rotate(45deg);
+}
+
+.nudgeText {
+    background: none;
+    border: none;
+    padding: 0;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-primary-dark);
+    cursor: pointer;
+    line-height: 1.2;
+}
+
+.nudgeClose {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: rgba(30, 42, 120, 0.08);
+    color: var(--color-primary);
+    border: none;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background var(--transition-fast);
+}
+
+.nudgeClose:hover {
+    background: rgba(30, 42, 120, 0.18);
+}
+
+@keyframes nudgeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50%) translateX(10px) scale(0.94);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(-50%) translateX(0) scale(1);
+    }
+}
+
+@media (max-width: 480px) {
+    .nudgeText {
+        font-size: 0.8rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .nudge {
+        animation: none;
+    }
+}
+
 .assistantBtn {
     width: 50px;
     height: 50px;

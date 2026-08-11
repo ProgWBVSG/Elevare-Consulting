@@ -14,7 +14,8 @@ export const metadata: Metadata = {
         title: 'Testimonios y Casos de Éxito | Elevare Consulting',
         description: 'Historias reales de PYMEs y mujeres ejecutivas que transformaron su liderazgo con consultoría estratégica. Resultados medibles y sostenibles.',
         url: 'https://elevareconsultingmg.com/testimonios',
-    },
+        images: [{ url: "/og-elevare.png", width: 1200, height: 630, alt: "Elevare Consulting — Consultora de Negocios" }],
+},
     alternates: {
         canonical: 'https://elevareconsultingmg.com/testimonios',
     },

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import styles from "./FloatingWidgets.module.css";
@@ -11,10 +11,10 @@ type FloatingWidgetsProps = {
 };
 
 const frequentQuestions = [
-    "¿Qué es la consultoría Elevare?",
-    "¿Qué es el método Elevare?",
-    "¿Qué mentorías ofrecen?",
-    "¿La consultoría empresarial es online?",
+    "¿Qué hace Elevare Consulting?",
+    "¿Qué es el Método Elevare?",
+    "¿En qué áreas trabajan?",
+    "¿Cómo empiezo a trabajar con ustedes?",
 ];
 
 type Message = {
@@ -26,25 +26,45 @@ export default function FloatingWidgets({ waPhone, waMsg }: FloatingWidgetsProps
     const pathname = usePathname();
     const [chatOpen, setChatOpen] = useState(false);
     const [messages, setMessages] = useState<Message[]>([]);
+    const [showNudge, setShowNudge] = useState(false);
 
     const whatsappUrl = `https://wa.me/${waPhone}?text=${encodeURIComponent(waMsg)}`;
+    const isAdmin = pathname.startsWith("/admin");
+
+    // Aviso breve junto al globo, para que se note que el asistente responde
+    // preguntas. Aparece una sola vez por sesión y se guarda al descartarlo.
+    useEffect(() => {
+        if (isAdmin) return;
+        if (sessionStorage.getItem("elevare-nudge-visto")) return;
+        const show = setTimeout(() => setShowNudge(true), 2500);
+        const hide = setTimeout(() => setShowNudge(false), 14000);
+        return () => {
+            clearTimeout(show);
+            clearTimeout(hide);
+        };
+    }, [isAdmin]);
+
+    const dismissNudge = () => {
+        setShowNudge(false);
+        sessionStorage.setItem("elevare-nudge-visto", "1");
+    };
 
     // No mostrar widgets flotantes en el panel de admin
-    if (pathname.startsWith("/admin")) {
+    if (isAdmin) {
         return null;
     }
 
     const handleQuestionClick = (question: string) => {
-        let response = "Interesante pregunta. Para darte la mejor respuesta, sumate a una sesión exploratoria con María en la página de Contacto.";
+        let response = "Buena pregunta. Para responderte con precisión sobre tu caso, escribinos por WhatsApp o pedí tu diagnóstico desde la página de Contacto.";
 
-        if (question.includes("consultoría Elevare")) {
-            response = "Elevare es consultoría de liderazgo y desarrollo organizacional para líderes y organizaciones que buscan trascender: trabajamos las creencias, la comunicación y los sistemas de gestión para generar cambios reales y sostenibles.";
-        } else if (question.includes("método Elevare")) {
-            response = "Nuestro método combina profundidad estratégica y humana con aplicabilidad inmediata. Transformamos líderes desarrollando sistemas estructurales que luego funcionan solos.";
-        } else if (question.includes("mentorías")) {
-            response = "Ofrecemos Mentoría Ejecutiva especializada para mujeres líderes, abordando desafíos como el síndrome del impostor, comunicación asertiva y doble carga de expectativas.";
-        } else if (question.includes("online")) {
-            response = "Sí, trabajamos ágilmente con líderes en Argentina, Paraguay, Chile y EEUU mediante modalidad virtual, o híbrida para ciertos diagnósticos y workshops.";
+        if (question.includes("qué hace Elevare") || question.includes("hace Elevare")) {
+            response = "Somos una consultora de negocios. Acompañamos a empresas que ya facturan pero necesitan estructura: ordenamos procesos, equipos, números y tecnología, con un diagnóstico basado en ciencias del comportamiento.";
+        } else if (question.includes("Método Elevare")) {
+            response = "Trabajamos en cuatro fases: diagnóstico (medimos el punto de partida con KPIs), propuesta a medida, ejecución con seguimiento activo, y medición de resultados contra esa línea base.";
+        } else if (question.includes("áreas")) {
+            response = "Cuatro áreas que se combinan según lo que necesites primero: Desarrollo Organizacional, Academia de Retail, Estructuración de Financiamiento y Tecnología.";
+        } else if (question.includes("empiezo")) {
+            response = "Se empieza por el diagnóstico, sin costo ni compromiso. Escuchamos tu situación y te damos una devolución concreta sobre por dónde conviene intervenir. Podés pedirlo desde la página de Contacto.";
         }
 
         setMessages([...messages, { text: question, sender: "user" }, { text: response, sender: "bot" }]);
@@ -117,9 +137,38 @@ export default function FloatingWidgets({ waPhone, waMsg }: FloatingWidgetsProps
                     </div>
                 )}
 
+                {showNudge && !chatOpen && (
+                    <div className={styles.nudge} role="status">
+                        <button
+                            type="button"
+                            className={styles.nudgeText}
+                            onClick={() => {
+                                setChatOpen(true);
+                                dismissNudge();
+                            }}
+                        >
+                            Contesto tus preguntas acá
+                        </button>
+                        <button
+                            type="button"
+                            className={styles.nudgeClose}
+                            onClick={dismissNudge}
+                            aria-label="Cerrar aviso"
+                        >
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round">
+                                <line x1="18" y1="6" x2="6" y2="18" />
+                                <line x1="6" y1="6" x2="18" y2="18" />
+                            </svg>
+                        </button>
+                    </div>
+                )}
+
                 <button
                     className={styles.assistantBtn}
-                    onClick={() => setChatOpen(!chatOpen)}
+                    onClick={() => {
+                        setChatOpen(!chatOpen);
+                        dismissNudge();
+                    }}
                     aria-label="Abrir asistente de preguntas frecuentes"
                 >
                     <Image src="/logo.png" alt="Elevare" width={32} height={32} style={{ objectFit: "contain", width: "32px", height: "32px", display: "block" }} />

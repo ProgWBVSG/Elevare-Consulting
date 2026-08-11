@@ -9,7 +9,8 @@ export const metadata: Metadata = {
     description:
       "Empezamos por el diagnóstico. Consultoría organizacional basada en ciencias del comportamiento para PYMEs y equipos. Devolución concreta, sin compromiso.",
     url: "https://elevareconsultingmg.com/contacto",
-  },
+      images: [{ url: "/og-elevare.png", width: 1200, height: 630, alt: "Elevare Consulting — Consultora de Negocios" }],
+},
   alternates: {
     canonical: "https://elevareconsultingmg.com/contacto",
   },

@@ -16,13 +16,14 @@ import { createClient } from '@/lib/supabase/server';
 export const metadata: Metadata = {
   title: "Consultoría Organizacional basada en Ciencias del Comportamiento | Elevare Consulting",
   description:
-    "Transformamos organizaciones a través de las ciencias del comportamiento. Estructura de financiamiento, liderazgo, procesos y diseño organizacional para empresas que buscan crecer. Solicitá tu diagnóstico.",
+    "Consultora de negocios en Argentina y LATAM: desarrollo organizacional, academia de retail, estructuración de financiamiento y tecnología. Diagnóstico basado en ciencias del comportamiento, sin costo.",
   openGraph: {
     title: "Elevare Consulting | Transformación organizacional con base científica",
     description:
-      "Diagnóstico, intervención y resultados de gestión basados en ciencias del comportamiento. Consultoría integral para organizaciones que quieren crecer.",
+      "Cuatro áreas integradas y un método con diagnóstico, ejecución y medición de resultados. Para empresas que ya facturan y necesitan estructura.",
     url: "https://elevareconsultingmg.com",
-  },
+      images: [{ url: "/og-elevare.png", width: 1200, height: 630, alt: "Elevare Consulting — Consultora de Negocios" }],
+},
   alternates: {
     canonical: "https://elevareconsultingmg.com",
   },
@@ -32,9 +33,9 @@ export const metadata: Metadata = {
 // Grid shown in the hero: the four service areas, each linking to /servicios.
 const heroServices = [
   { title: "Desarrollo Organizacional", image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800&auto=format&fit=crop", href: "/servicios" },
-  { title: "Academia de Retail", image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=800&auto=format&fit=crop", href: "/servicios" },
+  { title: "Academia de Retail", image: "/servicio-retail.jpg", href: "/servicios" },
   { title: "Estructuración de Financiamiento", image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=800&auto=format&fit=crop", href: "/servicios" },
-  { title: "Tecnología", image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=800&auto=format&fit=crop", href: "/servicios" },
+  { title: "Tecnología", image: "/servicio-tecnologia.jpg", href: "/servicios" },
 ];
 
 // Consultora de Negocios — las cuatro áreas en las que trabajamos
