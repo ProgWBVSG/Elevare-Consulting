@@ -131,6 +131,32 @@ export default async function SobreNosotros() {
                   <p className={styles.casosSub}>Organizaciones y líderes que ya trabajaron con nosotros.</p>
                 </div>
               </ScrollReveal>
+
+              {/* Testimonio en video */}
+              <ScrollReveal variant="fade-up">
+                <div className={styles.videoCaso}>
+                  <div className={styles.videoCasoPlayer}>
+                    <video
+                      src="/testimonio-1.mp4"
+                      poster="/testimonio-1-poster.jpg"
+                      preload="none"
+                      controls
+                      playsInline
+                      className={styles.videoCasoVideo}
+                    />
+                  </div>
+                  <div className={styles.videoCasoTexto}>
+                    <span className={styles.videoCasoBadge}>▶ Testimonio en video</span>
+                    <h3 className={styles.videoCasoTitulo}>Andrea Arenas — Paraguay Me Inspira</h3>
+                    <p className={styles.videoCasoDesc}>
+                      Andrea cuenta en primera persona cómo pasó de absorber sola cada error a liderar su equipo con claridad, delegando y sosteniendo las conversaciones difíciles.
+                    </p>
+                    <Link href="/testimonios" className="btn btn-outline">
+                      Ver el caso completo <ArrowRight size={15} style={{ marginLeft: 4 }} />
+                    </Link>
+                  </div>
+                </div>
+              </ScrollReveal>
               <div className="grid-3">
                 {testimonials.map((t, idx) => (
                   <ScrollReveal key={t.id || idx} variant="fade-up" delay={idx * 120}>

@@ -21,8 +21,12 @@ export default function FeaturedCase() {
                     {/* Video */}
                     <div className={styles.featuredVideo}>
                         <div className={styles.videoTagBadge}>▶ Video testimonio</div>
+                        {/* preload="none" + poster: el archivo pesa ~100MB y sin
+                            esto el navegador lo descargaba entero al abrir la pagina. */}
                         <video
                             src="/testimonio-1.mp4"
+                            poster="/testimonio-1-poster.jpg"
+                            preload="none"
                             controls
                             playsInline
                             className={styles.video}
@@ -41,7 +45,7 @@ export default function FeaturedCase() {
                     {/* Story */}
                     <div className={styles.featuredStory}>
                         <div className={styles.storyTag}>
-                            <span>📌 Mentoría Ejecutiva para Mujeres</span>
+                            <span>📌 Desarrollo Organizacional</span>
                         </div>
 
                         <h3 className={styles.storyTitle}>La historia de Andrea</h3>
