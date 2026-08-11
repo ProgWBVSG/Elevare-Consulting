@@ -1186,27 +1186,9 @@
 .ctaSection {
   position: relative;
   padding: var(--space-24) 0;
-  /* Fallback for browsers/devices where the WebGL shader can't initialise. */
   background: linear-gradient(135deg, #1E2A78 0%, #343D99 100%);
   overflow: hidden;
   isolation: isolate;
-}
-
-.ctaShader {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-}
-
-/* Darkens the shader just enough to keep text contrast comfortable. */
-.ctaSection::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background: linear-gradient(90deg, rgba(24, 33, 95, 0.78) 0%, rgba(24, 33, 95, 0.52) 45%, rgba(24, 33, 95, 0.12) 100%);
-  pointer-events: none;
 }
 
 .ctaGrid {
@@ -1953,10 +1935,6 @@
     grid-template-columns: 1fr;
     gap: var(--space-8);
     justify-items: center;
-  }
-
-  .ctaSection::after {
-    background: linear-gradient(180deg, rgba(24, 33, 95, 0.78) 0%, rgba(24, 33, 95, 0.6) 100%);
   }
 
   .ctaInner {

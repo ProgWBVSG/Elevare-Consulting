@@ -34,7 +34,6 @@ const valores = [
 
 const trackRecord = [
   { value: "20+", label: "Años de experiencia" },
-  { value: "470+", label: "Personas lideradas" },
   { value: "4", label: "Países con presencia" },
 ];
 

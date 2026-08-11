@@ -35,7 +35,7 @@ const testimoniosSchemaLD = {
                 ratingValue: "5",
                 bestRating: "5",
                 ratingCount: "40",
-                reviewCount: "3",
+                reviewCount: "1",
             },
             review: [
                 {
@@ -43,12 +43,6 @@ const testimoniosSchemaLD = {
                     author: { "@type": "Person", name: "Maria Eugenia Cano" },
                     reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
                     reviewBody: "Cada charla compartida fue inolvidable. Tus consejos fueron un aprendizaje continuo y fructífero. Excelente profesional.",
-                },
-                {
-                    "@type": "Review",
-                    author: { "@type": "Person", name: "Camila V." },
-                    reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
-                    reviewBody: "El proceso de consultoría con Elevare me cambió la perspectiva completa. Transformé cómo veo mi rol como líder.",
                 },
             ],
         },

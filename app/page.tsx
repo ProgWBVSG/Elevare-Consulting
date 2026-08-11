@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import {
   Coins, Building2, ShoppingBag, Cpu,
-  Search, Target, Rocket, LineChart, CheckCircle, ArrowRight
+  Search, Target, Rocket, LineChart, ArrowRight
 } from "lucide-react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -103,13 +103,6 @@ export default async function Home() {
 
   const heroTitleMain = content.get('hero_title_main') || "Transformamos organizaciones a través de las";
   const heroTitleSub = content.get('hero_title_sub') || "ciencias del comportamiento";
-
-  const { data: testimonials } = await supabase
-    .from('testimonials')
-    .select('*')
-    .eq('is_active', true)
-    .order('created_at', { ascending: false })
-    .limit(3);
 
   return (
     <>
@@ -243,47 +236,11 @@ export default async function Home() {
               </div>
             </ScrollReveal>
 
-            {testimonials && testimonials.length > 0 && (
-              <>
-                <ScrollReveal variant="fade-up">
-                  <h3 className={styles.casosTitle}>Casos de éxito</h3>
-                </ScrollReveal>
-                <div className="grid-3">
-                  {testimonials.map((t, idx) => (
-                    <ScrollReveal key={t.id || idx} variant="fade-up" delay={idx * 120}>
-                      <div className={`card ${styles.testiCard}`}>
-                        <div className={styles.testiStars}>★★★★★</div>
-                        <p className={styles.testiText}>&ldquo;{t.text}&rdquo;</p>
-                        {t.highlight && (
-                          <div className={styles.testiResult}>
-                            <CheckCircle size={14} style={{ color: "var(--color-secondary)", marginTop: 2, flexShrink: 0 }} />
-                            <span>{t.highlight}</span>
-                          </div>
-                        )}
-                        <div className={styles.testiAuthor}>
-                          {t.image_url ? (
-                            <img src={t.image_url} alt={t.name} className={styles.testiAvatar} style={{ width: 40, height: 40, borderRadius: '50%', objectFit: 'cover' }} />
-                          ) : (
-                            <div className={styles.testiAvatar}>{t.name[0]}</div>
-                          )}
-                          <div className={styles.testiAuthorInfo}>
-                            <strong>{t.name}</strong>
-                            <span>{t.role}</span>
-                            <span className={styles.testiCompany}>{t.company}</span>
-                          </div>
-                        </div>
-                      </div>
-                    </ScrollReveal>
-                  ))}
-                </div>
-              </>
-            )}
           </div>
         </section>
 
         {/* ============ CTA FINAL ============ */}
         <section className={styles.ctaSection}>
-          <ShaderBackground className={styles.ctaShader} />
           <div className={`container ${styles.ctaGrid}`}>
             <ScrollReveal variant="fade-right">
               <div className={styles.ctaInner}>
