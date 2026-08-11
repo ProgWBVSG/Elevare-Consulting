@@ -1721,10 +1721,14 @@
 }
 
 /* Servicios (6) */
+/* Two columns so the four areas form a balanced 2x2 block instead of
+   leaving one card stranded on a second row. */
 .svcGrid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: var(--space-6);
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .svcCard {
