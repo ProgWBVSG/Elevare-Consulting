@@ -487,8 +487,10 @@ section[id] {
 /* =============================================
    BACKGROUNDS
    ============================================= */
+/* El fondo del sitio es continuo: todas las secciones comparten el navy de
+   marca, sin veladuras que generen bandas visibles entre una y otra. */
 .bg-cream {
-  background: rgba(255, 255, 255, 0.02);
+  background: transparent;
 }
 
 .bg-dark {

@@ -3,7 +3,7 @@
    ============================================= */
 .hero {
   position: relative;
-  background: linear-gradient(180deg, #1E2A78 0%, #1E2A78 45%, var(--color-primary) 100%);
+  background: var(--color-dark);
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -39,7 +39,9 @@
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: linear-gradient(180deg, rgba(24, 33, 95, 0.72) 0%, rgba(24, 33, 95, 0.6) 45%, rgba(24, 33, 95, 0.78) 100%);
+  /* Se tinta con el mismo navy del resto del sitio y llega casi opaco al
+     borde inferior, para que el hero funda con la seccion siguiente. */
+  background: linear-gradient(180deg, rgba(30, 42, 120, 0.74) 0%, rgba(30, 42, 120, 0.55) 45%, rgba(30, 42, 120, 0.96) 100%);
   pointer-events: none;
 }
 
@@ -679,7 +681,7 @@
 .diffSection {
   position: relative;
   padding: var(--space-24) 0;
-  background: linear-gradient(160deg, #1E2A78 0%, #152952 45%, #343D99 100%);
+  background: var(--color-dark);
   overflow: hidden;
 }
 
@@ -1186,7 +1188,7 @@
 .ctaSection {
   position: relative;
   padding: var(--space-24) 0;
-  background: linear-gradient(135deg, #1E2A78 0%, #343D99 100%);
+  background: var(--color-dark);
   overflow: hidden;
   isolation: isolate;
 }
@@ -1764,7 +1766,7 @@
   position: relative;
   overflow: hidden;
   padding: var(--space-32) 0;
-  background: linear-gradient(160deg, #1E2A78 0%, #0a1122 100%);
+  background: var(--color-dark);
 }
 
 .metodoOrb {
