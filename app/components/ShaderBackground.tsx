@@ -329,6 +329,22 @@ export function ShaderBackground({ className }: { className?: string }) {
     const gl = canvas.getContext("webgl", { antialias: false })
     if (!gl) return
 
+    // Phones and small/coarse-pointer screens get a lighter render: the
+    // 5-tap blur (5x the fragment cost) is dropped, the pixel budget and
+    // frame rate are cut, and pointer/scroll listeners — meant for desktop
+    // hover — are skipped entirely so touch-scroll doesn't also drive
+    // extra WebGL renders. This is the only animated element on the page,
+    // so on a mid/low-end phone it was competing with hydration and image
+    // decoding right at first paint, which read as the hero "sticking".
+    const isMobile = window.matchMedia(
+      "(max-width: 768px), (pointer: coarse)",
+    ).matches
+    const pixelBudget = isMobile ? 700_000 : 2_000_000
+    const dprCap = isMobile ? 1 : 2
+    const frameInterval = isMobile ? 1000 / 30 : 0
+    const effectiveBlur = isMobile ? 0 : UNIFORMS.blur
+    const cursorActive = UNIFORMS.cursorEnabled && !isMobile
+
     const compile = (type: number, src: string) => {
       const s = gl.createShader(type)!
       gl.shaderSource(s, src)
@@ -385,7 +401,7 @@ export function ShaderBackground({ className }: { className?: string }) {
       uni.finish,
       UNIFORMS.hue,
       UNIFORMS.vignette,
-      UNIFORMS.blur,
+      effectiveBlur,
       UNIFORMS.grain,
     )
     gl.uniform4f(
@@ -422,12 +438,12 @@ export function ShaderBackground({ className }: { className?: string }) {
     const timeAnimated = Math.abs(UNIFORMS.timeScale) > 0.0001
 
     const resizeCanvas = () => {
-      const dpr = Math.min(window.devicePixelRatio || 1, 2)
+      const dpr = Math.min(window.devicePixelRatio || 1, dprCap)
       const rawWidth = Math.max(1, Math.round(bounds.width * dpr))
       const rawHeight = Math.max(1, Math.round(bounds.height * dpr))
       const pixelScale = Math.min(
         1,
-        Math.sqrt(2_000_000 / Math.max(1, rawWidth * rawHeight)),
+        Math.sqrt(pixelBudget / Math.max(1, rawWidth * rawHeight)),
       )
       const width = Math.max(1, Math.round(rawWidth * pixelScale))
       const height = Math.max(1, Math.round(rawHeight * pixelScale))
@@ -487,7 +503,7 @@ export function ShaderBackground({ className }: { className?: string }) {
       requestRender()
     }
     window.addEventListener("resize", updateLayout)
-    if (UNIFORMS.cursorEnabled) {
+    if (cursorActive) {
       window.addEventListener("pointermove", onPointerMove, { passive: true })
       window.addEventListener("pointercancel", onPointerLeave)
       window.addEventListener("scroll", updateLayout, true)
@@ -520,9 +536,17 @@ export function ShaderBackground({ className }: { className?: string }) {
 
     // Arrow function (not a hoisted declaration) so TypeScript keeps the
     // non-null narrowing of `canvas` and `gl` from the guards above.
+    let lastDraw = 0
     const render = (now: number) => {
       raf = 0
       if (disposed || !visible || !inView) return
+      // On mobile, cap the actual draw calls to ~30fps but keep chaining
+      // rAF at full rate so the throttle stays responsive to the next tick.
+      if (frameInterval > 0 && now - lastDraw < frameInterval) {
+        raf = requestAnimationFrame(render)
+        return
+      }
+      lastDraw = now
       const dt = lastNow === null ? 0 : Math.min((now - lastNow) / 1000, 0.1)
       lastNow = now
       const follow = 1 - Math.exp(-12 * dt)
@@ -548,7 +572,7 @@ export function ShaderBackground({ className }: { className?: string }) {
       )
       gl.uniform4f(
         uni.cursor,
-        UNIFORMS.cursorEnabled ? cursorPresence : 0,
+        cursorActive ? cursorPresence : 0,
         UNIFORMS.cursorEffect,
         UNIFORMS.cursorStrength,
         UNIFORMS.cursorRadius,
@@ -570,7 +594,7 @@ export function ShaderBackground({ className }: { className?: string }) {
       intersectionObserver.disconnect()
       document.removeEventListener("visibilitychange", onVisibilityChange)
       window.removeEventListener("resize", updateLayout)
-      if (UNIFORMS.cursorEnabled) {
+      if (cursorActive) {
         window.removeEventListener("pointermove", onPointerMove)
         window.removeEventListener("pointercancel", onPointerLeave)
         window.removeEventListener("scroll", updateLayout, true)

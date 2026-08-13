@@ -129,7 +129,7 @@ export default async function Home() {
                         src={s.image}
                         alt={s.title}
                         fill
-                        priority={i < 3}
+                        priority={i === 0}
                         sizes="(max-width: 520px) 90vw, (max-width: 900px) 45vw, 25vw"
                         className={styles.heroCardImg}
                       />
